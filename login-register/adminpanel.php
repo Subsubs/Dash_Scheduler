@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <link rel="icon" href="img/Dash1.png" type="image/x-icon">
@@ -7,6 +8,7 @@
     <title>DASH</title>
     <link rel="stylesheet" href="css1/style1.css">
 </head>
+
 <body>
     <header>
         <h2 class="logo"></h2>
@@ -15,65 +17,65 @@
             <a href="user_list.php">Go to User List</a>
             <a href="addfac.php">Adding Faculty</a>
             <button onclick="window.location.href='logout.php'" class="btnLogin-popup">logout</button>
-            
+
         </nav>
     </header>
 
     <div class="container">
         <?php
-            session_start();
+        session_start();
 
-            // Database connection
-            $servername = "localhost:3307";
-            $username = "root";
-            $password = "";
-            $database = "login_register";
+        // Database connection
+        $servername = "localhost";
+        $username = "root";
+        $password = "";
+        $database = "login_register";
 
-            $conn = new mysqli($servername, $username, $password, $database);
+        $conn = new mysqli($servername, $username, $password, $database);
 
-            // Check connection
-            if ($conn->connect_error) {
-                die("Connection failed: " . $conn->connect_error);
-            }
+        // Check connection
+        if ($conn->connect_error) {
+            die("Connection failed: " . $conn->connect_error);
+        }
 
-            // Check if the form is submitted
-            if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["new_admin_username"]) && isset($_POST["new_admin_password"])) {
-                // Get input data
-                $new_admin_username = $_POST["new_admin_username"];
-                $new_admin_password = $_POST["new_admin_password"];
+        // Check if the form is submitted
+        if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["new_admin_username"]) && isset($_POST["new_admin_password"])) {
+            // Get input data
+            $new_admin_username = $_POST["new_admin_username"];
+            $new_admin_password = $_POST["new_admin_password"];
 
-                // Check if the username already exists
-                $check_username_sql = "SELECT id FROM admin_credentials WHERE username = ?";
-                $check_username_stmt = $conn->prepare($check_username_sql);
-                $check_username_stmt->bind_param("s", $new_admin_username);
-                $check_username_stmt->execute();
-                $check_username_stmt->store_result();
+            // Check if the username already exists
+            $check_username_sql = "SELECT id FROM admin_credentials WHERE username = ?";
+            $check_username_stmt = $conn->prepare($check_username_sql);
+            $check_username_stmt->bind_param("s", $new_admin_username);
+            $check_username_stmt->execute();
+            $check_username_stmt->store_result();
 
-                if ($check_username_stmt->num_rows > 0) {
-                    echo '<div class="error-message">Username is already taken. Choose a different username.</div>';
+            if ($check_username_stmt->num_rows > 0) {
+                echo '<div class="error-message">Username is already taken. Choose a different username.</div>';
+            } else {
+                // Hash the password
+                $hashed_password = password_hash($new_admin_password, PASSWORD_DEFAULT);
+
+                // Prepare the SQL statement
+                $insert_sql = "INSERT INTO admin_credentials (username, password) VALUES (?, ?)";
+                $insert_stmt = $conn->prepare($insert_sql);
+                $insert_stmt->bind_param("ss", $new_admin_username, $hashed_password);
+
+                // Execute the statement
+                if ($insert_stmt->execute()) {
+                    echo '<div class="success-message">New admin user added successfully.</div>';
                 } else {
-                    // Hash the password
-                    $hashed_password = password_hash($new_admin_password, PASSWORD_DEFAULT);
-
-                    // Prepare the SQL statement
-                    $insert_sql = "INSERT INTO admin_credentials (username, password) VALUES (?, ?)";
-                    $insert_stmt = $conn->prepare($insert_sql);
-                    $insert_stmt->bind_param("ss", $new_admin_username, $hashed_password);
-
-                    // Execute the statement
-                    if ($insert_stmt->execute()) {
-                        echo '<div class="success-message">New admin user added successfully.</div>';
-                    } else {
-                        echo '<div class="error-message">Error adding new admin user: ' . $insert_stmt->error . '</div>';
-                    }
-
-                    // Close the statement
-                    $insert_stmt->close();
+                    echo '<div class="error-message">Error adding new admin user: ' . $insert_stmt->error . '</div>';
                 }
 
-                // Close the statement for checking username
-                $check_username_stmt->close();
+                // Close the statement
+                $insert_stmt->close();
             }
+
+            // Close the statement for checking username
+            $check_username_stmt->close();
+        }
         ?>
         <div class="form-box login">
             <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
@@ -97,6 +99,7 @@
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </body>
+
 </html>
 
 <?php
