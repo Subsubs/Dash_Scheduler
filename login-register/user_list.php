@@ -6,7 +6,7 @@ session_start();
 
 
 // Database connection
-$servername = "localhost:3307";
+$servername = "localhost";
 $username = "root";
 $password = "";
 $database = "login_register";
@@ -28,12 +28,14 @@ $conn->close();
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User List - DASH</title>
     <link rel="stylesheet" href="css2/trystyle.css">
 </head>
+
 <body>
     <header>
         <h2 class="logo"></h2>
@@ -41,38 +43,39 @@ $conn->close();
         <nav class="navigation">
             <a href="adminpanel.php"> Add User </a>
             <a href="addfac.php">Adding Faculty</a>
-            <button onclick="window.location.href='logout.php'"class="btnLogin-popup"> logout </button>
+            <button onclick="window.location.href='logout.php'" class="btnLogin-popup"> logout </button>
 
         </nav>
     </header>
 
-<div class=“container”>
-    <table>
-        <thead>
-            <tr>
-                <th>Username</th>
-                <th>Action</th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php
-            if ($result->num_rows > 0) {
-                while ($row = $result->fetch_assoc()) {
-                    echo "<tr>";
-                    echo "<td>{$row["username"]}</td>";
-                    echo "<td><a href='delete_user.php?id={$row["id"]}'>Delete</a></td>";
-                    echo "</tr>";
+    <div class=“container”>
+        <table>
+            <thead>
+                <tr>
+                    <th>Username</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php
+                if ($result->num_rows > 0) {
+                    while ($row = $result->fetch_assoc()) {
+                        echo "<tr>";
+                        echo "<td>{$row["username"]}</td>";
+                        echo "<td><a href='delete_user.php?id={$row["id"]}'>Delete</a></td>";
+                        echo "</tr>";
+                    }
+                } else {
+                    echo "<tr><td colspan='2'>No users found.</td></tr>";
                 }
-            } else {
-                echo "<tr><td colspan='2'>No users found.</td></tr>";
-            }
-            ?>
-        </tbody>
-    </table>
-</div>
+                ?>
+            </tbody>
+        </table>
+    </div>
 
 
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </body>
+
 </html>
