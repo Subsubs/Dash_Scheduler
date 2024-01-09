@@ -109,35 +109,35 @@ if ($conn->connect_error) {
 
 <tr>
 <td rowspan="2">6:00 - 7:00</td>
+<td>  <input id="edit_monday_67_1st_rw" class="form-control" /></td>
+<td rowspan="2"> <input id="edit_room_1" class="form-control" /></td>
+<td>  <input id="edit_tuesday_67_1st_rw" class="form-control" /></td>
+<td rowspan="2">  <input id="edit_room_2" class="form-control" /></td>
+<td>  <input id="edit_wednesday_67_1st_rw" class="form-control" /> </td>
+<td rowspan="2">  <input id="edit_room_3" class="form-control" /> </td>
+<td>  <input id="edit_thursday_67_1st_rw" class="form-control" /> </td>
+<td rowspan="2">  <input id="edit_room_4" class="form-control" /> </td>
+<td>  <input id="edit_friday_67_1st_rw" class="form-control" /> </td>
+<td rowspan="2">  <input id="edit_room_5" class="form-control" /> </td>
+<td>  <input id="edit_saturday_67_1st_rw" class="form-control" /> </td>
+<td rowspan="2">  <input id="edit_room_6" class="form-control" /> </td>
+<td>  <input id="edit_sunday_67_1st_rw" class="form-control" /> </td>
+<td rowspan="2">  <input id="edit_room_7" class="form-control" /> </td>
 <td></td>
-<td rowspan="2"></td>
 <td></td>
-<td rowspan="2"></td>
-<td></td>
-<td rowspan="2"></td>
-<td></td>
-<td rowspan="2"></td>
-<td></td>
-<td rowspan="2"></td>
-<td ></td>
-<td rowspan="2"></td>
-<td ></td>
-<td rowspan="2"></td>
-<td></td>
-<td></td>
-<td></td>
+<td> <input id="edit_last_67_1strw" class="form-control" /></td>
 </tr>
 <tr>
+<td> <input id="edit_monday_67_2nd_rw" class="form-control" /> </td>
+<td > <input id="edit_tuesday_67_2nd_rw" class="form-control" /></td>
+<td> <input id="edit_wednesday_67_2nd_rw" class="form-control" /></td>
+<td> <input id="edit_thursday_67_2nd_rw" class="form-control" /></td>
+<td> <input id="edit_friday_67_2nd_rw" class="form-control" /></td>
+<td> <input id="edit_saturday_67_2nd_rw" class="form-control" /></td>
+<td> <input id="edit_sunday_67_2nd_rw" class="form-control" /></td>
 <td></td>
-<td ></td>
 <td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
+<td> <input id="edit_last_67_2ndrw" class="form-control" /></td>
 </tr>
 <tr>
 <td rowspan="2">7:00 - 8:00</td>
@@ -1796,6 +1796,95 @@ if ($conn->connect_error) {
     <button id="print-btn" onclick="window.location.href='logout.php'" class="btnlogout"> Logout </button>
     
     <script>
+      var edit_monday_67_1st_rw = document.getElementById('edit_monday_67_1st_rw')
+      var edit_monday_67_2nd_rw = document.getElementById('edit_monday_67_2nd_rw')
+
+      var edit_tuesday_67_1st_rw = document.getElementById('edit_tuesday_67_1st_rw')
+      var edit_tuesday_67_2nd_rw = document.getElementById('edit_tuesday_67_2nd_rw')
+
+      var edit_wednesday_67_1st_rw = document.getElementById('edit_wednesday_67_1st_rw')
+      var edit_wednesday_67_2nd_rw = document.getElementById('edit_wednesday_67_2nd_rw')
+
+      var edit_thursday_67_1st_rw = document.getElementById('edit_thursday_67_1st_rw')
+      var edit_thursday_67_2nd_rw = document.getElementById('edit_thursday_67_2nd_rw')
+
+      var edit_friday_67_1st_rw = document.getElementById('edit_friday_67_1st_rw')
+      var edit_friday_67_2nd_rw  = document.getElementById('edit_friday_67_2nd_rw ')
+
+      var edit_saturday_67_1st_rw = document.getElementById('edit_saturday_67_1st_rw')
+      var edit_saturday_67_2nd_rw = document.getElementById('edit_saturday_67_2nd_rw')
+      
+      var edit_sunday_67_1st_rw = document.getElementById('edit_sunday_67_1st_rw')
+      var edit_sunday_67_2nd_rw = document.getElementById('edit_sunday_67_2nd_rw')
+
+      var edit_last_67_1strw = document.getElementById('edit_last_67_1strw')
+      var edit_last_67_2ndrw = document.getElementById('edit_last_67_2ndrw')
+
+      var edit_room_1 = document.getElementById('edit_room_1')
+      var edit_room_2 = document.getElementById('edit_room_2')
+      var edit_room_3 = document.getElementById('edit_room_3')
+      var edit_room_4 = document.getElementById('edit_room_4')
+      var edit_room_5 = document.getElementById('edit_room_5')
+      var edit_room_6 = document.getElementById('edit_room_6')
+      var edit_room_7 = document.getElementById('edit_room_7')
+      
+      function onSave() {
+        const obj = {
+          monday_1st_rw: edit_monday_67_1st_rw.value,
+          monday_2nd_rw: edit_monday_67_2nd_rw.value,
+
+          tuesday_1st_rw: edit_tuesday_67_1st_rw.value,
+          tuesday_2nd_rw: edit_tuesday_67_2nd_rw.value,
+          
+          wednesday_1st_rw: edit_wednesday_67_1st_rw.value,
+          wednesday_2nd_rw: edit_wednesday_67_2nd_rw.value,
+
+          thursday_1st_rw: edit_thursday_67_1st_rw.value,
+          thursday_2nd_rw: edit_thursday_67_2nd_rw.value,
+
+          friday_1st_rw: edit_friday_67_1st_rw .value,
+          friday_2nd_rw: edit_friday_67_2nd_rw .value,
+
+          saturday_1st_rw: edit_saturday_67_1st_rw.value,
+          saturday_2nd_rw: edit_saturday_67_2nd_rw.value,
+
+          sunday_1st_rw: edit_sunday_67_1st_rw.value,
+          sunday_2nd_rw: edit_sunday_67_2nd_rw.value,
+
+          last_1st_rw: edit_sunday_67_1st_rw.value,
+          last_2nd_rw: edit_sunday_67_2nd_rw.value,
+
+          room_1: edit_room_1.value,
+          room_2: edit_room_2.value,
+          room_3: edit_room_3.value,
+          room_4: edit_room_4.value,
+          room_5: edit_room_5.value,
+          room_6: edit_room_6.value,
+          room_7: edit_room_7.value,
+        }
+
+        $.ajax({
+          method: 'post',
+          data: obj,
+          url: 'index.php',
+          success: function(response) {
+          }
+        })
+      }
+      var initialState = "<?php echo $currentState; ?>";
+      document.getElementById("toggle-edit").innerText = initialState;
+
+      function onToggle() {
+        var toggleButton = document.getElementById('toggle-edit')
+        var currentState = toggleButton.innerText.toLowerCase()
+        if (currentState === 'edit') {
+          toggleButton
+
+          function onSave() {
+           
+          }
+
+
 $(document).ready(function () {
     // Function to update the content of a tab
     function updateTabContent(dropdown, tabContent) {
