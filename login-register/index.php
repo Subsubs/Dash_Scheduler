@@ -68,16 +68,21 @@ if ($conn->connect_error) {
         <thead>
           <tr>
             <td colspan="1"> Name of Faculty:</td>
-            <td class="ju" colspan="9"> <select class="dropdown" id="usernameDropdown">
-                <option id="print-btn" value="" selected>Instructor</option>
-                <?php
-                $options_qry = "SELECT DISTINCT NameofFaculty FROM faculty";
-                $options_res = mysqli_query($conn, $options_qry);
-                while ($option_data = mysqli_fetch_assoc($options_res)) {
-                  echo '<option value="' . $option_data['NameofFaculty'] . '">' . $option_data['NameofFaculty'] . '</option>';
-                }
-                ?>
-              </select></td>
+            <td class="ju" colspan="9">
+              <form method='post' action="index.php">
+                <select class="dropdown" name="filteredValue" id="usernameDropdown">
+                  <option value="" selected>Select Faculty</option>
+                  <?php
+                  $options_qry = "SELECT DISTINCT id, NameofFaculty FROM faculty";
+                  $options_res = mysqli_query($conn, $options_qry);
+                  while ($option_data = mysqli_fetch_assoc($options_res)) {
+                    echo '<option value="' . $option_data['id'] . '">' . $option_data['NameofFaculty'] . '</option>';
+                  }
+                  ?>
+                </select>
+                <input type="submit" value="filter" />
+              </form>
+            </td>
             <td colspan="1"> Semester:</td>
             <td class="ju" colspan="2"> Second</td>
             <td colspan="2"> Academic Year:</td>
@@ -109,52 +114,129 @@ if ($conn->connect_error) {
 
         <tbody id="classScheduleTableBody">
           <?php
-          $qry = "SELECT DISTINCT * FROM sched WHERE time='6:00 - 7:00'";
-          $res_67 = mysqli_query($conn, $qry);
-          $trRendered = false;
-          while ($data_67 = mysqli_fetch_assoc($res_67)) {
-            if (!$trRendered) {
+          if (isset($_POST['filteredValue'])) {
+            $selected = $_POST['filteredValue'];
+            $qry = "SELECT * FROM sched WHERE time='6:00 - 7:00' AND faculty_id='$selected'";
+            $res_67 = mysqli_query($conn, $qry);
+
+            if ($res_67 && mysqli_num_rows($res_67) > 0) {
+              $trRendered = false;
+              while ($data_67 = mysqli_fetch_assoc($res_67)) {
+                if (!$trRendered) {
           ?>
-              <tr>
-                <td rowspan="2" id="time">6:00 - 7:00</td>
-                <td> <input id="edit_monday_67_1st_rw" value="<?php echo $data_67['monday_1st_rw']; ?>" class="form-control" /></td>
-                <td rowspan="2"> <input id="edit_room_1_rw" value="<?php echo $data_67['room_1']; ?>" class="form-control" /></td>
-                <td> <input id="edit_tuesday_67_1st_rw" value="<?php echo $data_67['tuesday_1st_rw']; ?>" class="form-control" /></td>
-                <td rowspan="2"> <input id="edit_room_2_rw" value="<?php echo $data_67['room_2']; ?>" class="form-control" /></td>
-                <td> <input id="edit_wednesday_67_1st_rw" value="<?php echo $data_67['wednesday_1st_rw']; ?>" class="form-control" /> </td>
-                <td rowspan="2"> <input id="edit_room_3_rw" value="<?php echo $data_67['room_3']; ?>" class="form-control" /> </td>
-                <td> <input id="edit_thursday_67_1st_rw" value="<?php echo $data_67['thursday_1st_rw']; ?>" class="form-control" /> </td>
-                <td rowspan="2"> <input id="edit_room_4_rw" value="<?php echo $data_67['room_4']; ?>" class="form-control" /> </td>
-                <td> <input id="edit_friday_67_1st_rw" value="<?php echo $data_67['friday_1st_rw']; ?>" class="form-control" /> </td>
-                <td rowspan="2"> <input id="edit_room_5_rw" value="<?php echo $data_67['room_5']; ?>" class="form-control" /> </td>
-                <td> <input id="edit_saturday_67_1st_rw" value="<?php echo $data_67['saturday_1st_rw']; ?>" class="form-control" /> </td>
-                <td rowspan="2"> <input id="edit_room_6_rw" value="<?php echo $data_67['room_6']; ?>" class="form-control" /> </td>
-                <td> <input id="edit_sunday_67_1st_rw" value="<?php echo $data_67['sunday_1st_rw']; ?>" class="form-control" /> </td>
-                <td rowspan="2"> <input id="edit_room_7_rw" value="<?php echo $data_67['room_7']; ?>" class="form-control" /> </td>
-                <td>
+                  <tr>
+                    <td rowspan="2" id="time">6:00 - 7:00</td>
+                    <td> <input id="edit_monday_67_1st_rw" value="<?php echo $data_67['monday_1st_rw']; ?>" class="form-control" /></td>
+                    <td rowspan="2"> <input id="edit_room_1_rw" value="<?php echo $data_67['room_1']; ?>" class="form-control" /></td>
+                    <td> <input id="edit_tuesday_67_1st_rw" value="<?php echo $data_67['tuesday_1st_rw']; ?>" class="form-control" /></td>
+                    <td rowspan="2"> <input id="edit_room_2_rw" value="<?php echo $data_67['room_2']; ?>" class="form-control" /></td>
+                    <td> <input id="edit_wednesday_67_1st_rw" value="<?php echo $data_67['wednesday_1st_rw']; ?>" class="form-control" /> </td>
+                    <td rowspan="2"> <input id="edit_room_3_rw" value="<?php echo $data_67['room_3']; ?>" class="form-control" /> </td>
+                    <td> <input id="edit_thursday_67_1st_rw" value="<?php echo $data_67['thursday_1st_rw']; ?>" class="form-control" /> </td>
+                    <td rowspan="2"> <input id="edit_room_4_rw" value="<?php echo $data_67['room_4']; ?>" class="form-control" /> </td>
+                    <td> <input id="edit_friday_67_1st_rw" value="<?php echo $data_67['friday_1st_rw']; ?>" class="form-control" /> </td>
+                    <td rowspan="2"> <input id="edit_room_5_rw" value="<?php echo $data_67['room_5']; ?>" class="form-control" /> </td>
+                    <td> <input id="edit_saturday_67_1st_rw" value="<?php echo $data_67['saturday_1st_rw']; ?>" class="form-control" /> </td>
+                    <td rowspan="2"> <input id="edit_room_6_rw" value="<?php echo $data_67['room_6']; ?>" class="form-control" /> </td>
+                    <td> <input id="edit_sunday_67_1st_rw" value="<?php echo $data_67['sunday_1st_rw']; ?>" class="form-control" /> </td>
+                    <td rowspan="2"> <input id="edit_room_7_rw" value="<?php echo $data_67['room_7']; ?>" class="form-control" /> </td>
+                    <td>
 
-                </td>
+                    </td>
+                    <td></td>
+                    <!-- will add another col for this field on db -->
+                    <td> <input id="edit_last_67_1st_rw" class="form-control" /></td>
+                  </tr>
+                  <tr>
+                    <td> <input id="edit_monday_67_2nd_rw" class="form-control" value="<?php echo $data_67['monday_2nd_rw']; ?>" /> </td>
+                    <td> <input id="edit_tuesday_67_2nd_rw" class="form-control" value="<?php echo $data_67['tuesday_2nd_rw']; ?>" /></td>
+                    <td> <input id="edit_wednesday_67_2nd_rw" class="form-control" value="<?php echo $data_67['wednesday_2nd_rw']; ?>" /></td>
+                    <td> <input id="edit_thursday_67_2nd_rw" class="form-control" value="<?php echo $data_67['thursday_2nd_rw']; ?>" /></td>
+                    <td> <input id="edit_friday_67_2nd_rw" class="form-control" value="<?php echo $data_67['friday_2nd_rw']; ?>" /></td>
+                    <td> <input id="edit_saturday_67_2nd_rw" class="form-control" value="<?php echo $data_67['saturday_2nd_rw']; ?>" /></td>
+                    <td> <input id="edit_sunday_67_2nd_rw" class="form-control" value="<?php echo $data_67['sunday_2nd_rw']; ?>" /></td>
+                    <td></td>
+                    <td></td>
+                    <td> <input id="edit_last_67_2nd_rw" class="form-control" /></td>
+                  </tr>
+              <?php
+                  $trRendered = true;
+                }
+              }
+            } else {
+
+
+              ?>
+              <tr>
+                <td rowspan="2">6:00 - 7:00</td>
                 <td></td>
-                <!-- will add another col for this field on db -->
-                <td> <input id="edit_last_67_1st_rw" class="form-control" /></td>
+                <td rowspan="2"></td>
+                <td></td>
+                <td rowspan="2"></td>
+                <td></td>
+                <td rowspan="2"></td>
+                <td></td>
+                <td rowspan="2"></td>
+                <td></td>
+                <td rowspan="2"></td>
+                <td></td>
+                <td rowspan="2"></td>
+                <td></td>
+                <td rowspan="2"></td>
+                <td></td>
+                <td></td>
+                <td></td>
               </tr>
               <tr>
-                <td> <input id="edit_monday_67_2nd_rw" class="form-control" value="<?php echo $data_67['monday_2nd_rw']; ?>" /> </td>
-                <td> <input id="edit_tuesday_67_2nd_rw" class="form-control" value="<?php echo $data_67['tuesday_2nd_rw']; ?>" /></td>
-                <td> <input id="edit_wednesday_67_2nd_rw" class="form-control" value="<?php echo $data_67['wednesday_2nd_rw']; ?>" /></td>
-                <td> <input id="edit_thursday_67_2nd_rw" class="form-control" value="<?php echo $data_67['thursday_2nd_rw']; ?>" /></td>
-                <td> <input id="edit_friday_67_2nd_rw" class="form-control" value="<?php echo $data_67['friday_2nd_rw']; ?>" /></td>
-                <td> <input id="edit_saturday_67_2nd_rw" class="form-control" value="<?php echo $data_67['saturday_2nd_rw']; ?>" /></td>
-                <td> <input id="edit_sunday_67_2nd_rw" class="form-control" value="<?php echo $data_67['sunday_2nd_rw']; ?>" /></td>
                 <td></td>
                 <td></td>
-                <td> <input id="edit_last_67_2nd_rw" class="form-control" /></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
               </tr>
-          <?php
-              $trRendered = true;
+            <?php
             }
+          } else {
+            ?>
+            <tr>
+              <td rowspan="2">6:00 - 7:00</td>
+              <td></td>
+              <td rowspan="2"></td>
+              <td></td>
+              <td rowspan="2"></td>
+              <td></td>
+              <td rowspan="2"></td>
+              <td></td>
+              <td rowspan="2"></td>
+              <td></td>
+              <td rowspan="2"></td>
+              <td></td>
+              <td rowspan="2"></td>
+              <td></td>
+              <td rowspan="2"></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+          <?php
           }
-
           ?>
           <tr>
             <td rowspan="2">7:00 - 8:00</td>
@@ -1931,6 +2013,22 @@ if ($conn->connect_error) {
     //     success: function(response) {
     //       console.log(response)
     //     }
+    //   })
+    // })
+
+    // $(document).ready(function() {
+    //   $('#usernameDropdown').change(function() {
+    //     var selectedFaculty = $(this).val()
+    //     $.ajax({
+    //       method: 'post',
+    //       data: {
+    //         faculty: selectedFaculty
+    //       },
+    //       url: 'index.php',
+    //       success: function(response) {
+    //         console.log(response)
+    //       }
+    //     })
     //   })
     // })
 
