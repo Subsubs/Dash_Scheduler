@@ -3631,74 +3631,90 @@ if ($conn->connect_error) {
     document.getElementById('edit_last_67_1st_rw').addEventListener('change', handleInputChange)
     document.getElementById('edit_last_67_2nd_rw').addEventListener('change', handleInputChange)
 
+    var getSelectedValue = "<?php echo $_POST['filteredValue']; ?>";
+
     const obj = {
       schedTrigger: true,
-      time: getTime.value
+      time: getTime.value,
+      getSelectedValue: 0
     }
 
     const obj78 = {
       schedTrigger78: true,
-      time: getTime78.value
+      time: getTime78.value,
+      getSelectedValue: 0
     }
 
     const obj89 = {
       schedTrigger89: true,
-      time: getTime89.value
+      time: getTime89.value,
+      getSelectedValue: 0
     }
 
     const obj1011 = {
       schedTrigger1011: true,
-      time: getTime1011.value
+      time: getTime1011.value,
+      getSelectedValue: 0
     }
 
     const obj910 = {
       schedTrigger910: true,
-      time: getTime910.value
+      time: getTime910.value,
+      getSelectedValue: 0
     }
 
     const obj1112 = {
       schedTrigger1112: true,
-      time: getTime1112.value
+      time: getTime1112.value,
+      getSelectedValue: 0
     }
 
     const obj1201 = {
       schedTrigger1201: true,
-      time: getTime1201.value
+      time: getTime1201.value,
+      getSelectedValue: 0
     }
 
     const obj0102 = {
       schedTrigger0102: true,
-      time: getTime0102.value
+      time: getTime0102.value,
+      getSelectedValue: 0
     }
 
     const obj0203 = {
       schedTrigger0203: true,
-      time: getTime0203.value
+      time: getTime0203.value,
+      getSelectedValue: 0
     }
 
     const obj0304 = {
       schedTrigger0304: true,
-      time: getTime0304.value
+      time: getTime0304.value,
+      getSelectedValue: 0
     }
 
     const obj0405 = {
       schedTrigger0405: true,
-      time: getTime0405.value
+      time: getTime0405.value,
+      getSelectedValue: 0
     }
 
     const obj0506 = {
       schedTrigger0506: true,
-      time: getTime0506.value
+      time: getTime0506.value,
+      getSelectedValue: 0
     }
 
     const obj0607 = {
       schedTrigger0607: true,
-      time: getTime0607.value
+      time: getTime0607.value,
+      getSelectedValue: 0
     }
 
     const obj0708 = {
       schedTrigger0708: true,
-      time: getTime0708.value
+      time: getTime0708.value,
+      getSelectedValue: 0
     }
 
     const originalValues = {};
@@ -4059,7 +4075,8 @@ if ($conn->connect_error) {
       obj[propertyName] = (originalValues[propertyName] !== undefined &&
           event.target.value.trim() === '') ?
         originalValues[propertyName] : event.target.value;
-      console.log(obj)
+
+      obj.getSelectedValue = getSelectedValue;
 
       $.ajax({
         method: 'post',
@@ -4078,6 +4095,8 @@ if ($conn->connect_error) {
           event.target.value.trim() === '') ?
         originalValues[propertyName] : event.target.value;
 
+      obj78.getSelectedValue = getSelectedValue;
+
       $.ajax({
         method: 'post',
         data: obj78,
@@ -4094,6 +4113,8 @@ if ($conn->connect_error) {
       obj89[propertyName] = (originalValues[propertyName] !== undefined &&
           event.target.value.trim() === '') ?
         originalValues[propertyName] : event.target.value;
+
+      obj89.getSelectedValue = getSelectedValue;
 
       $.ajax({
         method: 'post',
@@ -4112,6 +4133,8 @@ if ($conn->connect_error) {
           event.target.value.trim() === '') ?
         originalValues[propertyName] : event.target.value;
 
+      obj1011.getSelectedValue = getSelectedValue;
+
       $.ajax({
         method: 'post',
         data: obj1011,
@@ -4128,6 +4151,8 @@ if ($conn->connect_error) {
       obj910[propertyName] = (originalValues[propertyName] !== undefined &&
           event.target.value.trim() === '') ?
         originalValues[propertyName] : event.target.value;
+
+      obj910.getSelectedValue = getSelectedValue;
 
       $.ajax({
         method: 'post',
@@ -4146,6 +4171,8 @@ if ($conn->connect_error) {
           event.target.value.trim() === '') ?
         originalValues[propertyName] : event.target.value;
 
+      obj1112.getSelectedValue = getSelectedValue;
+
       $.ajax({
         method: 'post',
         data: obj1112,
@@ -4162,6 +4189,8 @@ if ($conn->connect_error) {
       obj1201[propertyName] = (originalValues[propertyName] !== undefined &&
           event.target.value.trim() === '') ?
         originalValues[propertyName] : event.target.value;
+
+      obj1201.getSelectedValue = getSelectedValue;
 
       $.ajax({
         method: 'post',
@@ -4180,6 +4209,8 @@ if ($conn->connect_error) {
           event.target.value.trim() === '') ?
         originalValues[propertyName] : event.target.value;
 
+      obj0102.getSelectedValue = getSelectedValue;
+
       $.ajax({
         method: 'post',
         data: obj0102,
@@ -4196,6 +4227,8 @@ if ($conn->connect_error) {
       obj0203[propertyName] = (originalValues[propertyName] !== undefined &&
           event.target.value.trim() === '') ?
         originalValues[propertyName] : event.target.value;
+
+      obj0203.getSelectedValue = getSelectedValue;
 
       $.ajax({
         method: 'post',
@@ -4214,6 +4247,8 @@ if ($conn->connect_error) {
           event.target.value.trim() === '') ?
         originalValues[propertyName] : event.target.value;
 
+      obj0304.getSelectedValue = getSelectedValue;
+
       $.ajax({
         method: 'post',
         data: obj0304,
@@ -4230,6 +4265,8 @@ if ($conn->connect_error) {
       obj0405[propertyName] = (originalValues[propertyName] !== undefined &&
           event.target.value.trim() === '') ?
         originalValues[propertyName] : event.target.value;
+
+      obj0405.getSelectedValue = getSelectedValue;
 
       $.ajax({
         method: 'post',
@@ -4248,6 +4285,8 @@ if ($conn->connect_error) {
           event.target.value.trim() === '') ?
         originalValues[propertyName] : event.target.value;
 
+      obj0506.getSelectedValue = getSelectedValue;
+
       $.ajax({
         method: 'post',
         data: obj0506,
@@ -4265,6 +4304,8 @@ if ($conn->connect_error) {
           event.target.value.trim() === '') ?
         originalValues[propertyName] : event.target.value;
 
+      obj0607.getSelectedValue = getSelectedValue;
+
       $.ajax({
         method: 'post',
         data: obj0607,
@@ -4281,6 +4322,8 @@ if ($conn->connect_error) {
       obj0708[propertyName] = (originalValues[propertyName] !== undefined &&
           event.target.value.trim() === '') ?
         originalValues[propertyName] : event.target.value;
+
+      obj0708.getSelectedValue = getSelectedValue;
 
       $.ajax({
         method: 'post',

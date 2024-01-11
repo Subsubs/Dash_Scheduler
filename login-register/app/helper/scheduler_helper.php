@@ -31,7 +31,8 @@ if (isset($_POST['schedTrigger']) === true) {
         "section_1st_rw" => isset($_POST['section_1st']) ? $_POST['section_1st'] : null,
         "section_2nd_rw" => isset($_POST['section_2nd']) ? $_POST['section_2nd'] : null,
         "nos_1st_rw" => isset($_POST['last_67_1st']) ? $_POST['last_67_1st'] : null,
-        "nos_2nd_rw" => isset($_POST['last_67_2nd']) ? $_POST['last_67_2nd'] : null
+        "nos_2nd_rw" => isset($_POST['last_67_2nd']) ? $_POST['last_67_2nd'] : null,
+        "faculty_id" => isset($_POST['getSelectedValue']) ? $_POST['getSelectedValue'] : null
     ];
     $callback = new Scheduler();
     $callback->Insertion67($data);
@@ -66,7 +67,8 @@ if (isset($_POST['schedTrigger78']) === true) {
         "section_1st_rw" => isset($_POST['section78_1st']) ? $_POST['section78_1st'] : null,
         "section_2nd_rw" => isset($_POST['section78_2nd']) ? $_POST['section78_2nd'] : null,
         "nos_1st_rw" => isset($_POST['last_78_1st']) ? $_POST['last_78_1st'] : null,
-        "nos_2nd_rw" => isset($_POST['last_78_2nd']) ? $_POST['last_78_2nd'] : null
+        "nos_2nd_rw" => isset($_POST['last_78_2nd']) ? $_POST['last_78_2nd'] : null,
+        "faculty_id" => isset($_POST['getSelectedValue']) ? $_POST['getSelectedValue'] : null
     ];
     $callback = new Scheduler();
     $callback->Insertion67($data);
@@ -101,7 +103,8 @@ if (isset($_POST['schedTrigger89']) === true) {
         "section_1st_rw" => isset($_POST['section89_1st']) ? $_POST['section89_1st'] : null,
         "section_2nd_rw" => isset($_POST['section89_2nd']) ? $_POST['section89_2nd'] : null,
         "nos_1st_rw" => isset($_POST['last_89_1st']) ? $_POST['last_89_1st'] : null,
-        "nos_2nd_rw" => isset($_POST['last_89_2nd']) ? $_POST['last_89_2nd'] : null
+        "nos_2nd_rw" => isset($_POST['last_89_2nd']) ? $_POST['last_89_2nd'] : null,
+        "faculty_id" => isset($_POST['getSelectedValue']) ? $_POST['getSelectedValue'] : null
     ];
     $callback = new Scheduler();
     $callback->Insertion67($data);
@@ -136,7 +139,8 @@ if (isset($_POST['schedTrigger1011']) === true) {
         "section_1st_rw" => isset($_POST['section1011_1st']) ? $_POST['section1011_1st'] : null,
         "section_2nd_rw" => isset($_POST['section1011_2nd']) ? $_POST['section1011_2nd'] : null,
         "nos_1st_rw" => isset($_POST['last_1011_1st']) ? $_POST['last_1011_1st'] : null,
-        "nos_2nd_rw" => isset($_POST['last_1011_2nd']) ? $_POST['last_1011_2nd'] : null
+        "nos_2nd_rw" => isset($_POST['last_1011_2nd']) ? $_POST['last_1011_2nd'] : null,
+        "faculty_id" => isset($_POST['getSelectedValue']) ? $_POST['getSelectedValue'] : null
     ];
     $callback = new Scheduler();
     $callback->Insertion67($data);
@@ -171,7 +175,8 @@ if (isset($_POST['schedTrigger910']) === true) {
         "section_1st_rw" => isset($_POST['section910_1st']) ? $_POST['section910_1st'] : null,
         "section_2nd_rw" => isset($_POST['section910_2nd']) ? $_POST['section910_2nd'] : null,
         "nos_1st_rw" => isset($_POST['last_910_1st']) ? $_POST['last_910_1st'] : null,
-        "nos_2nd_rw" => isset($_POST['last_910_2nd']) ? $_POST['last_910_2nd'] : null
+        "nos_2nd_rw" => isset($_POST['last_910_2nd']) ? $_POST['last_910_2nd'] : null,
+        "faculty_id" => isset($_POST['getSelectedValue']) ? $_POST['getSelectedValue'] : null
     ];
     $callback = new Scheduler();
     $callback->Insertion67($data);
@@ -206,7 +211,8 @@ if (isset($_POST['schedTrigger1112']) === true) {
         "section_1st_rw" => isset($_POST['section1112_1st']) ? $_POST['section1112_1st'] : null,
         "section_2nd_rw" => isset($_POST['section1112_2nd']) ? $_POST['section1112_2nd'] : null,
         "nos_1st_rw" => isset($_POST['last_1112_1st']) ? $_POST['last_1112_1st'] : null,
-        "nos_2nd_rw" => isset($_POST['last_1112_2nd']) ? $_POST['last_1112_2nd'] : null
+        "nos_2nd_rw" => isset($_POST['last_1112_2nd']) ? $_POST['last_1112_2nd'] : null,
+        "faculty_id" => isset($_POST['getSelectedValue']) ? $_POST['getSelectedValue'] : null
     ];
     $callback = new Scheduler();
     $callback->Insertion67($data);
@@ -241,7 +247,8 @@ if (isset($_POST['schedTrigger1201']) === true) {
         "section_1st_rw" => isset($_POST['section1201_1st']) ? $_POST['section1201_1st'] : null,
         "section_2nd_rw" => isset($_POST['section1201_2nd']) ? $_POST['section1201_2nd'] : null,
         "nos_1st_rw" => isset($_POST['last_1201_1st']) ? $_POST['last_1201_1st'] : null,
-        "nos_2nd_rw" => isset($_POST['last_1201_2nd']) ? $_POST['last_1201_2nd'] : null
+        "nos_2nd_rw" => isset($_POST['last_1201_2nd']) ? $_POST['last_1201_2nd'] : null,
+        "faculty_id" => isset($_POST['getSelectedValue']) ? $_POST['getSelectedValue'] : null
     ];
     $callback = new Scheduler();
     $callback->Insertion67($data);
@@ -277,7 +284,8 @@ if (isset($_POST['schedTrigger0102']) === true) {
         "section_2nd_rw" => isset($_POST['section0102_2nd']) ? $_POST['section0102_2nd'] : null,
         "nos_1st_rw" => isset($_POST['last_0102_1st']) ? $_POST['last_0102_1st'] : null,
         "nos_2nd_rw" => isset($_POST['last_0102_2nd']) ? $_POST['last_0102_2nd'] : null,
-        "timeline" => isset($_POST['timeline0102']) ? $_POST['timeline0102'] : null
+        "timeline" => isset($_POST['timeline0102']) ? $_POST['timeline0102'] : null,
+        "faculty_id" => isset($_POST['getSelectedValue']) ? $_POST['getSelectedValue'] : null
     ];
     $callback = new Scheduler();
     $callback->Insertion67($data);
@@ -312,7 +320,8 @@ if (isset($_POST['schedTrigger0203']) === true) {
         "section_1st_rw" => isset($_POST['section0203_1st']) ? $_POST['section0203_1st'] : null,
         "section_2nd_rw" => isset($_POST['section0203_2nd']) ? $_POST['section0203_2nd'] : null,
         "nos_1st_rw" => isset($_POST['last_0203_1st']) ? $_POST['last_0203_1st'] : null,
-        "nos_2nd_rw" => isset($_POST['last_0203_2nd']) ? $_POST['last_0203_2nd'] : null
+        "nos_2nd_rw" => isset($_POST['last_0203_2nd']) ? $_POST['last_0203_2nd'] : null,
+        "faculty_id" => isset($_POST['getSelectedValue']) ? $_POST['getSelectedValue'] : null
     ];
     $callback = new Scheduler();
     $callback->Insertion67($data);
@@ -347,7 +356,8 @@ if (isset($_POST['schedTrigger0304']) === true) {
         "section_1st_rw" => isset($_POST['section0304_1st']) ? $_POST['section0304_1st'] : null,
         "section_2nd_rw" => isset($_POST['section0304_2nd']) ? $_POST['section0304_2nd'] : null,
         "nos_1st_rw" => isset($_POST['last_0304_1st']) ? $_POST['last_0304_1st'] : null,
-        "nos_2nd_rw" => isset($_POST['last_0304_2nd']) ? $_POST['last_0304_2nd'] : null
+        "nos_2nd_rw" => isset($_POST['last_0304_2nd']) ? $_POST['last_0304_2nd'] : null,
+        "faculty_id" => isset($_POST['getSelectedValue']) ? $_POST['getSelectedValue'] : null
     ];
     $callback = new Scheduler();
     $callback->Insertion67($data);
@@ -382,7 +392,8 @@ if (isset($_POST['schedTrigger0405']) === true) {
         "section_1st_rw" => isset($_POST['section0405_1st']) ? $_POST['section0405_1st'] : null,
         "section_2nd_rw" => isset($_POST['section0405_2nd']) ? $_POST['section0405_2nd'] : null,
         "nos_1st_rw" => isset($_POST['last_0405_1st']) ? $_POST['last_0405_1st'] : null,
-        "nos_2nd_rw" => isset($_POST['last_0405_2nd']) ? $_POST['last_0405_2nd'] : null
+        "nos_2nd_rw" => isset($_POST['last_0405_2nd']) ? $_POST['last_0405_2nd'] : null,
+        "faculty_id" => isset($_POST['getSelectedValue']) ? $_POST['getSelectedValue'] : null
     ];
     $callback = new Scheduler();
     $callback->Insertion67($data);
@@ -417,7 +428,8 @@ if (isset($_POST['schedTrigger0506']) === true) {
         "section_1st_rw" => isset($_POST['section0506_1st']) ? $_POST['section0506_1st'] : null,
         "section_2nd_rw" => isset($_POST['section0506_2nd']) ? $_POST['section0506_2nd'] : null,
         "nos_1st_rw" => isset($_POST['last_0506_1st']) ? $_POST['last_0506_1st'] : null,
-        "nos_2nd_rw" => isset($_POST['last_0506_2nd']) ? $_POST['last_0506_2nd'] : null
+        "nos_2nd_rw" => isset($_POST['last_0506_2nd']) ? $_POST['last_0506_2nd'] : null,
+        "faculty_id" => isset($_POST['getSelectedValue']) ? $_POST['getSelectedValue'] : null
     ];
     $callback = new Scheduler();
     $callback->Insertion67($data);
@@ -452,7 +464,8 @@ if (isset($_POST['schedTrigger0607']) === true) {
         "section_1st_rw" => isset($_POST['section0607_1st']) ? $_POST['section0607_1st'] : null,
         "section_2nd_rw" => isset($_POST['section0607_2nd']) ? $_POST['section0607_2nd'] : null,
         "nos_1st_rw" => isset($_POST['last_0607_1st']) ? $_POST['last_0607_1st'] : null,
-        "nos_2nd_rw" => isset($_POST['last_0607_2nd']) ? $_POST['last_0607_2nd'] : null
+        "nos_2nd_rw" => isset($_POST['last_0607_2nd']) ? $_POST['last_0607_2nd'] : null,
+        "faculty_id" => isset($_POST['getSelectedValue']) ? $_POST['getSelectedValue'] : null
     ];
     $callback = new Scheduler();
     $callback->Insertion67($data);
@@ -488,7 +501,8 @@ if (isset($_POST['schedTrigger0708']) === true) {
         "section_2nd_rw" => isset($_POST['section0708_2nd']) ? $_POST['section0708_2nd'] : null,
         "nos_1st_rw" => isset($_POST['last_0708_1st']) ? $_POST['last_0708_1st'] : null,
         "nos_2nd_rw" => isset($_POST['last_0708_2nd']) ? $_POST['last_0708_2nd'] : null,
-        "timeline3" => isset($_POST['timeline0708_3']) ? $_POST['timeline0708_3'] : null
+        "timeline3" => isset($_POST['timeline0708_3']) ? $_POST['timeline0708_3'] : null,
+        "faculty_id" => isset($_POST['getSelectedValue']) ? $_POST['getSelectedValue'] : null
     ];
     $callback = new Scheduler();
     $callback->Insertion67($data);
