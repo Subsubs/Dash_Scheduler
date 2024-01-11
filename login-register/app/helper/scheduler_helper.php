@@ -378,7 +378,7 @@ if (isset($_POST['schedTrigger0405']) === true) {
         "room_6" => isset($_POST['room0405_6']) ? $_POST['room0405_6'] : null,
         "room_7" => isset($_POST['room0405_7']) ? $_POST['room0405_7'] : null,
         "cc_1st_rw" => isset($_POST['cc0405_1st']) ? $_POST['cc0405_1st'] : null,
-        "cc_2nd_rw" => isset($_POST['cc0405_2nd']) ? $_POST['cc0405_2nd'] : null,
+        "timeline2" => isset($_POST['timeline0405_2']) ? $_POST['timeline0405_2'] : null,
         "section_1st_rw" => isset($_POST['section0405_1st']) ? $_POST['section0405_1st'] : null,
         "section_2nd_rw" => isset($_POST['section0405_2nd']) ? $_POST['section0405_2nd'] : null,
         "nos_1st_rw" => isset($_POST['last_0405_1st']) ? $_POST['last_0405_1st'] : null,
@@ -453,6 +453,42 @@ if (isset($_POST['schedTrigger0607']) === true) {
         "section_2nd_rw" => isset($_POST['section0607_2nd']) ? $_POST['section0607_2nd'] : null,
         "nos_1st_rw" => isset($_POST['last_0607_1st']) ? $_POST['last_0607_1st'] : null,
         "nos_2nd_rw" => isset($_POST['last_0607_2nd']) ? $_POST['last_0607_2nd'] : null
+    ];
+    $callback = new Scheduler();
+    $callback->Insertion67($data);
+}
+
+if (isset($_POST['schedTrigger0708']) === true) {
+    $data = [
+        "monday_1st_rw" => isset($_POST['monday_0708_1st']) ? $_POST['monday_0708_1st'] : null,
+        "monday_2nd_rw" => isset($_POST['monday_0708_2nd']) ? $_POST['monday_0708_2nd'] : null,
+        "tuesday_1st_rw" => isset($_POST['tuesday_0708_1st']) ? $_POST['tuesday_0708_1st'] : null,
+        "tuesday_2nd_rw" => isset($_POST['tuesday_0708_2nd']) ? $_POST['tuesday_0708_2nd'] : null,
+        "wednesday_1st_rw" => isset($_POST['wednesday_0708_1st']) ? $_POST['wednesday_0708_1st'] : null,
+        "wednesday_2nd_rw" => isset($_POST['wednesday_0708_2nd']) ? $_POST['wednesday_0708_2nd'] : null,
+        "thursday_1st_rw" => isset($_POST['thursday_0708_1st']) ? $_POST['thursday_0708_1st'] : null,
+        "thursday_2nd_rw" => isset($_POST['thursday_0708_2nd']) ? $_POST['thursday_0708_2nd'] : null,
+        "friday_1st_rw" => isset($_POST['friday_0708_1st']) ? $_POST['friday_0708_1st'] : null,
+        "friday_2nd_rw" => isset($_POST['friday_0708_2nd']) ? $_POST['friday_0708_2nd'] : null,
+        "saturday_1st_rw" => isset($_POST['saturday_0708_1st']) ? $_POST['saturday_0708_1st'] : null,
+        "saturday_2nd_rw" => isset($_POST['saturday_0708_2nd']) ? $_POST['saturday_0708_2nd'] : null,
+        "sunday_1st_rw" => isset($_POST['sunday_0708_1st']) ? $_POST['sunday_0708_1st'] : null,
+        "sunday_2nd_rw" => isset($_POST['sunday_0708_2nd']) ? $_POST['sunday_0708_2nd'] : null,
+        "time" => isset($_POST['time']) ? $_POST['time'] : null,
+        "room_1" => isset($_POST['room0708_1']) ? $_POST['room0708_1'] : null,
+        "room_2" => isset($_POST['room0708_2']) ? $_POST['room0708_2'] : null,
+        "room_3" => isset($_POST['room0708_3']) ? $_POST['room0708_3'] : null,
+        "room_4" => isset($_POST['room0708_4']) ? $_POST['room0708_4'] : null,
+        "room_5" => isset($_POST['room0708_5']) ? $_POST['room0708_5'] : null,
+        "room_6" => isset($_POST['room0708_6']) ? $_POST['room0708_6'] : null,
+        "room_7" => isset($_POST['room0708_7']) ? $_POST['room0708_7'] : null,
+        "cc_1st_rw" => isset($_POST['cc0708_1st']) ? $_POST['cc0708_1st'] : null,
+        "cc_2nd_rw" => isset($_POST['cc0708_2nd']) ? $_POST['cc0708_2nd'] : null,
+        "section_1st_rw" => isset($_POST['section0708_1st']) ? $_POST['section0708_1st'] : null,
+        "section_2nd_rw" => isset($_POST['section0708_2nd']) ? $_POST['section0708_2nd'] : null,
+        "nos_1st_rw" => isset($_POST['last_0708_1st']) ? $_POST['last_0708_1st'] : null,
+        "nos_2nd_rw" => isset($_POST['last_0708_2nd']) ? $_POST['last_0708_2nd'] : null,
+        "timeline3" => isset($_POST['timeline0708_3']) ? $_POST['timeline0708_3'] : null
     ];
     $callback = new Scheduler();
     $callback->Insertion67($data);
