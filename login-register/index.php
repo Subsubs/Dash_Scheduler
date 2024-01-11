@@ -1382,7 +1382,7 @@ if ($conn->connect_error) {
                     <td> <input id="edit_saturday_0405_2nd_rw" class="form-control" value="<?php echo $data_0405['saturday_2nd_rw']; ?>" /></td>
                     <td> <input id="edit_sunday_0405_2nd_rw" class="form-control" value="<?php echo $data_0405['sunday_2nd_rw']; ?>" /></td>
                     <td colspan="3" rowspan="6">
-                      <input id="edit_cc0405_2nd_rw" value="<?php echo $data_0405['cc_2nd_rw']; ?>" class="form-control" />
+                      <input id="edit_timeline0405_2_rw" value="<?php echo $data_0405['timeline2']; ?>" class="form-control" />
                     </td>
                   </tr>
               <?php
@@ -1658,36 +1658,121 @@ if ($conn->connect_error) {
           <?php
           }
           ?>
-          <tr>
-            <td rowspan="2">7:00 - 8:00</td>
-            <td></td>
-            <td rowspan="2"></td>
-            <td></td>
-            <td rowspan="2"></td>
-            <td></td>
-            <td rowspan="2"></td>
-            <td></td>
-            <td rowspan="2"></td>
-            <td></td>
-            <td rowspan="2"></td>
-            <td></td>
-            <td rowspan="2"></td>
-            <td></td>
-            <td rowspan="2"></td>
-          </tr>
+          <?php
+          if (isset($_POST['filteredValue'])) {
+            $selected = $_POST['filteredValue'];
+            $qry = "SELECT * FROM sched WHERE time='7:00 - 8:00 PM' AND faculty_id='$selected'";
+            $res_0708 = mysqli_query($conn, $qry);
 
-          <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td colspan="3" rowspan="8">
-              <p><br /><br /><br /><br /><br /><br /><strong>PROF. PAULINA M. MACATANGAY</strong><br />Vice Chancellor for Academic Affairs</p>
-            </td>
-          </tr>
+            if ($res_0708 && mysqli_num_rows($res_0708) > 0) {
+              $trRendered = false;
+              while ($data_0708 = mysqli_fetch_assoc($res_0708)) {
+                if (!$trRendered) {
+          ?>
+                  <tr>
+                    <td rowspan="2">7:00 - 8:00 <input id="time0708" hidden value="7:00 - 8:00 PM" /> </td>
+                    <td> <input id="edit_monday_0708_1st_rw" value="<?php echo $data_0708['monday_1st_rw']; ?>" class="form-control" /></td>
+                    <td rowspan="2"> <input id="edit_room0708_1_rw" value="<?php echo $data_0708['room_1']; ?>" class="form-control" /></td>
+                    <td> <input id="edit_tuesday_0708_1st_rw" value="<?php echo $data_0708['tuesday_1st_rw']; ?>" class="form-control" /></td>
+                    <td rowspan="2"> <input id="edit_room0708_2_rw" value="<?php echo $data_0708['room_2']; ?>" class="form-control" /></td>
+                    <td> <input id="edit_wednesday_0708_1st_rw" value="<?php echo $data_0708['wednesday_1st_rw']; ?>" class="form-control" /> </td>
+                    <td rowspan="2"> <input id="edit_room0708_3_rw" value="<?php echo $data_0708['room_3']; ?>" class="form-control" /> </td>
+                    <td> <input id="edit_thursday_0708_1st_rw" value="<?php echo $data_0708['thursday_1st_rw']; ?>" class="form-control" /> </td>
+                    <td rowspan="2"> <input id="edit_room0708_4_rw" value="<?php echo $data_0708['room_4']; ?>" class="form-control" /> </td>
+                    <td> <input id="edit_friday_0708_1st_rw" value="<?php echo $data_0708['friday_1st_rw']; ?>" class="form-control" /> </td>
+                    <td rowspan="2"> <input id="edit_room0708_5_rw" value="<?php echo $data_0708['room_5']; ?>" class="form-control" /> </td>
+                    <td> <input id="edit_saturday_0708_1st_rw" value="<?php echo $data_0708['saturday_1st_rw']; ?>" class="form-control" /> </td>
+                    <td rowspan="2"> <input id="edit_room0708_6_rw" value="<?php echo $data_0708['room_6']; ?>" class="form-control" /> </td>
+                    <td> <input id="edit_sunday_0708_1st_rw" value="<?php echo $data_0708['sunday_1st_rw']; ?>" class="form-control" /> </td>
+                    <td rowspan="2"> <input id="edit_room0708_7_rw" value="<?php echo $data_0708['room_7']; ?>" class="form-control" /> </td>
+                  </tr>
+                  <tr>
+                    <td> <input id="edit_monday_0708_2nd_rw" class="form-control" value="<?php echo $data_0708['monday_2nd_rw']; ?>" /> </td>
+                    <td> <input id="edit_tuesday_0708_2nd_rw" class="form-control" value="<?php echo $data_0708['tuesday_2nd_rw']; ?>" /></td>
+                    <td> <input id="edit_wednesday_0708_2nd_rw" class="form-control" value="<?php echo $data_0708['wednesday_2nd_rw']; ?>" /></td>
+                    <td> <input id="edit_thursday_0708_2nd_rw" class="form-control" value="<?php echo $data_0708['thursday_2nd_rw']; ?>" /></td>
+                    <td> <input id="edit_friday_0708_2nd_rw" class="form-control" value="<?php echo $data_0708['friday_2nd_rw']; ?>" /></td>
+                    <td> <input id="edit_saturday_0708_2nd_rw" class="form-control" value="<?php echo $data_0708['saturday_2nd_rw']; ?>" /></td>
+                    <td> <input id="edit_sunday_0708_2nd_rw" class="form-control" value="<?php echo $data_0708['sunday_2nd_rw']; ?>" /></td>
+                    <td colspan="3" rowspan="8">
+                      <!-- <p><br /><br /><br /><br /><br /><br /><strong>PROF. PAULINA M. MACATANGAY</strong><br />Vice Chancellor for Academic Affairs</p> -->
+                      <input id="edit_timeline0708_3_rw" class="form-control" value="<?php echo $data_0708['timeline3']; ?>" />
+                    </td>
+                  </tr>
+              <?php
+                  $trRendered = true;
+                }
+              }
+            } else {
+              ?>
+              <tr>
+                <td rowspan="2">7:00 - 8:00</td>
+                <td></td>
+                <td rowspan="2"></td>
+                <td></td>
+                <td rowspan="2"></td>
+                <td></td>
+                <td rowspan="2"></td>
+                <td></td>
+                <td rowspan="2"></td>
+                <td></td>
+                <td rowspan="2"></td>
+                <td></td>
+                <td rowspan="2"></td>
+                <td></td>
+                <td rowspan="2"></td>
+              </tr>
+
+              <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td colspan="3" rowspan="8">
+                  <p><br /><br /><br /><br /><br /><br /><strong>PROF. PAULINA M. MACATANGAY</strong><br />Vice Chancellor for Academic Affairs</p>
+                </td>
+              </tr>
+            <?php
+            }
+          } else {
+            ?>
+            <tr>
+              <td rowspan="2">7:00 - 8:00</td>
+              <td></td>
+              <td rowspan="2"></td>
+              <td></td>
+              <td rowspan="2"></td>
+              <td></td>
+              <td rowspan="2"></td>
+              <td></td>
+              <td rowspan="2"></td>
+              <td></td>
+              <td rowspan="2"></td>
+              <td></td>
+              <td rowspan="2"></td>
+              <td></td>
+              <td rowspan="2"></td>
+            </tr>
+
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td colspan="3" rowspan="8">
+                <p><br /><br /><br /><br /><br /><br /><strong>PROF. PAULINA M. MACATANGAY</strong><br />Vice Chancellor for Academic Affairs</p>
+              </td>
+            </tr>
+          <?php
+          }
+          ?>
+
           <tr>
             <td>Official time</td>
             <td colspan="2"></td>
@@ -3015,6 +3100,7 @@ if ($conn->connect_error) {
     var getTime0405 = document.getElementById('time0405')
     var getTime0506 = document.getElementById('time0506')
     var getTime0607 = document.getElementById('time0607')
+    var getTime0708 = document.getElementById('time0708')
 
     var edit_monday_78_1st_rw = document.getElementById('edit_monday_78_1st_rw')
     var edit_monday_78_2nd_rw = document.getElementById('edit_monday_78_2nd_rw')
@@ -3428,7 +3514,7 @@ if ($conn->connect_error) {
     document.getElementById('edit_sunday_0405_1st_rw').addEventListener('change', handleInput0405Change)
     document.getElementById('edit_sunday_0405_2nd_rw').addEventListener('change', handleInput0405Change)
 
-    document.getElementById('edit_cc0405_2nd_rw').addEventListener('change', handleInput0405Change)
+    document.getElementById('edit_timeline0405_2_rw').addEventListener('change', handleInput0405Change)
     document.getElementById('edit_room0405_1_rw').addEventListener('change', handleInput0405Change)
     document.getElementById('edit_room0405_2_rw').addEventListener('change', handleInput0405Change)
     document.getElementById('edit_room0405_3_rw').addEventListener('change', handleInput0405Change)
@@ -3496,6 +3582,37 @@ if ($conn->connect_error) {
     document.getElementById('edit_room0607_5_rw').addEventListener('change', handleInput0607Change)
     document.getElementById('edit_room0607_6_rw').addEventListener('change', handleInput0607Change)
     document.getElementById('edit_room0607_7_rw').addEventListener('change', handleInput0607Change)
+    //
+
+    // 7 - 8
+    document.getElementById('edit_monday_0708_1st_rw').addEventListener('change', handleInput0708Change)
+    document.getElementById('edit_monday_0708_2nd_rw').addEventListener('change', handleInput0708Change)
+    document.getElementById('edit_tuesday_0708_1st_rw').addEventListener('change', handleInput0708Change)
+    document.getElementById('edit_tuesday_0708_2nd_rw').addEventListener('change', handleInput0708Change)
+
+    document.getElementById('edit_wednesday_0708_1st_rw').addEventListener('change', handleInput0708Change)
+    document.getElementById('edit_wednesday_0708_2nd_rw').addEventListener('change', handleInput0708Change)
+
+    document.getElementById('edit_thursday_0708_1st_rw').addEventListener('change', handleInput0708Change)
+    document.getElementById('edit_thursday_0708_2nd_rw').addEventListener('change', handleInput0708Change)
+
+    document.getElementById('edit_friday_0708_1st_rw').addEventListener('change', handleInput0708Change)
+    document.getElementById('edit_friday_0708_2nd_rw').addEventListener('change', handleInput0708Change)
+
+    document.getElementById('edit_saturday_0708_1st_rw').addEventListener('change', handleInput0708Change)
+    document.getElementById('edit_saturday_0708_2nd_rw').addEventListener('change', handleInput0708Change)
+
+    document.getElementById('edit_sunday_0708_1st_rw').addEventListener('change', handleInput0708Change)
+    document.getElementById('edit_sunday_0708_2nd_rw').addEventListener('change', handleInput0708Change)
+
+    document.getElementById('edit_room0708_1_rw').addEventListener('change', handleInput0708Change)
+    document.getElementById('edit_room0708_2_rw').addEventListener('change', handleInput0708Change)
+    document.getElementById('edit_room0708_3_rw').addEventListener('change', handleInput0708Change)
+    document.getElementById('edit_room0708_4_rw').addEventListener('change', handleInput0708Change)
+    document.getElementById('edit_room0708_5_rw').addEventListener('change', handleInput0708Change)
+    document.getElementById('edit_room0708_6_rw').addEventListener('change', handleInput0708Change)
+    document.getElementById('edit_room0708_7_rw').addEventListener('change', handleInput0708Change)
+    document.getElementById('edit_timeline0708_3_rw').addEventListener('change', handleInput0708Change)
     //
 
     document.getElementById('edit_room_1_rw').addEventListener('change', handleInputChange)
@@ -3577,6 +3694,11 @@ if ($conn->connect_error) {
     const obj0607 = {
       schedTrigger0607: true,
       time: getTime0607.value
+    }
+
+    const obj0708 = {
+      schedTrigger0708: true,
+      time: getTime0708.value
     }
 
     const originalValues = {};
@@ -3829,7 +3951,7 @@ if ($conn->connect_error) {
         'edit_friday_0405_2nd_rw', 'edit_saturday_0405_1st_rw', 'edit_saturday_0405_2nd_rw',
         'edit_sunday_0405_1st_rw', 'edit_sunday_0405_2nd_rw', 'edit_room0405_1_rw', 'edit_room0405_2_rw',
         'edit_room0405_3_rw', 'edit_room0405_4_rw', 'edit_room0405_5_rw', 'edit_room0405_6_rw', 'edit_room0405_7_rw',
-        'edit_last_0405_1st_rw', 'edit_last_0405_2nd_rw', 'edit_cc0405_1st_rw', 'edit_cc0405_2nd_rw',
+        'edit_last_0405_1st_rw', 'edit_last_0405_2nd_rw', 'edit_cc0405_1st_rw', 'edit_timeline0405_2_rw',
         'edit_section0405_1st_rw', 'edit_section0405_2nd_rw'
       ];
 
@@ -3879,6 +4001,30 @@ if ($conn->connect_error) {
         'edit_room0607_3_rw', 'edit_room0607_4_rw', 'edit_room0607_5_rw', 'edit_room0607_6_rw', 'edit_room0607_7_rw',
         'edit_last_0607_1st_rw', 'edit_last_0607_2nd_rw', 'edit_cc0607_1st_rw', 'edit_cc0607_2nd_rw',
         'edit_section0607_1st_rw', 'edit_section0607_2nd_rw'
+      ];
+
+      inputIds.forEach(id => {
+        const element = document.getElementById(id);
+        if (element) {
+          const propertyName = id.replace('edit_', '').replace('_rw', '');
+
+          if (!obj0607.hasOwnProperty(propertyName)) {
+            obj0607[propertyName] = element.value;
+          }
+        }
+      });
+    }
+
+    function initializeOriginalValues0708() {
+      const inputIds = [
+        'edit_monday_0708_1st_rw', 'edit_monday_0708_2nd_rw', 'edit_tuesday_0708_1st_rw',
+        'edit_tuesday_0708_2nd_rw', 'edit_wednesday_0708_1st_rw', 'edit_wednesday_0708_2nd_rw',
+        'edit_thursday_0708_1st_rw', 'edit_thursday_0708_2nd_rw', 'edit_friday_0708_1st_rw',
+        'edit_friday_0708_2nd_rw', 'edit_saturday_0708_1st_rw', 'edit_saturday_0708_2nd_rw',
+        'edit_sunday_0708_1st_rw', 'edit_sunday_0708_2nd_rw', 'edit_room0708_1_rw', 'edit_room0708_2_rw',
+        'edit_room0708_3_rw', 'edit_room0708_4_rw', 'edit_room0708_5_rw', 'edit_room0708_6_rw', 'edit_room0708_7_rw',
+        'edit_last_0708_1st_rw', 'edit_last_0708_2nd_rw', 'edit_cc0708_1st_rw', 'edit_cc0708_2nd_rw',
+        'edit_section0708_1st_rw', 'edit_section0708_2nd_rw', 'edit_timeline0708_3_rw'
       ];
 
       inputIds.forEach(id => {
@@ -4122,6 +4268,23 @@ if ($conn->connect_error) {
       $.ajax({
         method: 'post',
         data: obj0607,
+        url: 'app/helper/scheduler_helper.php',
+        success: function(response) {
+          console.log(response)
+        }
+      })
+    }
+
+    function handleInput0708Change(event) {
+      const propertyName = event.target.id.replace('edit_', '').replace('_rw', '');
+
+      obj0708[propertyName] = (originalValues[propertyName] !== undefined &&
+          event.target.value.trim() === '') ?
+        originalValues[propertyName] : event.target.value;
+
+      $.ajax({
+        method: 'post',
+        data: obj0708,
         url: 'app/helper/scheduler_helper.php',
         success: function(response) {
           console.log(response)
