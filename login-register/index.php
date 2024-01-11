@@ -116,7 +116,7 @@ if ($conn->connect_error) {
           <?php
           if (isset($_POST['filteredValue'])) {
             $selected = $_POST['filteredValue'];
-            $qry = "SELECT * FROM sched WHERE time='6:00 - 7:00' AND faculty_id='$selected'";
+            $qry = "SELECT * FROM sched WHERE time='6:00 - 7:00 AM' AND faculty_id='$selected'";
             $res_67 = mysqli_query($conn, $qry);
 
             if ($res_67 && mysqli_num_rows($res_67) > 0) {
@@ -125,7 +125,7 @@ if ($conn->connect_error) {
                 if (!$trRendered) {
           ?>
                   <tr>
-                    <td rowspan="2" id="time">6:00 - 7:00</td>
+                    <td rowspan="2">6:00 - 7:00 <input id="time" hidden value="6:00 - 7:00 AM" /> </td>
                     <td> <input id="edit_monday_67_1st_rw" value="<?php echo $data_67['monday_1st_rw']; ?>" class="form-control" /></td>
                     <td rowspan="2"> <input id="edit_room_1_rw" value="<?php echo $data_67['room_1']; ?>" class="form-control" /></td>
                     <td> <input id="edit_tuesday_67_1st_rw" value="<?php echo $data_67['tuesday_1st_rw']; ?>" class="form-control" /></td>
@@ -141,11 +141,13 @@ if ($conn->connect_error) {
                     <td> <input id="edit_sunday_67_1st_rw" value="<?php echo $data_67['sunday_1st_rw']; ?>" class="form-control" /> </td>
                     <td rowspan="2"> <input id="edit_room_7_rw" value="<?php echo $data_67['room_7']; ?>" class="form-control" /> </td>
                     <td>
-
+                      <input id="edit_cc_1st_rw" value="<?php echo $data_67['cc_1st_rw']; ?>" class="form-control" />
                     </td>
-                    <td></td>
+                    <td>
+                      <input id="edit_section_1st_rw" value="<?php echo $data_67['section_1st_rw']; ?>" class="form-control" />
+                    </td>
                     <!-- will add another col for this field on db -->
-                    <td> <input id="edit_last_67_1st_rw" class="form-control" /></td>
+                    <td> <input id="edit_last_67_1st_rw" value="<?php echo $data_67['nos_1st_rw']; ?>" class="form-control" /></td>
                   </tr>
                   <tr>
                     <td> <input id="edit_monday_67_2nd_rw" class="form-control" value="<?php echo $data_67['monday_2nd_rw']; ?>" /> </td>
@@ -155,17 +157,19 @@ if ($conn->connect_error) {
                     <td> <input id="edit_friday_67_2nd_rw" class="form-control" value="<?php echo $data_67['friday_2nd_rw']; ?>" /></td>
                     <td> <input id="edit_saturday_67_2nd_rw" class="form-control" value="<?php echo $data_67['saturday_2nd_rw']; ?>" /></td>
                     <td> <input id="edit_sunday_67_2nd_rw" class="form-control" value="<?php echo $data_67['sunday_2nd_rw']; ?>" /></td>
-                    <td></td>
-                    <td></td>
-                    <td> <input id="edit_last_67_2nd_rw" class="form-control" /></td>
+                    <td>
+                      <input id="edit_cc_2nd_rw" value="<?php echo $data_67['cc_2nd_rw']; ?>" class="form-control" />
+                    </td>
+                    <td>
+                      <input id="edit_section_2nd_rw" value="<?php echo $data_67['section_2nd_rw']; ?>" class="form-control" />
+                    </td>
+                    <td> <input id="edit_last_67_2nd_rw" value="<?php echo $data_67['nos_2nd_rw']; ?>" class="form-control" /></td>
                   </tr>
               <?php
                   $trRendered = true;
                 }
               }
             } else {
-
-
               ?>
               <tr>
                 <td rowspan="2">6:00 - 7:00</td>
@@ -238,6 +242,1422 @@ if ($conn->connect_error) {
           <?php
           }
           ?>
+          <?php
+          if (isset($_POST['filteredValue'])) {
+            $selected = $_POST['filteredValue'];
+            $qry = "SELECT * FROM sched WHERE time='7:00 - 8:00 AM' AND faculty_id='$selected'";
+            $res_78 = mysqli_query($conn, $qry);
+
+            if ($res_78 && mysqli_num_rows($res_78) > 0) {
+              $trRendered = false;
+              while ($data_78 = mysqli_fetch_assoc($res_78)) {
+                if (!$trRendered) {
+          ?>
+                  <tr>
+                    <td rowspan="2">7:00 - 8:00 <input id="time78" hidden value="7:00 - 8:00 AM" /> </td>
+                    <td> <input id="edit_monday_78_1st_rw" value="<?php echo $data_78['monday_1st_rw']; ?>" class="form-control" /></td>
+                    <td rowspan="2"> <input id="edit_room78_1_rw" value="<?php echo $data_78['room_1']; ?>" class="form-control" /></td>
+                    <td> <input id="edit_tuesday_78_1st_rw" value="<?php echo $data_78['tuesday_1st_rw']; ?>" class="form-control" /></td>
+                    <td rowspan="2"> <input id="edit_room78_2_rw" value="<?php echo $data_78['room_2']; ?>" class="form-control" /></td>
+                    <td> <input id="edit_wednesday_78_1st_rw" value="<?php echo $data_78['wednesday_1st_rw']; ?>" class="form-control" /> </td>
+                    <td rowspan="2"> <input id="edit_room78_3_rw" value="<?php echo $data_78['room_3']; ?>" class="form-control" /> </td>
+                    <td> <input id="edit_thursday_78_1st_rw" value="<?php echo $data_78['thursday_1st_rw']; ?>" class="form-control" /> </td>
+                    <td rowspan="2"> <input id="edit_room78_4_rw" value="<?php echo $data_78['room_4']; ?>" class="form-control" /> </td>
+                    <td> <input id="edit_friday_78_1st_rw" value="<?php echo $data_78['friday_1st_rw']; ?>" class="form-control" /> </td>
+                    <td rowspan="2"> <input id="edit_room78_5_rw" value="<?php echo $data_78['room_5']; ?>" class="form-control" /> </td>
+                    <td> <input id="edit_saturday_78_1st_rw" value="<?php echo $data_78['saturday_1st_rw']; ?>" class="form-control" /> </td>
+                    <td rowspan="2"> <input id="edit_room78_6_rw" value="<?php echo $data_78['room_6']; ?>" class="form-control" /> </td>
+                    <td> <input id="edit_sunday_78_1st_rw" value="<?php echo $data_78['sunday_1st_rw']; ?>" class="form-control" /> </td>
+                    <td rowspan="2"> <input id="edit_room78_7_rw" value="<?php echo $data_78['room_7']; ?>" class="form-control" /> </td>
+                    <td>
+                      <input id="edit_cc78_1st_rw" value="<?php echo $data_78['cc_1st_rw']; ?>" class="form-control" />
+                    </td>
+                    <td>
+                      <input id="edit_section78_1st_rw" value="<?php echo $data_78['section_1st_rw']; ?>" class="form-control" />
+                    </td>
+                    <!-- will add another col for this field on db -->
+                    <td> <input id="edit_last_78_1st_rw" value="<?php echo $data_78['nos_1st_rw']; ?>" class="form-control" /></td>
+                  </tr>
+                  <tr>
+                    <td> <input id="edit_monday_78_2nd_rw" class="form-control" value="<?php echo $data_78['monday_2nd_rw']; ?>" /> </td>
+                    <td> <input id="edit_tuesday_78_2nd_rw" class="form-control" value="<?php echo $data_78['tuesday_2nd_rw']; ?>" /></td>
+                    <td> <input id="edit_wednesday_78_2nd_rw" class="form-control" value="<?php echo $data_78['wednesday_2nd_rw']; ?>" /></td>
+                    <td> <input id="edit_thursday_78_2nd_rw" class="form-control" value="<?php echo $data_78['thursday_2nd_rw']; ?>" /></td>
+                    <td> <input id="edit_friday_78_2nd_rw" class="form-control" value="<?php echo $data_78['friday_2nd_rw']; ?>" /></td>
+                    <td> <input id="edit_saturday_78_2nd_rw" class="form-control" value="<?php echo $data_78['saturday_2nd_rw']; ?>" /></td>
+                    <td> <input id="edit_sunday_78_2nd_rw" class="form-control" value="<?php echo $data_78['sunday_2nd_rw']; ?>" /></td>
+                    <td>
+                      <input id="edit_cc78_2nd_rw" value="<?php echo $data_78['cc_2nd_rw']; ?>" class="form-control" />
+                    </td>
+                    <td>
+                      <input id="edit_section78_2nd_rw" value="<?php echo $data_78['section_2nd_rw']; ?>" class="form-control" />
+                    </td>
+                    <td> <input id="edit_last_78_2nd_rw" value="<?php echo $data_78['nos_2nd_rw']; ?>" class="form-control" /></td>
+                  </tr>
+              <?php
+                  $trRendered = true;
+                }
+              }
+            } else {
+              ?>
+              <tr>
+                <td rowspan="2">7:00 - 8:00</td>
+                <td></td>
+                <td rowspan="2"></td>
+                <td></td>
+                <td rowspan="2"></td>
+                <td></td>
+                <td rowspan="2"></td>
+                <td></td>
+                <td rowspan="2"></td>
+                <td></td>
+                <td rowspan="2"></td>
+                <td></td>
+                <td rowspan="2"></td>
+                <td></td>
+                <td rowspan="2"></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+            <?php
+            }
+          } else {
+            ?>
+            <tr>
+              <td rowspan="2">7:00 - 8:00</td>
+              <td></td>
+              <td rowspan="2"></td>
+              <td></td>
+              <td rowspan="2"></td>
+              <td></td>
+              <td rowspan="2"></td>
+              <td></td>
+              <td rowspan="2"></td>
+              <td></td>
+              <td rowspan="2"></td>
+              <td></td>
+              <td rowspan="2"></td>
+              <td></td>
+              <td rowspan="2"></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+          <?php
+          }
+          ?>
+          <?php
+          if (isset($_POST['filteredValue'])) {
+            $selected = $_POST['filteredValue'];
+            $qry = "SELECT * FROM sched WHERE time='8:00 - 9:00 AM' AND faculty_id='$selected'";
+            $res_89 = mysqli_query($conn, $qry);
+
+            if ($res_89 && mysqli_num_rows($res_89) > 0) {
+              $trRendered = false;
+              while ($data_89 = mysqli_fetch_assoc($res_89)) {
+                if (!$trRendered) {
+          ?>
+                  <tr>
+                    <td rowspan="2">8:00 - 9:00 <input id="time89" hidden value="8:00 - 9:00 AM" /> </td>
+                    <td> <input id="edit_monday_89_1st_rw" value="<?php echo $data_89['monday_1st_rw']; ?>" class="form-control" /></td>
+                    <td rowspan="2"> <input id="edit_room89_1_rw" value="<?php echo $data_89['room_1']; ?>" class="form-control" /></td>
+                    <td> <input id="edit_tuesday_89_1st_rw" value="<?php echo $data_89['tuesday_1st_rw']; ?>" class="form-control" /></td>
+                    <td rowspan="2"> <input id="edit_room89_2_rw" value="<?php echo $data_89['room_2']; ?>" class="form-control" /></td>
+                    <td> <input id="edit_wednesday_89_1st_rw" value="<?php echo $data_89['wednesday_1st_rw']; ?>" class="form-control" /> </td>
+                    <td rowspan="2"> <input id="edit_room89_3_rw" value="<?php echo $data_89['room_3']; ?>" class="form-control" /> </td>
+                    <td> <input id="edit_thursday_89_1st_rw" value="<?php echo $data_89['thursday_1st_rw']; ?>" class="form-control" /> </td>
+                    <td rowspan="2"> <input id="edit_room89_4_rw" value="<?php echo $data_89['room_4']; ?>" class="form-control" /> </td>
+                    <td> <input id="edit_friday_89_1st_rw" value="<?php echo $data_89['friday_1st_rw']; ?>" class="form-control" /> </td>
+                    <td rowspan="2"> <input id="edit_room89_5_rw" value="<?php echo $data_89['room_5']; ?>" class="form-control" /> </td>
+                    <td> <input id="edit_saturday_89_1st_rw" value="<?php echo $data_89['saturday_1st_rw']; ?>" class="form-control" /> </td>
+                    <td rowspan="2"> <input id="edit_room89_6_rw" value="<?php echo $data_89['room_6']; ?>" class="form-control" /> </td>
+                    <td> <input id="edit_sunday_89_1st_rw" value="<?php echo $data_89['sunday_1st_rw']; ?>" class="form-control" /> </td>
+                    <td rowspan="2"> <input id="edit_room89_7_rw" value="<?php echo $data_89['room_7']; ?>" class="form-control" /> </td>
+                    <td>
+                      <input id="edit_cc89_1st_rw" value="<?php echo $data_89['cc_1st_rw']; ?>" class="form-control" />
+                    </td>
+                    <td>
+                      <input id="edit_section89_1st_rw" value="<?php echo $data_89['section_1st_rw']; ?>" class="form-control" />
+                    </td>
+                    <!-- will add another col for this field on db -->
+                    <td> <input id="edit_last_89_1st_rw" value="<?php echo $data_89['nos_1st_rw']; ?>" class="form-control" /></td>
+                  </tr>
+                  <tr>
+                    <td> <input id="edit_monday_89_2nd_rw" class="form-control" value="<?php echo $data_89['monday_2nd_rw']; ?>" /> </td>
+                    <td> <input id="edit_tuesday_89_2nd_rw" class="form-control" value="<?php echo $data_89['tuesday_2nd_rw']; ?>" /></td>
+                    <td> <input id="edit_wednesday_89_2nd_rw" class="form-control" value="<?php echo $data_89['wednesday_2nd_rw']; ?>" /></td>
+                    <td> <input id="edit_thursday_89_2nd_rw" class="form-control" value="<?php echo $data_89['thursday_2nd_rw']; ?>" /></td>
+                    <td> <input id="edit_friday_89_2nd_rw" class="form-control" value="<?php echo $data_89['friday_2nd_rw']; ?>" /></td>
+                    <td> <input id="edit_saturday_89_2nd_rw" class="form-control" value="<?php echo $data_89['saturday_2nd_rw']; ?>" /></td>
+                    <td> <input id="edit_sunday_89_2nd_rw" class="form-control" value="<?php echo $data_89['sunday_2nd_rw']; ?>" /></td>
+                    <td>
+                      <input id="edit_cc89_2nd_rw" value="<?php echo $data_89['cc_2nd_rw']; ?>" class="form-control" />
+                    </td>
+                    <td>
+                      <input id="edit_section89_2nd_rw" value="<?php echo $data_89['section_2nd_rw']; ?>" class="form-control" />
+                    </td>
+                    <td> <input id="edit_last_89_2nd_rw" value="<?php echo $data_89['nos_2nd_rw']; ?>" class="form-control" /></td>
+                  </tr>
+              <?php
+                  $trRendered = true;
+                }
+              }
+            } else {
+              ?>
+              <tr>
+                <td rowspan="2">8:00 - 9:00</td>
+                <td></td>
+                <td rowspan="2"></td>
+                <td></td>
+                <td rowspan="2"></td>
+                <td></td>
+                <td rowspan="2"></td>
+                <td></td>
+                <td rowspan="2"></td>
+                <td></td>
+                <td rowspan="2"></td>
+                <td></td>
+                <td rowspan="2"></td>
+                <td></td>
+                <td rowspan="2"></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+            <?php
+            }
+          } else {
+            ?>
+            <tr>
+              <td rowspan="2">8:00 - 9:00</td>
+              <td></td>
+              <td rowspan="2"></td>
+              <td></td>
+              <td rowspan="2"></td>
+              <td></td>
+              <td rowspan="2"></td>
+              <td></td>
+              <td rowspan="2"></td>
+              <td></td>
+              <td rowspan="2"></td>
+              <td></td>
+              <td rowspan="2"></td>
+              <td></td>
+              <td rowspan="2"></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+          <?php
+          }
+          ?>
+          <?php
+          if (isset($_POST['filteredValue'])) {
+            $selected = $_POST['filteredValue'];
+            $qry = "SELECT * FROM sched WHERE time='9:00 - 10:00 AM' AND faculty_id='$selected'";
+            $res_910 = mysqli_query($conn, $qry);
+
+            if ($res_910 && mysqli_num_rows($res_910) > 0) {
+              $trRendered = false;
+              while ($data_910 = mysqli_fetch_assoc($res_910)) {
+                if (!$trRendered) {
+          ?>
+                  <tr>
+                    <td rowspan="2">9:00 - 10:00 <input id="time910" hidden value="9:00 - 10:00 AM" /> </td>
+                    <td> <input id="edit_monday_910_1st_rw" value="<?php echo $data_910['monday_1st_rw']; ?>" class="form-control" /></td>
+                    <td rowspan="2"> <input id="edit_room910_1_rw" value="<?php echo $data_910['room_1']; ?>" class="form-control" /></td>
+                    <td> <input id="edit_tuesday_910_1st_rw" value="<?php echo $data_910['tuesday_1st_rw']; ?>" class="form-control" /></td>
+                    <td rowspan="2"> <input id="edit_room910_2_rw" value="<?php echo $data_910['room_2']; ?>" class="form-control" /></td>
+                    <td> <input id="edit_wednesday_910_1st_rw" value="<?php echo $data_910['wednesday_1st_rw']; ?>" class="form-control" /> </td>
+                    <td rowspan="2"> <input id="edit_room910_3_rw" value="<?php echo $data_910['room_3']; ?>" class="form-control" /> </td>
+                    <td> <input id="edit_thursday_910_1st_rw" value="<?php echo $data_910['thursday_1st_rw']; ?>" class="form-control" /> </td>
+                    <td rowspan="2"> <input id="edit_room910_4_rw" value="<?php echo $data_910['room_4']; ?>" class="form-control" /> </td>
+                    <td> <input id="edit_friday_910_1st_rw" value="<?php echo $data_910['friday_1st_rw']; ?>" class="form-control" /> </td>
+                    <td rowspan="2"> <input id="edit_room910_5_rw" value="<?php echo $data_910['room_5']; ?>" class="form-control" /> </td>
+                    <td> <input id="edit_saturday_910_1st_rw" value="<?php echo $data_910['saturday_1st_rw']; ?>" class="form-control" /> </td>
+                    <td rowspan="2"> <input id="edit_room910_6_rw" value="<?php echo $data_910['room_6']; ?>" class="form-control" /> </td>
+                    <td> <input id="edit_sunday_910_1st_rw" value="<?php echo $data_910['sunday_1st_rw']; ?>" class="form-control" /> </td>
+                    <td rowspan="2"> <input id="edit_room910_7_rw" value="<?php echo $data_910['room_7']; ?>" class="form-control" /> </td>
+                    <td>
+                      <input id="edit_cc910_1st_rw" value="<?php echo $data_910['cc_1st_rw']; ?>" class="form-control" />
+                    </td>
+                    <td>
+                      <input id="edit_section910_1st_rw" value="<?php echo $data_910['section_1st_rw']; ?>" class="form-control" />
+                    </td>
+                    <!-- will add another col for this field on db -->
+                    <td> <input id="edit_last_910_1st_rw" value="<?php echo $data_910['nos_1st_rw']; ?>" class="form-control" /></td>
+                  </tr>
+                  <tr>
+                    <td> <input id="edit_monday_910_2nd_rw" class="form-control" value="<?php echo $data_910['monday_2nd_rw']; ?>" /> </td>
+                    <td> <input id="edit_tuesday_910_2nd_rw" class="form-control" value="<?php echo $data_910['tuesday_2nd_rw']; ?>" /></td>
+                    <td> <input id="edit_wednesday_910_2nd_rw" class="form-control" value="<?php echo $data_910['wednesday_2nd_rw']; ?>" /></td>
+                    <td> <input id="edit_thursday_910_2nd_rw" class="form-control" value="<?php echo $data_910['thursday_2nd_rw']; ?>" /></td>
+                    <td> <input id="edit_friday_910_2nd_rw" class="form-control" value="<?php echo $data_910['friday_2nd_rw']; ?>" /></td>
+                    <td> <input id="edit_saturday_910_2nd_rw" class="form-control" value="<?php echo $data_910['saturday_2nd_rw']; ?>" /></td>
+                    <td> <input id="edit_sunday_910_2nd_rw" class="form-control" value="<?php echo $data_910['sunday_2nd_rw']; ?>" /></td>
+                    <td>
+                      <input id="edit_cc910_2nd_rw" value="<?php echo $data_910['cc_2nd_rw']; ?>" class="form-control" />
+                    </td>
+                    <td>
+                      <input id="edit_section910_2nd_rw" value="<?php echo $data_910['section_2nd_rw']; ?>" class="form-control" />
+                    </td>
+                    <td> <input id="edit_last_910_2nd_rw" value="<?php echo $data_910['nos_2nd_rw']; ?>" class="form-control" /></td>
+                  </tr>
+              <?php
+                  $trRendered = true;
+                }
+              }
+            } else {
+              ?>
+              <tr>
+                <td rowspan="2">9:00 - 10:00</td>
+                <td></td>
+                <td rowspan="2"></td>
+                <td></td>
+                <td rowspan="2"></td>
+                <td></td>
+                <td rowspan="2"></td>
+                <td></td>
+                <td rowspan="2"></td>
+                <td></td>
+                <td rowspan="2"></td>
+                <td></td>
+                <td rowspan="2"></td>
+                <td></td>
+                <td rowspan="2"></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+            <?php
+            }
+          } else {
+            ?>
+            <tr>
+              <td rowspan="2">9:00 - 10:00</td>
+              <td></td>
+              <td rowspan="2"></td>
+              <td></td>
+              <td rowspan="2"></td>
+              <td></td>
+              <td rowspan="2"></td>
+              <td></td>
+              <td rowspan="2"></td>
+              <td></td>
+              <td rowspan="2"></td>
+              <td></td>
+              <td rowspan="2"></td>
+              <td></td>
+              <td rowspan="2"></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+          <?php
+          }
+          ?>
+          <?php
+          if (isset($_POST['filteredValue'])) {
+            $selected = $_POST['filteredValue'];
+            $qry = "SELECT * FROM sched WHERE time='10:00 - 11:00 AM' AND faculty_id='$selected'";
+            $res_1011 = mysqli_query($conn, $qry);
+
+            if ($res_1011 && mysqli_num_rows($res_1011) > 0) {
+              $trRendered = false;
+              while ($data_1011 = mysqli_fetch_assoc($res_1011)) {
+                if (!$trRendered) {
+          ?>
+                  <tr>
+                    <td rowspan="2">10:00 - 11:00 <input id="time1011" hidden value="10:00 - 11:00 AM" /> </td>
+                    <td> <input id="edit_monday_1011_1st_rw" value="<?php echo $data_1011['monday_1st_rw']; ?>" class="form-control" /></td>
+                    <td rowspan="2"> <input id="edit_room1011_1_rw" value="<?php echo $data_1011['room_1']; ?>" class="form-control" /></td>
+                    <td> <input id="edit_tuesday_1011_1st_rw" value="<?php echo $data_1011['tuesday_1st_rw']; ?>" class="form-control" /></td>
+                    <td rowspan="2"> <input id="edit_room1011_2_rw" value="<?php echo $data_1011['room_2']; ?>" class="form-control" /></td>
+                    <td> <input id="edit_wednesday_1011_1st_rw" value="<?php echo $data_1011['wednesday_1st_rw']; ?>" class="form-control" /> </td>
+                    <td rowspan="2"> <input id="edit_room1011_3_rw" value="<?php echo $data_1011['room_3']; ?>" class="form-control" /> </td>
+                    <td> <input id="edit_thursday_1011_1st_rw" value="<?php echo $data_1011['thursday_1st_rw']; ?>" class="form-control" /> </td>
+                    <td rowspan="2"> <input id="edit_room1011_4_rw" value="<?php echo $data_1011['room_4']; ?>" class="form-control" /> </td>
+                    <td> <input id="edit_friday_1011_1st_rw" value="<?php echo $data_1011['friday_1st_rw']; ?>" class="form-control" /> </td>
+                    <td rowspan="2"> <input id="edit_room1011_5_rw" value="<?php echo $data_1011['room_5']; ?>" class="form-control" /> </td>
+                    <td> <input id="edit_saturday_1011_1st_rw" value="<?php echo $data_1011['saturday_1st_rw']; ?>" class="form-control" /> </td>
+                    <td rowspan="2"> <input id="edit_room1011_6_rw" value="<?php echo $data_1011['room_6']; ?>" class="form-control" /> </td>
+                    <td> <input id="edit_sunday_1011_1st_rw" value="<?php echo $data_1011['sunday_1st_rw']; ?>" class="form-control" /> </td>
+                    <td rowspan="2"> <input id="edit_room1011_7_rw" value="<?php echo $data_1011['room_7']; ?>" class="form-control" /> </td>
+                    <td>
+                      <input id="edit_cc1011_1st_rw" value="<?php echo $data_1011['cc_1st_rw']; ?>" class="form-control" />
+                    </td>
+                    <td>
+                      <input id="edit_section1011_1st_rw" value="<?php echo $data_1011['section_1st_rw']; ?>" class="form-control" />
+                    </td>
+                    <!-- will add another col for this field on db -->
+                    <td> <input id="edit_last_1011_1st_rw" value="<?php echo $data_1011['nos_1st_rw']; ?>" class="form-control" /></td>
+                  </tr>
+                  <tr>
+                    <td> <input id="edit_monday_1011_2nd_rw" class="form-control" value="<?php echo $data_1011['monday_2nd_rw']; ?>" /> </td>
+                    <td> <input id="edit_tuesday_1011_2nd_rw" class="form-control" value="<?php echo $data_1011['tuesday_2nd_rw']; ?>" /></td>
+                    <td> <input id="edit_wednesday_1011_2nd_rw" class="form-control" value="<?php echo $data_1011['wednesday_2nd_rw']; ?>" /></td>
+                    <td> <input id="edit_thursday_1011_2nd_rw" class="form-control" value="<?php echo $data_1011['thursday_2nd_rw']; ?>" /></td>
+                    <td> <input id="edit_friday_1011_2nd_rw" class="form-control" value="<?php echo $data_1011['friday_2nd_rw']; ?>" /></td>
+                    <td> <input id="edit_saturday_1011_2nd_rw" class="form-control" value="<?php echo $data_1011['saturday_2nd_rw']; ?>" /></td>
+                    <td> <input id="edit_sunday_1011_2nd_rw" class="form-control" value="<?php echo $data_1011['sunday_2nd_rw']; ?>" /></td>
+                    <td>
+                      <input id="edit_cc1011_2nd_rw" value="<?php echo $data_1011['cc_2nd_rw']; ?>" class="form-control" />
+                    </td>
+                    <td>
+                      <input id="edit_section1011_2nd_rw" value="<?php echo $data_1011['section_2nd_rw']; ?>" class="form-control" />
+                    </td>
+                    <td> <input id="edit_last_1011_2nd_rw" value="<?php echo $data_1011['nos_2nd_rw']; ?>" class="form-control" /></td>
+                  </tr>
+              <?php
+                  $trRendered = true;
+                }
+              }
+            } else {
+              ?>
+              <tr>
+                <td rowspan="2">10:00 - 11:00</td>
+                <td></td>
+                <td rowspan="2"></td>
+                <td></td>
+                <td rowspan="2"></td>
+                <td></td>
+                <td rowspan="2"></td>
+                <td></td>
+                <td rowspan="2"></td>
+                <td></td>
+                <td rowspan="2"></td>
+                <td></td>
+                <td rowspan="2"></td>
+                <td></td>
+                <td rowspan="2"></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+            <?php
+            }
+          } else {
+            ?>
+            <tr>
+              <td rowspan="2">10:00 - 11:00</td>
+              <td></td>
+              <td rowspan="2"></td>
+              <td></td>
+              <td rowspan="2"></td>
+              <td></td>
+              <td rowspan="2"></td>
+              <td></td>
+              <td rowspan="2"></td>
+              <td></td>
+              <td rowspan="2"></td>
+              <td></td>
+              <td rowspan="2"></td>
+              <td></td>
+              <td rowspan="2"></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+          <?php
+          }
+          ?>
+          <?php
+          if (isset($_POST['filteredValue'])) {
+            $selected = $_POST['filteredValue'];
+            $qry = "SELECT * FROM sched WHERE time='11:00 - 12:00 PM' AND faculty_id='$selected'";
+            $res_1112 = mysqli_query($conn, $qry);
+
+            if ($res_1112 && mysqli_num_rows($res_1112) > 0) {
+              $trRendered = false;
+              while ($data_1112 = mysqli_fetch_assoc($res_1112)) {
+                if (!$trRendered) {
+          ?>
+                  <tr>
+                    <td rowspan="2">11:00 - 12:00 <input id="time1112" hidden value="11:00 - 12:00 PM" /> </td>
+                    <td> <input id="edit_monday_1112_1st_rw" value="<?php echo $data_1112['monday_1st_rw']; ?>" class="form-control" /></td>
+                    <td rowspan="2"> <input id="edit_room1112_1_rw" value="<?php echo $data_1112['room_1']; ?>" class="form-control" /></td>
+                    <td> <input id="edit_tuesday_1112_1st_rw" value="<?php echo $data_1112['tuesday_1st_rw']; ?>" class="form-control" /></td>
+                    <td rowspan="2"> <input id="edit_room1112_2_rw" value="<?php echo $data_1112['room_2']; ?>" class="form-control" /></td>
+                    <td> <input id="edit_wednesday_1112_1st_rw" value="<?php echo $data_1112['wednesday_1st_rw']; ?>" class="form-control" /> </td>
+                    <td rowspan="2"> <input id="edit_room1112_3_rw" value="<?php echo $data_1112['room_3']; ?>" class="form-control" /> </td>
+                    <td> <input id="edit_thursday_1112_1st_rw" value="<?php echo $data_1112['thursday_1st_rw']; ?>" class="form-control" /> </td>
+                    <td rowspan="2"> <input id="edit_room1112_4_rw" value="<?php echo $data_1112['room_4']; ?>" class="form-control" /> </td>
+                    <td> <input id="edit_friday_1112_1st_rw" value="<?php echo $data_1112['friday_1st_rw']; ?>" class="form-control" /> </td>
+                    <td rowspan="2"> <input id="edit_room1112_5_rw" value="<?php echo $data_1112['room_5']; ?>" class="form-control" /> </td>
+                    <td> <input id="edit_saturday_1112_1st_rw" value="<?php echo $data_1112['saturday_1st_rw']; ?>" class="form-control" /> </td>
+                    <td rowspan="2"> <input id="edit_room1112_6_rw" value="<?php echo $data_1112['room_6']; ?>" class="form-control" /> </td>
+                    <td> <input id="edit_sunday_1112_1st_rw" value="<?php echo $data_1112['sunday_1st_rw']; ?>" class="form-control" /> </td>
+                    <td rowspan="2"> <input id="edit_room1112_7_rw" value="<?php echo $data_1112['room_7']; ?>" class="form-control" /> </td>
+                    <td>
+                      <input id="edit_cc1112_1st_rw" value="<?php echo $data_1112['cc_1st_rw']; ?>" class="form-control" />
+                    </td>
+                    <td>
+                      <input id="edit_section1112_1st_rw" value="<?php echo $data_1112['section_1st_rw']; ?>" class="form-control" />
+                    </td>
+                    <!-- will add another col for this field on db -->
+                    <td> <input id="edit_last_1112_1st_rw" value="<?php echo $data_1112['nos_1st_rw']; ?>" class="form-control" /></td>
+                  </tr>
+                  <tr>
+                    <td> <input id="edit_monday_1112_2nd_rw" class="form-control" value="<?php echo $data_1112['monday_2nd_rw']; ?>" /> </td>
+                    <td> <input id="edit_tuesday_1112_2nd_rw" class="form-control" value="<?php echo $data_1112['tuesday_2nd_rw']; ?>" /></td>
+                    <td> <input id="edit_wednesday_1112_2nd_rw" class="form-control" value="<?php echo $data_1112['wednesday_2nd_rw']; ?>" /></td>
+                    <td> <input id="edit_thursday_1112_2nd_rw" class="form-control" value="<?php echo $data_1112['thursday_2nd_rw']; ?>" /></td>
+                    <td> <input id="edit_friday_1112_2nd_rw" class="form-control" value="<?php echo $data_1112['friday_2nd_rw']; ?>" /></td>
+                    <td> <input id="edit_saturday_1112_2nd_rw" class="form-control" value="<?php echo $data_1112['saturday_2nd_rw']; ?>" /></td>
+                    <td> <input id="edit_sunday_1112_2nd_rw" class="form-control" value="<?php echo $data_1112['sunday_2nd_rw']; ?>" /></td>
+                    <td>
+                      <input id="edit_cc1112_2nd_rw" value="<?php echo $data_1112['cc_2nd_rw']; ?>" class="form-control" />
+                    </td>
+                    <td>
+                      <input id="edit_section1112_2nd_rw" value="<?php echo $data_1112['section_2nd_rw']; ?>" class="form-control" />
+                    </td>
+                    <td> <input id="edit_last_1112_2nd_rw" value="<?php echo $data_1112['nos_2nd_rw']; ?>" class="form-control" /></td>
+                  </tr>
+              <?php
+                  $trRendered = true;
+                }
+              }
+            } else {
+              ?>
+              <tr>
+                <td rowspan="2">11:00 - 12:00</td>
+                <td></td>
+                <td rowspan="2"></td>
+                <td></td>
+                <td rowspan="2"></td>
+                <td></td>
+                <td rowspan="2"></td>
+                <td></td>
+                <td rowspan="2"></td>
+                <td></td>
+                <td rowspan="2"></td>
+                <td></td>
+                <td rowspan="2"></td>
+                <td></td>
+                <td rowspan="2"></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+            <?php
+            }
+          } else {
+            ?>
+            <tr>
+              <td rowspan="2">11:00 - 12:00</td>
+              <td></td>
+              <td rowspan="2"></td>
+              <td></td>
+              <td rowspan="2"></td>
+              <td></td>
+              <td rowspan="2"></td>
+              <td></td>
+              <td rowspan="2"></td>
+              <td></td>
+              <td rowspan="2"></td>
+              <td></td>
+              <td rowspan="2"></td>
+              <td></td>
+              <td rowspan="2"></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+          <?php
+          }
+          ?>
+          <?php
+          if (isset($_POST['filteredValue'])) {
+            $selected = $_POST['filteredValue'];
+            $qry = "SELECT * FROM sched WHERE time='12:00 - 1:00 PM' AND faculty_id='$selected'";
+            $res_1201 = mysqli_query($conn, $qry);
+
+            if ($res_1201 && mysqli_num_rows($res_1201) > 0) {
+              $trRendered = false;
+              while ($data_1201 = mysqli_fetch_assoc($res_1201)) {
+                if (!$trRendered) {
+          ?>
+                  <tr>
+                    <td rowspan="2">12:00 - 1:00 <input id="time1201" hidden value="12:00 - 1:00 PM" /> </td>
+                    <td> <input id="edit_monday_1201_1st_rw" value="<?php echo $data_1201['monday_1st_rw']; ?>" class="form-control" /></td>
+                    <td rowspan="2"> <input id="edit_room1201_1_rw" value="<?php echo $data_1201['room_1']; ?>" class="form-control" /></td>
+                    <td> <input id="edit_tuesday_1201_1st_rw" value="<?php echo $data_1201['tuesday_1st_rw']; ?>" class="form-control" /></td>
+                    <td rowspan="2"> <input id="edit_room1201_2_rw" value="<?php echo $data_1201['room_2']; ?>" class="form-control" /></td>
+                    <td> <input id="edit_wednesday_1201_1st_rw" value="<?php echo $data_1201['wednesday_1st_rw']; ?>" class="form-control" /> </td>
+                    <td rowspan="2"> <input id="edit_room1201_3_rw" value="<?php echo $data_1201['room_3']; ?>" class="form-control" /> </td>
+                    <td> <input id="edit_thursday_1201_1st_rw" value="<?php echo $data_1201['thursday_1st_rw']; ?>" class="form-control" /> </td>
+                    <td rowspan="2"> <input id="edit_room1201_4_rw" value="<?php echo $data_1201['room_4']; ?>" class="form-control" /> </td>
+                    <td> <input id="edit_friday_1201_1st_rw" value="<?php echo $data_1201['friday_1st_rw']; ?>" class="form-control" /> </td>
+                    <td rowspan="2"> <input id="edit_room1201_5_rw" value="<?php echo $data_1201['room_5']; ?>" class="form-control" /> </td>
+                    <td> <input id="edit_saturday_1201_1st_rw" value="<?php echo $data_1201['saturday_1st_rw']; ?>" class="form-control" /> </td>
+                    <td rowspan="2"> <input id="edit_room1201_6_rw" value="<?php echo $data_1201['room_6']; ?>" class="form-control" /> </td>
+                    <td> <input id="edit_sunday_1201_1st_rw" value="<?php echo $data_1201['sunday_1st_rw']; ?>" class="form-control" /> </td>
+                    <td rowspan="2"> <input id="edit_room1201_7_rw" value="<?php echo $data_1201['room_7']; ?>" class="form-control" /> </td>
+                    <td>
+                      <input id="edit_cc1201_1st_rw" value="<?php echo $data_1201['cc_1st_rw']; ?>" class="form-control" />
+                    </td>
+                    <td>
+                      <input id="edit_section1201_1st_rw" value="<?php echo $data_1201['section_1st_rw']; ?>" class="form-control" />
+                    </td>
+                    <!-- will add another col for this field on db -->
+                    <td> <input id="edit_last_1201_1st_rw" value="<?php echo $data_1201['nos_1st_rw']; ?>" class="form-control" /></td>
+                  </tr>
+                  <tr>
+                    <td> <input id="edit_monday_1201_2nd_rw" class="form-control" value="<?php echo $data_1201['monday_2nd_rw']; ?>" /> </td>
+                    <td> <input id="edit_tuesday_1201_2nd_rw" class="form-control" value="<?php echo $data_1201['tuesday_2nd_rw']; ?>" /></td>
+                    <td> <input id="edit_wednesday_1201_2nd_rw" class="form-control" value="<?php echo $data_1201['wednesday_2nd_rw']; ?>" /></td>
+                    <td> <input id="edit_thursday_1201_2nd_rw" class="form-control" value="<?php echo $data_1201['thursday_2nd_rw']; ?>" /></td>
+                    <td> <input id="edit_friday_1201_2nd_rw" class="form-control" value="<?php echo $data_1201['friday_2nd_rw']; ?>" /></td>
+                    <td> <input id="edit_saturday_1201_2nd_rw" class="form-control" value="<?php echo $data_1201['saturday_2nd_rw']; ?>" /></td>
+                    <td> <input id="edit_sunday_1201_2nd_rw" class="form-control" value="<?php echo $data_1201['sunday_2nd_rw']; ?>" /></td>
+                    <td>
+                      <input id="edit_cc1201_2nd_rw" value="<?php echo $data_1201['cc_2nd_rw']; ?>" class="form-control" />
+                    </td>
+                    <td>
+                      <input id="edit_section1201_2nd_rw" value="<?php echo $data_1201['section_2nd_rw']; ?>" class="form-control" />
+                    </td>
+                    <td> <input id="edit_last_1201_2nd_rw" value="<?php echo $data_1201['nos_2nd_rw']; ?>" class="form-control" /></td>
+                  </tr>
+              <?php
+                  $trRendered = true;
+                }
+              }
+            } else {
+              ?>
+              <tr>
+                <td rowspan="2">12:00 - 1:00</td>
+                <td></td>
+                <td rowspan="2"></td>
+                <td></td>
+                <td rowspan="2"></td>
+                <td></td>
+                <td rowspan="2"></td>
+                <td></td>
+                <td rowspan="2"></td>
+                <td></td>
+                <td rowspan="2"></td>
+                <td></td>
+                <td rowspan="2"></td>
+                <td></td>
+                <td rowspan="2"></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+            <?php
+            }
+          } else {
+            ?>
+            <tr>
+              <td rowspan="2">12:00 - 1:00</td>
+              <td></td>
+              <td rowspan="2"></td>
+              <td></td>
+              <td rowspan="2"></td>
+              <td></td>
+              <td rowspan="2"></td>
+              <td></td>
+              <td rowspan="2"></td>
+              <td></td>
+              <td rowspan="2"></td>
+              <td></td>
+              <td rowspan="2"></td>
+              <td></td>
+              <td rowspan="2"></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+          <?php
+          }
+          ?>
+          <?php
+          if (isset($_POST['filteredValue'])) {
+            $selected = $_POST['filteredValue'];
+            $qry = "SELECT * FROM sched WHERE time='1:00 - 2:00 PM' AND faculty_id='$selected'";
+            $res_0102 = mysqli_query($conn, $qry);
+
+            if ($res_0102 && mysqli_num_rows($res_0102) > 0) {
+              $trRendered = false;
+              while ($data_0102 = mysqli_fetch_assoc($res_0102)) {
+                if (!$trRendered) {
+          ?>
+                  <tr>
+                    <td rowspan="2">1:00 - 2:00 <input id="time0102" hidden value="1:00 - 2:00 PM" /> </td>
+                    <td> <input id="edit_monday_0102_1st_rw" value="<?php echo $data_0102['monday_1st_rw']; ?>" class="form-control" /></td>
+                    <td rowspan="2"> <input id="edit_room0102_1_rw" value="<?php echo $data_0102['room_1']; ?>" class="form-control" /></td>
+                    <td> <input id="edit_tuesday_0102_1st_rw" value="<?php echo $data_0102['tuesday_1st_rw']; ?>" class="form-control" /></td>
+                    <td rowspan="2"> <input id="edit_room0102_2_rw" value="<?php echo $data_0102['room_2']; ?>" class="form-control" /></td>
+                    <td> <input id="edit_wednesday_0102_1st_rw" value="<?php echo $data_0102['wednesday_1st_rw']; ?>" class="form-control" /> </td>
+                    <td rowspan="2"> <input id="edit_room0102_3_rw" value="<?php echo $data_0102['room_3']; ?>" class="form-control" /> </td>
+                    <td> <input id="edit_thursday_0102_1st_rw" value="<?php echo $data_0102['thursday_1st_rw']; ?>" class="form-control" /> </td>
+                    <td rowspan="2"> <input id="edit_room0102_4_rw" value="<?php echo $data_0102['room_4']; ?>" class="form-control" /> </td>
+                    <td> <input id="edit_friday_0102_1st_rw" value="<?php echo $data_0102['friday_1st_rw']; ?>" class="form-control" /> </td>
+                    <td rowspan="2"> <input id="edit_room0102_5_rw" value="<?php echo $data_0102['room_5']; ?>" class="form-control" /> </td>
+                    <td> <input id="edit_saturday_0102_1st_rw" value="<?php echo $data_0102['saturday_1st_rw']; ?>" class="form-control" /> </td>
+                    <td rowspan="2"> <input id="edit_room0102_6_rw" value="<?php echo $data_0102['room_6']; ?>" class="form-control" /> </td>
+                    <td> <input id="edit_sunday_0102_1st_rw" value="<?php echo $data_0102['sunday_1st_rw']; ?>" class="form-control" /> </td>
+                    <td rowspan="2"> <input id="edit_room0102_7_rw" value="<?php echo $data_0102['room_7']; ?>" class="form-control" /> </td>
+                    <td>
+                      <input id="edit_cc0102_1st_rw" value="<?php echo $data_0102['cc_1st_rw']; ?>" class="form-control" />
+                    </td>
+                    <td>
+                      <input id="edit_section0102_1st_rw" value="<?php echo $data_0102['section_1st_rw']; ?>" class="form-control" />
+                    </td>
+                    <!-- will add another col for this field on db -->
+                    <td> <input id="edit_last_0102_1st_rw" value="<?php echo $data_0102['nos_1st_rw']; ?>" class="form-control" /></td>
+                  </tr>
+                  <tr>
+                    <td> <input id="edit_monday_0102_2nd_rw" class="form-control" value="<?php echo $data_0102['monday_2nd_rw']; ?>" /> </td>
+                    <td> <input id="edit_tuesday_0102_2nd_rw" class="form-control" value="<?php echo $data_0102['tuesday_2nd_rw']; ?>" /></td>
+                    <td> <input id="edit_wednesday_0102_2nd_rw" class="form-control" value="<?php echo $data_0102['wednesday_2nd_rw']; ?>" /></td>
+                    <td> <input id="edit_thursday_0102_2nd_rw" class="form-control" value="<?php echo $data_0102['thursday_2nd_rw']; ?>" /></td>
+                    <td> <input id="edit_friday_0102_2nd_rw" class="form-control" value="<?php echo $data_0102['friday_2nd_rw']; ?>" /></td>
+                    <td> <input id="edit_saturday_0102_2nd_rw" class="form-control" value="<?php echo $data_0102['saturday_2nd_rw']; ?>" /></td>
+                    <td> <input id="edit_sunday_0102_2nd_rw" class="form-control" value="<?php echo $data_0102['sunday_2nd_rw']; ?>" /></td>
+                    <td colspan="3" rowspan="6">
+                      <input id="edit_timeline0102_rw" value="<?php echo $data_0102['timeline']; ?>" class="form-control" />
+                    </td>
+                  </tr>
+              <?php
+                  $trRendered = true;
+                }
+              }
+            } else {
+              ?>
+              <tr>
+                <td rowspan="2">1:00 - 2:00</td>
+                <td></td>
+                <td rowspan="2"></td>
+                <td></td>
+                <td rowspan="2"></td>
+                <td></td>
+                <td rowspan="2"></td>
+                <td></td>
+                <td rowspan="2"></td>
+                <td></td>
+                <td rowspan="2"></td>
+                <td></td>
+                <td rowspan="2"></td>
+                <td></td>
+                <td rowspan="2"></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td colspan="3" rowspan="6"></td>
+              </tr>
+            <?php
+            }
+          } else {
+            ?>
+            <tr>
+              <td rowspan="2">1:00 - 2:00</td>
+              <td></td>
+              <td rowspan="2"></td>
+              <td></td>
+              <td rowspan="2"></td>
+              <td></td>
+              <td rowspan="2"></td>
+              <td></td>
+              <td rowspan="2"></td>
+              <td></td>
+              <td rowspan="2"></td>
+              <td></td>
+              <td rowspan="2"></td>
+              <td></td>
+              <td rowspan="2"></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td colspan="3" rowspan="6"></td>
+            </tr>
+          <?php
+          }
+          ?>
+          <?php
+          if (isset($_POST['filteredValue'])) {
+            $selected = $_POST['filteredValue'];
+            $qry = "SELECT * FROM sched WHERE time='2:00 - 3:00 PM' AND faculty_id='$selected'";
+            $res_0203 = mysqli_query($conn, $qry);
+
+            if ($res_0203 && mysqli_num_rows($res_0203) > 0) {
+              $trRendered = false;
+              while ($data_0203 = mysqli_fetch_assoc($res_0203)) {
+                if (!$trRendered) {
+          ?>
+                  <tr>
+                    <td rowspan="2">2:00 - 3:00 <input id="time0203" hidden value="2:00 - 3:00 PM" /> </td>
+                    <td> <input id="edit_monday_0203_1st_rw" value="<?php echo $data_0203['monday_1st_rw']; ?>" class="form-control" /></td>
+                    <td rowspan="2"> <input id="edit_room0203_1_rw" value="<?php echo $data_0203['room_1']; ?>" class="form-control" /></td>
+                    <td> <input id="edit_tuesday_0203_1st_rw" value="<?php echo $data_0203['tuesday_1st_rw']; ?>" class="form-control" /></td>
+                    <td rowspan="2"> <input id="edit_room0203_2_rw" value="<?php echo $data_0203['room_2']; ?>" class="form-control" /></td>
+                    <td> <input id="edit_wednesday_0203_1st_rw" value="<?php echo $data_0203['wednesday_1st_rw']; ?>" class="form-control" /> </td>
+                    <td rowspan="2"> <input id="edit_room0203_3_rw" value="<?php echo $data_0203['room_3']; ?>" class="form-control" /> </td>
+                    <td> <input id="edit_thursday_0203_1st_rw" value="<?php echo $data_0203['thursday_1st_rw']; ?>" class="form-control" /> </td>
+                    <td rowspan="2"> <input id="edit_room0203_4_rw" value="<?php echo $data_0203['room_4']; ?>" class="form-control" /> </td>
+                    <td> <input id="edit_friday_0203_1st_rw" value="<?php echo $data_0203['friday_1st_rw']; ?>" class="form-control" /> </td>
+                    <td rowspan="2"> <input id="edit_room0203_5_rw" value="<?php echo $data_0203['room_5']; ?>" class="form-control" /> </td>
+                    <td> <input id="edit_saturday_0203_1st_rw" value="<?php echo $data_0203['saturday_1st_rw']; ?>" class="form-control" /> </td>
+                    <td rowspan="2"> <input id="edit_room0203_6_rw" value="<?php echo $data_0203['room_6']; ?>" class="form-control" /> </td>
+                    <td> <input id="edit_sunday_0203_1st_rw" value="<?php echo $data_0203['sunday_1st_rw']; ?>" class="form-control" /> </td>
+                    <td rowspan="2"> <input id="edit_room0203_7_rw" value="<?php echo $data_0203['room_7']; ?>" class="form-control" /> </td>
+
+                  </tr>
+                  <tr>
+                    <td> <input id="edit_monday_0203_2nd_rw" class="form-control" value="<?php echo $data_0203['monday_2nd_rw']; ?>" /> </td>
+                    <td> <input id="edit_tuesday_0203_2nd_rw" class="form-control" value="<?php echo $data_0203['tuesday_2nd_rw']; ?>" /></td>
+                    <td> <input id="edit_wednesday_0203_2nd_rw" class="form-control" value="<?php echo $data_0203['wednesday_2nd_rw']; ?>" /></td>
+                    <td> <input id="edit_thursday_0203_2nd_rw" class="form-control" value="<?php echo $data_0203['thursday_2nd_rw']; ?>" /></td>
+                    <td> <input id="edit_friday_0203_2nd_rw" class="form-control" value="<?php echo $data_0203['friday_2nd_rw']; ?>" /></td>
+                    <td> <input id="edit_saturday_0203_2nd_rw" class="form-control" value="<?php echo $data_0203['saturday_2nd_rw']; ?>" /></td>
+                    <td> <input id="edit_sunday_0203_2nd_rw" class="form-control" value="<?php echo $data_0203['sunday_2nd_rw']; ?>" /></td>
+
+                  </tr>
+              <?php
+                  $trRendered = true;
+                }
+              }
+            } else {
+              ?>
+              <tr>
+                <td rowspan="2">2:00 - 3:00</td>
+                <td></td>
+                <td rowspan="2"></td>
+                <td></td>
+                <td rowspan="2"></td>
+                <td></td>
+                <td rowspan="2"></td>
+                <td></td>
+                <td rowspan="2"></td>
+                <td></td>
+                <td rowspan="2"></td>
+                <td></td>
+                <td rowspan="2"></td>
+                <td></td>
+                <td rowspan="2"></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+            <?php
+            }
+          } else {
+            ?>
+            <tr>
+              <td rowspan="2">2:00 - 3:00</td>
+              <td></td>
+              <td rowspan="2"></td>
+              <td></td>
+              <td rowspan="2"></td>
+              <td></td>
+              <td rowspan="2"></td>
+              <td></td>
+              <td rowspan="2"></td>
+              <td></td>
+              <td rowspan="2"></td>
+              <td></td>
+              <td rowspan="2"></td>
+              <td></td>
+              <td rowspan="2"></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+          <?php
+          }
+          ?>
+          <?php
+          if (isset($_POST['filteredValue'])) {
+            $selected = $_POST['filteredValue'];
+            $qry = "SELECT * FROM sched WHERE time='3:00 - 4:00 PM' AND faculty_id='$selected'";
+            $res_0304 = mysqli_query($conn, $qry);
+
+            if ($res_0304 && mysqli_num_rows($res_0304) > 0) {
+              $trRendered = false;
+              while ($data_0304 = mysqli_fetch_assoc($res_0304)) {
+                if (!$trRendered) {
+          ?>
+                  <tr>
+                    <td rowspan="2">3:00 - 4:00 <input id="time0304" hidden value="3:00 - 4:00 PM" /> </td>
+                    <td> <input id="edit_monday_0304_1st_rw" value="<?php echo $data_0304['monday_1st_rw']; ?>" class="form-control" /></td>
+                    <td rowspan="2"> <input id="edit_room0304_1_rw" value="<?php echo $data_0304['room_1']; ?>" class="form-control" /></td>
+                    <td> <input id="edit_tuesday_0304_1st_rw" value="<?php echo $data_0304['tuesday_1st_rw']; ?>" class="form-control" /></td>
+                    <td rowspan="2"> <input id="edit_room0304_2_rw" value="<?php echo $data_0304['room_2']; ?>" class="form-control" /></td>
+                    <td> <input id="edit_wednesday_0304_1st_rw" value="<?php echo $data_0304['wednesday_1st_rw']; ?>" class="form-control" /> </td>
+                    <td rowspan="2"> <input id="edit_room0304_3_rw" value="<?php echo $data_0304['room_3']; ?>" class="form-control" /> </td>
+                    <td> <input id="edit_thursday_0304_1st_rw" value="<?php echo $data_0304['thursday_1st_rw']; ?>" class="form-control" /> </td>
+                    <td rowspan="2"> <input id="edit_room0304_4_rw" value="<?php echo $data_0304['room_4']; ?>" class="form-control" /> </td>
+                    <td> <input id="edit_friday_0304_1st_rw" value="<?php echo $data_0304['friday_1st_rw']; ?>" class="form-control" /> </td>
+                    <td rowspan="2"> <input id="edit_room0304_5_rw" value="<?php echo $data_0304['room_5']; ?>" class="form-control" /> </td>
+                    <td> <input id="edit_saturday_0304_1st_rw" value="<?php echo $data_0304['saturday_1st_rw']; ?>" class="form-control" /> </td>
+                    <td rowspan="2"> <input id="edit_room0304_6_rw" value="<?php echo $data_0304['room_6']; ?>" class="form-control" /> </td>
+                    <td> <input id="edit_sunday_0304_1st_rw" value="<?php echo $data_0304['sunday_1st_rw']; ?>" class="form-control" /> </td>
+                    <td rowspan="2"> <input id="edit_room0304_7_rw" value="<?php echo $data_0304['room_7']; ?>" class="form-control" /> </td>
+
+                  </tr>
+                  <tr>
+                    <td> <input id="edit_monday_0304_2nd_rw" class="form-control" value="<?php echo $data_0304['monday_2nd_rw']; ?>" /> </td>
+                    <td> <input id="edit_tuesday_0304_2nd_rw" class="form-control" value="<?php echo $data_0304['tuesday_2nd_rw']; ?>" /></td>
+                    <td> <input id="edit_wednesday_0304_2nd_rw" class="form-control" value="<?php echo $data_0304['wednesday_2nd_rw']; ?>" /></td>
+                    <td> <input id="edit_thursday_0304_2nd_rw" class="form-control" value="<?php echo $data_0304['thursday_2nd_rw']; ?>" /></td>
+                    <td> <input id="edit_friday_0304_2nd_rw" class="form-control" value="<?php echo $data_0304['friday_2nd_rw']; ?>" /></td>
+                    <td> <input id="edit_saturday_0304_2nd_rw" class="form-control" value="<?php echo $data_0304['saturday_2nd_rw']; ?>" /></td>
+                    <td> <input id="edit_sunday_0304_2nd_rw" class="form-control" value="<?php echo $data_0304['sunday_2nd_rw']; ?>" /></td>
+
+                  </tr>
+              <?php
+                  $trRendered = true;
+                }
+              }
+            } else {
+              ?>
+              <tr>
+                <td rowspan="2">3:00 - 4:00</td>
+                <td></td>
+                <td rowspan="2"></td>
+                <td></td>
+                <td rowspan="2"></td>
+                <td></td>
+                <td rowspan="2"></td>
+                <td></td>
+                <td rowspan="2"></td>
+                <td></td>
+                <td rowspan="2"></td>
+                <td></td>
+                <td rowspan="2"></td>
+                <td></td>
+                <td rowspan="2"></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+            <?php
+            }
+          } else {
+            ?>
+            <tr>
+              <td rowspan="2">3:00 - 4:00</td>
+              <td></td>
+              <td rowspan="2"></td>
+              <td></td>
+              <td rowspan="2"></td>
+              <td></td>
+              <td rowspan="2"></td>
+              <td></td>
+              <td rowspan="2"></td>
+              <td></td>
+              <td rowspan="2"></td>
+              <td></td>
+              <td rowspan="2"></td>
+              <td></td>
+              <td rowspan="2"></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+          <?php
+          }
+          ?>
+          <?php
+          if (isset($_POST['filteredValue'])) {
+            $selected = $_POST['filteredValue'];
+            $qry = "SELECT * FROM sched WHERE time='4:00 - 5:00 PM' AND faculty_id='$selected'";
+            $res_0405 = mysqli_query($conn, $qry);
+
+            if ($res_0405 && mysqli_num_rows($res_0405) > 0) {
+              $trRendered = false;
+              while ($data_0405 = mysqli_fetch_assoc($res_0405)) {
+                if (!$trRendered) {
+          ?>
+                  <tr>
+                    <td rowspan="2">4:00 - 5:00 <input id="time0405" hidden value="4:00 - 5:00 PM" /> </td>
+                    <td> <input id="edit_monday_0405_1st_rw" value="<?php echo $data_0405['monday_1st_rw']; ?>" class="form-control" /></td>
+                    <td rowspan="2"> <input id="edit_room0405_1_rw" value="<?php echo $data_0405['room_1']; ?>" class="form-control" /></td>
+                    <td> <input id="edit_tuesday_0405_1st_rw" value="<?php echo $data_0405['tuesday_1st_rw']; ?>" class="form-control" /></td>
+                    <td rowspan="2"> <input id="edit_room0405_2_rw" value="<?php echo $data_0405['room_2']; ?>" class="form-control" /></td>
+                    <td> <input id="edit_wednesday_0405_1st_rw" value="<?php echo $data_0405['wednesday_1st_rw']; ?>" class="form-control" /> </td>
+                    <td rowspan="2"> <input id="edit_room0405_3_rw" value="<?php echo $data_0405['room_3']; ?>" class="form-control" /> </td>
+                    <td> <input id="edit_thursday_0405_1st_rw" value="<?php echo $data_0405['thursday_1st_rw']; ?>" class="form-control" /> </td>
+                    <td rowspan="2"> <input id="edit_room0405_4_rw" value="<?php echo $data_0405['room_4']; ?>" class="form-control" /> </td>
+                    <td> <input id="edit_friday_0405_1st_rw" value="<?php echo $data_0405['friday_1st_rw']; ?>" class="form-control" /> </td>
+                    <td rowspan="2"> <input id="edit_room0405_5_rw" value="<?php echo $data_0405['room_5']; ?>" class="form-control" /> </td>
+                    <td> <input id="edit_saturday_0405_1st_rw" value="<?php echo $data_0405['saturday_1st_rw']; ?>" class="form-control" /> </td>
+                    <td rowspan="2"> <input id="edit_room0405_6_rw" value="<?php echo $data_0405['room_6']; ?>" class="form-control" /> </td>
+                    <td> <input id="edit_sunday_0405_1st_rw" value="<?php echo $data_0405['sunday_1st_rw']; ?>" class="form-control" /> </td>
+                    <td rowspan="2"> <input id="edit_room0405_7_rw" value="<?php echo $data_0405['room_7']; ?>" class="form-control" /> </td>
+                  </tr>
+                  <tr>
+                    <td> <input id="edit_monday_0405_2nd_rw" class="form-control" value="<?php echo $data_0405['monday_2nd_rw']; ?>" /> </td>
+                    <td> <input id="edit_tuesday_0405_2nd_rw" class="form-control" value="<?php echo $data_0405['tuesday_2nd_rw']; ?>" /></td>
+                    <td> <input id="edit_wednesday_0405_2nd_rw" class="form-control" value="<?php echo $data_0405['wednesday_2nd_rw']; ?>" /></td>
+                    <td> <input id="edit_thursday_0405_2nd_rw" class="form-control" value="<?php echo $data_0405['thursday_2nd_rw']; ?>" /></td>
+                    <td> <input id="edit_friday_0405_2nd_rw" class="form-control" value="<?php echo $data_0405['friday_2nd_rw']; ?>" /></td>
+                    <td> <input id="edit_saturday_0405_2nd_rw" class="form-control" value="<?php echo $data_0405['saturday_2nd_rw']; ?>" /></td>
+                    <td> <input id="edit_sunday_0405_2nd_rw" class="form-control" value="<?php echo $data_0405['sunday_2nd_rw']; ?>" /></td>
+                    <td colspan="3" rowspan="6">
+                      <input id="edit_cc0405_2nd_rw" value="<?php echo $data_0405['cc_2nd_rw']; ?>" class="form-control" />
+                    </td>
+                  </tr>
+              <?php
+                  $trRendered = true;
+                }
+              }
+            } else {
+              ?>
+              <tr>
+                <td rowspan="2">4:00 - 5:00</td>
+                <td></td>
+                <td rowspan="2"></td>
+                <td></td>
+                <td rowspan="2"></td>
+                <td></td>
+                <td rowspan="2"></td>
+                <td></td>
+                <td rowspan="2"></td>
+                <td></td>
+                <td rowspan="2"></td>
+                <td></td>
+                <td rowspan="2"></td>
+                <td></td>
+                <td rowspan="2"></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td colspan="3" rowspan="6"></td>
+              </tr>
+            <?php
+            }
+          } else {
+            ?>
+            <tr>
+              <td rowspan="2">4:00 - 5:00</td>
+              <td></td>
+              <td rowspan="2"></td>
+              <td></td>
+              <td rowspan="2"></td>
+              <td></td>
+              <td rowspan="2"></td>
+              <td></td>
+              <td rowspan="2"></td>
+              <td></td>
+              <td rowspan="2"></td>
+              <td></td>
+              <td rowspan="2"></td>
+              <td></td>
+              <td rowspan="2"></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td colspan="3" rowspan="6"></td>
+            </tr>
+          <?php
+          }
+          ?>
+          <?php
+          if (isset($_POST['filteredValue'])) {
+            $selected = $_POST['filteredValue'];
+            $qry = "SELECT * FROM sched WHERE time='5:00 - 6:00 PM' AND faculty_id='$selected'";
+            $res_0506 = mysqli_query($conn, $qry);
+
+            if ($res_0506 && mysqli_num_rows($res_0506) > 0) {
+              $trRendered = false;
+              while ($data_0506 = mysqli_fetch_assoc($res_0506)) {
+                if (!$trRendered) {
+          ?>
+                  <tr>
+                    <td rowspan="2">5:00 - 6:00 <input id="time0506" hidden value="5:00 - 6:00 PM" /> </td>
+                    <td> <input id="edit_monday_0506_1st_rw" value="<?php echo $data_0506['monday_1st_rw']; ?>" class="form-control" /></td>
+                    <td rowspan="2"> <input id="edit_room0506_1_rw" value="<?php echo $data_0506['room_1']; ?>" class="form-control" /></td>
+                    <td> <input id="edit_tuesday_0506_1st_rw" value="<?php echo $data_0506['tuesday_1st_rw']; ?>" class="form-control" /></td>
+                    <td rowspan="2"> <input id="edit_room0506_2_rw" value="<?php echo $data_0506['room_2']; ?>" class="form-control" /></td>
+                    <td> <input id="edit_wednesday_0506_1st_rw" value="<?php echo $data_0506['wednesday_1st_rw']; ?>" class="form-control" /> </td>
+                    <td rowspan="2"> <input id="edit_room0506_3_rw" value="<?php echo $data_0506['room_3']; ?>" class="form-control" /> </td>
+                    <td> <input id="edit_thursday_0506_1st_rw" value="<?php echo $data_0506['thursday_1st_rw']; ?>" class="form-control" /> </td>
+                    <td rowspan="2"> <input id="edit_room0506_4_rw" value="<?php echo $data_0506['room_4']; ?>" class="form-control" /> </td>
+                    <td> <input id="edit_friday_0506_1st_rw" value="<?php echo $data_0506['friday_1st_rw']; ?>" class="form-control" /> </td>
+                    <td rowspan="2"> <input id="edit_room0506_5_rw" value="<?php echo $data_0506['room_5']; ?>" class="form-control" /> </td>
+                    <td> <input id="edit_saturday_0506_1st_rw" value="<?php echo $data_0506['saturday_1st_rw']; ?>" class="form-control" /> </td>
+                    <td rowspan="2"> <input id="edit_room0506_6_rw" value="<?php echo $data_0506['room_6']; ?>" class="form-control" /> </td>
+                    <td> <input id="edit_sunday_0506_1st_rw" value="<?php echo $data_0506['sunday_1st_rw']; ?>" class="form-control" /> </td>
+                    <td rowspan="2"> <input id="edit_room0506_7_rw" value="<?php echo $data_0506['room_7']; ?>" class="form-control" /> </td>
+                  </tr>
+                  <tr>
+                    <td> <input id="edit_monday_0506_2nd_rw" class="form-control" value="<?php echo $data_0506['monday_2nd_rw']; ?>" /> </td>
+                    <td> <input id="edit_tuesday_0506_2nd_rw" class="form-control" value="<?php echo $data_0506['tuesday_2nd_rw']; ?>" /></td>
+                    <td> <input id="edit_wednesday_0506_2nd_rw" class="form-control" value="<?php echo $data_0506['wednesday_2nd_rw']; ?>" /></td>
+                    <td> <input id="edit_thursday_0506_2nd_rw" class="form-control" value="<?php echo $data_0506['thursday_2nd_rw']; ?>" /></td>
+                    <td> <input id="edit_friday_0506_2nd_rw" class="form-control" value="<?php echo $data_0506['friday_2nd_rw']; ?>" /></td>
+                    <td> <input id="edit_saturday_0506_2nd_rw" class="form-control" value="<?php echo $data_0506['saturday_2nd_rw']; ?>" /></td>
+                    <td> <input id="edit_sunday_0506_2nd_rw" class="form-control" value="<?php echo $data_0506['sunday_2nd_rw']; ?>" /></td>
+
+                  </tr>
+              <?php
+                  $trRendered = true;
+                }
+              }
+            } else {
+              ?>
+              <tr>
+                <td rowspan="2">5:00 - 6:00</td>
+                <td></td>
+                <td rowspan="2"></td>
+                <td></td>
+                <td rowspan="2"></td>
+                <td></td>
+                <td rowspan="2"></td>
+                <td></td>
+                <td rowspan="2"></td>
+                <td></td>
+                <td rowspan="2"></td>
+                <td></td>
+                <td rowspan="2"></td>
+                <td></td>
+                <td rowspan="2"></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+            <?php
+            }
+          } else {
+            ?>
+            <tr>
+              <td rowspan="2">5:00 - 6:00</td>
+              <td></td>
+              <td rowspan="2"></td>
+              <td></td>
+              <td rowspan="2"></td>
+              <td></td>
+              <td rowspan="2"></td>
+              <td></td>
+              <td rowspan="2"></td>
+              <td></td>
+              <td rowspan="2"></td>
+              <td></td>
+              <td rowspan="2"></td>
+              <td></td>
+              <td rowspan="2"></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+          <?php
+          }
+          ?>
+          <?php
+          if (isset($_POST['filteredValue'])) {
+            $selected = $_POST['filteredValue'];
+            $qry = "SELECT * FROM sched WHERE time='6:00 - 7:00 PM' AND faculty_id='$selected'";
+            $res_0607 = mysqli_query($conn, $qry);
+
+            if ($res_0607 && mysqli_num_rows($res_0607) > 0) {
+              $trRendered = false;
+              while ($data_0607 = mysqli_fetch_assoc($res_0607)) {
+                if (!$trRendered) {
+          ?>
+                  <tr>
+                    <td rowspan="2">6:00 - 7:00 <input id="time0607" hidden value="6:00 - 7:00 PM" /> </td>
+                    <td> <input id="edit_monday_0607_1st_rw" value="<?php echo $data_0607['monday_1st_rw']; ?>" class="form-control" /></td>
+                    <td rowspan="2"> <input id="edit_room0607_1_rw" value="<?php echo $data_0607['room_1']; ?>" class="form-control" /></td>
+                    <td> <input id="edit_tuesday_0607_1st_rw" value="<?php echo $data_0607['tuesday_1st_rw']; ?>" class="form-control" /></td>
+                    <td rowspan="2"> <input id="edit_room0607_2_rw" value="<?php echo $data_0607['room_2']; ?>" class="form-control" /></td>
+                    <td> <input id="edit_wednesday_0607_1st_rw" value="<?php echo $data_0607['wednesday_1st_rw']; ?>" class="form-control" /> </td>
+                    <td rowspan="2"> <input id="edit_room0607_3_rw" value="<?php echo $data_0607['room_3']; ?>" class="form-control" /> </td>
+                    <td> <input id="edit_thursday_0607_1st_rw" value="<?php echo $data_0607['thursday_1st_rw']; ?>" class="form-control" /> </td>
+                    <td rowspan="2"> <input id="edit_room0607_4_rw" value="<?php echo $data_0607['room_4']; ?>" class="form-control" /> </td>
+                    <td> <input id="edit_friday_0607_1st_rw" value="<?php echo $data_0607['friday_1st_rw']; ?>" class="form-control" /> </td>
+                    <td rowspan="2"> <input id="edit_room0607_5_rw" value="<?php echo $data_0607['room_5']; ?>" class="form-control" /> </td>
+                    <td> <input id="edit_saturday_0607_1st_rw" value="<?php echo $data_0607['saturday_1st_rw']; ?>" class="form-control" /> </td>
+                    <td rowspan="2"> <input id="edit_room0607_6_rw" value="<?php echo $data_0607['room_6']; ?>" class="form-control" /> </td>
+                    <td> <input id="edit_sunday_0607_1st_rw" value="<?php echo $data_0607['sunday_1st_rw']; ?>" class="form-control" /> </td>
+                    <td rowspan="2"> <input id="edit_room0607_7_rw" value="<?php echo $data_0607['room_7']; ?>" class="form-control" /> </td>
+                  </tr>
+                  <tr>
+                    <td> <input id="edit_monday_0607_2nd_rw" class="form-control" value="<?php echo $data_0607['monday_2nd_rw']; ?>" /> </td>
+                    <td> <input id="edit_tuesday_0607_2nd_rw" class="form-control" value="<?php echo $data_0607['tuesday_2nd_rw']; ?>" /></td>
+                    <td> <input id="edit_wednesday_0607_2nd_rw" class="form-control" value="<?php echo $data_0607['wednesday_2nd_rw']; ?>" /></td>
+                    <td> <input id="edit_thursday_0607_2nd_rw" class="form-control" value="<?php echo $data_0607['thursday_2nd_rw']; ?>" /></td>
+                    <td> <input id="edit_friday_0607_2nd_rw" class="form-control" value="<?php echo $data_0607['friday_2nd_rw']; ?>" /></td>
+                    <td> <input id="edit_saturday_0607_2nd_rw" class="form-control" value="<?php echo $data_0607['saturday_2nd_rw']; ?>" /></td>
+                    <td> <input id="edit_sunday_0607_2nd_rw" class="form-control" value="<?php echo $data_0607['sunday_2nd_rw']; ?>" /></td>
+
+                  </tr>
+              <?php
+                  $trRendered = true;
+                }
+              }
+            } else {
+              ?>
+              <tr>
+                <td rowspan="2">6:00 - 7:00</td>
+                <td></td>
+                <td rowspan="2"></td>
+                <td></td>
+                <td rowspan="2"></td>
+                <td></td>
+                <td rowspan="2"></td>
+                <td></td>
+                <td rowspan="2"></td>
+                <td></td>
+                <td rowspan="2"></td>
+                <td></td>
+                <td rowspan="2"></td>
+                <td></td>
+                <td rowspan="2"></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+            <?php
+            }
+          } else {
+            ?>
+            <tr>
+              <td rowspan="2">6:00 - 7:00</td>
+              <td></td>
+              <td rowspan="2"></td>
+              <td></td>
+              <td rowspan="2"></td>
+              <td></td>
+              <td rowspan="2"></td>
+              <td></td>
+              <td rowspan="2"></td>
+              <td></td>
+              <td rowspan="2"></td>
+              <td></td>
+              <td rowspan="2"></td>
+              <td></td>
+              <td rowspan="2"></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+          <?php
+          }
+          ?>
           <tr>
             <td rowspan="2">7:00 - 8:00</td>
             <td></td>
@@ -254,364 +1674,8 @@ if ($conn->connect_error) {
             <td rowspan="2"></td>
             <td></td>
             <td rowspan="2"></td>
-            <td></td>
-            <td></td>
-            <td></td>
           </tr>
-          <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-          </tr>
-          <tr>
-            <td rowspan="2">8:00 - 9:00</td>
-            <td></td>
-            <td rowspan="2"></td>
-            <td></td>
-            <td rowspan="2"></td>
-            <td></td>
-            <td rowspan="2"></td>
-            <td></td>
-            <td rowspan="2"></td>
-            <td></td>
-            <td rowspan="2"></td>
-            <td></td>
-            <td rowspan="2"></td>
-            <td></td>
-            <td rowspan="2"></td>
-            <td></td>
-            <td></td>
-            <td></td>
-          </tr>
-          <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-          </tr>
-          <tr>
-            <td rowspan="2">9:00 - 10:00</td>
-            <td></td>
-            <td rowspan="2"></td>
-            <td></td>
-            <td rowspan="2"></td>
-            <td></td>
-            <td rowspan="2"></td>
-            <td></td>
-            <td rowspan="2"></td>
-            <td></td>
-            <td rowspan="2"></td>
-            <td></td>
-            <td rowspan="2"></td>
-            <td></td>
-            <td rowspan="2"></td>
-            <td></td>
-            <td></td>
-            <td></td>
-          </tr>
-          <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-          </tr>
-          <tr>
-            <td rowspan="2">10:00 - 11:00</td>
-            <td></td>
-            <td rowspan="2"></td>
-            <td></td>
-            <td rowspan="2"></td>
-            <td></td>
-            <td rowspan="2"></td>
-            <td></td>
-            <td rowspan="2"></td>
-            <td></td>
-            <td rowspan="2"></td>
-            <td></td>
-            <td rowspan="2"></td>
-            <td></td>
-            <td rowspan="2"></td>
-            <td></td>
-            <td></td>
-            <td></td>
-          </tr>
-          <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-          </tr>
-          <tr>
-            <td rowspan="2">11:00 - 12:00</td>
-            <td></td>
-            <td rowspan="2"></td>
-            <td></td>
-            <td rowspan="2"></td>
-            <td></td>
-            <td rowspan="2"></td>
-            <td></td>
-            <td rowspan="2"></td>
-            <td></td>
-            <td rowspan="2"></td>
-            <td></td>
-            <td rowspan="2"></td>
-            <td></td>
-            <td rowspan="2"></td>
-            <td></td>
-            <td></td>
-            <td></td>
-          </tr>
-          <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-          </tr>
-          <tr>
-            <td rowspan="2">12:00 - 1:00</td>
-            <td></td>
-            <td rowspan="2"></td>
-            <td></td>
-            <td rowspan="2"></td>
-            <td></td>
-            <td rowspan="2"></td>
-            <td></td>
-            <td rowspan="2"></td>
-            <td></td>
-            <td rowspan="2"></td>
-            <td></td>
-            <td rowspan="2"></td>
-            <td></td>
-            <td rowspan="2"></td>
-            <td></td>
-            <td></td>
-            <td></td>
-          </tr>
-          <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-          </tr>
-          <tr>
-            <td rowspan="2">1:00 - 2:00</td>
-            <td></td>
-            <td rowspan="2"></td>
-            <td></td>
-            <td rowspan="2"></td>
-            <td></td>
-            <td rowspan="2"></td>
-            <td></td>
-            <td rowspan="2"></td>
-            <td></td>
-            <td rowspan="2"></td>
-            <td></td>
-            <td rowspan="2"></td>
-            <td></td>
-            <td rowspan="2"></td>
-            <td></td>
-            <td></td>
-            <td></td>
-          </tr>
-          <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td colspan="3" rowspan="6">
-              <p> <br /><br /><br /><strong>Timeline</strong><br /> Timeline</p>
-            </td>
-          </tr>
-          <tr>
-            <td rowspan="2">2:00 - 3:00</td>
-            <td></td>
-            <td rowspan="2"></td>
-            <td></td>
-            <td rowspan="2"></td>
-            <td></td>
-            <td rowspan="2"></td>
-            <td></td>
-            <td rowspan="2"></td>
-            <td></td>
-            <td rowspan="2"></td>
-            <td></td>
-            <td rowspan="2"></td>
-            <td></td>
-            <td rowspan="2"></td>
-          </tr>
-          <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-          </tr>
-          <tr>
-            <td rowspan="2">3:00 - 4:00</td>
-            <td></td>
-            <td rowspan="2"></td>
-            <td></td>
-            <td rowspan="2"></td>
-            <td></td>
-            <td rowspan="2"></td>
-            <td></td>
-            <td rowspan="2"></td>
-            <td></td>
-            <td rowspan="2"></td>
-            <td></td>
-            <td rowspan="2"></td>
-            <td></td>
-            <td rowspan="2"></td>
-          </tr>
-          <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-          </tr>
-          <tr>
-            <td rowspan="2">4:00 - 5:00</td>
-            <td></td>
-            <td rowspan="2"></td>
-            <td></td>
-            <td rowspan="2"></td>
-            <td></td>
-            <td rowspan="2"></td>
-            <td></td>
-            <td rowspan="2"></td>
-            <td></td>
-            <td rowspan="2"></td>
-            <td></td>
-            <td rowspan="2"></td>
-            <td></td>
-            <td rowspan="2"></td>
-          </tr>
-          <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td colspan="3" rowspan="6">
-              <p> <br /><br /><br /><strong>PROF. PAULINA M. MACATANGAY</strong><br />Dean, COE</p>
-            </td>
-          </tr>
-          <tr>
-            <td rowspan="2">5:00 - 6:00</td>
-            <td></td>
-            <td rowspan="2"></td>
-            <td></td>
-            <td rowspan="2"></td>
-            <td></td>
-            <td rowspan="2"></td>
-            <td></td>
-            <td rowspan="2"></td>
-            <td></td>
-            <td rowspan="2"></td>
-            <td></td>
-            <td rowspan="2"></td>
-            <td></td>
-            <td rowspan="2"></td>
-          </tr>
-          <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-          </tr>
-          <tr>
-            <td rowspan="2">6:00 - 7:00</td>
-            <td></td>
-            <td rowspan="2"></td>
-            <td></td>
-            <td rowspan="2"></td>
-            <td></td>
-            <td rowspan="2"></td>
-            <td></td>
-            <td rowspan="2"></td>
-            <td></td>
-            <td rowspan="2"></td>
-            <td></td>
-            <td rowspan="2"></td>
-            <td></td>
-            <td rowspan="2"></td>
-          </tr>
-          <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-          </tr>
-          <tr>
-            <td rowspan="2">7:00 - 8:00</td>
-            <td></td>
-            <td rowspan="2"></td>
-            <td></td>
-            <td rowspan="2"></td>
-            <td></td>
-            <td rowspan="2"></td>
-            <td></td>
-            <td rowspan="2"></td>
-            <td></td>
-            <td rowspan="2"></td>
-            <td></td>
-            <td rowspan="2"></td>
-            <td></td>
-            <td rowspan="2"></td>
-          </tr>
+
           <tr>
             <td></td>
             <td></td>
@@ -1892,7 +2956,6 @@ if ($conn->connect_error) {
 
 
     </div>
-
     <button id="print-btn" onclick="window.location.href='logout.php'" class="btnlogout"> Logout </button>
   </div>
   <script>
@@ -1940,6 +3003,44 @@ if ($conn->connect_error) {
 
   <script>
     var getTime = document.getElementById('time')
+    var getTime78 = document.getElementById('time78')
+    var getTime89 = document.getElementById('time89')
+    var getTime1011 = document.getElementById('time1011')
+    var getTime910 = document.getElementById('time910')
+    var getTime1112 = document.getElementById('time1112')
+    var getTime1201 = document.getElementById('time1201')
+    var getTime0102 = document.getElementById('time0102')
+    var getTime0203 = document.getElementById('time0203')
+    var getTime0304 = document.getElementById('time0304')
+    var getTime0405 = document.getElementById('time0405')
+    var getTime0506 = document.getElementById('time0506')
+    var getTime0607 = document.getElementById('time0607')
+
+    var edit_monday_78_1st_rw = document.getElementById('edit_monday_78_1st_rw')
+    var edit_monday_78_2nd_rw = document.getElementById('edit_monday_78_2nd_rw')
+
+    var edit_tuesday_78_1st_rw = document.getElementById('edit_tuesday_78_1st_rw')
+    var edit_tuesday_78_2nd_rw = document.getElementById('edit_tuesday_78_2nd_rw')
+
+    var edit_wednesday_78_1st_rw = document.getElementById('edit_wednesday_78_1st_rw')
+    var edit_wednesday_78_2nd_rw = document.getElementById('edit_wednesday_78_2nd_rw')
+
+    var edit_thursday_78_1st_rw = document.getElementById('edit_thursday_78_1st_rw')
+    var edit_thursday_78_2nd_rw = document.getElementById('edit_thursday_78_2nd_rw')
+
+    var edit_friday_78_1st_rw = document.getElementById('edit_friday_78_1st_rw')
+    var edit_friday_78_2nd_rw = document.getElementById('edit_friday_78_2nd_rw')
+
+    var edit_saturday_78_1st_rw = document.getElementById('edit_saturday_78_1st_rw')
+    var edit_saturday_78_2nd_rw = document.getElementById('edit_saturday_78_2nd_rw')
+
+    var edit_sunday_78_1st_rw = document.getElementById('edit_sunday_78_1st_rw')
+    var edit_sunday_78_2nd_rw = document.getElementById('edit_sunday_78_2nd_rw')
+
+    var edit_last_78_1strw = document.getElementById('edit_last_78_1st_rw')
+    var edit_last_78_2ndrw = document.getElementById('edit_last_78_2nd_rw')
+
+    // 6-7
 
     var edit_monday_67_1st_rw = document.getElementById('edit_monday_67_1st_rw')
     var edit_monday_67_2nd_rw = document.getElementById('edit_monday_67_2nd_rw')
@@ -1993,6 +3094,410 @@ if ($conn->connect_error) {
     document.getElementById('edit_sunday_67_1st_rw').addEventListener('change', handleInputChange)
     document.getElementById('edit_sunday_67_2nd_rw').addEventListener('change', handleInputChange)
 
+    // 7-8
+
+    document.getElementById('edit_monday_78_1st_rw').addEventListener('change', handleInput78Change)
+    document.getElementById('edit_monday_78_2nd_rw').addEventListener('change', handleInput78Change)
+    document.getElementById('edit_tuesday_78_1st_rw').addEventListener('change', handleInput78Change)
+    document.getElementById('edit_tuesday_78_2nd_rw').addEventListener('change', handleInput78Change)
+
+    document.getElementById('edit_wednesday_78_1st_rw').addEventListener('change', handleInput78Change)
+    document.getElementById('edit_wednesday_78_2nd_rw').addEventListener('change', handleInput78Change)
+
+    document.getElementById('edit_thursday_78_1st_rw').addEventListener('change', handleInput78Change)
+    document.getElementById('edit_thursday_78_2nd_rw').addEventListener('change', handleInput78Change)
+
+    document.getElementById('edit_friday_78_1st_rw').addEventListener('change', handleInput78Change)
+    document.getElementById('edit_friday_78_2nd_rw').addEventListener('change', handleInput78Change)
+
+    document.getElementById('edit_saturday_78_1st_rw').addEventListener('change', handleInput78Change)
+    document.getElementById('edit_saturday_78_2nd_rw').addEventListener('change', handleInput78Change)
+
+    document.getElementById('edit_sunday_78_1st_rw').addEventListener('change', handleInput78Change)
+    document.getElementById('edit_sunday_78_2nd_rw').addEventListener('change', handleInput78Change)
+
+    document.getElementById('edit_last_78_1st_rw').addEventListener('change', handleInput78Change)
+    document.getElementById('edit_last_78_2nd_rw').addEventListener('change', handleInput78Change)
+    document.getElementById('edit_cc78_1st_rw').addEventListener('change', handleInput78Change)
+    document.getElementById('edit_cc78_2nd_rw').addEventListener('change', handleInput78Change)
+    document.getElementById('edit_section78_1st_rw').addEventListener('change', handleInput78Change)
+    document.getElementById('edit_section78_2nd_rw').addEventListener('change', handleInput78Change)
+    document.getElementById('edit_room78_1_rw').addEventListener('change', handleInput78Change)
+    document.getElementById('edit_room78_2_rw').addEventListener('change', handleInput78Change)
+    document.getElementById('edit_room78_3_rw').addEventListener('change', handleInput78Change)
+    document.getElementById('edit_room78_4_rw').addEventListener('change', handleInput78Change)
+    document.getElementById('edit_room78_5_rw').addEventListener('change', handleInput78Change)
+    document.getElementById('edit_room78_6_rw').addEventListener('change', handleInput78Change)
+    document.getElementById('edit_room78_7_rw').addEventListener('change', handleInput78Change)
+
+    // 
+
+    // 8-9
+    document.getElementById('edit_monday_89_1st_rw').addEventListener('change', handleInput89Change)
+    document.getElementById('edit_monday_89_2nd_rw').addEventListener('change', handleInput89Change)
+    document.getElementById('edit_tuesday_89_1st_rw').addEventListener('change', handleInput89Change)
+    document.getElementById('edit_tuesday_89_2nd_rw').addEventListener('change', handleInput89Change)
+
+    document.getElementById('edit_wednesday_89_1st_rw').addEventListener('change', handleInput89Change)
+    document.getElementById('edit_wednesday_89_2nd_rw').addEventListener('change', handleInput89Change)
+
+    document.getElementById('edit_thursday_89_1st_rw').addEventListener('change', handleInput89Change)
+    document.getElementById('edit_thursday_89_2nd_rw').addEventListener('change', handleInput89Change)
+
+    document.getElementById('edit_friday_89_1st_rw').addEventListener('change', handleInput89Change)
+    document.getElementById('edit_friday_89_2nd_rw').addEventListener('change', handleInput89Change)
+
+    document.getElementById('edit_saturday_89_1st_rw').addEventListener('change', handleInput89Change)
+    document.getElementById('edit_saturday_89_2nd_rw').addEventListener('change', handleInput89Change)
+
+    document.getElementById('edit_sunday_89_1st_rw').addEventListener('change', handleInput89Change)
+    document.getElementById('edit_sunday_89_2nd_rw').addEventListener('change', handleInput89Change)
+
+    document.getElementById('edit_last_89_1st_rw').addEventListener('change', handleInput89Change)
+    document.getElementById('edit_last_89_2nd_rw').addEventListener('change', handleInput89Change)
+    document.getElementById('edit_cc89_1st_rw').addEventListener('change', handleInput89Change)
+    document.getElementById('edit_cc89_2nd_rw').addEventListener('change', handleInput89Change)
+    document.getElementById('edit_section89_1st_rw').addEventListener('change', handleInput89Change)
+    document.getElementById('edit_section89_2nd_rw').addEventListener('change', handleInput89Change)
+    document.getElementById('edit_room89_1_rw').addEventListener('change', handleInput89Change)
+    document.getElementById('edit_room89_2_rw').addEventListener('change', handleInput89Change)
+    document.getElementById('edit_room89_3_rw').addEventListener('change', handleInput89Change)
+    document.getElementById('edit_room89_4_rw').addEventListener('change', handleInput89Change)
+    document.getElementById('edit_room89_5_rw').addEventListener('change', handleInput89Change)
+    document.getElementById('edit_room89_6_rw').addEventListener('change', handleInput89Change)
+    document.getElementById('edit_room89_7_rw').addEventListener('change', handleInput89Change)
+    // 
+
+    // 9-10
+    document.getElementById('edit_monday_910_1st_rw').addEventListener('change', handleInput910Change)
+    document.getElementById('edit_monday_910_2nd_rw').addEventListener('change', handleInput910Change)
+    document.getElementById('edit_tuesday_910_1st_rw').addEventListener('change', handleInput910Change)
+    document.getElementById('edit_tuesday_910_2nd_rw').addEventListener('change', handleInput910Change)
+
+    document.getElementById('edit_wednesday_910_1st_rw').addEventListener('change', handleInput910Change)
+    document.getElementById('edit_wednesday_910_2nd_rw').addEventListener('change', handleInput910Change)
+
+    document.getElementById('edit_thursday_910_1st_rw').addEventListener('change', handleInput910Change)
+    document.getElementById('edit_thursday_910_2nd_rw').addEventListener('change', handleInput910Change)
+
+    document.getElementById('edit_friday_910_1st_rw').addEventListener('change', handleInput910Change)
+    document.getElementById('edit_friday_910_2nd_rw').addEventListener('change', handleInput910Change)
+
+    document.getElementById('edit_saturday_910_1st_rw').addEventListener('change', handleInput910Change)
+    document.getElementById('edit_saturday_910_2nd_rw').addEventListener('change', handleInput910Change)
+
+    document.getElementById('edit_sunday_910_1st_rw').addEventListener('change', handleInput910Change)
+    document.getElementById('edit_sunday_910_2nd_rw').addEventListener('change', handleInput910Change)
+
+    document.getElementById('edit_last_910_1st_rw').addEventListener('change', handleInput910Change)
+    document.getElementById('edit_last_910_2nd_rw').addEventListener('change', handleInput910Change)
+    document.getElementById('edit_cc910_1st_rw').addEventListener('change', handleInput910Change)
+    document.getElementById('edit_cc910_2nd_rw').addEventListener('change', handleInput910Change)
+    document.getElementById('edit_section910_1st_rw').addEventListener('change', handleInput910Change)
+    document.getElementById('edit_section910_2nd_rw').addEventListener('change', handleInput910Change)
+    document.getElementById('edit_room910_1_rw').addEventListener('change', handleInput910Change)
+    document.getElementById('edit_room910_2_rw').addEventListener('change', handleInput910Change)
+    document.getElementById('edit_room910_3_rw').addEventListener('change', handleInput910Change)
+    document.getElementById('edit_room910_4_rw').addEventListener('change', handleInput910Change)
+    document.getElementById('edit_room910_5_rw').addEventListener('change', handleInput910Change)
+    document.getElementById('edit_room910_6_rw').addEventListener('change', handleInput910Change)
+    document.getElementById('edit_room910_7_rw').addEventListener('change', handleInput910Change)
+    // 
+
+    // 10-11
+    document.getElementById('edit_monday_1011_1st_rw').addEventListener('change', handleInput1011Change)
+    document.getElementById('edit_monday_1011_2nd_rw').addEventListener('change', handleInput1011Change)
+    document.getElementById('edit_tuesday_1011_1st_rw').addEventListener('change', handleInput1011Change)
+    document.getElementById('edit_tuesday_1011_2nd_rw').addEventListener('change', handleInput1011Change)
+
+    document.getElementById('edit_wednesday_1011_1st_rw').addEventListener('change', handleInput1011Change)
+    document.getElementById('edit_wednesday_1011_2nd_rw').addEventListener('change', handleInput1011Change)
+
+    document.getElementById('edit_thursday_1011_1st_rw').addEventListener('change', handleInput1011Change)
+    document.getElementById('edit_thursday_1011_2nd_rw').addEventListener('change', handleInput1011Change)
+
+    document.getElementById('edit_friday_1011_1st_rw').addEventListener('change', handleInput1011Change)
+    document.getElementById('edit_friday_1011_2nd_rw').addEventListener('change', handleInput1011Change)
+
+    document.getElementById('edit_saturday_1011_1st_rw').addEventListener('change', handleInput1011Change)
+    document.getElementById('edit_saturday_1011_2nd_rw').addEventListener('change', handleInput1011Change)
+
+    document.getElementById('edit_sunday_1011_1st_rw').addEventListener('change', handleInput1011Change)
+    document.getElementById('edit_sunday_1011_2nd_rw').addEventListener('change', handleInput1011Change)
+
+    document.getElementById('edit_last_1011_1st_rw').addEventListener('change', handleInput1011Change)
+    document.getElementById('edit_last_1011_2nd_rw').addEventListener('change', handleInput1011Change)
+    document.getElementById('edit_cc1011_1st_rw').addEventListener('change', handleInput1011Change)
+    document.getElementById('edit_cc1011_2nd_rw').addEventListener('change', handleInput1011Change)
+    document.getElementById('edit_section1011_1st_rw').addEventListener('change', handleInput1011Change)
+    document.getElementById('edit_section1011_2nd_rw').addEventListener('change', handleInput1011Change)
+    document.getElementById('edit_room1011_1_rw').addEventListener('change', handleInput1011Change)
+    document.getElementById('edit_room1011_2_rw').addEventListener('change', handleInput1011Change)
+    document.getElementById('edit_room1011_3_rw').addEventListener('change', handleInput1011Change)
+    document.getElementById('edit_room1011_4_rw').addEventListener('change', handleInput1011Change)
+    document.getElementById('edit_room1011_5_rw').addEventListener('change', handleInput1011Change)
+    document.getElementById('edit_room1011_6_rw').addEventListener('change', handleInput1011Change)
+    document.getElementById('edit_room1011_7_rw').addEventListener('change', handleInput1011Change)
+    // 
+
+    // 11 - 12
+    document.getElementById('edit_monday_1112_1st_rw').addEventListener('change', handleInput1112Change)
+    document.getElementById('edit_monday_1112_2nd_rw').addEventListener('change', handleInput1112Change)
+    document.getElementById('edit_tuesday_1112_1st_rw').addEventListener('change', handleInput1112Change)
+    document.getElementById('edit_tuesday_1112_2nd_rw').addEventListener('change', handleInput1112Change)
+
+    document.getElementById('edit_wednesday_1112_1st_rw').addEventListener('change', handleInput1112Change)
+    document.getElementById('edit_wednesday_1112_2nd_rw').addEventListener('change', handleInput1112Change)
+
+    document.getElementById('edit_thursday_1112_1st_rw').addEventListener('change', handleInput1112Change)
+    document.getElementById('edit_thursday_1112_2nd_rw').addEventListener('change', handleInput1112Change)
+
+    document.getElementById('edit_friday_1112_1st_rw').addEventListener('change', handleInput1112Change)
+    document.getElementById('edit_friday_1112_2nd_rw').addEventListener('change', handleInput1112Change)
+
+    document.getElementById('edit_saturday_1112_1st_rw').addEventListener('change', handleInput1112Change)
+    document.getElementById('edit_saturday_1112_2nd_rw').addEventListener('change', handleInput1112Change)
+
+    document.getElementById('edit_sunday_1112_1st_rw').addEventListener('change', handleInput1112Change)
+    document.getElementById('edit_sunday_1112_2nd_rw').addEventListener('change', handleInput1112Change)
+
+    document.getElementById('edit_last_1112_1st_rw').addEventListener('change', handleInput1112Change)
+    document.getElementById('edit_last_1112_2nd_rw').addEventListener('change', handleInput1112Change)
+    document.getElementById('edit_cc1112_1st_rw').addEventListener('change', handleInput1112Change)
+    document.getElementById('edit_cc1112_2nd_rw').addEventListener('change', handleInput1112Change)
+    document.getElementById('edit_section1112_1st_rw').addEventListener('change', handleInput1112Change)
+    document.getElementById('edit_section1112_2nd_rw').addEventListener('change', handleInput1112Change)
+    document.getElementById('edit_room1112_1_rw').addEventListener('change', handleInput1112Change)
+    document.getElementById('edit_room1112_2_rw').addEventListener('change', handleInput1112Change)
+    document.getElementById('edit_room1112_3_rw').addEventListener('change', handleInput1112Change)
+    document.getElementById('edit_room1112_4_rw').addEventListener('change', handleInput1112Change)
+    document.getElementById('edit_room1112_5_rw').addEventListener('change', handleInput1112Change)
+    document.getElementById('edit_room1112_6_rw').addEventListener('change', handleInput1112Change)
+    document.getElementById('edit_room1112_7_rw').addEventListener('change', handleInput1112Change)
+    // 
+
+    // 12 - 1
+    document.getElementById('edit_monday_1201_1st_rw').addEventListener('change', handleInput1201Change)
+    document.getElementById('edit_monday_1201_2nd_rw').addEventListener('change', handleInput1201Change)
+    document.getElementById('edit_tuesday_1201_1st_rw').addEventListener('change', handleInput1201Change)
+    document.getElementById('edit_tuesday_1201_2nd_rw').addEventListener('change', handleInput1201Change)
+
+    document.getElementById('edit_wednesday_1201_1st_rw').addEventListener('change', handleInput1201Change)
+    document.getElementById('edit_wednesday_1201_2nd_rw').addEventListener('change', handleInput1201Change)
+
+    document.getElementById('edit_thursday_1201_1st_rw').addEventListener('change', handleInput1201Change)
+    document.getElementById('edit_thursday_1201_2nd_rw').addEventListener('change', handleInput1201Change)
+
+    document.getElementById('edit_friday_1201_1st_rw').addEventListener('change', handleInput1201Change)
+    document.getElementById('edit_friday_1201_2nd_rw').addEventListener('change', handleInput1201Change)
+
+    document.getElementById('edit_saturday_1201_1st_rw').addEventListener('change', handleInput1201Change)
+    document.getElementById('edit_saturday_1201_2nd_rw').addEventListener('change', handleInput1201Change)
+
+    document.getElementById('edit_sunday_1201_1st_rw').addEventListener('change', handleInput1201Change)
+    document.getElementById('edit_sunday_1201_2nd_rw').addEventListener('change', handleInput1201Change)
+
+    document.getElementById('edit_last_1201_1st_rw').addEventListener('change', handleInput1201Change)
+    document.getElementById('edit_last_1201_2nd_rw').addEventListener('change', handleInput1201Change)
+    document.getElementById('edit_cc1201_1st_rw').addEventListener('change', handleInput1201Change)
+    document.getElementById('edit_cc1201_2nd_rw').addEventListener('change', handleInput1201Change)
+    document.getElementById('edit_section1201_1st_rw').addEventListener('change', handleInput1201Change)
+    document.getElementById('edit_section1201_2nd_rw').addEventListener('change', handleInput1201Change)
+    document.getElementById('edit_room1201_1_rw').addEventListener('change', handleInput1201Change)
+    document.getElementById('edit_room1201_2_rw').addEventListener('change', handleInput1201Change)
+    document.getElementById('edit_room1201_3_rw').addEventListener('change', handleInput1201Change)
+    document.getElementById('edit_room1201_4_rw').addEventListener('change', handleInput1201Change)
+    document.getElementById('edit_room1201_5_rw').addEventListener('change', handleInput1201Change)
+    document.getElementById('edit_room1201_6_rw').addEventListener('change', handleInput1201Change)
+    document.getElementById('edit_room1201_7_rw').addEventListener('change', handleInput1201Change)
+    // 
+
+    // 1 - 2
+    document.getElementById('edit_monday_0102_1st_rw').addEventListener('change', handleInput0102Change)
+    document.getElementById('edit_monday_0102_2nd_rw').addEventListener('change', handleInput0102Change)
+    document.getElementById('edit_tuesday_0102_1st_rw').addEventListener('change', handleInput0102Change)
+    document.getElementById('edit_tuesday_0102_2nd_rw').addEventListener('change', handleInput0102Change)
+
+    document.getElementById('edit_wednesday_0102_1st_rw').addEventListener('change', handleInput0102Change)
+    document.getElementById('edit_wednesday_0102_2nd_rw').addEventListener('change', handleInput0102Change)
+
+    document.getElementById('edit_thursday_0102_1st_rw').addEventListener('change', handleInput0102Change)
+    document.getElementById('edit_thursday_0102_2nd_rw').addEventListener('change', handleInput0102Change)
+
+    document.getElementById('edit_friday_0102_1st_rw').addEventListener('change', handleInput0102Change)
+    document.getElementById('edit_friday_0102_2nd_rw').addEventListener('change', handleInput0102Change)
+
+    document.getElementById('edit_saturday_0102_1st_rw').addEventListener('change', handleInput0102Change)
+    document.getElementById('edit_saturday_0102_2nd_rw').addEventListener('change', handleInput0102Change)
+
+    document.getElementById('edit_sunday_0102_1st_rw').addEventListener('change', handleInput0102Change)
+    document.getElementById('edit_sunday_0102_2nd_rw').addEventListener('change', handleInput0102Change)
+
+    document.getElementById('edit_last_0102_1st_rw').addEventListener('change', handleInput0102Change)
+    document.getElementById('edit_cc0102_1st_rw').addEventListener('change', handleInput0102Change)
+    document.getElementById('edit_section0102_1st_rw').addEventListener('change', handleInput0102Change)
+    document.getElementById('edit_room0102_1_rw').addEventListener('change', handleInput0102Change)
+    document.getElementById('edit_room0102_2_rw').addEventListener('change', handleInput0102Change)
+    document.getElementById('edit_room0102_3_rw').addEventListener('change', handleInput0102Change)
+    document.getElementById('edit_room0102_4_rw').addEventListener('change', handleInput0102Change)
+    document.getElementById('edit_room0102_5_rw').addEventListener('change', handleInput0102Change)
+    document.getElementById('edit_room0102_6_rw').addEventListener('change', handleInput0102Change)
+    document.getElementById('edit_room0102_7_rw').addEventListener('change', handleInput0102Change)
+    document.getElementById('edit_timeline0102_rw').addEventListener('change', handleInput0102Change)
+    // 
+
+    // 2 - 3
+
+    document.getElementById('edit_monday_0203_1st_rw').addEventListener('change', handleInput0203Change)
+    document.getElementById('edit_monday_0203_2nd_rw').addEventListener('change', handleInput0203Change)
+    document.getElementById('edit_tuesday_0203_1st_rw').addEventListener('change', handleInput0203Change)
+    document.getElementById('edit_tuesday_0203_2nd_rw').addEventListener('change', handleInput0203Change)
+
+    document.getElementById('edit_wednesday_0203_1st_rw').addEventListener('change', handleInput0203Change)
+    document.getElementById('edit_wednesday_0203_2nd_rw').addEventListener('change', handleInput0203Change)
+
+    document.getElementById('edit_thursday_0203_1st_rw').addEventListener('change', handleInput0203Change)
+    document.getElementById('edit_thursday_0203_2nd_rw').addEventListener('change', handleInput0203Change)
+
+    document.getElementById('edit_friday_0203_1st_rw').addEventListener('change', handleInput0203Change)
+    document.getElementById('edit_friday_0203_2nd_rw').addEventListener('change', handleInput0203Change)
+
+    document.getElementById('edit_saturday_0203_1st_rw').addEventListener('change', handleInput0203Change)
+    document.getElementById('edit_saturday_0203_2nd_rw').addEventListener('change', handleInput0203Change)
+
+    document.getElementById('edit_sunday_0203_1st_rw').addEventListener('change', handleInput0203Change)
+    document.getElementById('edit_sunday_0203_2nd_rw').addEventListener('change', handleInput0203Change)
+
+    document.getElementById('edit_room0203_1_rw').addEventListener('change', handleInput0203Change)
+    document.getElementById('edit_room0203_2_rw').addEventListener('change', handleInput0203Change)
+    document.getElementById('edit_room0203_3_rw').addEventListener('change', handleInput0203Change)
+    document.getElementById('edit_room0203_4_rw').addEventListener('change', handleInput0203Change)
+    document.getElementById('edit_room0203_5_rw').addEventListener('change', handleInput0203Change)
+    document.getElementById('edit_room0203_6_rw').addEventListener('change', handleInput0203Change)
+    document.getElementById('edit_room0203_7_rw').addEventListener('change', handleInput0203Change)
+    // 
+
+    // 3 - 4
+    document.getElementById('edit_monday_0304_1st_rw').addEventListener('change', handleInput0304Change)
+    document.getElementById('edit_monday_0304_2nd_rw').addEventListener('change', handleInput0304Change)
+    document.getElementById('edit_tuesday_0304_1st_rw').addEventListener('change', handleInput0304Change)
+    document.getElementById('edit_tuesday_0304_2nd_rw').addEventListener('change', handleInput0304Change)
+
+    document.getElementById('edit_wednesday_0304_1st_rw').addEventListener('change', handleInput0304Change)
+    document.getElementById('edit_wednesday_0304_2nd_rw').addEventListener('change', handleInput0304Change)
+
+    document.getElementById('edit_thursday_0304_1st_rw').addEventListener('change', handleInput0304Change)
+    document.getElementById('edit_thursday_0304_2nd_rw').addEventListener('change', handleInput0304Change)
+
+    document.getElementById('edit_friday_0304_1st_rw').addEventListener('change', handleInput0304Change)
+    document.getElementById('edit_friday_0304_2nd_rw').addEventListener('change', handleInput0304Change)
+
+    document.getElementById('edit_saturday_0304_1st_rw').addEventListener('change', handleInput0304Change)
+    document.getElementById('edit_saturday_0304_2nd_rw').addEventListener('change', handleInput0304Change)
+
+    document.getElementById('edit_sunday_0304_1st_rw').addEventListener('change', handleInput0304Change)
+    document.getElementById('edit_sunday_0304_2nd_rw').addEventListener('change', handleInput0304Change)
+
+    document.getElementById('edit_room0304_1_rw').addEventListener('change', handleInput0304Change)
+    document.getElementById('edit_room0304_2_rw').addEventListener('change', handleInput0304Change)
+    document.getElementById('edit_room0304_3_rw').addEventListener('change', handleInput0304Change)
+    document.getElementById('edit_room0304_4_rw').addEventListener('change', handleInput0304Change)
+    document.getElementById('edit_room0304_5_rw').addEventListener('change', handleInput0304Change)
+    document.getElementById('edit_room0304_6_rw').addEventListener('change', handleInput0304Change)
+    document.getElementById('edit_room0304_7_rw').addEventListener('change', handleInput0304Change)
+    // 
+
+    // 4 - 5
+    document.getElementById('edit_monday_0405_1st_rw').addEventListener('change', handleInput0405Change)
+    document.getElementById('edit_monday_0405_2nd_rw').addEventListener('change', handleInput0405Change)
+    document.getElementById('edit_tuesday_0405_1st_rw').addEventListener('change', handleInput0405Change)
+    document.getElementById('edit_tuesday_0405_2nd_rw').addEventListener('change', handleInput0405Change)
+
+    document.getElementById('edit_wednesday_0405_1st_rw').addEventListener('change', handleInput0405Change)
+    document.getElementById('edit_wednesday_0405_2nd_rw').addEventListener('change', handleInput0405Change)
+
+    document.getElementById('edit_thursday_0405_1st_rw').addEventListener('change', handleInput0405Change)
+    document.getElementById('edit_thursday_0405_2nd_rw').addEventListener('change', handleInput0405Change)
+
+    document.getElementById('edit_friday_0405_1st_rw').addEventListener('change', handleInput0405Change)
+    document.getElementById('edit_friday_0405_2nd_rw').addEventListener('change', handleInput0405Change)
+
+    document.getElementById('edit_saturday_0405_1st_rw').addEventListener('change', handleInput0405Change)
+    document.getElementById('edit_saturday_0405_2nd_rw').addEventListener('change', handleInput0405Change)
+
+    document.getElementById('edit_sunday_0405_1st_rw').addEventListener('change', handleInput0405Change)
+    document.getElementById('edit_sunday_0405_2nd_rw').addEventListener('change', handleInput0405Change)
+
+    document.getElementById('edit_cc0405_2nd_rw').addEventListener('change', handleInput0405Change)
+    document.getElementById('edit_room0405_1_rw').addEventListener('change', handleInput0405Change)
+    document.getElementById('edit_room0405_2_rw').addEventListener('change', handleInput0405Change)
+    document.getElementById('edit_room0405_3_rw').addEventListener('change', handleInput0405Change)
+    document.getElementById('edit_room0405_4_rw').addEventListener('change', handleInput0405Change)
+    document.getElementById('edit_room0405_5_rw').addEventListener('change', handleInput0405Change)
+    document.getElementById('edit_room0405_6_rw').addEventListener('change', handleInput0405Change)
+    document.getElementById('edit_room0405_7_rw').addEventListener('change', handleInput0405Change)
+    // 
+
+    // 5 - 6
+    document.getElementById('edit_monday_0506_1st_rw').addEventListener('change', handleInput0506Change)
+    document.getElementById('edit_monday_0506_2nd_rw').addEventListener('change', handleInput0506Change)
+    document.getElementById('edit_tuesday_0506_1st_rw').addEventListener('change', handleInput0506Change)
+    document.getElementById('edit_tuesday_0506_2nd_rw').addEventListener('change', handleInput0506Change)
+
+    document.getElementById('edit_wednesday_0506_1st_rw').addEventListener('change', handleInput0506Change)
+    document.getElementById('edit_wednesday_0506_2nd_rw').addEventListener('change', handleInput0506Change)
+
+    document.getElementById('edit_thursday_0506_1st_rw').addEventListener('change', handleInput0506Change)
+    document.getElementById('edit_thursday_0506_2nd_rw').addEventListener('change', handleInput0506Change)
+
+    document.getElementById('edit_friday_0506_1st_rw').addEventListener('change', handleInput0506Change)
+    document.getElementById('edit_friday_0506_2nd_rw').addEventListener('change', handleInput0506Change)
+
+    document.getElementById('edit_saturday_0506_1st_rw').addEventListener('change', handleInput0506Change)
+    document.getElementById('edit_saturday_0506_2nd_rw').addEventListener('change', handleInput0506Change)
+
+    document.getElementById('edit_sunday_0506_1st_rw').addEventListener('change', handleInput0506Change)
+    document.getElementById('edit_sunday_0506_2nd_rw').addEventListener('change', handleInput0506Change)
+
+    document.getElementById('edit_room0506_1_rw').addEventListener('change', handleInput0506Change)
+    document.getElementById('edit_room0506_2_rw').addEventListener('change', handleInput0506Change)
+    document.getElementById('edit_room0506_3_rw').addEventListener('change', handleInput0506Change)
+    document.getElementById('edit_room0506_4_rw').addEventListener('change', handleInput0506Change)
+    document.getElementById('edit_room0506_5_rw').addEventListener('change', handleInput0506Change)
+    document.getElementById('edit_room0506_6_rw').addEventListener('change', handleInput0506Change)
+    document.getElementById('edit_room0506_7_rw').addEventListener('change', handleInput0506Change)
+    // 
+
+    // 6 - 7
+    document.getElementById('edit_monday_0607_1st_rw').addEventListener('change', handleInput0607Change)
+    document.getElementById('edit_monday_0607_2nd_rw').addEventListener('change', handleInput0607Change)
+    document.getElementById('edit_tuesday_0607_1st_rw').addEventListener('change', handleInput0607Change)
+    document.getElementById('edit_tuesday_0607_2nd_rw').addEventListener('change', handleInput0607Change)
+
+    document.getElementById('edit_wednesday_0607_1st_rw').addEventListener('change', handleInput0607Change)
+    document.getElementById('edit_wednesday_0607_2nd_rw').addEventListener('change', handleInput0607Change)
+
+    document.getElementById('edit_thursday_0607_1st_rw').addEventListener('change', handleInput0607Change)
+    document.getElementById('edit_thursday_0607_2nd_rw').addEventListener('change', handleInput0607Change)
+
+    document.getElementById('edit_friday_0607_1st_rw').addEventListener('change', handleInput0607Change)
+    document.getElementById('edit_friday_0607_2nd_rw').addEventListener('change', handleInput0607Change)
+
+    document.getElementById('edit_saturday_0607_1st_rw').addEventListener('change', handleInput0607Change)
+    document.getElementById('edit_saturday_0607_2nd_rw').addEventListener('change', handleInput0607Change)
+
+    document.getElementById('edit_sunday_0607_1st_rw').addEventListener('change', handleInput0607Change)
+    document.getElementById('edit_sunday_0607_2nd_rw').addEventListener('change', handleInput0607Change)
+
+    document.getElementById('edit_room0607_1_rw').addEventListener('change', handleInput0607Change)
+    document.getElementById('edit_room0607_2_rw').addEventListener('change', handleInput0607Change)
+    document.getElementById('edit_room0607_3_rw').addEventListener('change', handleInput0607Change)
+    document.getElementById('edit_room0607_4_rw').addEventListener('change', handleInput0607Change)
+    document.getElementById('edit_room0607_5_rw').addEventListener('change', handleInput0607Change)
+    document.getElementById('edit_room0607_6_rw').addEventListener('change', handleInput0607Change)
+    document.getElementById('edit_room0607_7_rw').addEventListener('change', handleInput0607Change)
+    //
+
     document.getElementById('edit_room_1_rw').addEventListener('change', handleInputChange)
     document.getElementById('edit_room_2_rw').addEventListener('change', handleInputChange)
     document.getElementById('edit_room_3_rw').addEventListener('change', handleInputChange)
@@ -2001,40 +3506,77 @@ if ($conn->connect_error) {
     document.getElementById('edit_room_6_rw').addEventListener('change', handleInputChange)
     document.getElementById('edit_room_7_rw').addEventListener('change', handleInputChange)
 
+    document.getElementById('edit_cc_1st_rw').addEventListener('change', handleInputChange)
+    document.getElementById('edit_cc_2nd_rw').addEventListener('change', handleInputChange)
+    document.getElementById('edit_section_1st_rw').addEventListener('change', handleInputChange)
+    document.getElementById('edit_section_2nd_rw').addEventListener('change', handleInputChange)
 
-    // document.getElementById('usernameDropdown').addEventListener('change', function() {
-    //   var selectedValue = this.value
-    //   $.ajax({
-    //     method: 'post',
-    //     data: {
-    //       faculty: selectedValue
-    //     },
-    //     url: 'index.php',
-    //     success: function(response) {
-    //       console.log(response)
-    //     }
-    //   })
-    // })
-
-    // $(document).ready(function() {
-    //   $('#usernameDropdown').change(function() {
-    //     var selectedFaculty = $(this).val()
-    //     $.ajax({
-    //       method: 'post',
-    //       data: {
-    //         faculty: selectedFaculty
-    //       },
-    //       url: 'index.php',
-    //       success: function(response) {
-    //         console.log(response)
-    //       }
-    //     })
-    //   })
-    // })
+    document.getElementById('edit_last_67_1st_rw').addEventListener('change', handleInputChange)
+    document.getElementById('edit_last_67_2nd_rw').addEventListener('change', handleInputChange)
 
     const obj = {
       schedTrigger: true,
-      time: getTime.innerText
+      time: getTime.value
+    }
+
+    const obj78 = {
+      schedTrigger78: true,
+      time: getTime78.value
+    }
+
+    const obj89 = {
+      schedTrigger89: true,
+      time: getTime89.value
+    }
+
+    const obj1011 = {
+      schedTrigger1011: true,
+      time: getTime1011.value
+    }
+
+    const obj910 = {
+      schedTrigger910: true,
+      time: getTime910.value
+    }
+
+    const obj1112 = {
+      schedTrigger1112: true,
+      time: getTime1112.value
+    }
+
+    const obj1201 = {
+      schedTrigger1201: true,
+      time: getTime1201.value
+    }
+
+    const obj0102 = {
+      schedTrigger0102: true,
+      time: getTime0102.value
+    }
+
+    const obj0203 = {
+      schedTrigger0203: true,
+      time: getTime0203.value
+    }
+
+    const obj0304 = {
+      schedTrigger0304: true,
+      time: getTime0304.value
+    }
+
+    const obj0405 = {
+      schedTrigger0405: true,
+      time: getTime0405.value
+    }
+
+    const obj0506 = {
+      schedTrigger0506: true,
+      time: getTime0506.value
+    }
+
+    const obj0607 = {
+      schedTrigger0607: true,
+      time: getTime0607.value
     }
 
     const originalValues = {};
@@ -2047,7 +3589,8 @@ if ($conn->connect_error) {
         'edit_friday_67_2nd_rw', 'edit_saturday_67_1st_rw', 'edit_saturday_67_2nd_rw',
         'edit_sunday_67_1st_rw', 'edit_sunday_67_2nd_rw', 'edit_room_1_rw', 'edit_room_2_rw',
         'edit_room_3_rw', 'edit_room_4_rw', 'edit_room_5_rw', 'edit_room_6_rw', 'edit_room_7_rw',
-        'edit_last_67_1st_rw', 'edit_last_67_2nd_rw'
+        'edit_last_67_1st_rw', 'edit_last_67_2nd_rw', 'edit_cc_1st_rw', 'edit_cc_2nd_rw',
+        'edit_section_1st_rw', 'edit_section_2nd_rw'
       ];
 
       inputIds.forEach(id => {
@@ -2062,8 +3605,307 @@ if ($conn->connect_error) {
       });
     }
 
+    function initializeOriginalValues78() {
+      const inputIds = [
+        'edit_monday_78_1st_rw', 'edit_monday_78_2nd_rw', 'edit_tuesday_78_1st_rw',
+        'edit_tuesday_78_2nd_rw', 'edit_wednesday_78_1st_rw', 'edit_wednesday_78_2nd_rw',
+        'edit_thursday_78_1st_rw', 'edit_thursday_78_2nd_rw', 'edit_friday_78_1st_rw',
+        'edit_friday_78_2nd_rw', 'edit_saturday_78_1st_rw', 'edit_saturday_78_2nd_rw',
+        'edit_sunday_78_1st_rw', 'edit_sunday_78_2nd_rw', 'edit_room78_1_rw', 'edit_room78_2_rw',
+        'edit_room78_3_rw', 'edit_room78_4_rw', 'edit_room78_5_rw', 'edit_room78_6_rw', 'edit_room78_7_rw',
+        'edit_last_78_1st_rw', 'edit_last_78_2nd_rw', 'edit_cc78_1st_rw', 'edit_cc78_2nd_rw',
+        'edit_section78_1st_rw', 'edit_section78_2nd_rw'
+      ];
+
+      inputIds.forEach(id => {
+        const element = document.getElementById(id);
+        if (element) {
+          const propertyName = id.replace('edit_', '').replace('_rw', '');
+
+          if (!obj78.hasOwnProperty(propertyName)) {
+            obj78[propertyName] = element.value;
+          }
+        }
+      });
+    }
+
+    function initializeOriginalValues89() {
+      const inputIds = [
+        'edit_monday_89_1st_rw', 'edit_monday_89_2nd_rw', 'edit_tuesday_89_1st_rw',
+        'edit_tuesday_89_2nd_rw', 'edit_wednesday_89_1st_rw', 'edit_wednesday_89_2nd_rw',
+        'edit_thursday_89_1st_rw', 'edit_thursday_89_2nd_rw', 'edit_friday_89_1st_rw',
+        'edit_friday_89_2nd_rw', 'edit_saturday_89_1st_rw', 'edit_saturday_89_2nd_rw',
+        'edit_sunday_89_1st_rw', 'edit_sunday_89_2nd_rw', 'edit_room89_1_rw', 'edit_room89_2_rw',
+        'edit_room89_3_rw', 'edit_room89_4_rw', 'edit_room89_5_rw', 'edit_room89_6_rw', 'edit_room89_7_rw',
+        'edit_last_89_1st_rw', 'edit_last_89_2nd_rw', 'edit_cc89_1st_rw', 'edit_cc89_2nd_rw',
+        'edit_section89_1st_rw', 'edit_section89_2nd_rw'
+      ];
+
+      inputIds.forEach(id => {
+        const element = document.getElementById(id);
+        if (element) {
+          const propertyName = id.replace('edit_', '').replace('_rw', '');
+
+          if (!obj89.hasOwnProperty(propertyName)) {
+            obj89[propertyName] = element.value;
+          }
+        }
+      });
+    }
+
+    function initializeOriginalValues1011() {
+      const inputIds = [
+        'edit_monday_1011_1st_rw', 'edit_monday_1011_2nd_rw', 'edit_tuesday_1011_1st_rw',
+        'edit_tuesday_1011_2nd_rw', 'edit_wednesday_1011_1st_rw', 'edit_wednesday_1011_2nd_rw',
+        'edit_thursday_1011_1st_rw', 'edit_thursday_1011_2nd_rw', 'edit_friday_1011_1st_rw',
+        'edit_friday_1011_2nd_rw', 'edit_saturday_1011_1st_rw', 'edit_saturday_1011_2nd_rw',
+        'edit_sunday_1011_1st_rw', 'edit_sunday_1011_2nd_rw', 'edit_room1011_1_rw', 'edit_room1011_2_rw',
+        'edit_room1011_3_rw', 'edit_room1011_4_rw', 'edit_room1011_5_rw', 'edit_room1011_6_rw', 'edit_room1011_7_rw',
+        'edit_last_1011_1st_rw', 'edit_last_1011_2nd_rw', 'edit_cc1011_1st_rw', 'edit_cc1011_2nd_rw',
+        'edit_section1011_1st_rw', 'edit_section1011_2nd_rw'
+      ];
+
+      inputIds.forEach(id => {
+        const element = document.getElementById(id);
+        if (element) {
+          const propertyName = id.replace('edit_', '').replace('_rw', '');
+
+          if (!obj1011.hasOwnProperty(propertyName)) {
+            obj1011[propertyName] = element.value;
+          }
+        }
+      });
+    }
+
+    function initializeOriginalValues910() {
+      const inputIds = [
+        'edit_monday_910_1st_rw', 'edit_monday_910_2nd_rw', 'edit_tuesday_910_1st_rw',
+        'edit_tuesday_910_2nd_rw', 'edit_wednesday_910_1st_rw', 'edit_wednesday_910_2nd_rw',
+        'edit_thursday_910_1st_rw', 'edit_thursday_910_2nd_rw', 'edit_friday_910_1st_rw',
+        'edit_friday_910_2nd_rw', 'edit_saturday_910_1st_rw', 'edit_saturday_910_2nd_rw',
+        'edit_sunday_910_1st_rw', 'edit_sunday_910_2nd_rw', 'edit_room910_1_rw', 'edit_room910_2_rw',
+        'edit_room910_3_rw', 'edit_room910_4_rw', 'edit_room910_5_rw', 'edit_room910_6_rw', 'edit_room910_7_rw',
+        'edit_last_910_1st_rw', 'edit_last_910_2nd_rw', 'edit_cc910_1st_rw', 'edit_cc910_2nd_rw',
+        'edit_section910_1st_rw', 'edit_section910_2nd_rw'
+      ];
+
+      inputIds.forEach(id => {
+        const element = document.getElementById(id);
+        if (element) {
+          const propertyName = id.replace('edit_', '').replace('_rw', '');
+
+          if (!obj910.hasOwnProperty(propertyName)) {
+            obj910[propertyName] = element.value;
+          }
+        }
+      });
+    }
+
+    function initializeOriginalValues1112() {
+      const inputIds = [
+        'edit_monday_1112_1st_rw', 'edit_monday_1112_2nd_rw', 'edit_tuesday_1112_1st_rw',
+        'edit_tuesday_1112_2nd_rw', 'edit_wednesday_1112_1st_rw', 'edit_wednesday_1112_2nd_rw',
+        'edit_thursday_1112_1st_rw', 'edit_thursday_1112_2nd_rw', 'edit_friday_1112_1st_rw',
+        'edit_friday_1112_2nd_rw', 'edit_saturday_1112_1st_rw', 'edit_saturday_1112_2nd_rw',
+        'edit_sunday_1112_1st_rw', 'edit_sunday_1112_2nd_rw', 'edit_room1112_1_rw', 'edit_room1112_2_rw',
+        'edit_room1112_3_rw', 'edit_room1112_4_rw', 'edit_room1112_5_rw', 'edit_room1112_6_rw', 'edit_room1112_7_rw',
+        'edit_last_1112_1st_rw', 'edit_last_1112_2nd_rw', 'edit_cc1112_1st_rw', 'edit_cc1112_2nd_rw',
+        'edit_section1112_1st_rw', 'edit_section1112_2nd_rw'
+      ];
+
+      inputIds.forEach(id => {
+        const element = document.getElementById(id);
+        if (element) {
+          const propertyName = id.replace('edit_', '').replace('_rw', '');
+
+          if (!obj1112.hasOwnProperty(propertyName)) {
+            obj1112[propertyName] = element.value;
+          }
+        }
+      });
+    }
+
+    function initializeOriginalValues1201() {
+      const inputIds = [
+        'edit_monday_1201_1st_rw', 'edit_monday_1201_2nd_rw', 'edit_tuesday_1201_1st_rw',
+        'edit_tuesday_1201_2nd_rw', 'edit_wednesday_1201_1st_rw', 'edit_wednesday_1201_2nd_rw',
+        'edit_thursday_1201_1st_rw', 'edit_thursday_1201_2nd_rw', 'edit_friday_1201_1st_rw',
+        'edit_friday_1201_2nd_rw', 'edit_saturday_1201_1st_rw', 'edit_saturday_1201_2nd_rw',
+        'edit_sunday_1201_1st_rw', 'edit_sunday_1201_2nd_rw', 'edit_room1201_1_rw', 'edit_room1201_2_rw',
+        'edit_room1201_3_rw', 'edit_room1201_4_rw', 'edit_room1201_5_rw', 'edit_room1201_6_rw', 'edit_room1201_7_rw',
+        'edit_last_1201_1st_rw', 'edit_last_1201_2nd_rw', 'edit_cc1201_1st_rw', 'edit_cc1201_2nd_rw',
+        'edit_section1201_1st_rw', 'edit_section1201_2nd_rw'
+      ];
+
+      inputIds.forEach(id => {
+        const element = document.getElementById(id);
+        if (element) {
+          const propertyName = id.replace('edit_', '').replace('_rw', '');
+
+          if (!obj1201.hasOwnProperty(propertyName)) {
+            obj1201[propertyName] = element.value;
+          }
+        }
+      });
+    }
+
+    function initializeOriginalValues0102() {
+      const inputIds = [
+        'edit_monday_0102_1st_rw', 'edit_monday_0102_2nd_rw', 'edit_tuesday_0102_1st_rw',
+        'edit_tuesday_0102_2nd_rw', 'edit_wednesday_0102_1st_rw', 'edit_wednesday_0102_2nd_rw',
+        'edit_thursday_0102_1st_rw', 'edit_thursday_0102_2nd_rw', 'edit_friday_0102_1st_rw',
+        'edit_friday_0102_2nd_rw', 'edit_saturday_0102_1st_rw', 'edit_saturday_0102_2nd_rw',
+        'edit_sunday_0102_1st_rw', 'edit_sunday_0102_2nd_rw', 'edit_room0102_1_rw', 'edit_room0102_2_rw',
+        'edit_room0102_3_rw', 'edit_room0102_4_rw', 'edit_room0102_5_rw', 'edit_room0102_6_rw', 'edit_room0102_7_rw',
+        'edit_last_0102_1st_rw', 'edit_cc0102_1st_rw', 'edit_cc0102_2nd_rw',
+        'edit_section0102_1st_rw', 'edit_section0102_2nd_rw', 'edit_timeline0102_rw'
+      ];
+
+      inputIds.forEach(id => {
+        const element = document.getElementById(id);
+        if (element) {
+          const propertyName = id.replace('edit_', '').replace('_rw', '');
+
+          if (!obj0102.hasOwnProperty(propertyName)) {
+            obj0102[propertyName] = element.value;
+          }
+        }
+      });
+    }
+
+    function initializeOriginalValues0203() {
+      const inputIds = [
+        'edit_monday_0203_1st_rw', 'edit_monday_0203_2nd_rw', 'edit_tuesday_0203_1st_rw',
+        'edit_tuesday_0203_2nd_rw', 'edit_wednesday_0203_1st_rw', 'edit_wednesday_0203_2nd_rw',
+        'edit_thursday_0203_1st_rw', 'edit_thursday_0203_2nd_rw', 'edit_friday_0203_1st_rw',
+        'edit_friday_0203_2nd_rw', 'edit_saturday_0203_1st_rw', 'edit_saturday_0203_2nd_rw',
+        'edit_sunday_0203_1st_rw', 'edit_sunday_0203_2nd_rw', 'edit_room0203_1_rw', 'edit_room0203_2_rw',
+        'edit_room0203_3_rw', 'edit_room0203_4_rw', 'edit_room0203_5_rw', 'edit_room0203_6_rw', 'edit_room0203_7_rw',
+        'edit_last_0203_1st_rw', 'edit_last_0203_2nd_rw', 'edit_cc0203_1st_rw', 'edit_cc0203_2nd_rw',
+        'edit_section0203_1st_rw', 'edit_section0203_2nd_rw'
+      ];
+
+      inputIds.forEach(id => {
+        const element = document.getElementById(id);
+        if (element) {
+          const propertyName = id.replace('edit_', '').replace('_rw', '');
+
+          if (!obj0203.hasOwnProperty(propertyName)) {
+            obj0203[propertyName] = element.value;
+          }
+        }
+      });
+    }
+
+    function initializeOriginalValues0304() {
+      const inputIds = [
+        'edit_monday_0304_1st_rw', 'edit_monday_0304_2nd_rw', 'edit_tuesday_0304_1st_rw',
+        'edit_tuesday_0304_2nd_rw', 'edit_wednesday_0304_1st_rw', 'edit_wednesday_0304_2nd_rw',
+        'edit_thursday_0304_1st_rw', 'edit_thursday_0304_2nd_rw', 'edit_friday_0304_1st_rw',
+        'edit_friday_0304_2nd_rw', 'edit_saturday_0304_1st_rw', 'edit_saturday_0304_2nd_rw',
+        'edit_sunday_0304_1st_rw', 'edit_sunday_0304_2nd_rw', 'edit_room0304_1_rw', 'edit_room0304_2_rw',
+        'edit_room0304_3_rw', 'edit_room0304_4_rw', 'edit_room0304_5_rw', 'edit_room0304_6_rw', 'edit_room0304_7_rw',
+        'edit_last_0304_1st_rw', 'edit_last_0304_2nd_rw', 'edit_cc0304_1st_rw', 'edit_cc0304_2nd_rw',
+        'edit_section0304_1st_rw', 'edit_section0304_2nd_rw'
+      ];
+
+      inputIds.forEach(id => {
+        const element = document.getElementById(id);
+        if (element) {
+          const propertyName = id.replace('edit_', '').replace('_rw', '');
+
+          if (!obj0304.hasOwnProperty(propertyName)) {
+            obj0304[propertyName] = element.value;
+          }
+        }
+      });
+    }
+
+    function initializeOriginalValues0405() {
+      const inputIds = [
+        'edit_monday_0405_1st_rw', 'edit_monday_0405_2nd_rw', 'edit_tuesday_0405_1st_rw',
+        'edit_tuesday_0405_2nd_rw', 'edit_wednesday_0405_1st_rw', 'edit_wednesday_0405_2nd_rw',
+        'edit_thursday_0405_1st_rw', 'edit_thursday_0405_2nd_rw', 'edit_friday_0405_1st_rw',
+        'edit_friday_0405_2nd_rw', 'edit_saturday_0405_1st_rw', 'edit_saturday_0405_2nd_rw',
+        'edit_sunday_0405_1st_rw', 'edit_sunday_0405_2nd_rw', 'edit_room0405_1_rw', 'edit_room0405_2_rw',
+        'edit_room0405_3_rw', 'edit_room0405_4_rw', 'edit_room0405_5_rw', 'edit_room0405_6_rw', 'edit_room0405_7_rw',
+        'edit_last_0405_1st_rw', 'edit_last_0405_2nd_rw', 'edit_cc0405_1st_rw', 'edit_cc0405_2nd_rw',
+        'edit_section0405_1st_rw', 'edit_section0405_2nd_rw'
+      ];
+
+      inputIds.forEach(id => {
+        const element = document.getElementById(id);
+        if (element) {
+          const propertyName = id.replace('edit_', '').replace('_rw', '');
+
+          if (!obj0405.hasOwnProperty(propertyName)) {
+            obj0405[propertyName] = element.value;
+          }
+        }
+      });
+    }
+
+    function initializeOriginalValues0506() {
+      const inputIds = [
+        'edit_monday_0506_1st_rw', 'edit_monday_0506_2nd_rw', 'edit_tuesday_0506_1st_rw',
+        'edit_tuesday_0506_2nd_rw', 'edit_wednesday_0506_1st_rw', 'edit_wednesday_0506_2nd_rw',
+        'edit_thursday_0506_1st_rw', 'edit_thursday_0506_2nd_rw', 'edit_friday_0506_1st_rw',
+        'edit_friday_0506_2nd_rw', 'edit_saturday_0506_1st_rw', 'edit_saturday_0506_2nd_rw',
+        'edit_sunday_0506_1st_rw', 'edit_sunday_0506_2nd_rw', 'edit_room0506_1_rw', 'edit_room0506_2_rw',
+        'edit_room0506_3_rw', 'edit_room0506_4_rw', 'edit_room0506_5_rw', 'edit_room0506_6_rw', 'edit_room0506_7_rw',
+        'edit_last_0506_1st_rw', 'edit_last_0506_2nd_rw', 'edit_cc0506_1st_rw', 'edit_cc0506_2nd_rw',
+        'edit_section0506_1st_rw', 'edit_section0506_2nd_rw'
+      ];
+
+      inputIds.forEach(id => {
+        const element = document.getElementById(id);
+        if (element) {
+          const propertyName = id.replace('edit_', '').replace('_rw', '');
+
+          if (!obj0506.hasOwnProperty(propertyName)) {
+            obj0506[propertyName] = element.value;
+          }
+        }
+      });
+    }
+
+    function initializeOriginalValues0607() {
+      const inputIds = [
+        'edit_monday_0607_1st_rw', 'edit_monday_0607_2nd_rw', 'edit_tuesday_0607_1st_rw',
+        'edit_tuesday_0607_2nd_rw', 'edit_wednesday_0607_1st_rw', 'edit_wednesday_0607_2nd_rw',
+        'edit_thursday_0607_1st_rw', 'edit_thursday_0607_2nd_rw', 'edit_friday_0607_1st_rw',
+        'edit_friday_0607_2nd_rw', 'edit_saturday_0607_1st_rw', 'edit_saturday_0607_2nd_rw',
+        'edit_sunday_0607_1st_rw', 'edit_sunday_0607_2nd_rw', 'edit_room0607_1_rw', 'edit_room0607_2_rw',
+        'edit_room0607_3_rw', 'edit_room0607_4_rw', 'edit_room0607_5_rw', 'edit_room0607_6_rw', 'edit_room0607_7_rw',
+        'edit_last_0607_1st_rw', 'edit_last_0607_2nd_rw', 'edit_cc0607_1st_rw', 'edit_cc0607_2nd_rw',
+        'edit_section0607_1st_rw', 'edit_section0607_2nd_rw'
+      ];
+
+      inputIds.forEach(id => {
+        const element = document.getElementById(id);
+        if (element) {
+          const propertyName = id.replace('edit_', '').replace('_rw', '');
+
+          if (!obj0607.hasOwnProperty(propertyName)) {
+            obj0607[propertyName] = element.value;
+          }
+        }
+      });
+    }
+
     initializeOriginalValues();
-    console.log(obj);
+    initializeOriginalValues78();
+    initializeOriginalValues89()
+    initializeOriginalValues1011()
+    initializeOriginalValues910()
+    initializeOriginalValues1112()
+    initializeOriginalValues1201()
+    initializeOriginalValues0102()
+    initializeOriginalValues0203()
+    initializeOriginalValues0304()
+    initializeOriginalValues0405()
+    initializeOriginalValues0506()
+    initializeOriginalValues0607()
 
     function handleInputChange(event) {
       const propertyName = event.target.id.replace('edit_', '').replace('_rw', '');
@@ -2071,10 +3913,215 @@ if ($conn->connect_error) {
       obj[propertyName] = (originalValues[propertyName] !== undefined &&
           event.target.value.trim() === '') ?
         originalValues[propertyName] : event.target.value;
+      console.log(obj)
 
       $.ajax({
         method: 'post',
         data: obj,
+        url: 'app/helper/scheduler_helper.php',
+        success: function(response) {
+          console.log(response)
+        }
+      })
+    }
+
+    function handleInput78Change(event) {
+      const propertyName = event.target.id.replace('edit_', '').replace('_rw', '');
+
+      obj78[propertyName] = (originalValues[propertyName] !== undefined &&
+          event.target.value.trim() === '') ?
+        originalValues[propertyName] : event.target.value;
+
+      $.ajax({
+        method: 'post',
+        data: obj78,
+        url: 'app/helper/scheduler_helper.php',
+        success: function(response) {
+          console.log(response)
+        }
+      })
+    }
+
+    function handleInput89Change(event) {
+      const propertyName = event.target.id.replace('edit_', '').replace('_rw', '');
+
+      obj89[propertyName] = (originalValues[propertyName] !== undefined &&
+          event.target.value.trim() === '') ?
+        originalValues[propertyName] : event.target.value;
+
+      $.ajax({
+        method: 'post',
+        data: obj89,
+        url: 'app/helper/scheduler_helper.php',
+        success: function(response) {
+          console.log(response)
+        }
+      })
+    }
+
+    function handleInput1011Change(event) {
+      const propertyName = event.target.id.replace('edit_', '').replace('_rw', '');
+
+      obj1011[propertyName] = (originalValues[propertyName] !== undefined &&
+          event.target.value.trim() === '') ?
+        originalValues[propertyName] : event.target.value;
+
+      $.ajax({
+        method: 'post',
+        data: obj1011,
+        url: 'app/helper/scheduler_helper.php',
+        success: function(response) {
+          console.log(response)
+        }
+      })
+    }
+
+    function handleInput910Change(event) {
+      const propertyName = event.target.id.replace('edit_', '').replace('_rw', '');
+
+      obj910[propertyName] = (originalValues[propertyName] !== undefined &&
+          event.target.value.trim() === '') ?
+        originalValues[propertyName] : event.target.value;
+
+      $.ajax({
+        method: 'post',
+        data: obj910,
+        url: 'app/helper/scheduler_helper.php',
+        success: function(response) {
+          console.log(response)
+        }
+      })
+    }
+
+    function handleInput1112Change(event) {
+      const propertyName = event.target.id.replace('edit_', '').replace('_rw', '');
+
+      obj1112[propertyName] = (originalValues[propertyName] !== undefined &&
+          event.target.value.trim() === '') ?
+        originalValues[propertyName] : event.target.value;
+
+      $.ajax({
+        method: 'post',
+        data: obj1112,
+        url: 'app/helper/scheduler_helper.php',
+        success: function(response) {
+          console.log(response)
+        }
+      })
+    }
+
+    function handleInput1201Change(event) {
+      const propertyName = event.target.id.replace('edit_', '').replace('_rw', '');
+
+      obj1201[propertyName] = (originalValues[propertyName] !== undefined &&
+          event.target.value.trim() === '') ?
+        originalValues[propertyName] : event.target.value;
+
+      $.ajax({
+        method: 'post',
+        data: obj1201,
+        url: 'app/helper/scheduler_helper.php',
+        success: function(response) {
+          console.log(response)
+        }
+      })
+    }
+
+    function handleInput0102Change(event) {
+      const propertyName = event.target.id.replace('edit_', '').replace('_rw', '');
+
+      obj0102[propertyName] = (originalValues[propertyName] !== undefined &&
+          event.target.value.trim() === '') ?
+        originalValues[propertyName] : event.target.value;
+
+      $.ajax({
+        method: 'post',
+        data: obj0102,
+        url: 'app/helper/scheduler_helper.php',
+        success: function(response) {
+          console.log(response)
+        }
+      })
+    }
+
+    function handleInput0203Change(event) {
+      const propertyName = event.target.id.replace('edit_', '').replace('_rw', '');
+
+      obj0203[propertyName] = (originalValues[propertyName] !== undefined &&
+          event.target.value.trim() === '') ?
+        originalValues[propertyName] : event.target.value;
+
+      $.ajax({
+        method: 'post',
+        data: obj0203,
+        url: 'app/helper/scheduler_helper.php',
+        success: function(response) {
+          console.log(response)
+        }
+      })
+    }
+
+    function handleInput0304Change(event) {
+      const propertyName = event.target.id.replace('edit_', '').replace('_rw', '');
+
+      obj0304[propertyName] = (originalValues[propertyName] !== undefined &&
+          event.target.value.trim() === '') ?
+        originalValues[propertyName] : event.target.value;
+
+      $.ajax({
+        method: 'post',
+        data: obj0304,
+        url: 'app/helper/scheduler_helper.php',
+        success: function(response) {
+          console.log(response)
+        }
+      })
+    }
+
+    function handleInput0405Change(event) {
+      const propertyName = event.target.id.replace('edit_', '').replace('_rw', '');
+
+      obj0405[propertyName] = (originalValues[propertyName] !== undefined &&
+          event.target.value.trim() === '') ?
+        originalValues[propertyName] : event.target.value;
+
+      $.ajax({
+        method: 'post',
+        data: obj0405,
+        url: 'app/helper/scheduler_helper.php',
+        success: function(response) {
+          console.log(response)
+        }
+      })
+    }
+
+    function handleInput0506Change(event) {
+      const propertyName = event.target.id.replace('edit_', '').replace('_rw', '');
+
+      obj0506[propertyName] = (originalValues[propertyName] !== undefined &&
+          event.target.value.trim() === '') ?
+        originalValues[propertyName] : event.target.value;
+
+      $.ajax({
+        method: 'post',
+        data: obj0506,
+        url: 'app/helper/scheduler_helper.php',
+        success: function(response) {
+          console.log(response)
+        }
+      })
+    }
+
+    function handleInput0607Change(event) {
+      const propertyName = event.target.id.replace('edit_', '').replace('_rw', '');
+
+      obj0607[propertyName] = (originalValues[propertyName] !== undefined &&
+          event.target.value.trim() === '') ?
+        originalValues[propertyName] : event.target.value;
+
+      $.ajax({
+        method: 'post',
+        data: obj0607,
         url: 'app/helper/scheduler_helper.php',
         success: function(response) {
           console.log(response)
