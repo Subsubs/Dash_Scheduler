@@ -18,6 +18,17 @@ class Queries
         $sql = "UPDATE sched SET {$setClauseString} WHERE time=:time";
         return $sql;
     }
+    public function update_addinfo($data)
+    {
+        $setClause = [];
+        foreach ($data as $key => $value) {
+            $setClause[] = "{$key}=:{$key}";
+        }
+        $setClauseString = implode(", ", $setClause);
+
+        $sql = "UPDATE sched SET {$setClauseString} WHERE faculty_id=:faculty_id";
+        return $sql;
+    }
 }
 
 class Server
