@@ -4518,8 +4518,8 @@ if ($conn->connect_error) {
         if (element) {
           const propertyName = id.replace('edit_', '').replace('_rw', '');
 
-          if (!obj0607.hasOwnProperty(propertyName)) {
-            obj0607[propertyName] = element.value;
+          if (!obj0708.hasOwnProperty(propertyName)) {
+            obj0708[propertyName] = element.value;
           }
         }
       });
@@ -4586,6 +4586,7 @@ if ($conn->connect_error) {
     initializeOriginalValues0405()
     initializeOriginalValues0506()
     initializeOriginalValues0607()
+    initializeOriginalValues0708()
 
     function handleInputChange(event) {
       const propertyName = event.target.id.replace('edit_', '').replace('_rw', '');
