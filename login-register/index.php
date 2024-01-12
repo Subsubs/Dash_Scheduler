@@ -2354,30 +2354,27 @@ if ($conn->connect_error) {
               while ($res_get = mysqli_fetch_assoc($res_offtime)) {
                 if (!$trRendered) {
           ?>
-                  <tr>
+                  <tr id="toggleofftime1" style="display: none;">
                     <td>Official time</td>
-                    <td colspan="2">
-                      <input class="form-control" value="<?php echo $res_get['official_time_1st_col']; ?>" id="off_time_1" />
-                    </td>
-                    <td colspan="2">
-                      <input class="form-control" value="<?php echo $res_get['official_time_2nd_col']; ?>" id="off_time_2" />
-                    </td>
-                    <td colspan="2">
-                      <input class="form-control" value="<?php echo $res_get['official_time_3rd_col']; ?>" id="off_time_3" />
-                    </td>
-                    <td colspan="2">
-                      <input class="form-control" value="<?php echo $res_get['official_time_4th_col']; ?>" id="off_time_4" />
-                    </td>
-                    <td colspan="2">
-                      <input class="form-control" value="<?php echo $res_get['official_time_5th_col']; ?>" id="off_time_5" />
-                    </td>
-                    <td colspan="2">
-                      <input class="form-control" value="<?php echo $res_get['official_time_6th_col']; ?>" id="off_time_6" />
-                    </td>
-                    <td colspan="2">
-                      <input class="form-control" value="<?php echo $res_get['official_time_7th_col']; ?>" id="off_time_7" />
-                    </td>
+                    <td colspan="2"><input class="form-control" value="<?php echo $res_get['official_time_1st_col']; ?>" id="off_time_1" /></td>
+                    <td colspan="2"><input class="form-control" value="<?php echo $res_get['official_time_2nd_col']; ?>" id="off_time_2" /></td>
+                    <td colspan="2"><input class="form-control" value="<?php echo $res_get['official_time_3rd_col']; ?>" id="off_time_3" /></td>
+                    <td colspan="2"><input class="form-control" value="<?php echo $res_get['official_time_4th_col']; ?>" id="off_time_4" /></td>
+                    <td colspan="2"><input class="form-control" value="<?php echo $res_get['official_time_5th_col']; ?>" id="off_time_5" /></td>
+                    <td colspan="2"><input class="form-control" value="<?php echo $res_get['official_time_6th_col']; ?>" id="off_time_6" /></td>
+                    <td colspan="2"><input class="form-control" value="<?php echo $res_get['official_time_7th_col']; ?>" id="off_time_7" /></td>
                   </tr>
+
+                  <tr id="toggleofftime2" style="display: table-row;" >
+                    <td>Official time</td>
+                    <td colspan="2"> <?php echo $res_get['official_time_1st_col']; ?> </td>
+                    <td colspan="2"> <?php echo $res_get['official_time_2nd_col']; ?> </td>
+                    <td colspan="2"> <?php echo $res_get['official_time_3rd_col']; ?> </td>
+                    <td colspan="2"> <?php echo $res_get['official_time_4th_col']; ?> </td>
+                    <td colspan="2"> <?php echo $res_get['official_time_5th_col']; ?> </td>
+                    <td colspan="2"> <?php echo $res_get['official_time_6th_col']; ?> </td>
+                    <td colspan="2"> <?php echo $res_get['official_time_7th_col']; ?> </td>
+                </tr>
               <?php
                   $trRendered = true;
                 }
@@ -2386,28 +2383,30 @@ if ($conn->connect_error) {
               ?>
               <tr>
                 <td>Official time</td>
-                <td colspan="2"></td>
-                <td colspan="2"></td>
-                <td colspan="2"></td>
-                <td colspan="2"></td>
-                <td colspan="2"></td>
-                <td colspan="2"></td>
-                <td colspan="2"></td>
-              </tr>
+                <td colspan="2"><input id="off_time_1" hidden /></td>
+                <td colspan="2"><input id="off_time_2" hidden /></td>
+                <td colspan="2"><input id="off_time_3" hidden /></td>
+                <td colspan="2"><input id="off_time_4" hidden /></td>
+                <td colspan="2"><input id="off_time_5" hidden /></td>
+                <td colspan="2"><input id="off_time_6" hidden /></td>
+                <td colspan="2"><input id="off_time_7" hidden /></td>
+            </tr>
+
             <?php
             }
           } else {
             ?>
             <tr>
-              <td>Official time</td>
-              <td colspan="2"></td>
-              <td colspan="2"></td>
-              <td colspan="2"></td>
-              <td colspan="2"></td>
-              <td colspan="2"></td>
-              <td colspan="2"></td>
-              <td colspan="2"></td>
+                <td>Official time</td>
+                <td colspan="2"><input id="off_time_1" hidden /></td>
+                <td colspan="2"><input id="off_time_2" hidden /></td>
+                <td colspan="2"><input id="off_time_3" hidden /></td>
+                <td colspan="2"><input id="off_time_4" hidden /></td>
+                <td colspan="2"><input id="off_time_5" hidden /></td>
+                <td colspan="2"><input id="off_time_6" hidden /></td>
+                <td colspan="2"><input id="off_time_7" hidden /></td>
             </tr>
+
           <?php
           }
           ?>
@@ -2421,30 +2420,29 @@ if ($conn->connect_error) {
               while ($res_get = mysqli_fetch_assoc($res_offtime)) {
                 if (!$trRendered) {
           ?>
-                  <tr>
+                  <tr id="toggleofftime3" style="display: none;">
                     <td>No. of Teaching Hours</td>
-                    <td colspan="2">
-                      <input class="form-control nth-input" value="<?php echo $res_get['no_teaching_hours_1st_col']; ?>" id="nth_1" />
-                    </td>
-                    <td colspan="2">
-                      <input class="form-control nth-input" value="<?php echo $res_get['no_teaching_hours_2nd_col']; ?>" id="nth_2" />
-                    </td>
-                    <td colspan="2">
-                      <input class="form-control nth-input" value="<?php echo $res_get['no_teaching_hours_3rd_col']; ?>" id="nth_3" />
-                    </td>
-                    <td colspan="2">
-                      <input class="form-control nth-input" value="<?php echo $res_get['no_teaching_hours_4th_col']; ?>" id="nth_4" />
-                    </td>
-                    <td colspan="2">
-                      <input class="form-control nth-input" value="<?php echo $res_get['no_teaching_hours_5th_col']; ?>" id="nth_5" />
-                    </td>
-                    <td colspan="2">
-                      <input class="form-control nth-input" value="<?php echo $res_get['no_teaching_hours_6th_col']; ?>" id="nth_6" />
-                    </td>
-                    <td colspan="2">
-                      <h6></h6>
-                    </td>
+                    <td colspan="2"><input class="form-control nth-input" value="<?php echo $res_get['no_teaching_hours_1st_col']; ?>" id="nth_1" /></td>
+                    <td colspan="2"><input class="form-control nth-input" value="<?php echo $res_get['no_teaching_hours_2nd_col']; ?>" id="nth_2" /></td>
+                    <td colspan="2"><input class="form-control nth-input" value="<?php echo $res_get['no_teaching_hours_3rd_col']; ?>" id="nth_3" /></td>
+                    <td colspan="2"><input class="form-control nth-input" value="<?php echo $res_get['no_teaching_hours_4th_col']; ?>" id="nth_4" /></td>
+                    <td colspan="2"><input class="form-control nth-input" value="<?php echo $res_get['no_teaching_hours_5th_col']; ?>" id="nth_5" /></td>
+                    <td colspan="2"><input class="form-control nth-input" value="<?php echo $res_get['no_teaching_hours_6th_col']; ?>" id="nth_6" /></td>
+                    <td colspan="2"><h6></h6></td>
                   </tr>
+                  
+                  <tr id="toggleofftime4" style="display: table-row;">
+                    <td>No. of Teaching Hours</td>
+                    <td colspan="2"> <input class="form-control nth-input" value="<?php echo $res_get['no_teaching_hours_1st_col']; ?>" id="nth_1" hidden /><?php echo $res_get['no_teaching_hours_1st_col']; ?> </td>
+                    <td colspan="2"> <input class="form-control nth-input" value="<?php echo $res_get['no_teaching_hours_2nd_col']; ?>" id="nth_2" hidden/> <?php echo $res_get['no_teaching_hours_2nd_col']; ?> </td>
+                    <td colspan="2"> <input class="form-control nth-input" value="<?php echo $res_get['no_teaching_hours_3rd_col']; ?>" id="nth_3" hidden /> <?php echo $res_get['no_teaching_hours_3rd_col']; ?> </td>
+                    <td colspan="2"> <input class="form-control nth-input" value="<?php echo $res_get['no_teaching_hours_4th_col']; ?>" id="nth_4" hidden/> <?php echo $res_get['no_teaching_hours_4th_col']; ?> </td>
+                    <td colspan="2"> <input class="form-control nth-input" value="<?php echo $res_get['no_teaching_hours_5th_col']; ?>" id="nth_5" hidden/> <?php echo $res_get['no_teaching_hours_5th_col']; ?> </td>
+                    <td colspan="2"> <input class="form-control nth-input" value="<?php echo $res_get['no_teaching_hours_6th_col']; ?>" id="nth_6" hidden/><?php echo $res_get['no_teaching_hours_6th_col']; ?> </td>
+                    <td colspan="2"><h6 id="total"></h6></td>
+                </tr>
+
+                  
               <?php
                   $trRendered = true;
                 }
@@ -2452,29 +2450,30 @@ if ($conn->connect_error) {
             } else {
               ?>
               <tr>
-                <td>No. of Teaching Hours</td>
-                <td colspan="2"></td>
-                <td colspan="2"></td>
-                <td colspan="2"></td>
-                <td colspan="2"></td>
-                <td colspan="2"></td>
-                <td colspan="2"></td>
-                <td colspan="2"></td>
-              </tr>
+              <td>No. of Teaching Hours</td>
+              <td colspan="2"><input id="nth_1" hidden /></td>
+              <td colspan="2"><input id="nth_2" hidden /></td>
+              <td colspan="2"><input id="nth_3" hidden /></td>
+              <td colspan="2"><input id="nth_4" hidden /></td>
+              <td colspan="2"><input id="nth_5" hidden /></td>
+              <td colspan="2"><input id="nth_6" hidden /></td>
+              <td colspan="2"> <h6 id="total"></h6></td>
+          </tr>
+
             <?php
             }
           } else {
             ?>
-            <tr>
+           <tr>
               <td>No. of Teaching Hours</td>
-              <td colspan="2"></td>
-              <td colspan="2"></td>
-              <td colspan="2"></td>
-              <td colspan="2"></td>
-              <td colspan="2"></td>
-              <td colspan="2"></td>
-              <td colspan="2"></td>
-            </tr>
+              <td colspan="2"><input id="nth_1" hidden /></td>
+              <td colspan="2"><input id="nth_2" hidden /></td>
+              <td colspan="2"><input id="nth_3" hidden /></td>
+              <td colspan="2"><input id="nth_4" hidden /></td>
+              <td colspan="2"><input id="nth_5" hidden /></td>
+              <td colspan="2"><input id="nth_6" hidden /></td>
+              <td colspan="2"><h6 id="total"></h6></td>
+          </tr>
           <?php
           }
           ?>
@@ -2488,30 +2487,29 @@ if ($conn->connect_error) {
               while ($res_get = mysqli_fetch_assoc($res_offtime)) {
                 if (!$trRendered) {
           ?>
-                  <tr>
+                 <tr id="toggleofftime5" style="display: none;">
+                  <td>Overtime Within</td>
+                  <td colspan="2"><input class="form-control nth-input" value="<?php echo $res_get['no_overtime_1st_col']; ?>" id="ot_1" /></td>
+                  <td colspan="2"><input class="form-control ot-input" value="<?php echo $res_get['no_overtime_2nd_col']; ?>" id="ot_2" /></td>
+                  <td colspan="2"><input class="form-control ot-input" value="<?php echo $res_get['no_overtime_3rd_col']; ?>" id="ot_3" /></td>
+                  <td colspan="2"><input class="form-control ot-input" value="<?php echo $res_get['no_overtime_4th_col']; ?>" id="ot_4" /></td>
+                  <td colspan="2"><input class="form-control ot-input" value="<?php echo $res_get['no_overtime_5th_col']; ?>" id="ot_5" /></td>
+                  <td colspan="2"><input class="form-control ot-input" value="<?php echo $res_get['no_overtime_6th_col']; ?>" id="ot_6" /></td>
+                  <td colspan="2"><input class="form-control ot-input" value="<?php echo $res_get['no_overtime_7th_col']; ?>" id="ot_7" /></td>
+                </tr>
+
+
+                  <tr id="toggleofftime6" style="display: table-row;">
                     <td>Overtime Within</td>
-                    <td colspan="2">
-                      <input class="form-control nth-input" value="<?php echo $res_get['no_overtime_1st_col']; ?>" id="ot_1" />
-                    </td>
-                    <td colspan="2">
-                      <input class="form-control ot-input" value="<?php echo $res_get['no_overtime_2nd_col']; ?>" id="ot_2" />
-                    </td>
-                    <td colspan="2">
-                      <input class="form-control ot-input" value="<?php echo $res_get['no_overtime_3rd_col']; ?>" id="ot_3" />
-                    </td>
-                    <td colspan="2">
-                      <input class="form-control ot-input" value="<?php echo $res_get['no_overtime_4th_col']; ?>" id="ot_4" />
-                    </td>
-                    <td colspan="2">
-                      <input class="form-control ot-input" value="<?php echo $res_get['no_overtime_5th_col']; ?>" id="ot_5" />
-                    </td>
-                    <td colspan="2">
-                      <input class="form-control ot-input" value="<?php echo $res_get['no_overtime_6th_col']; ?>" id="ot_6" />
-                    </td>
-                    <td colspan="2">
-                      <input class="form-control ot-input" value="<?php echo $res_get['no_overtime_7th_col']; ?>" id="ot_7" />
-                    </td>
-                  </tr>
+                    <td colspan="2"> <?php echo $res_get['no_overtime_1st_col']; ?> </td>
+                    <td colspan="2"> <?php echo $res_get['no_overtime_2nd_col']; ?> </td>
+                    <td colspan="2"> <?php echo $res_get['no_overtime_3rd_col']; ?> </td>
+                    <td colspan="2"> <?php echo $res_get['no_overtime_4th_col']; ?> </td>
+                    <td colspan="2"> <?php echo $res_get['no_overtime_5th_col']; ?> </td>
+                    <td colspan="2"> <?php echo $res_get['no_overtime_6th_col']; ?> </td>
+                    <td colspan="2"> <?php echo $res_get['no_overtime_7th_col']; ?> </td>
+                </tr>
+
               <?php
                   $trRendered = true;
                 }
@@ -2520,27 +2518,28 @@ if ($conn->connect_error) {
               ?>
               <tr>
                 <td>Overtime Within</td>
-                <td colspan="2"></td>
-                <td colspan="2"></td>
-                <td colspan="2"></td>
-                <td colspan="2"></td>
-                <td colspan="2"></td>
-                <td colspan="2"></td>
-                <td colspan="2"></td>
-              </tr>
+                <td colspan="2"><input id="ot_1" hidden /></td>
+                <td colspan="2"><input id="ot_2" hidden /></td>
+                <td colspan="2"><input id="ot_3" hidden /></td>
+                <td colspan="2"><input id="ot_4" hidden /></td>
+                <td colspan="2"><input id="ot_5" hidden /></td>
+                <td colspan="2"><input id="ot_6" hidden /></td>
+                <td colspan="2"><input id="ot_7" hidden /></td>
+            </tr>
+
             <?php
             }
           } else {
             ?>
             <tr>
-              <td>Overtime Within</td>
-              <td colspan="2"></td>
-              <td colspan="2"></td>
-              <td colspan="2"></td>
-              <td colspan="2"></td>
-              <td colspan="2"></td>
-              <td colspan="2"></td>
-              <td colspan="2"></td>
+                <td>Overtime Within</td>
+                <td colspan="2"><input id="ot_1" hidden /></td>
+                <td colspan="2"><input id="ot_2" hidden /></td>
+                <td colspan="2"><input id="ot_3" hidden /></td>
+                <td colspan="2"><input id="ot_4" hidden /></td>
+                <td colspan="2"><input id="ot_5" hidden /></td>
+                <td colspan="2"><input id="ot_6" hidden /></td>
+                <td colspan="2"><input id="ot_7" hidden /></td>
             </tr>
           <?php
           }
@@ -2555,30 +2554,29 @@ if ($conn->connect_error) {
               while ($res_get = mysqli_fetch_assoc($res_offtime)) {
                 if (!$trRendered) {
           ?>
-                  <tr>
+                  <tr id="toggleofftime7" style="display: none;">
                     <td>Overtime Outside</td>
-                    <td colspan="2">
-                      <input class="form-control" value="<?php echo $res_get['overtime_outside_1st_col']; ?>" id="out1" />
-                    </td>
-                    <td colspan="2">
-                      <input class="form-control " value="<?php echo $res_get['overtime_outside_2nd_col']; ?>" id="out2" />
-                    </td>
-                    <td colspan="2">
-                      <input class="form-control " value="<?php echo $res_get['overtime_outside_3rd_col']; ?>" id="out3" />
-                    </td>
-                    <td colspan="2">
-                      <input class="form-control " value="<?php echo $res_get['overtime_outside_4th_col']; ?>" id="out4" />
-                    </td>
-                    <td colspan="2">
-                      <input class="form-control " value="<?php echo $res_get['overtime_outside_5th']; ?>" id="out5" />
-                    </td>
-                    <td colspan="2">
-                      <input class="form-control " value="<?php echo $res_get['overtime_outside_6th_col']; ?>" id="out6" />
-                    </td>
-                    <td colspan="2">
-                      <input class="form-control " value="<?php echo $res_get['overtime_outside_7th_col']; ?>" id="out7" />
-                    </td>
+                    <td colspan="2"><input class="form-control" value="<?php echo $res_get['overtime_outside_1st_col']; ?>" id="out1" /></td>
+                    <td colspan="2"><input class="form-control" value="<?php echo $res_get['overtime_outside_2nd_col']; ?>" id="out2" /></td>
+                    <td colspan="2"><input class="form-control" value="<?php echo $res_get['overtime_outside_3rd_col']; ?>" id="out3" /></td>
+                    <td colspan="2"><input class="form-control" value="<?php echo $res_get['overtime_outside_4th_col']; ?>" id="out4" /></td>
+                    <td colspan="2"><input class="form-control" value="<?php echo $res_get['overtime_outside_5th']; ?>" id="out5" /></td>
+                    <td colspan="2"><input class="form-control" value="<?php echo $res_get['overtime_outside_6th_col']; ?>" id="out6" /></td>
+                    <td colspan="2"><input class="form-control" value="<?php echo $res_get['overtime_outside_7th_col']; ?>" id="out7" /></td>
                   </tr>
+
+                  <tr id="toggleofftime8" style="display: table-row;">
+                    <td>Overtime Outside</td>
+                    <td colspan="2"> <?php echo $res_get['overtime_outside_1st_col']; ?> </td>
+                    <td colspan="2"> <?php echo $res_get['overtime_outside_2nd_col']; ?> </td>
+                    <td colspan="2"> <?php echo $res_get['overtime_outside_3rd_col']; ?> </td>
+                    <td colspan="2"> <?php echo $res_get['overtime_outside_4th_col']; ?> </td>
+                    <td colspan="2"> <?php echo $res_get['overtime_outside_5th']; ?> </td>
+                    <td colspan="2"> <?php echo $res_get['overtime_outside_6th_col']; ?> </td>
+                    <td colspan="2"> <?php echo $res_get['overtime_outside_7th_col']; ?> </td>
+                </tr>
+
+
               <?php
                   $trRendered = true;
                 }
@@ -2587,27 +2585,28 @@ if ($conn->connect_error) {
               ?>
               <tr>
                 <td>Overtime Outside</td>
-                <td colspan="2"></td>
-                <td colspan="2"></td>
-                <td colspan="2"></td>
-                <td colspan="2"></td>
-                <td colspan="2"></td>
-                <td colspan="2"></td>
-                <td colspan="2"></td>
-              </tr>
+                <td colspan="2"><input id="out1" hidden /></td>
+                <td colspan="2"><input id="out2" hidden /></td>
+                <td colspan="2"><input id="out3" hidden /></td>
+                <td colspan="2"><input id="out4" hidden /></td>
+                <td colspan="2"><input id="out5" hidden /></td>
+                <td colspan="2"><input id="out6" hidden /></td>
+                <td colspan="2"><input id="out7" hidden /></td>
+            </tr>
+
             <?php
             }
           } else {
             ?>
-            <tr>
-              <td>Overtime Outside</td>
-              <td colspan="2"></td>
-              <td colspan="2"></td>
-              <td colspan="2"></td>
-              <td colspan="2"></td>
-              <td colspan="2"></td>
-              <td colspan="2"></td>
-              <td colspan="2"></td>
+             <tr>
+                <td>Overtime Outside</td>
+                <td colspan="2"><input id="out1" hidden /></td>
+                <td colspan="2"><input id="out2" hidden /></td>
+                <td colspan="2"><input id="out3" hidden /></td>
+                <td colspan="2"><input id="out4" hidden /></td>
+                <td colspan="2"><input id="out5" hidden /></td>
+                <td colspan="2"><input id="out6" hidden /></td>
+                <td colspan="2"><input id="out7" hidden /></td>
             </tr>
           <?php
           }
@@ -2623,13 +2622,20 @@ if ($conn->connect_error) {
               while ($res_get = mysqli_fetch_assoc($res_offtime)) {
                 if (!$trRendered) {
           ?>
-                  <tr>
+                  <tr id="toggleofftime9" style="display: none;" >
                     <td>DESIGNATION</td>
                     <td colspan="14">
                       <input class="form-control" value="<?php echo $res_get['Designation']; ?>" id="design" />
                     </td>
-
                   </tr>
+
+                  <tr id="toggleofftime10" style="display: table-row;">
+                    <td>DESIGNATION</td>
+                    <td colspan="14">
+                        <?php echo $res_get['Designation']; ?>
+                    </td>
+                </tr>
+
               <?php
                   $trRendered = true;
                 }
@@ -2638,25 +2644,23 @@ if ($conn->connect_error) {
               ?>
               <tr>
                 <td>DESIGNATION</td>
-                <td colspan="14"></td>
-
-              </tr>
+                <td colspan="14">
+                    <input id="design" hidden />
+                </td>
+            </tr>
             <?php
             }
           } else {
             ?>
             <tr>
               <td>DESIGNATION</td>
-              <td colspan="14"></td>
-
-            </tr>
+              <td colspan="14">
+                  <input id="design" hidden />
+              </td>
+          </tr>
           <?php
           }
           ?>
-
-
-
-
           <?php
           if (isset($_POST['filteredValue'])) {
             $selected = $_POST['filteredValue'];
@@ -2667,7 +2671,7 @@ if ($conn->connect_error) {
               while ($res_get = mysqli_fetch_assoc($res_offtime)) {
                 if (!$trRendered) {
           ?>
-                  <tr>
+                  <tr id="toggleofftime11" style="display: none;">
                     <td colspan="2">NO. OF PREPARATIONS:</td>
                     <td colspan="3">
                       <input class="form-control" value="<?php echo $res_get['no_preparation']; ?>" id="prep" />
@@ -2683,6 +2687,22 @@ if ($conn->connect_error) {
 
                   </tr>
 
+                  <tr id="toggleofftime12" style="display: table-row;">
+                    <td colspan="2">NO. OF PREPARATIONS:</td>
+                    <td colspan="3">
+                        <?php echo $res_get['no_preparation']; ?>
+                    </td>
+                    <td colspan="2">REGULAR LOAD:</td>
+                    <td colspan="3">
+                        <?php echo $res_get['regular_load']; ?>
+                    </td>
+                    <td colspan="2">ACADEMIC RANK:</td>
+                    <td colspan="3">
+                        <?php echo $res_get['academic_rank']; ?>
+                    </td>
+                </tr>
+
+
               <?php
                   $trRendered = true;
                 }
@@ -2690,27 +2710,39 @@ if ($conn->connect_error) {
             } else {
               ?>
               <tr>
-                <td>NO. OF PREPARATIONS:</td>
-                <td colspan="3"></td>
-                <td>REGULAR LOAD:</td>
-                <td colspan="3"></td>
-                <td>ACADEMIC RANK:</td>
-                <td colspan="3"></td>
+                <td colspan="2">NO. OF PREPARATIONS:</td>
+                <td colspan="3">
+                    <input id="prep" hidden />
+                </td>
+                <td colspan="2">REGULAR LOAD:</td>
+                <td colspan="3">
+                    <input id="reg_load" hidden />
+                </td>
+                <td colspan="2">ACADEMIC RANK:</td>
+                <td colspan="3">
+                    <input id="acad_rank" hidden />
+                </td>
+            </tr>
 
-              </tr>
             <?php
             }
           } else {
             ?>
             <tr>
-              <td>NO. OF PREPARATIONS:</td>
-              <td colspan="3"></td>
-              <td>REGULAR LOAD:</td>
-              <td colspan="3"></td>
-              <td>ACADEMIC RANK:</td>
-              <td colspan="3"></td>
+              <td colspan="2">NO. OF PREPARATIONS:</td>
+              <td colspan="3">
+                  <input id="prep" hidden />
+              </td>
+              <td colspan="2">REGULAR LOAD:</td>
+              <td colspan="3">
+                  <input id="reg_load" hidden />
+              </td>
+              <td colspan="2">ACADEMIC RANK:</td>
+              <td colspan="3">
+                  <input id="acad_rank" hidden />
+              </td>
+          </tr>
 
-            </tr>
           <?php
           }
           ?>
@@ -2725,7 +2757,7 @@ if ($conn->connect_error) {
               while ($res_get = mysqli_fetch_assoc($res_offtime)) {
                 if (!$trRendered) {
           ?>
-                  <tr>
+                  <tr id="toggleofftime13" style="display: none;">
                     <td colspan="2">NO. OF HOURS PER WEEK:</td>
                     <td colspan="3">
                       <input class="form-control" value="<?php echo $res_get['no_hours_week']; ?>" id="hours_week" />
@@ -2741,6 +2773,21 @@ if ($conn->connect_error) {
 
                   </tr>
 
+                  <tr id="toggleofftime14" style="display: table-row;">
+                    <td colspan="2">NO. OF HOURS PER WEEK:</td>
+                    <td colspan="3">
+                        <?php echo $res_get['no_hours_week']; ?>
+                    </td>
+                    <td colspan="2">OVERLOAD:</td>
+                    <td colspan="3">
+                        <?php echo $res_get['overload']; ?>
+                    </td>
+                    <td colspan="2">CONSULTATION HOURS:</td>
+                    <td colspan="3">
+                        <?php echo $res_get['consult_hour']; ?>
+                    </td>
+                </tr>
+
               <?php
                   $trRendered = true;
                 }
@@ -2748,27 +2795,39 @@ if ($conn->connect_error) {
             } else {
               ?>
               <tr>
-                <td>NO. OF HOURS PER WEEK:</td>
-                <td colspan="3"></td>
-                <td>OVERLOAD:</td>
-                <td colspan="3"></td>
-                <td>CONSULTATION HOURS:</td>
-                <td colspan="3"></td>
+                <td colspan="2">NO. OF HOURS PER WEEK:</td>
+                <td colspan="3">
+                    <input id="hours_week" hidden />
+                </td>
+                <td colspan="2">OVERLOAD:</td>
+                <td colspan="3">
+                    <input id="Overload" hidden />
+                </td>
+                <td colspan="2">CONSULTATION HOURS:</td>
+                <td colspan="3">
+                    <input id="cons_hour" hidden />
+                </td>
+            </tr>
 
-              </tr>
             <?php
             }
           } else {
             ?>
             <tr>
-              <td>NO. OF HOURS PER WEEK:</td>
-              <td colspan="3"></td>
-              <td>OVERLOAD:</td>
-              <td colspan="3"></td>
-              <td>CONSULTATION HOURS:</td>
-              <td colspan="3"></td>
+              <td colspan="2">NO. OF HOURS PER WEEK:</td>
+              <td colspan="3">
+                  <input id="hours_week" hidden />
+              </td>
+              <td colspan="2">OVERLOAD:</td>
+              <td colspan="3">
+                  <input id="Overload" hidden />
+              </td>
+              <td colspan="2">CONSULTATION HOURS:</td>
+              <td colspan="3">
+                  <input id="cons_hour" hidden />
+              </td>
+          </tr>
 
-            </tr>
           <?php
           }
           ?>
@@ -4047,6 +4106,7 @@ if ($conn->connect_error) {
     var getTime0708 = document.getElementById('time0708')
 
     calculateSum()
+   
 
     function calculateSum() {
       // Get the values from the input fields
@@ -4061,8 +4121,12 @@ if ($conn->connect_error) {
       var sum = nth_1_value + nth_2_value + nth_3_value + nth_4_value + nth_5_value + nth_6_value;
 
       // Display the sum in the h6 element
-      document.querySelector('td[colspan="2"] h6').innerText = sum;
+      document.querySelector('td[colspan="2"] h6').innerHTML = sum;
+      var total = document.getElementById("total")
+      total.innerText = sum;
     }
+
+    
 
     var edit_monday_78_1st_rw = document.getElementById('edit_monday_78_1st_rw')
     var edit_monday_78_2nd_rw = document.getElementById('edit_monday_78_2nd_rw')
@@ -5523,9 +5587,132 @@ if ($conn->connect_error) {
         }
       })
     }
+// javascript for toggling from official time
+
+//---official time---
+    document.addEventListener("DOMContentLoaded", function() {
+        // Hide the elements initially
+        const tdsToToggle = document.getElementById("toggleofftime1");
+        const tdsToToggle1 = document.getElementById("toggleofftime2");
+
+        document.getElementById("toggleButton").addEventListener("click", function() {
+          if (tdsToToggle.style.display === "none") {
+            tdsToToggle.style.display = "table-row";
+            tdsToToggle1.style.display = "none";
+          } else {
+            tdsToToggle.style.display = "none";
+            tdsToToggle1.style.display = "table-row";
+          }
+        });
+      });
+//---No. of teaching hours----
+document.addEventListener("DOMContentLoaded", function() {
+        // Hide the elements initially
+        const tdsToToggle = document.getElementById("toggleofftime3");
+        const tdsToToggle1 = document.getElementById("toggleofftime4");
+
+
+        document.getElementById("toggleButton").addEventListener("click", function() {
+          if (tdsToToggle.style.display === "none") {
+            tdsToToggle.style.display = "table-row";
+            tdsToToggle1.style.display = "none";
+            
+          } else {
+            tdsToToggle.style.display = "none";
+            tdsToToggle1.style.display = "table-row";
+            
+          }
+        });
+      });
+
+//---Overtime Within----
+document.addEventListener("DOMContentLoaded", function() {
+        // Hide the elements initially
+        const tdsToToggle = document.getElementById("toggleofftime5");
+        const tdsToToggle1 = document.getElementById("toggleofftime6");
+
+        document.getElementById("toggleButton").addEventListener("click", function() {
+          if (tdsToToggle.style.display === "none") {
+            tdsToToggle.style.display = "table-row";
+            tdsToToggle1.style.display = "none";
+          } else {
+            tdsToToggle.style.display = "none";
+            tdsToToggle1.style.display = "table-row";
+          }
+        });
+      });
+
+//---Overtime Outside----
+document.addEventListener("DOMContentLoaded", function() {
+        // Hide the elements initially
+        const tdsToToggle = document.getElementById("toggleofftime7");
+        const tdsToToggle1 = document.getElementById("toggleofftime8");
+
+        document.getElementById("toggleButton").addEventListener("click", function() {
+          if (tdsToToggle.style.display === "none") {
+            tdsToToggle.style.display = "table-row";
+            tdsToToggle1.style.display = "none";
+          } else {
+            tdsToToggle.style.display = "none";
+            tdsToToggle1.style.display = "table-row";
+          }
+        });
+      });
+
+//---Designation----
+document.addEventListener("DOMContentLoaded", function() {
+        // Hide the elements initially
+        const tdsToToggle = document.getElementById("toggleofftime9");
+        const tdsToToggle1 = document.getElementById("toggleofftime10");
+
+        document.getElementById("toggleButton").addEventListener("click", function() {
+          if (tdsToToggle.style.display === "none") {
+            tdsToToggle.style.display = "table-row";
+            tdsToToggle1.style.display = "none";
+          } else {
+            tdsToToggle.style.display = "none";
+            tdsToToggle1.style.display = "table-row";
+          }
+        });
+      });
+
+//---No. of Preparations----
+document.addEventListener("DOMContentLoaded", function() {
+        // Hide the elements initially
+        const tdsToToggle = document.getElementById("toggleofftime11");
+        const tdsToToggle1 = document.getElementById("toggleofftime12");
+
+        document.getElementById("toggleButton").addEventListener("click", function() {
+          if (tdsToToggle.style.display === "none") {
+            tdsToToggle.style.display = "table-row";
+            tdsToToggle1.style.display = "none";
+          } else {
+            tdsToToggle.style.display = "none";
+            tdsToToggle1.style.display = "table-row";
+          }
+        });
+      });
+
+//---NO. of hours Per Week----
+document.addEventListener("DOMContentLoaded", function() {
+        // Hide the elements initially
+        const tdsToToggle = document.getElementById("toggleofftime13");
+        const tdsToToggle1 = document.getElementById("toggleofftime14");
+
+        document.getElementById("toggleButton").addEventListener("click", function() {
+          if (tdsToToggle.style.display === "none") {
+            tdsToToggle.style.display = "table-row";
+            tdsToToggle1.style.display = "none";
+          } else {
+            tdsToToggle.style.display = "none";
+            tdsToToggle1.style.display = "table-row";
+          }
+        });
+      });
+
   </script>
 
-  <script src="resources/js/toggle.js">  </script>
+  <script src="resources/js/toggle.js" defer>  </script>
 </body>
 
 </html>
