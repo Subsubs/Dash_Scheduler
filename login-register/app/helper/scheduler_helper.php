@@ -508,6 +508,101 @@ if (isset($_POST['schedTrigger0708']) === true) {
     $callback->Insertion67($data);
 }
 
+if (isset($_POST['offTimeTrigger']) == true) {
+    $data = [
+        'official_time_1st_col' => isset($_POST['off_time_1']) ? $_POST['off_time_1'] : null,
+        'official_time_2nd_col' => isset($_POST['off_time_2']) ? $_POST['off_time_2'] : null,
+        'official_time_3rd_col' => isset($_POST['off_time_3']) ? $_POST['off_time_3'] : null,
+        'official_time_4th_col' => isset($_POST['off_time_4']) ? $_POST['off_time_4'] : null,
+        'official_time_5th_col' => isset($_POST['off_time_5']) ? $_POST['off_time_5'] : null,
+        'official_time_6th_col' => isset($_POST['off_time_6']) ? $_POST['off_time_6'] : null,
+        'official_time_7th_col' => isset($_POST['off_time_7']) ? $_POST['off_time_7'] : null,
+        'faculty_id' => isset($_POST['getSelectedValue']) ? $_POST['getSelectedValue'] : null
+    ];
+    $callback = new Scheduler();
+    $callback->AdditionalInfoUpdate($data);
+}
+
+if (isset($_POST['numOfTeachTrigger']) == true) {
+    $data = [
+        'no_teaching_hours_1st_col' => isset($_POST['nth_1']) ? $_POST['nth_1'] : null,
+        'no_teaching_hours_2nd_col' => isset($_POST['nth_2']) ? $_POST['nth_2'] : null,
+        'no_teaching_hours_3rd_col' => isset($_POST['nth_3']) ? $_POST['nth_3'] : null,
+        'no_teaching_hours_4th_col' => isset($_POST['nth_4']) ? $_POST['nth_4'] : null,
+        'no_teaching_hours_5th_col' => isset($_POST['nth_5']) ? $_POST['nth_5'] : null,
+        'no_teaching_hours_6th_col' => isset($_POST['nth_6']) ? $_POST['nth_6'] : null,
+        'faculty_id' => isset($_POST['getSelectedValue']) ? $_POST['getSelectedValue'] : null
+    ];
+    $callback = new Scheduler();
+    $callback->AdditionalInfoUpdate($data);
+}
+
+if (isset($_POST['otTrigger']) == true) {
+    $data = [
+        'no_overtime_1st_col' => isset($_POST['ot_1']) ? $_POST['ot_1'] : null,
+        'no_overtime_2nd_col' => isset($_POST['ot_2']) ? $_POST['ot_2'] : null,
+        'no_overtime_3rd_col' => isset($_POST['ot_3']) ? $_POST['ot_3'] : null,
+        'no_overtime_4th_col' => isset($_POST['ot_4']) ? $_POST['ot_4'] : null,
+        'no_overtime_5th_col' => isset($_POST['ot_5']) ? $_POST['ot_5'] : null,
+        'no_overtime_6th_col' => isset($_POST['ot_6']) ? $_POST['ot_6'] : null,
+        'no_overtime_7th_col' => isset($_POST['ot_7']) ? $_POST['ot_7'] : null,
+        'faculty_id' => isset($_POST['getSelectedValue']) ? $_POST['getSelectedValue'] : null
+    ];
+    $callback = new Scheduler();
+    $callback->AdditionalInfoUpdate($data);
+}
+
+if (isset($_POST['outTrigger']) == true) {
+    $data = [
+        'overtime_outside_1st_col' => isset($_POST['out1']) ? $_POST['out1'] : null,
+        'overtime_outside_2nd_col' => isset($_POST['out2']) ? $_POST['out2'] : null,
+        'overtime_outside_3rd_col' => isset($_POST['out3']) ? $_POST['out3'] : null,
+        'overtime_outside_4th_col' => isset($_POST['out4']) ? $_POST['out4'] : null,
+        'overtime_outside_5th' => isset($_POST['out5']) ? $_POST['out5'] : null,
+        'overtime_outside_6th_col' => isset($_POST['out6']) ? $_POST['out6'] : null,
+        'overtime_outside_7th_col' => isset($_POST['out7']) ? $_POST['out7'] : null,
+        'faculty_id' => isset($_POST['getSelectedValue']) ? $_POST['getSelectedValue'] : null
+    ];
+    $callback = new Scheduler();
+    $callback->AdditionalInfoUpdate($data);
+}
+
+
+if (isset($_POST['desTrigger']) == true) {
+    $data = [
+        'Designation' => isset($_POST['design']) ? $_POST['design'] : null,
+        'faculty_id' => isset($_POST['getSelectedValue']) ? $_POST['getSelectedValue'] : null
+    ];
+
+    $callback = new Scheduler();
+    $callback->AdditionalInfoUpdate($data);
+}
+
+if (isset($_POST['outputTrigger']) == true) {
+    $data = [
+        'no_preparation' => isset($_POST['prep']) ? $_POST['prep'] : null,
+        'regular_load' => isset($_POST['reg_load']) ? $_POST['reg_load'] : null,
+        'academic_rank' => isset($_POST['acad_rank']) ? $_POST['acad_rank'] : null,
+        'faculty_id' => isset($_POST['getSelectedValue']) ? $_POST['getSelectedValue'] : null
+    ];
+
+    $callback = new Scheduler();
+    $callback->AdditionalInfoUpdate($data);
+}
+
+if (isset($_POST['output2Trigger']) == true) {
+    $data = [
+        'no_hours_week' => isset($_POST['hours_week']) ? $_POST['hours_week'] : null,
+        'overload' => isset($_POST['Overload']) ? $_POST['Overload'] : null,
+        'consult_hour' => isset($_POST['cons_hour']) ? $_POST['cons_hour'] : null,
+        'faculty_id' => isset($_POST['getSelectedValue']) ? $_POST['getSelectedValue'] : null
+    ];
+
+    $callback = new Scheduler();
+    $callback->AdditionalInfoUpdate($data);
+}
+
+
 function route_into_controller()
 {
     include_once "../controller/func_scheduler.php";
