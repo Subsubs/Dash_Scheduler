@@ -2343,67 +2343,439 @@ if ($conn->connect_error) {
           <?php
           }
           ?>
+          <?php
+          if (isset($_POST['filteredValue'])) {
+            $selected = $_POST['filteredValue'];
+            $qry = "SELECT * FROM sched WHERE faculty_id='$selected'";
+            $res_offtime = mysqli_query($conn, $qry);
 
-          <tr>
-            <td>Official time</td>
-            <td colspan="2"></td>
-            <td colspan="2"></td>
-            <td colspan="2"></td>
-            <td colspan="2"></td>
-            <td colspan="2"></td>
-            <td colspan="2"></td>
-            <td colspan="2"></td>
-          </tr>
-          <tr>
-            <td>No. of Teaching Hours</td>
-            <td colspan="2"></td>
-            <td colspan="2"></td>
-            <td colspan="2"></td>
-            <td colspan="2"></td>
-            <td colspan="2"></td>
-            <td colspan="2"></td>
-            <td colspan="2"></td>
-          </tr>
-          <tr>
-            <td>Overtime Within</td>
-            <td colspan="2"></td>
-            <td colspan="2"></td>
-            <td colspan="2"></td>
-            <td colspan="2"></td>
-            <td colspan="2"></td>
-            <td colspan="2"></td>
-            <td colspan="2"></td>
-          </tr>
-          <tr>
-            <td>Overtime Outside</td>
-            <td colspan="2"></td>
-            <td colspan="2"></td>
-            <td colspan="2"></td>
-            <td colspan="2"></td>
-            <td colspan="2"></td>
-            <td colspan="2"></td>
-            <td colspan="2"></td>
-          </tr>
-          <tr>
-            <td>DESIGNATION:&nbsp;</td>
-            <td colspan="14"></td>
-          </tr>
-          <tr>
-            <td colspan="2">NO. OF PREPARATIONS:</td>
-            <td colspan="3"></td>
-            <td colspan="2">REGULAR LOAD:</td>
-            <td colspan="3"></td>
-            <td colspan="2">ACADEMIC RANK:</td>
-            <td colspan="3"></td>
-          </tr>
-          <tr>
-            <td colspan="2">NO. OF HOURS PER WEEK</td>
-            <td colspan="3"></td>
-            <td colspan="2">OVERLOAD:</td>
-            <td colspan="3"></td>
-            <td colspan="2">CONSULTATION HOURS:</td>
-            <td colspan="3"></td>
-          </tr>
+            if ($res_offtime && mysqli_num_rows($res_offtime) > 0) {
+              $trRendered = false;
+              while ($res_get = mysqli_fetch_assoc($res_offtime)) {
+                if (!$trRendered) {
+          ?>
+                  <tr>
+                    <td>Official time</td>
+                    <td colspan="2">
+                      <input class="form-control" value="<?php echo $res_get['official_time_1st_col']; ?>" id="off_time_1" />
+                    </td>
+                    <td colspan="2">
+                      <input class="form-control" value="<?php echo $res_get['official_time_2nd_col']; ?>" id="off_time_2" />
+                    </td>
+                    <td colspan="2">
+                      <input class="form-control" value="<?php echo $res_get['official_time_3rd_col']; ?>" id="off_time_3" />
+                    </td>
+                    <td colspan="2">
+                      <input class="form-control" value="<?php echo $res_get['official_time_4th_col']; ?>" id="off_time_4" />
+                    </td>
+                    <td colspan="2">
+                      <input class="form-control" value="<?php echo $res_get['official_time_5th_col']; ?>" id="off_time_5" />
+                    </td>
+                    <td colspan="2">
+                      <input class="form-control" value="<?php echo $res_get['official_time_6th_col']; ?>" id="off_time_6" />
+                    </td>
+                    <td colspan="2">
+                      <input class="form-control" value="<?php echo $res_get['official_time_7th_col']; ?>" id="off_time_7" />
+                    </td>
+                  </tr>
+              <?php
+                  $trRendered = true;
+                }
+              }
+            } else {
+              ?>
+              <tr>
+                <td>Official time</td>
+                <td colspan="2"></td>
+                <td colspan="2"></td>
+                <td colspan="2"></td>
+                <td colspan="2"></td>
+                <td colspan="2"></td>
+                <td colspan="2"></td>
+                <td colspan="2"></td>
+              </tr>
+            <?php
+            }
+          } else {
+            ?>
+            <tr>
+              <td>Official time</td>
+              <td colspan="2"></td>
+              <td colspan="2"></td>
+              <td colspan="2"></td>
+              <td colspan="2"></td>
+              <td colspan="2"></td>
+              <td colspan="2"></td>
+              <td colspan="2"></td>
+            </tr>
+          <?php
+          }
+          ?>
+          <?php
+          if (isset($_POST['filteredValue'])) {
+            $selected = $_POST['filteredValue'];
+            $qry = "SELECT * FROM sched WHERE faculty_id='$selected'";
+            $res_offtime = mysqli_query($conn, $qry);
+            if ($res_offtime && mysqli_num_rows($res_offtime) > 0) {
+              $trRendered = false;
+              while ($res_get = mysqli_fetch_assoc($res_offtime)) {
+                if (!$trRendered) {
+          ?>
+                  <tr>
+                    <td>No. of Teaching Hours</td>
+                    <td colspan="2">
+                      <input class="form-control nth-input" value="<?php echo $res_get['no_teaching_hours_1st_col']; ?>" id="nth_1" />
+                    </td>
+                    <td colspan="2">
+                      <input class="form-control nth-input" value="<?php echo $res_get['no_teaching_hours_2nd_col']; ?>" id="nth_2" />
+                    </td>
+                    <td colspan="2">
+                      <input class="form-control nth-input" value="<?php echo $res_get['no_teaching_hours_3rd_col']; ?>" id="nth_3" />
+                    </td>
+                    <td colspan="2">
+                      <input class="form-control nth-input" value="<?php echo $res_get['no_teaching_hours_4th_col']; ?>" id="nth_4" />
+                    </td>
+                    <td colspan="2">
+                      <input class="form-control nth-input" value="<?php echo $res_get['no_teaching_hours_5th_col']; ?>" id="nth_5" />
+                    </td>
+                    <td colspan="2">
+                      <input class="form-control nth-input" value="<?php echo $res_get['no_teaching_hours_6th_col']; ?>" id="nth_6" />
+                    </td>
+                    <td colspan="2">
+                      <h6></h6>
+                    </td>
+                  </tr>
+              <?php
+                  $trRendered = true;
+                }
+              }
+            } else {
+              ?>
+              <tr>
+                <td>No. of Teaching Hours</td>
+                <td colspan="2"></td>
+                <td colspan="2"></td>
+                <td colspan="2"></td>
+                <td colspan="2"></td>
+                <td colspan="2"></td>
+                <td colspan="2"></td>
+                <td colspan="2"></td>
+              </tr>
+            <?php
+            }
+          } else {
+            ?>
+            <tr>
+              <td>No. of Teaching Hours</td>
+              <td colspan="2"></td>
+              <td colspan="2"></td>
+              <td colspan="2"></td>
+              <td colspan="2"></td>
+              <td colspan="2"></td>
+              <td colspan="2"></td>
+              <td colspan="2"></td>
+            </tr>
+          <?php
+          }
+          ?>
+          <?php
+          if (isset($_POST['filteredValue'])) {
+            $selected = $_POST['filteredValue'];
+            $qry = "SELECT * FROM sched WHERE faculty_id='$selected'";
+            $res_offtime = mysqli_query($conn, $qry);
+            if ($res_offtime && mysqli_num_rows($res_offtime) > 0) {
+              $trRendered = false;
+              while ($res_get = mysqli_fetch_assoc($res_offtime)) {
+                if (!$trRendered) {
+          ?>
+                  <tr>
+                    <td>Overtime Within</td>
+                    <td colspan="2">
+                      <input class="form-control nth-input" value="<?php echo $res_get['no_overtime_1st_col']; ?>" id="ot_1" />
+                    </td>
+                    <td colspan="2">
+                      <input class="form-control ot-input" value="<?php echo $res_get['no_overtime_2nd_col']; ?>" id="ot_2" />
+                    </td>
+                    <td colspan="2">
+                      <input class="form-control ot-input" value="<?php echo $res_get['no_overtime_3rd_col']; ?>" id="ot_3" />
+                    </td>
+                    <td colspan="2">
+                      <input class="form-control ot-input" value="<?php echo $res_get['no_overtime_4th_col']; ?>" id="ot_4" />
+                    </td>
+                    <td colspan="2">
+                      <input class="form-control ot-input" value="<?php echo $res_get['no_overtime_5th_col']; ?>" id="ot_5" />
+                    </td>
+                    <td colspan="2">
+                      <input class="form-control ot-input" value="<?php echo $res_get['no_overtime_6th_col']; ?>" id="ot_6" />
+                    </td>
+                    <td colspan="2">
+                      <input class="form-control ot-input" value="<?php echo $res_get['no_overtime_7th_col']; ?>" id="ot_7" />
+                    </td>
+                  </tr>
+              <?php
+                  $trRendered = true;
+                }
+              }
+            } else {
+              ?>
+              <tr>
+                <td>Overtime Within</td>
+                <td colspan="2"></td>
+                <td colspan="2"></td>
+                <td colspan="2"></td>
+                <td colspan="2"></td>
+                <td colspan="2"></td>
+                <td colspan="2"></td>
+                <td colspan="2"></td>
+              </tr>
+            <?php
+            }
+          } else {
+            ?>
+            <tr>
+              <td>Overtime Within</td>
+              <td colspan="2"></td>
+              <td colspan="2"></td>
+              <td colspan="2"></td>
+              <td colspan="2"></td>
+              <td colspan="2"></td>
+              <td colspan="2"></td>
+              <td colspan="2"></td>
+            </tr>
+          <?php
+          }
+          ?>
+          <?php
+          if (isset($_POST['filteredValue'])) {
+            $selected = $_POST['filteredValue'];
+            $qry = "SELECT * FROM sched WHERE faculty_id='$selected'";
+            $res_offtime = mysqli_query($conn, $qry);
+            if ($res_offtime && mysqli_num_rows($res_offtime) > 0) {
+              $trRendered = false;
+              while ($res_get = mysqli_fetch_assoc($res_offtime)) {
+                if (!$trRendered) {
+          ?>
+                  <tr>
+                    <td>Overtime Outside</td>
+                    <td colspan="2">
+                      <input class="form-control" value="<?php echo $res_get['overtime_outside_1st_col']; ?>" id="out1" />
+                    </td>
+                    <td colspan="2">
+                      <input class="form-control " value="<?php echo $res_get['overtime_outside_2nd_col']; ?>" id="out2" />
+                    </td>
+                    <td colspan="2">
+                      <input class="form-control " value="<?php echo $res_get['overtime_outside_3rd_col']; ?>" id="out3" />
+                    </td>
+                    <td colspan="2">
+                      <input class="form-control " value="<?php echo $res_get['overtime_outside_4th_col']; ?>" id="out4" />
+                    </td>
+                    <td colspan="2">
+                      <input class="form-control " value="<?php echo $res_get['overtime_outside_5th']; ?>" id="out5" />
+                    </td>
+                    <td colspan="2">
+                      <input class="form-control " value="<?php echo $res_get['overtime_outside_6th_col']; ?>" id="out6" />
+                    </td>
+                    <td colspan="2">
+                      <input class="form-control " value="<?php echo $res_get['overtime_outside_7th_col']; ?>" id="out7" />
+                    </td>
+                  </tr>
+              <?php
+                  $trRendered = true;
+                }
+              }
+            } else {
+              ?>
+              <tr>
+                <td>Overtime Outside</td>
+                <td colspan="2"></td>
+                <td colspan="2"></td>
+                <td colspan="2"></td>
+                <td colspan="2"></td>
+                <td colspan="2"></td>
+                <td colspan="2"></td>
+                <td colspan="2"></td>
+              </tr>
+            <?php
+            }
+          } else {
+            ?>
+            <tr>
+              <td>Overtime Outside</td>
+              <td colspan="2"></td>
+              <td colspan="2"></td>
+              <td colspan="2"></td>
+              <td colspan="2"></td>
+              <td colspan="2"></td>
+              <td colspan="2"></td>
+              <td colspan="2"></td>
+            </tr>
+          <?php
+          }
+          ?>
+
+          <?php
+          if (isset($_POST['filteredValue'])) {
+            $selected = $_POST['filteredValue'];
+            $qry = "SELECT * FROM sched WHERE faculty_id='$selected'";
+            $res_offtime = mysqli_query($conn, $qry);
+            if ($res_offtime && mysqli_num_rows($res_offtime) > 0) {
+              $trRendered = false;
+              while ($res_get = mysqli_fetch_assoc($res_offtime)) {
+                if (!$trRendered) {
+          ?>
+                  <tr>
+                    <td>DESIGNATION</td>
+                    <td colspan="14">
+                      <input class="form-control" value="<?php echo $res_get['Designation']; ?>" id="design" />
+                    </td>
+
+                  </tr>
+              <?php
+                  $trRendered = true;
+                }
+              }
+            } else {
+              ?>
+              <tr>
+                <td>DESIGNATION</td>
+                <td colspan="14"></td>
+
+              </tr>
+            <?php
+            }
+          } else {
+            ?>
+            <tr>
+              <td>DESIGNATION</td>
+              <td colspan="14"></td>
+
+            </tr>
+          <?php
+          }
+          ?>
+
+
+
+
+          <?php
+          if (isset($_POST['filteredValue'])) {
+            $selected = $_POST['filteredValue'];
+            $qry = "SELECT * FROM sched WHERE faculty_id='$selected'";
+            $res_offtime = mysqli_query($conn, $qry);
+            if ($res_offtime && mysqli_num_rows($res_offtime) > 0) {
+              $trRendered = false;
+              while ($res_get = mysqli_fetch_assoc($res_offtime)) {
+                if (!$trRendered) {
+          ?>
+                  <tr>
+                    <td colspan="2">NO. OF PREPARATIONS:</td>
+                    <td colspan="3">
+                      <input class="form-control" value="<?php echo $res_get['no_preparation']; ?>" id="prep" />
+                    </td>
+                    <td colspan="2">REGULAR LOAD:</td>
+                    <td colspan="3">
+                      <input class="form-control" value="<?php echo $res_get['regular_load']; ?>" id="reg_load" />
+                    </td>
+                    <td colspan="2">ACADEMIC RANK:</td>
+                    <td colspan="3">
+                      <input class="form-control" value="<?php echo $res_get['academic_rank']; ?>" id="acad_rank" />
+                    </td>
+
+                  </tr>
+
+              <?php
+                  $trRendered = true;
+                }
+              }
+            } else {
+              ?>
+              <tr>
+                <td>NO. OF PREPARATIONS:</td>
+                <td colspan="3"></td>
+                <td>REGULAR LOAD:</td>
+                <td colspan="3"></td>
+                <td>ACADEMIC RANK:</td>
+                <td colspan="3"></td>
+
+              </tr>
+            <?php
+            }
+          } else {
+            ?>
+            <tr>
+              <td>NO. OF PREPARATIONS:</td>
+              <td colspan="3"></td>
+              <td>REGULAR LOAD:</td>
+              <td colspan="3"></td>
+              <td>ACADEMIC RANK:</td>
+              <td colspan="3"></td>
+
+            </tr>
+          <?php
+          }
+          ?>
+
+          <?php
+          if (isset($_POST['filteredValue'])) {
+            $selected = $_POST['filteredValue'];
+            $qry = "SELECT * FROM sched WHERE faculty_id='$selected'";
+            $res_offtime = mysqli_query($conn, $qry);
+            if ($res_offtime && mysqli_num_rows($res_offtime) > 0) {
+              $trRendered = false;
+              while ($res_get = mysqli_fetch_assoc($res_offtime)) {
+                if (!$trRendered) {
+          ?>
+                  <tr>
+                    <td colspan="2">NO. OF HOURS PER WEEK:</td>
+                    <td colspan="3">
+                      <input class="form-control" value="<?php echo $res_get['no_hours_week']; ?>" id="hours_week" />
+                    </td>
+                    <td colspan="2">OVERLOAD:</td>
+                    <td colspan="3">
+                      <input class="form-control" value="<?php echo $res_get['overload']; ?>" id="Overload" />
+                    </td>
+                    <td colspan="2">CONSULTATION HOURS:</td>
+                    <td colspan="3">
+                      <input class="form-control" value="<?php echo $res_get['consult_hour']; ?>" id="cons_hour" />
+                    </td>
+
+                  </tr>
+
+              <?php
+                  $trRendered = true;
+                }
+              }
+            } else {
+              ?>
+              <tr>
+                <td>NO. OF HOURS PER WEEK:</td>
+                <td colspan="3"></td>
+                <td>OVERLOAD:</td>
+                <td colspan="3"></td>
+                <td>CONSULTATION HOURS:</td>
+                <td colspan="3"></td>
+
+              </tr>
+            <?php
+            }
+          } else {
+            ?>
+            <tr>
+              <td>NO. OF HOURS PER WEEK:</td>
+              <td colspan="3"></td>
+              <td>OVERLOAD:</td>
+              <td colspan="3"></td>
+              <td>CONSULTATION HOURS:</td>
+              <td colspan="3"></td>
+
+            </tr>
+          <?php
+          }
+          ?>
+
+
+
+
         </tbody>
       </table>
       <div class="text-center">
@@ -3674,6 +4046,24 @@ if ($conn->connect_error) {
     var getTime0607 = document.getElementById('time0607')
     var getTime0708 = document.getElementById('time0708')
 
+    calculateSum()
+
+    function calculateSum() {
+      // Get the values from the input fields
+      var nth_1_value = parseFloat(document.getElementById("nth_1").value) || 0;
+      var nth_2_value = parseFloat(document.getElementById("nth_2").value) || 0;
+      var nth_3_value = parseFloat(document.getElementById("nth_3").value) || 0;
+      var nth_4_value = parseFloat(document.getElementById("nth_4").value) || 0;
+      var nth_5_value = parseFloat(document.getElementById("nth_5").value) || 0;
+      var nth_6_value = parseFloat(document.getElementById("nth_6").value) || 0;
+
+      // Calculate the sum
+      var sum = nth_1_value + nth_2_value + nth_3_value + nth_4_value + nth_5_value + nth_6_value;
+
+      // Display the sum in the h6 element
+      document.querySelector('td[colspan="2"] h6').innerText = sum;
+    }
+
     var edit_monday_78_1st_rw = document.getElementById('edit_monday_78_1st_rw')
     var edit_monday_78_2nd_rw = document.getElementById('edit_monday_78_2nd_rw')
 
@@ -3731,6 +4121,8 @@ if ($conn->connect_error) {
     var edit_room_5 = document.getElementById('edit_room_5_rw')
     var edit_room_6 = document.getElementById('edit_room_6_rw')
     var edit_room_7 = document.getElementById('edit_room_7_rw')
+
+
 
     document.getElementById('edit_monday_67_1st_rw').addEventListener('change', handleInputChange)
     document.getElementById('edit_monday_67_2nd_rw').addEventListener('change', handleInputChange)
@@ -4203,7 +4595,85 @@ if ($conn->connect_error) {
     document.getElementById('edit_last_67_1st_rw').addEventListener('change', handleInputChange)
     document.getElementById('edit_last_67_2nd_rw').addEventListener('change', handleInputChange)
 
+    document.getElementById('off_time_1').addEventListener('change', handleInputChangeOfficialTimes)
+    document.getElementById('off_time_2').addEventListener('change', handleInputChangeOfficialTimes)
+    document.getElementById('off_time_3').addEventListener('change', handleInputChangeOfficialTimes)
+    document.getElementById('off_time_4').addEventListener('change', handleInputChangeOfficialTimes)
+    document.getElementById('off_time_5').addEventListener('change', handleInputChangeOfficialTimes)
+    document.getElementById('off_time_6').addEventListener('change', handleInputChangeOfficialTimes)
+    document.getElementById('off_time_7').addEventListener('change', handleInputChangeOfficialTimes)
+
+    document.getElementById('nth_1').addEventListener('change', handleNumOfTeaching)
+    document.getElementById('nth_2').addEventListener('change', handleNumOfTeaching)
+    document.getElementById('nth_3').addEventListener('change', handleNumOfTeaching)
+    document.getElementById('nth_4').addEventListener('change', handleNumOfTeaching)
+    document.getElementById('nth_5').addEventListener('change', handleNumOfTeaching)
+    document.getElementById('nth_6').addEventListener('change', handleNumOfTeaching)
+
+    document.getElementById('ot_1').addEventListener('change', handleOT)
+    document.getElementById('ot_2').addEventListener('change', handleOT)
+    document.getElementById('ot_3').addEventListener('change', handleOT)
+    document.getElementById('ot_4').addEventListener('change', handleOT)
+    document.getElementById('ot_5').addEventListener('change', handleOT)
+    document.getElementById('ot_6').addEventListener('change', handleOT)
+    document.getElementById('ot_7').addEventListener('change', handleOT)
+
+    document.getElementById('out1').addEventListener('change', handleOutside)
+    document.getElementById('out2').addEventListener('change', handleOutside)
+    document.getElementById('out3').addEventListener('change', handleOutside)
+    document.getElementById('out4').addEventListener('change', handleOutside)
+    document.getElementById('out5').addEventListener('change', handleOutside)
+    document.getElementById('out6').addEventListener('change', handleOutside)
+    document.getElementById('out7').addEventListener('change', handleOutside)
+
+
+    document.getElementById('design').addEventListener('change', handleDesign)
+
+    document.getElementById('prep').addEventListener('change', handleOutputs)
+    document.getElementById('reg_load').addEventListener('change', handleOutputs)
+    document.getElementById('acad_rank').addEventListener('change', handleOutputs)
+
+    document.getElementById('hours_week').addEventListener('change', handleOutputs2)
+    document.getElementById('Overload').addEventListener('change', handleOutputs2)
+    document.getElementById('cons_hour').addEventListener('change', handleOutputs2)
+
+
     var getSelectedValue = "<?php echo $_POST['filteredValue']; ?>";
+
+    const officialTimesObj = {
+      offTimeTrigger: true,
+      getSelectedValue: 0
+    }
+
+    const outputobg = {
+      outputTrigger: true,
+      getSelectedValue: 0
+    }
+
+    const output2obg = {
+      output2Trigger: true,
+      getSelectedValue: 0
+    }
+
+    const designobj = {
+      desTrigger: true,
+      getSelectedValue: 0
+    }
+
+    const outsideobj = {
+      outTrigger: true,
+      getSelectedValue: 0
+    }
+
+    const otobj = {
+      otTrigger: true,
+      getSelectedValue: 0
+    }
+
+    const numOfTeachingsObj = {
+      numOfTeachTrigger: true,
+      getSelectedValue: 0
+    }
 
     const obj = {
       schedTrigger: true,
@@ -4627,6 +5097,54 @@ if ($conn->connect_error) {
       });
     }
 
+    function initializeOfficialValues() {
+      const inputIds = [
+        'off_time_1', 'off_time_2', 'off_time_3', 'off_time_4',
+        'off_time_5', 'off_time_6', 'off_time_7'
+      ];
+      inputIds.forEach(id => {
+        const element = document.getElementById(id)
+        if (element) {
+          if (!officialTimesObj.hasOwnProperty(id)) {
+            officialTimesObj[id] = element.value
+          }
+        }
+      })
+    }
+
+    function initializeNumsOfTeach() {
+      const inputIds = [
+        'nth_1', 'nth_2', 'nth_3',
+        'nth_4', 'nth_5', 'nth_6'
+      ];
+      inputIds.forEach(id => {
+        const element = document.getElementById(id)
+        if (element) {
+          if (!numOfTeachingsObj.hasOwnProperty(id)) {
+            numOfTeachingsObj[id] = element.value;
+          }
+        }
+      })
+    }
+
+    function initializeOT() {
+      const inputIds = [
+        'ot_1', 'ot_2', 'ot_3',
+        'ot_4', 'ot_5', 'ot_6', 'ot_7'
+      ];
+      inputIds.forEach(id => {
+        const element = document.getElementById(id)
+        if (element) {
+          if (!otobj.hasOwnProperty(id)) {
+            otobj[id] = element.value;
+          }
+        }
+      })
+    }
+
+    initializeOT()
+    initializeNumsOfTeach()
+    initializeOfficialValues()
     initializeOriginalValues();
     initializeOriginalValues78();
     initializeOriginalValues89()
@@ -4678,6 +5196,104 @@ if ($conn->connect_error) {
         }
       })
     }
+
+    function handleInputChangeOfficialTimes(event) {
+      officialTimesObj[event.target.id] = event.target.value;
+      officialTimesObj.getSelectedValue = getSelectedValue;
+
+      $.ajax({
+        method: 'post',
+        data: officialTimesObj,
+        url: 'app/helper/scheduler_helper.php',
+        success: function(response) {
+          console.log(response)
+        }
+      })
+    }
+
+    function handleNumOfTeaching(event) {
+      numOfTeachingsObj[event.target.id] = event.target.value;
+      numOfTeachingsObj.getSelectedValue = getSelectedValue;
+      $.ajax({
+        method: 'post',
+        data: numOfTeachingsObj,
+        url: 'app/helper/scheduler_helper.php',
+        success: function(response) {
+          console.log(response)
+          calculateSum()
+        }
+      })
+    }
+
+    function handleOT(event) {
+      otobj[event.target.id] = event.target.value;
+      otobj.getSelectedValue = getSelectedValue;
+      $.ajax({
+        method: 'post',
+        data: otobj,
+        url: 'app/helper/scheduler_helper.php',
+        success: function(response) {
+          console.log(response)
+        }
+      })
+    }
+
+    function handleOutside(event) {
+      outsideobj[event.target.id] = event.target.value;
+      outsideobj.getSelectedValue = getSelectedValue;
+      $.ajax({
+        method: 'post',
+        data: outsideobj,
+        url: 'app/helper/scheduler_helper.php',
+        success: function(response) {
+          console.log(response)
+        }
+      })
+    }
+
+    function handleOutputs(event) {
+      outputobg[event.target.id] = event.target.value;
+      outputobg.getSelectedValue = getSelectedValue;
+      $.ajax({
+        method: 'post',
+        data: outputobg,
+        url: 'app/helper/scheduler_helper.php',
+        success: function(response) {
+          console.log(response)
+        }
+      })
+    }
+
+    function handleOutputs2(event) {
+      output2obg[event.target.id] = event.target.value;
+      output2obg.getSelectedValue = getSelectedValue;
+      $.ajax({
+        method: 'post',
+        data: output2obg,
+        url: 'app/helper/scheduler_helper.php',
+        success: function(response) {
+          console.log(response)
+        }
+      })
+    }
+
+
+
+
+    function handleDesign(event) {
+      designobj[event.target.id] = event.target.value;
+      designobj.getSelectedValue = getSelectedValue;
+      $.ajax({
+        method: 'post',
+        data: designobj,
+        url: 'app/helper/scheduler_helper.php',
+        success: function(response) {
+          console.log(response)
+        }
+      })
+    }
+
+
 
     function handleInput89Change(event) {
       const propertyName = event.target.id.replace('edit_', '').replace('_rw', '');
