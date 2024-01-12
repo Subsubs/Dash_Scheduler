@@ -8,7 +8,7 @@ if (!isset($_COOKIE["any_user"]) || !isset($_COOKIE["any_user"])) {
 }
 
 // Database connection
-$servername = "localhost";
+$servername = "localhost:3307";
 $username = "root";
 $password = "";
 $database = "login_register";
@@ -124,7 +124,7 @@ if ($conn->connect_error) {
               while ($data_67 = mysqli_fetch_assoc($res_67)) {
                 if (!$trRendered) {
           ?>
-                  <tr>
+                  <tr id="toggletr">
                     <td rowspan="2">6:00 - 7:00 <input id="time" hidden value="6:00 - 7:00 AM" /> </td>
                     <td> <input id="edit_monday_67_1st_rw" value="<?php echo $data_67['monday_1st_rw']; ?>" class="form-control" /></td>
                     <td rowspan="2"> <input id="edit_room_1_rw" value="<?php echo $data_67['room_1']; ?>" class="form-control" /></td>
@@ -149,7 +149,7 @@ if ($conn->connect_error) {
                     <!-- will add another col for this field on db -->
                     <td> <input id="edit_last_67_1st_rw" value="<?php echo $data_67['nos_1st_rw']; ?>" class="form-control" /></td>
                   </tr>
-                  <tr>
+                  <tr id="toggletr2">
                     <td> <input id="edit_monday_67_2nd_rw" class="form-control" value="<?php echo $data_67['monday_2nd_rw']; ?>" /> </td>
                     <td> <input id="edit_tuesday_67_2nd_rw" class="form-control" value="<?php echo $data_67['tuesday_2nd_rw']; ?>" /></td>
                     <td> <input id="edit_wednesday_67_2nd_rw" class="form-control" value="<?php echo $data_67['wednesday_2nd_rw']; ?>" /></td>
@@ -165,80 +165,116 @@ if ($conn->connect_error) {
                     </td>
                     <td> <input id="edit_last_67_2nd_rw" value="<?php echo $data_67['nos_2nd_rw']; ?>" class="form-control" /></td>
                   </tr>
+
+                  <tr id="toggletr1">
+                      <td rowspan="2">6:00 - 7:00 <input id="time" hidden value="6:00 - 7:00 AM" /> </td>
+                      <td> <?php echo $data_67['monday_1st_rw']; ?> </td>
+                      <td rowspan="2"> <?php echo $data_67['room_1']; ?> </td>
+                      <td> <?php echo $data_67['tuesday_1st_rw']; ?> </td>
+                      <td rowspan="2"> <?php echo $data_67['room_2']; ?> </td>
+                      <td> <?php echo $data_67['wednesday_1st_rw']; ?> </td>
+                      <td rowspan="2"> <?php echo $data_67['room_3']; ?> </td>
+                      <td> <?php echo $data_67['thursday_1st_rw']; ?> </td>
+                      <td rowspan="2"> <?php echo $data_67['room_4']; ?> </td>
+                      <td> <?php echo $data_67['friday_1st_rw']; ?> </td>
+                      <td rowspan="2"> <?php echo $data_67['room_5']; ?> </td>
+                      <td> <?php echo $data_67['saturday_1st_rw']; ?> </td>
+                      <td rowspan="2"> <?php echo $data_67['room_6']; ?> </td>
+                      <td> <?php echo $data_67['sunday_1st_rw']; ?> </td>
+                      <td rowspan="2"> <?php echo $data_67['room_7']; ?> </td>
+                      <td> <?php echo $data_67['cc_1st_rw']; ?> </td>
+                      <td> <?php echo $data_67['section_1st_rw']; ?> </td>
+                      <!-- will add another col for this field on db -->
+                      <td> <?php echo $data_67['nos_1st_rw']; ?> </td>
+                  </tr>
+                  <tr id="toggletr3">
+                      <td> <?php echo $data_67['monday_2nd_rw']; ?> </td>
+                      <td> <?php echo $data_67['tuesday_2nd_rw']; ?> </td>
+                      <td> <?php echo $data_67['wednesday_2nd_rw']; ?> </td>
+                      <td> <?php echo $data_67['thursday_2nd_rw']; ?> </td>
+                      <td> <?php echo $data_67['friday_2nd_rw']; ?> </td>
+                      <td> <?php echo $data_67['saturday_2nd_rw']; ?> </td>
+                      <td> <?php echo $data_67['sunday_2nd_rw']; ?> </td>
+                      <td> <?php echo $data_67['cc_2nd_rw']; ?> </td>
+                      <td> <?php echo $data_67['section_2nd_rw']; ?> </td>
+                      <td> <?php echo $data_67['nos_2nd_rw']; ?> </td>
+                  </tr>
               <?php
                   $trRendered = true;
                 }
               }
             } else {
               ?>
-              <tr>
-                <td rowspan="2">6:00 - 7:00</td>
-                <td></td>
-                <td rowspan="2"></td>
-                <td></td>
-                <td rowspan="2"></td>
-                <td></td>
-                <td rowspan="2"></td>
-                <td></td>
-                <td rowspan="2"></td>
-                <td></td>
-                <td rowspan="2"></td>
-                <td></td>
-                <td rowspan="2"></td>
-                <td></td>
-                <td rowspan="2"></td>
-                <td></td>
-                <td></td>
-                <td></td>
-              </tr>
-              <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-              </tr>
+             <tr>
+                <td rowspan="2">6:00 - 7:00 <input id="time" hidden value="6:00 - 7:00 AM" /> </td>
+                <td> <input id="edit_monday_67_1st_rw" hidden /> </td>
+                <td rowspan="2"> <input id="edit_room_1_rw" hidden /> </td>
+                <td> <input id="edit_tuesday_67_1st_rw" hidden /> </td>
+                <td rowspan="2"> <input id="edit_room_2_rw" hidden /> </td>
+                <td> <input id="edit_wednesday_67_1st_rw" hidden /> </td>
+                <td rowspan="2"> <input id="edit_room_3_rw" hidden /> </td>
+                <td> <input id="edit_thursday_67_1st_rw" hidden /> </td>
+                <td rowspan="2"> <input id="edit_room_4_rw" hidden /> </td>
+                <td> <input id="edit_friday_67_1st_rw" hidden /> </td>
+                <td rowspan="2"> <input id="edit_room_5_rw" hidden /> </td>
+                <td> <input id="edit_saturday_67_1st_rw" hidden /> </td>
+                <td rowspan="2"> <input id="edit_room_6_rw" hidden /> </td>
+                <td> <input id="edit_sunday_67_1st_rw" hidden /> </td>
+                <td rowspan="2"> <input id="edit_room_7_rw" hidden /> </td>
+                <td> <input id="edit_cc_1st_rw" hidden /> </td>
+                <td> <input id="edit_section_1st_rw" hidden /> </td>
+                <td> <input id="edit_last_67_1st_rw" hidden /> </td>
+            </tr>
+            <tr>
+                <td> <input id="edit_monday_67_2nd_rw" hidden /> </td>
+                <td> <input id="edit_tuesday_67_2nd_rw" hidden /> </td>
+                <td> <input id="edit_wednesday_67_2nd_rw" hidden /> </td>
+                <td> <input id="edit_thursday_67_2nd_rw" hidden /> </td>
+                <td> <input id="edit_friday_67_2nd_rw" hidden /> </td>
+                <td> <input id="edit_saturday_67_2nd_rw" hidden /> </td>
+                <td> <input id="edit_sunday_67_2nd_rw" hidden /> </td>
+                <td> <input id="edit_cc_2nd_rw" hidden /> </td>
+                <td> <input id="edit_section_2nd_rw" hidden /> </td>
+                <td> <input id="edit_last_67_2nd_rw" hidden /> </td>
+            </tr>
+
             <?php
             }
           } else {
             ?>
             <tr>
-              <td rowspan="2">6:00 - 7:00</td>
-              <td></td>
-              <td rowspan="2"></td>
-              <td></td>
-              <td rowspan="2"></td>
-              <td></td>
-              <td rowspan="2"></td>
-              <td></td>
-              <td rowspan="2"></td>
-              <td></td>
-              <td rowspan="2"></td>
-              <td></td>
-              <td rowspan="2"></td>
-              <td></td>
-              <td rowspan="2"></td>
-              <td></td>
-              <td></td>
-              <td></td>
-            </tr>
-            <tr>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-            </tr>
+              <td rowspan="2">6:00 - 7:00 <input id="time" hidden value="6:00 - 7:00 AM" /> </td>
+              <td> <input id="edit_monday_67_1st_rw" hidden /> </td>
+              <td rowspan="2"> <input id="edit_room_1_rw" hidden /> </td>
+              <td> <input id="edit_tuesday_67_1st_rw" hidden /> </td>
+              <td rowspan="2"> <input id="edit_room_2_rw" hidden /> </td>
+              <td> <input id="edit_wednesday_67_1st_rw" hidden /> </td>
+              <td rowspan="2"> <input id="edit_room_3_rw" hidden /> </td>
+              <td> <input id="edit_thursday_67_1st_rw" hidden /> </td>
+              <td rowspan="2"> <input id="edit_room_4_rw" hidden /> </td>
+              <td> <input id="edit_friday_67_1st_rw" hidden /> </td>
+              <td rowspan="2"> <input id="edit_room_5_rw" hidden /> </td>
+              <td> <input id="edit_saturday_67_1st_rw" hidden /> </td>
+              <td rowspan="2"> <input id="edit_room_6_rw" hidden /> </td>
+              <td> <input id="edit_sunday_67_1st_rw" hidden /> </td>
+              <td rowspan="2"> <input id="edit_room_7_rw" hidden /> </td>
+              <td> <input id="edit_cc_1st_rw" hidden /> </td>
+              <td> <input id="edit_section_1st_rw" hidden /> </td>
+              <td> <input id="edit_last_67_1st_rw" hidden /> </td>
+          </tr>
+          <tr>
+              <td> <input id="edit_monday_67_2nd_rw" hidden /> </td>
+              <td> <input id="edit_tuesday_67_2nd_rw" hidden /> </td>
+              <td> <input id="edit_wednesday_67_2nd_rw" hidden /> </td>
+              <td> <input id="edit_thursday_67_2nd_rw" hidden /> </td>
+              <td> <input id="edit_friday_67_2nd_rw" hidden /> </td>
+              <td> <input id="edit_saturday_67_2nd_rw" hidden /> </td>
+              <td> <input id="edit_sunday_67_2nd_rw" hidden /> </td>
+              <td> <input id="edit_cc_2nd_rw" hidden /> </td>
+              <td> <input id="edit_section_2nd_rw" hidden /> </td>
+              <td> <input id="edit_last_67_2nd_rw" hidden /> </td>
+          </tr>
+
           <?php
           }
           ?>
@@ -253,7 +289,7 @@ if ($conn->connect_error) {
               while ($data_78 = mysqli_fetch_assoc($res_78)) {
                 if (!$trRendered) {
           ?>
-                  <tr>
+                  <tr id="toggletr4">
                     <td rowspan="2">7:00 - 8:00 <input id="time78" hidden value="7:00 - 8:00 AM" /> </td>
                     <td> <input id="edit_monday_78_1st_rw" value="<?php echo $data_78['monday_1st_rw']; ?>" class="form-control" /></td>
                     <td rowspan="2"> <input id="edit_room78_1_rw" value="<?php echo $data_78['room_1']; ?>" class="form-control" /></td>
@@ -278,7 +314,7 @@ if ($conn->connect_error) {
                     <!-- will add another col for this field on db -->
                     <td> <input id="edit_last_78_1st_rw" value="<?php echo $data_78['nos_1st_rw']; ?>" class="form-control" /></td>
                   </tr>
-                  <tr>
+                  <tr id="toggletr6">
                     <td> <input id="edit_monday_78_2nd_rw" class="form-control" value="<?php echo $data_78['monday_2nd_rw']; ?>" /> </td>
                     <td> <input id="edit_tuesday_78_2nd_rw" class="form-control" value="<?php echo $data_78['tuesday_2nd_rw']; ?>" /></td>
                     <td> <input id="edit_wednesday_78_2nd_rw" class="form-control" value="<?php echo $data_78['wednesday_2nd_rw']; ?>" /></td>
@@ -294,79 +330,115 @@ if ($conn->connect_error) {
                     </td>
                     <td> <input id="edit_last_78_2nd_rw" value="<?php echo $data_78['nos_2nd_rw']; ?>" class="form-control" /></td>
                   </tr>
+
+                  <tr id="toggletr5">
+                    <td rowspan="2">7:00 - 8:00 <input id="time78" hidden value="7:00 - 8:00 AM" /> </td>
+                    <td> <?php echo $data_78['monday_1st_rw']; ?> </td>
+                    <td rowspan="2"> <?php echo $data_78['room_1']; ?> </td>
+                    <td> <?php echo $data_78['tuesday_1st_rw']; ?> </td>
+                    <td rowspan="2"> <?php echo $data_78['room_2']; ?> </td>
+                    <td> <?php echo $data_78['wednesday_1st_rw']; ?> </td>
+                    <td rowspan="2"> <?php echo $data_78['room_3']; ?> </td>
+                    <td> <?php echo $data_78['thursday_1st_rw']; ?> </td>
+                    <td rowspan="2"> <?php echo $data_78['room_4']; ?> </td>
+                    <td> <?php echo $data_78['friday_1st_rw']; ?> </td>
+                    <td rowspan="2"> <?php echo $data_78['room_5']; ?> </td>
+                    <td> <?php echo $data_78['saturday_1st_rw']; ?> </td>
+                    <td rowspan="2"> <?php echo $data_78['room_6']; ?> </td>
+                    <td> <?php echo $data_78['sunday_1st_rw']; ?> </td>
+                    <td rowspan="2"> <?php echo $data_78['room_7']; ?> </td>
+                    <td> <?php echo $data_78['cc_1st_rw']; ?> </td>
+                    <td> <?php echo $data_78['section_1st_rw']; ?> </td>
+                    <!-- will add another col for this field on db -->
+                    <td> <?php echo $data_78['nos_1st_rw']; ?> </td>
+                </tr>
+                <tr id="toggletr7">
+                    <td> <?php echo $data_78['monday_2nd_rw']; ?> </td>
+                    <td> <?php echo $data_78['tuesday_2nd_rw']; ?> </td>
+                    <td> <?php echo $data_78['wednesday_2nd_rw']; ?> </td>
+                    <td> <?php echo $data_78['thursday_2nd_rw']; ?> </td>
+                    <td> <?php echo $data_78['friday_2nd_rw']; ?> </td>
+                    <td> <?php echo $data_78['saturday_2nd_rw']; ?> </td>
+                    <td> <?php echo $data_78['sunday_2nd_rw']; ?> </td>
+                    <td> <?php echo $data_78['cc_2nd_rw']; ?> </td>
+                    <td> <?php echo $data_78['section_2nd_rw']; ?> </td>
+                    <td> <?php echo $data_78['nos_2nd_rw']; ?> </td>
+                </tr>
+
+                  
               <?php
                   $trRendered = true;
                 }
               }
             } else {
               ?>
-              <tr>
-                <td rowspan="2">7:00 - 8:00</td>
-                <td></td>
-                <td rowspan="2"></td>
-                <td></td>
-                <td rowspan="2"></td>
-                <td></td>
-                <td rowspan="2"></td>
-                <td></td>
-                <td rowspan="2"></td>
-                <td></td>
-                <td rowspan="2"></td>
-                <td></td>
-                <td rowspan="2"></td>
-                <td></td>
-                <td rowspan="2"></td>
-                <td></td>
-                <td></td>
-                <td></td>
-              </tr>
-              <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-              </tr>
+             <tr>
+                <td rowspan="2">7:00 - 8:00 <input id="time78" hidden value="7:00 - 8:00 AM" /> </td>
+                <td> <input id="edit_monday_78_1st_rw" hidden /> </td>
+                <td rowspan="2"> <input id="edit_room78_1_rw" hidden /> </td>
+                <td> <input id="edit_tuesday_78_1st_rw" hidden /> </td>
+                <td rowspan="2"> <input id="edit_room78_2_rw" hidden /> </td>
+                <td> <input id="edit_wednesday_78_1st_rw" hidden /> </td>
+                <td rowspan="2"> <input id="edit_room78_3_rw" hidden /> </td>
+                <td> <input id="edit_thursday_78_1st_rw" hidden /> </td>
+                <td rowspan="2"> <input id="edit_room78_4_rw" hidden /> </td>
+                <td> <input id="edit_friday_78_1st_rw" hidden /> </td>
+                <td rowspan="2"> <input id="edit_room78_5_rw" hidden /> </td>
+                <td> <input id="edit_saturday_78_1st_rw" hidden /> </td>
+                <td rowspan="2"> <input id="edit_room78_6_rw" hidden /> </td>
+                <td> <input id="edit_sunday_78_1st_rw" hidden /> </td>
+                <td rowspan="2"> <input id="edit_room78_7_rw" hidden /> </td>
+                <td> <input id="edit_cc78_1st_rw" hidden /> </td>
+                <td> <input id="edit_section78_1st_rw" hidden /> </td>
+                <td> <input id="edit_last_78_1st_rw" hidden /> </td>
+            </tr>
+            <tr>
+                <td> <input id="edit_monday_78_2nd_rw" hidden /> </td>
+                <td> <input id="edit_tuesday_78_2nd_rw" hidden /> </td>
+                <td> <input id="edit_wednesday_78_2nd_rw" hidden /> </td>
+                <td> <input id="edit_thursday_78_2nd_rw" hidden /> </td>
+                <td> <input id="edit_friday_78_2nd_rw" hidden /> </td>
+                <td> <input id="edit_saturday_78_2nd_rw" hidden /> </td>
+                <td> <input id="edit_sunday_78_2nd_rw" hidden /> </td>
+                <td> <input id="edit_cc78_2nd_rw" hidden /> </td>
+                <td> <input id="edit_section78_2nd_rw" hidden /> </td>
+                <td> <input id="edit_last_78_2nd_rw" hidden /> </td>
+            </tr>
             <?php
             }
           } else {
             ?>
             <tr>
-              <td rowspan="2">7:00 - 8:00</td>
-              <td></td>
-              <td rowspan="2"></td>
-              <td></td>
-              <td rowspan="2"></td>
-              <td></td>
-              <td rowspan="2"></td>
-              <td></td>
-              <td rowspan="2"></td>
-              <td></td>
-              <td rowspan="2"></td>
-              <td></td>
-              <td rowspan="2"></td>
-              <td></td>
-              <td rowspan="2"></td>
-              <td></td>
-              <td></td>
-              <td></td>
+                <td rowspan="2">7:00 - 8:00 <input id="time78" hidden value="7:00 - 8:00 AM" /> </td>
+                <td> <input id="edit_monday_78_1st_rw" hidden /> </td>
+                <td rowspan="2"> <input id="edit_room78_1_rw" hidden /> </td>
+                <td> <input id="edit_tuesday_78_1st_rw" hidden /> </td>
+                <td rowspan="2"> <input id="edit_room78_2_rw" hidden /> </td>
+                <td> <input id="edit_wednesday_78_1st_rw" hidden /> </td>
+                <td rowspan="2"> <input id="edit_room78_3_rw" hidden /> </td>
+                <td> <input id="edit_thursday_78_1st_rw" hidden /> </td>
+                <td rowspan="2"> <input id="edit_room78_4_rw" hidden /> </td>
+                <td> <input id="edit_friday_78_1st_rw" hidden /> </td>
+                <td rowspan="2"> <input id="edit_room78_5_rw" hidden /> </td>
+                <td> <input id="edit_saturday_78_1st_rw" hidden /> </td>
+                <td rowspan="2"> <input id="edit_room78_6_rw" hidden /> </td>
+                <td> <input id="edit_sunday_78_1st_rw" hidden /> </td>
+                <td rowspan="2"> <input id="edit_room78_7_rw" hidden /> </td>
+                <td> <input id="edit_cc78_1st_rw" hidden /> </td>
+                <td> <input id="edit_section78_1st_rw" hidden /> </td>
+                <td> <input id="edit_last_78_1st_rw" hidden /> </td>
             </tr>
             <tr>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
+                <td> <input id="edit_monday_78_2nd_rw" hidden /> </td>
+                <td> <input id="edit_tuesday_78_2nd_rw" hidden /> </td>
+                <td> <input id="edit_wednesday_78_2nd_rw" hidden /> </td>
+                <td> <input id="edit_thursday_78_2nd_rw" hidden /> </td>
+                <td> <input id="edit_friday_78_2nd_rw" hidden /> </td>
+                <td> <input id="edit_saturday_78_2nd_rw" hidden /> </td>
+                <td> <input id="edit_sunday_78_2nd_rw" hidden /> </td>
+                <td> <input id="edit_cc78_2nd_rw" hidden /> </td>
+                <td> <input id="edit_section78_2nd_rw" hidden /> </td>
+                <td> <input id="edit_last_78_2nd_rw" hidden /> </td>
             </tr>
           <?php
           }
@@ -382,7 +454,7 @@ if ($conn->connect_error) {
               while ($data_89 = mysqli_fetch_assoc($res_89)) {
                 if (!$trRendered) {
           ?>
-                  <tr>
+                  <tr id="toggletr8">
                     <td rowspan="2">8:00 - 9:00 <input id="time89" hidden value="8:00 - 9:00 AM" /> </td>
                     <td> <input id="edit_monday_89_1st_rw" value="<?php echo $data_89['monday_1st_rw']; ?>" class="form-control" /></td>
                     <td rowspan="2"> <input id="edit_room89_1_rw" value="<?php echo $data_89['room_1']; ?>" class="form-control" /></td>
@@ -407,7 +479,7 @@ if ($conn->connect_error) {
                     <!-- will add another col for this field on db -->
                     <td> <input id="edit_last_89_1st_rw" value="<?php echo $data_89['nos_1st_rw']; ?>" class="form-control" /></td>
                   </tr>
-                  <tr>
+                  <tr id="toggletr10">
                     <td> <input id="edit_monday_89_2nd_rw" class="form-control" value="<?php echo $data_89['monday_2nd_rw']; ?>" /> </td>
                     <td> <input id="edit_tuesday_89_2nd_rw" class="form-control" value="<?php echo $data_89['tuesday_2nd_rw']; ?>" /></td>
                     <td> <input id="edit_wednesday_89_2nd_rw" class="form-control" value="<?php echo $data_89['wednesday_2nd_rw']; ?>" /></td>
@@ -423,6 +495,41 @@ if ($conn->connect_error) {
                     </td>
                     <td> <input id="edit_last_89_2nd_rw" value="<?php echo $data_89['nos_2nd_rw']; ?>" class="form-control" /></td>
                   </tr>
+
+                  <tr id="toggletr9">
+                    <td rowspan="2">8:00 - 9:00 <input id="time89" hidden value="8:00 - 9:00 AM" /> </td>
+                    <td> <?php echo $data_89['monday_1st_rw']; ?> </td>
+                    <td rowspan="2"> <?php echo $data_89['room_1']; ?> </td>
+                    <td> <?php echo $data_89['tuesday_1st_rw']; ?> </td>
+                    <td rowspan="2"> <?php echo $data_89['room_2']; ?> </td>
+                    <td> <?php echo $data_89['wednesday_1st_rw']; ?> </td>
+                    <td rowspan="2"> <?php echo $data_89['room_3']; ?> </td>
+                    <td> <?php echo $data_89['thursday_1st_rw']; ?> </td>
+                    <td rowspan="2"> <?php echo $data_89['room_4']; ?> </td>
+                    <td> <?php echo $data_89['friday_1st_rw']; ?> </td>
+                    <td rowspan="2"> <?php echo $data_89['room_5']; ?> </td>
+                    <td> <?php echo $data_89['saturday_1st_rw']; ?> </td>
+                    <td rowspan="2"> <?php echo $data_89['room_6']; ?> </td>
+                    <td> <?php echo $data_89['sunday_1st_rw']; ?> </td>
+                    <td rowspan="2"> <?php echo $data_89['room_7']; ?> </td>
+                    <td> <?php echo $data_89['cc_1st_rw']; ?> </td>
+                    <td> <?php echo $data_89['section_1st_rw']; ?> </td>
+                    <!-- will add another col for this field on db -->
+                    <td> <?php echo $data_89['nos_1st_rw']; ?> </td>
+                </tr>
+                <tr id="toggletr11">
+                    <td> <?php echo $data_89['monday_2nd_rw']; ?> </td>
+                    <td> <?php echo $data_89['tuesday_2nd_rw']; ?> </td>
+                    <td> <?php echo $data_89['wednesday_2nd_rw']; ?> </td>
+                    <td> <?php echo $data_89['thursday_2nd_rw']; ?> </td>
+                    <td> <?php echo $data_89['friday_2nd_rw']; ?> </td>
+                    <td> <?php echo $data_89['saturday_2nd_rw']; ?> </td>
+                    <td> <?php echo $data_89['sunday_2nd_rw']; ?> </td>
+                    <td> <?php echo $data_89['cc_2nd_rw']; ?> </td>
+                    <td> <?php echo $data_89['section_2nd_rw']; ?> </td>
+                    <td> <?php echo $data_89['nos_2nd_rw']; ?> </td>
+                </tr>
+
               <?php
                   $trRendered = true;
                 }
@@ -430,73 +537,93 @@ if ($conn->connect_error) {
             } else {
               ?>
               <tr>
-                <td rowspan="2">8:00 - 9:00</td>
-                <td></td>
-                <td rowspan="2"></td>
-                <td></td>
-                <td rowspan="2"></td>
-                <td></td>
-                <td rowspan="2"></td>
-                <td></td>
-                <td rowspan="2"></td>
-                <td></td>
-                <td rowspan="2"></td>
-                <td></td>
-                <td rowspan="2"></td>
-                <td></td>
-                <td rowspan="2"></td>
-                <td></td>
-                <td></td>
-                <td></td>
-              </tr>
-              <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-              </tr>
+              <td rowspan="2">8:00 - 9:00 <input id="time89" hidden value="8:00 - 9:00 AM" /> </td>
+              <td> <input id="edit_monday_89_1st_rw" hidden /> </td>
+              <td rowspan="2"> <input id="edit_room89_1_rw" hidden /> </td>
+              <td> <input id="edit_tuesday_89_1st_rw" hidden /> </td>
+              <td rowspan="2"> <input id="edit_room89_2_rw" hidden /> </td>
+              <td> <input id="edit_wednesday_89_1st_rw" hidden /> </td>
+              <td rowspan="2"> <input id="edit_room89_3_rw" hidden /> </td>
+              <td> <input id="edit_thursday_89_1st_rw" hidden /> </td>
+              <td rowspan="2"> <input id="edit_room89_4_rw" hidden /> </td>
+              <td> <input id="edit_friday_89_1st_rw" hidden /> </td>
+              <td rowspan="2"> <input id="edit_room89_5_rw" hidden /> </td>
+              <td> <input id="edit_saturday_89_1st_rw" hidden /> </td>
+              <td rowspan="2"> <input id="edit_room89_6_rw" hidden /> </td>
+              <td> <input id="edit_sunday_89_1st_rw" hidden /> </td>
+              <td rowspan="2"> <input id="edit_room89_7_rw" hidden /> </td>
+              <td>
+                  <input id="edit_cc89_1st_rw" hidden />
+              </td>
+              <td>
+                  <input id="edit_section89_1st_rw" hidden />
+              </td>
+              <!-- will add another col for this field on db -->
+              <td> <input id="edit_last_89_1st_rw" hidden /> </td>
+          </tr>
+          <tr>
+              <td> <input id="edit_monday_89_2nd_rw" hidden /> </td>
+              <td> <input id="edit_tuesday_89_2nd_rw" hidden /> </td>
+              <td> <input id="edit_wednesday_89_2nd_rw" hidden /> </td>
+              <td> <input id="edit_thursday_89_2nd_rw" hidden /> </td>
+              <td> <input id="edit_friday_89_2nd_rw" hidden /> </td>
+              <td> <input id="edit_saturday_89_2nd_rw" hidden /> </td>
+              <td> <input id="edit_sunday_89_2nd_rw" hidden /> </td>
+              <td>
+                  <input id="edit_cc89_2nd_rw" hidden />
+              </td>
+              <td>
+                  <input id="edit_section89_2nd_rw" hidden />
+              </td>
+              <td> <input id="edit_last_89_2nd_rw" hidden /> </td>
+          </tr>
+
             <?php
             }
           } else {
             ?>
             <tr>
-              <td rowspan="2">8:00 - 9:00</td>
-              <td></td>
-              <td rowspan="2"></td>
-              <td></td>
-              <td rowspan="2"></td>
-              <td></td>
-              <td rowspan="2"></td>
-              <td></td>
-              <td rowspan="2"></td>
-              <td></td>
-              <td rowspan="2"></td>
-              <td></td>
-              <td rowspan="2"></td>
-              <td></td>
-              <td rowspan="2"></td>
-              <td></td>
-              <td></td>
-              <td></td>
-            </tr>
-            <tr>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-            </tr>
+              <td rowspan="2">8:00 - 9:00 <input id="time89" hidden value="8:00 - 9:00 AM" /> </td>
+              <td> <input id="edit_monday_89_1st_rw" hidden /> </td>
+              <td rowspan="2"> <input id="edit_room89_1_rw" hidden /> </td>
+              <td> <input id="edit_tuesday_89_1st_rw" hidden /> </td>
+              <td rowspan="2"> <input id="edit_room89_2_rw" hidden /> </td>
+              <td> <input id="edit_wednesday_89_1st_rw" hidden /> </td>
+              <td rowspan="2"> <input id="edit_room89_3_rw" hidden /> </td>
+              <td> <input id="edit_thursday_89_1st_rw" hidden /> </td>
+              <td rowspan="2"> <input id="edit_room89_4_rw" hidden /> </td>
+              <td> <input id="edit_friday_89_1st_rw" hidden /> </td>
+              <td rowspan="2"> <input id="edit_room89_5_rw" hidden /> </td>
+              <td> <input id="edit_saturday_89_1st_rw" hidden /> </td>
+              <td rowspan="2"> <input id="edit_room89_6_rw" hidden /> </td>
+              <td> <input id="edit_sunday_89_1st_rw" hidden /> </td>
+              <td rowspan="2"> <input id="edit_room89_7_rw" hidden /> </td>
+              <td>
+                  <input id="edit_cc89_1st_rw" hidden />
+              </td>
+              <td>
+                  <input id="edit_section89_1st_rw" hidden />
+              </td>
+              <!-- will add another col for this field on db -->
+              <td> <input id="edit_last_89_1st_rw" hidden /> </td>
+          </tr>
+          <tr>
+              <td> <input id="edit_monday_89_2nd_rw" hidden /> </td>
+              <td> <input id="edit_tuesday_89_2nd_rw" hidden /> </td>
+              <td> <input id="edit_wednesday_89_2nd_rw" hidden /> </td>
+              <td> <input id="edit_thursday_89_2nd_rw" hidden /> </td>
+              <td> <input id="edit_friday_89_2nd_rw" hidden /> </td>
+              <td> <input id="edit_saturday_89_2nd_rw" hidden /> </td>
+              <td> <input id="edit_sunday_89_2nd_rw" hidden /> </td>
+              <td>
+                  <input id="edit_cc89_2nd_rw" hidden />
+              </td>
+              <td>
+                  <input id="edit_section89_2nd_rw" hidden />
+              </td>
+              <td> <input id="edit_last_89_2nd_rw" hidden /> </td>
+          </tr>
+
           <?php
           }
           ?>
@@ -511,7 +638,7 @@ if ($conn->connect_error) {
               while ($data_910 = mysqli_fetch_assoc($res_910)) {
                 if (!$trRendered) {
           ?>
-                  <tr>
+                  <tr id="toggletr12">
                     <td rowspan="2">9:00 - 10:00 <input id="time910" hidden value="9:00 - 10:00 AM" /> </td>
                     <td> <input id="edit_monday_910_1st_rw" value="<?php echo $data_910['monday_1st_rw']; ?>" class="form-control" /></td>
                     <td rowspan="2"> <input id="edit_room910_1_rw" value="<?php echo $data_910['room_1']; ?>" class="form-control" /></td>
@@ -536,7 +663,7 @@ if ($conn->connect_error) {
                     <!-- will add another col for this field on db -->
                     <td> <input id="edit_last_910_1st_rw" value="<?php echo $data_910['nos_1st_rw']; ?>" class="form-control" /></td>
                   </tr>
-                  <tr>
+                  <tr id="toggletr14">
                     <td> <input id="edit_monday_910_2nd_rw" class="form-control" value="<?php echo $data_910['monday_2nd_rw']; ?>" /> </td>
                     <td> <input id="edit_tuesday_910_2nd_rw" class="form-control" value="<?php echo $data_910['tuesday_2nd_rw']; ?>" /></td>
                     <td> <input id="edit_wednesday_910_2nd_rw" class="form-control" value="<?php echo $data_910['wednesday_2nd_rw']; ?>" /></td>
@@ -552,6 +679,42 @@ if ($conn->connect_error) {
                     </td>
                     <td> <input id="edit_last_910_2nd_rw" value="<?php echo $data_910['nos_2nd_rw']; ?>" class="form-control" /></td>
                   </tr>
+
+
+                  <tr id="toggletr13">
+                    <td rowspan="2">9:00 - 10:00 <input id="time910" hidden value="9:00 - 10:00 AM" /> </td>
+                    <td> <?php echo $data_910['monday_1st_rw']; ?> </td>
+                    <td rowspan="2"> <?php echo $data_910['room_1']; ?> </td>
+                    <td> <?php echo $data_910['tuesday_1st_rw']; ?> </td>
+                    <td rowspan="2"> <?php echo $data_910['room_2']; ?> </td>
+                    <td> <?php echo $data_910['wednesday_1st_rw']; ?> </td>
+                    <td rowspan="2"> <?php echo $data_910['room_3']; ?> </td>
+                    <td> <?php echo $data_910['thursday_1st_rw']; ?> </td>
+                    <td rowspan="2"> <?php echo $data_910['room_4']; ?> </td>
+                    <td> <?php echo $data_910['friday_1st_rw']; ?> </td>
+                    <td rowspan="2"> <?php echo $data_910['room_5']; ?> </td>
+                    <td> <?php echo $data_910['saturday_1st_rw']; ?> </td>
+                    <td rowspan="2"> <?php echo $data_910['room_6']; ?> </td>
+                    <td> <?php echo $data_910['sunday_1st_rw']; ?> </td>
+                    <td rowspan="2"> <?php echo $data_910['room_7']; ?> </td>
+                    <td> <?php echo $data_910['cc_1st_rw']; ?> </td>
+                    <td> <?php echo $data_910['section_1st_rw']; ?> </td>
+                    <!-- will add another col for this field on db -->
+                    <td> <?php echo $data_910['nos_1st_rw']; ?> </td>
+                </tr>
+                <tr id="toggletr15">
+                    <td> <?php echo $data_910['monday_2nd_rw']; ?> </td>
+                    <td> <?php echo $data_910['tuesday_2nd_rw']; ?> </td>
+                    <td> <?php echo $data_910['wednesday_2nd_rw']; ?> </td>
+                    <td> <?php echo $data_910['thursday_2nd_rw']; ?> </td>
+                    <td> <?php echo $data_910['friday_2nd_rw']; ?> </td>
+                    <td> <?php echo $data_910['saturday_2nd_rw']; ?> </td>
+                    <td> <?php echo $data_910['sunday_2nd_rw']; ?> </td>
+                    <td> <?php echo $data_910['cc_2nd_rw']; ?> </td>
+                    <td> <?php echo $data_910['section_2nd_rw']; ?> </td>
+                    <td> <?php echo $data_910['nos_2nd_rw']; ?> </td>
+                </tr>
+
               <?php
                   $trRendered = true;
                 }
@@ -559,72 +722,91 @@ if ($conn->connect_error) {
             } else {
               ?>
               <tr>
-                <td rowspan="2">9:00 - 10:00</td>
-                <td></td>
-                <td rowspan="2"></td>
-                <td></td>
-                <td rowspan="2"></td>
-                <td></td>
-                <td rowspan="2"></td>
-                <td></td>
-                <td rowspan="2"></td>
-                <td></td>
-                <td rowspan="2"></td>
-                <td></td>
-                <td rowspan="2"></td>
-                <td></td>
-                <td rowspan="2"></td>
-                <td></td>
-                <td></td>
-                <td></td>
-              </tr>
-              <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-              </tr>
+                <td rowspan="2">9:00 - 10:00 <input id="time910" hidden value="9:00 - 10:00 AM" /> </td>
+                <td> <input id="edit_monday_910_1st_rw" hidden /> </td>
+                <td rowspan="2"> <input id="edit_room910_1_rw" hidden /> </td>
+                <td> <input id="edit_tuesday_910_1st_rw" hidden /> </td>
+                <td rowspan="2"> <input id="edit_room910_2_rw" hidden /> </td>
+                <td> <input id="edit_wednesday_910_1st_rw" hidden /> </td>
+                <td rowspan="2"> <input id="edit_room910_3_rw" hidden /> </td>
+                <td> <input id="edit_thursday_910_1st_rw" hidden /> </td>
+                <td rowspan="2"> <input id="edit_room910_4_rw" hidden /> </td>
+                <td> <input id="edit_friday_910_1st_rw" hidden /> </td>
+                <td rowspan="2"> <input id="edit_room910_5_rw" hidden /> </td>
+                <td> <input id="edit_saturday_910_1st_rw" hidden /> </td>
+                <td rowspan="2"> <input id="edit_room910_6_rw" hidden /> </td>
+                <td> <input id="edit_sunday_910_1st_rw" hidden /> </td>
+                <td rowspan="2"> <input id="edit_room910_7_rw" hidden /> </td>
+                <td>
+                    <input id="edit_cc910_1st_rw" hidden />
+                </td>
+                <td>
+                    <input id="edit_section910_1st_rw" hidden />
+                </td>
+                <!-- will add another col for this field on db -->
+                <td> <input id="edit_last_910_1st_rw" hidden /> </td>
+            </tr>
+            <tr>
+                <td> <input id="edit_monday_910_2nd_rw" hidden /> </td>
+                <td> <input id="edit_tuesday_910_2nd_rw" hidden /> </td>
+                <td> <input id="edit_wednesday_910_2nd_rw" hidden /> </td>
+                <td> <input id="edit_thursday_910_2nd_rw" hidden /> </td>
+                <td> <input id="edit_friday_910_2nd_rw" hidden /> </td>
+                <td> <input id="edit_saturday_910_2nd_rw" hidden /> </td>
+                <td> <input id="edit_sunday_910_2nd_rw" hidden /> </td>
+                <td>
+                    <input id="edit_cc910_2nd_rw" hidden />
+                </td>
+                <td>
+                    <input id="edit_section910_2nd_rw" hidden />
+                </td>
+                <td> <input id="edit_last_910_2nd_rw" hidden /> </td>
+            </tr>
+
             <?php
             }
           } else {
             ?>
-            <tr>
-              <td rowspan="2">9:00 - 10:00</td>
-              <td></td>
-              <td rowspan="2"></td>
-              <td></td>
-              <td rowspan="2"></td>
-              <td></td>
-              <td rowspan="2"></td>
-              <td></td>
-              <td rowspan="2"></td>
-              <td></td>
-              <td rowspan="2"></td>
-              <td></td>
-              <td rowspan="2"></td>
-              <td></td>
-              <td rowspan="2"></td>
-              <td></td>
-              <td></td>
-              <td></td>
+           <tr>
+                <td rowspan="2">9:00 - 10:00 <input id="time910" hidden value="9:00 - 10:00 AM" /> </td>
+                <td> <input id="edit_monday_910_1st_rw" hidden /> </td>
+                <td rowspan="2"> <input id="edit_room910_1_rw" hidden /> </td>
+                <td> <input id="edit_tuesday_910_1st_rw" hidden /> </td>
+                <td rowspan="2"> <input id="edit_room910_2_rw" hidden /> </td>
+                <td> <input id="edit_wednesday_910_1st_rw" hidden /> </td>
+                <td rowspan="2"> <input id="edit_room910_3_rw" hidden /> </td>
+                <td> <input id="edit_thursday_910_1st_rw" hidden /> </td>
+                <td rowspan="2"> <input id="edit_room910_4_rw" hidden /> </td>
+                <td> <input id="edit_friday_910_1st_rw" hidden /> </td>
+                <td rowspan="2"> <input id="edit_room910_5_rw" hidden /> </td>
+                <td> <input id="edit_saturday_910_1st_rw" hidden /> </td>
+                <td rowspan="2"> <input id="edit_room910_6_rw" hidden /> </td>
+                <td> <input id="edit_sunday_910_1st_rw" hidden /> </td>
+                <td rowspan="2"> <input id="edit_room910_7_rw" hidden /> </td>
+                <td>
+                    <input id="edit_cc910_1st_rw" hidden />
+                </td>
+                <td>
+                    <input id="edit_section910_1st_rw" hidden />
+                </td>
+                <!-- will add another col for this field on db -->
+                <td> <input id="edit_last_910_1st_rw" hidden /> </td>
             </tr>
             <tr>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
+                <td> <input id="edit_monday_910_2nd_rw" hidden /> </td>
+                <td> <input id="edit_tuesday_910_2nd_rw" hidden /> </td>
+                <td> <input id="edit_wednesday_910_2nd_rw" hidden /> </td>
+                <td> <input id="edit_thursday_910_2nd_rw" hidden /> </td>
+                <td> <input id="edit_friday_910_2nd_rw" hidden /> </td>
+                <td> <input id="edit_saturday_910_2nd_rw" hidden /> </td>
+                <td> <input id="edit_sunday_910_2nd_rw" hidden /> </td>
+                <td>
+                    <input id="edit_cc910_2nd_rw" hidden />
+                </td>
+                <td>
+                    <input id="edit_section910_2nd_rw" hidden />
+                </td>
+                <td> <input id="edit_last_910_2nd_rw" hidden /> </td>
             </tr>
           <?php
           }
@@ -640,7 +822,7 @@ if ($conn->connect_error) {
               while ($data_1011 = mysqli_fetch_assoc($res_1011)) {
                 if (!$trRendered) {
           ?>
-                  <tr>
+                  <tr id="toggletr16"> 
                     <td rowspan="2">10:00 - 11:00 <input id="time1011" hidden value="10:00 - 11:00 AM" /> </td>
                     <td> <input id="edit_monday_1011_1st_rw" value="<?php echo $data_1011['monday_1st_rw']; ?>" class="form-control" /></td>
                     <td rowspan="2"> <input id="edit_room1011_1_rw" value="<?php echo $data_1011['room_1']; ?>" class="form-control" /></td>
@@ -665,7 +847,7 @@ if ($conn->connect_error) {
                     <!-- will add another col for this field on db -->
                     <td> <input id="edit_last_1011_1st_rw" value="<?php echo $data_1011['nos_1st_rw']; ?>" class="form-control" /></td>
                   </tr>
-                  <tr>
+                  <tr id="toggletr18">
                     <td> <input id="edit_monday_1011_2nd_rw" class="form-control" value="<?php echo $data_1011['monday_2nd_rw']; ?>" /> </td>
                     <td> <input id="edit_tuesday_1011_2nd_rw" class="form-control" value="<?php echo $data_1011['tuesday_2nd_rw']; ?>" /></td>
                     <td> <input id="edit_wednesday_1011_2nd_rw" class="form-control" value="<?php echo $data_1011['wednesday_2nd_rw']; ?>" /></td>
@@ -681,6 +863,41 @@ if ($conn->connect_error) {
                     </td>
                     <td> <input id="edit_last_1011_2nd_rw" value="<?php echo $data_1011['nos_2nd_rw']; ?>" class="form-control" /></td>
                   </tr>
+
+                  <tr id="toggletr17">
+                    <td rowspan="2">10:00 - 11:00 <input id="time1011" hidden value="10:00 - 11:00 AM" /> </td>
+                    <td> <?php echo $data_1011['monday_1st_rw']; ?> </td>
+                    <td rowspan="2"> <?php echo $data_1011['room_1']; ?> </td>
+                    <td> <?php echo $data_1011['tuesday_1st_rw']; ?> </td>
+                    <td rowspan="2"> <?php echo $data_1011['room_2']; ?> </td>
+                    <td> <?php echo $data_1011['wednesday_1st_rw']; ?> </td>
+                    <td rowspan="2"> <?php echo $data_1011['room_3']; ?> </td>
+                    <td> <?php echo $data_1011['thursday_1st_rw']; ?> </td>
+                    <td rowspan="2"> <?php echo $data_1011['room_4']; ?> </td>
+                    <td> <?php echo $data_1011['friday_1st_rw']; ?> </td>
+                    <td rowspan="2"> <?php echo $data_1011['room_5']; ?> </td>
+                    <td> <?php echo $data_1011['saturday_1st_rw']; ?> </td>
+                    <td rowspan="2"> <?php echo $data_1011['room_6']; ?> </td>
+                    <td> <?php echo $data_1011['sunday_1st_rw']; ?> </td>
+                    <td rowspan="2"> <?php echo $data_1011['room_7']; ?> </td>
+                    <td> <?php echo $data_1011['cc_1st_rw']; ?> </td>
+                    <td> <?php echo $data_1011['section_1st_rw']; ?> </td>
+                    <!-- will add another col for this field on db -->
+                    <td> <?php echo $data_1011['nos_1st_rw']; ?> </td>
+                </tr>
+                <tr id="toggletr19">
+                    <td> <?php echo $data_1011['monday_2nd_rw']; ?> </td>
+                    <td> <?php echo $data_1011['tuesday_2nd_rw']; ?> </td>
+                    <td> <?php echo $data_1011['wednesday_2nd_rw']; ?> </td>
+                    <td> <?php echo $data_1011['thursday_2nd_rw']; ?> </td>
+                    <td> <?php echo $data_1011['friday_2nd_rw']; ?> </td>
+                    <td> <?php echo $data_1011['saturday_2nd_rw']; ?> </td>
+                    <td> <?php echo $data_1011['sunday_2nd_rw']; ?> </td>
+                    <td> <?php echo $data_1011['cc_2nd_rw']; ?> </td>
+                    <td> <?php echo $data_1011['section_2nd_rw']; ?> </td>
+                    <td> <?php echo $data_1011['nos_2nd_rw']; ?> </td>
+                </tr>
+
               <?php
                   $trRendered = true;
                 }
@@ -688,73 +905,93 @@ if ($conn->connect_error) {
             } else {
               ?>
               <tr>
-                <td rowspan="2">10:00 - 11:00</td>
-                <td></td>
-                <td rowspan="2"></td>
-                <td></td>
-                <td rowspan="2"></td>
-                <td></td>
-                <td rowspan="2"></td>
-                <td></td>
-                <td rowspan="2"></td>
-                <td></td>
-                <td rowspan="2"></td>
-                <td></td>
-                <td rowspan="2"></td>
-                <td></td>
-                <td rowspan="2"></td>
-                <td></td>
-                <td></td>
-                <td></td>
-              </tr>
-              <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-              </tr>
+                <td rowspan="2">10:00 - 11:00 <input id="time1011" hidden value="10:00 - 11:00 AM" /> </td>
+                <td> <input id="edit_monday_1011_1st_rw" hidden /> </td>
+                <td rowspan="2"> <input id="edit_room1011_1_rw" hidden /> </td>
+                <td> <input id="edit_tuesday_1011_1st_rw" hidden /> </td>
+                <td rowspan="2"> <input id="edit_room1011_2_rw" hidden /> </td>
+                <td> <input id="edit_wednesday_1011_1st_rw" hidden /> </td>
+                <td rowspan="2"> <input id="edit_room1011_3_rw" hidden /> </td>
+                <td> <input id="edit_thursday_1011_1st_rw" hidden /> </td>
+                <td rowspan="2"> <input id="edit_room1011_4_rw" hidden /> </td>
+                <td> <input id="edit_friday_1011_1st_rw" hidden /> </td>
+                <td rowspan="2"> <input id="edit_room1011_5_rw" hidden /> </td>
+                <td> <input id="edit_saturday_1011_1st_rw" hidden /> </td>
+                <td rowspan="2"> <input id="edit_room1011_6_rw" hidden /> </td>
+                <td> <input id="edit_sunday_1011_1st_rw" hidden /> </td>
+                <td rowspan="2"> <input id="edit_room1011_7_rw" hidden /> </td>
+                <td>
+                    <input id="edit_cc1011_1st_rw" hidden />
+                </td>
+                <td>
+                    <input id="edit_section1011_1st_rw" hidden />
+                </td>
+                <!-- will add another col for this field on db -->
+                <td> <input id="edit_last_1011_1st_rw" hidden /> </td>
+            </tr>
+            <tr>
+                <td> <input id="edit_monday_1011_2nd_rw" hidden /> </td>
+                <td> <input id="edit_tuesday_1011_2nd_rw" hidden /> </td>
+                <td> <input id="edit_wednesday_1011_2nd_rw" hidden /> </td>
+                <td> <input id="edit_thursday_1011_2nd_rw" hidden /> </td>
+                <td> <input id="edit_friday_1011_2nd_rw" hidden /> </td>
+                <td> <input id="edit_saturday_1011_2nd_rw" hidden /> </td>
+                <td> <input id="edit_sunday_1011_2nd_rw" hidden /> </td>
+                <td>
+                    <input id="edit_cc1011_2nd_rw" hidden />
+                </td>
+                <td>
+                    <input id="edit_section1011_2nd_rw" hidden />
+                </td>
+                <td> <input id="edit_last_1011_2nd_rw" hidden /> </td>
+            </tr>
+
             <?php
             }
           } else {
             ?>
-            <tr>
-              <td rowspan="2">10:00 - 11:00</td>
-              <td></td>
-              <td rowspan="2"></td>
-              <td></td>
-              <td rowspan="2"></td>
-              <td></td>
-              <td rowspan="2"></td>
-              <td></td>
-              <td rowspan="2"></td>
-              <td></td>
-              <td rowspan="2"></td>
-              <td></td>
-              <td rowspan="2"></td>
-              <td></td>
-              <td rowspan="2"></td>
-              <td></td>
-              <td></td>
-              <td></td>
-            </tr>
-            <tr>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-            </tr>
+           <tr>
+            <td rowspan="2">10:00 - 11:00 <input id="time1011" hidden value="10:00 - 11:00 AM" /> </td>
+            <td> <input id="edit_monday_1011_1st_rw" hidden /> </td>
+            <td rowspan="2"> <input id="edit_room1011_1_rw" hidden /> </td>
+            <td> <input id="edit_tuesday_1011_1st_rw" hidden /> </td>
+            <td rowspan="2"> <input id="edit_room1011_2_rw" hidden /> </td>
+            <td> <input id="edit_wednesday_1011_1st_rw" hidden /> </td>
+            <td rowspan="2"> <input id="edit_room1011_3_rw" hidden /> </td>
+            <td> <input id="edit_thursday_1011_1st_rw" hidden /> </td>
+            <td rowspan="2"> <input id="edit_room1011_4_rw" hidden /> </td>
+            <td> <input id="edit_friday_1011_1st_rw" hidden /> </td>
+            <td rowspan="2"> <input id="edit_room1011_5_rw" hidden /> </td>
+            <td> <input id="edit_saturday_1011_1st_rw" hidden /> </td>
+            <td rowspan="2"> <input id="edit_room1011_6_rw" hidden /> </td>
+            <td> <input id="edit_sunday_1011_1st_rw" hidden /> </td>
+            <td rowspan="2"> <input id="edit_room1011_7_rw" hidden /> </td>
+            <td>
+                <input id="edit_cc1011_1st_rw" hidden />
+            </td>
+            <td>
+                <input id="edit_section1011_1st_rw" hidden />
+            </td>
+            <!-- will add another col for this field on db -->
+            <td> <input id="edit_last_1011_1st_rw" hidden /> </td>
+        </tr>
+        <tr>
+            <td> <input id="edit_monday_1011_2nd_rw" hidden /> </td>
+            <td> <input id="edit_tuesday_1011_2nd_rw" hidden /> </td>
+            <td> <input id="edit_wednesday_1011_2nd_rw" hidden /> </td>
+            <td> <input id="edit_thursday_1011_2nd_rw" hidden /> </td>
+            <td> <input id="edit_friday_1011_2nd_rw" hidden /> </td>
+            <td> <input id="edit_saturday_1011_2nd_rw" hidden /> </td>
+            <td> <input id="edit_sunday_1011_2nd_rw" hidden /> </td>
+            <td>
+                <input id="edit_cc1011_2nd_rw" hidden />
+            </td>
+            <td>
+                <input id="edit_section1011_2nd_rw" hidden />
+            </td>
+            <td> <input id="edit_last_1011_2nd_rw" hidden /> </td>
+        </tr>
+
           <?php
           }
           ?>
@@ -769,7 +1006,7 @@ if ($conn->connect_error) {
               while ($data_1112 = mysqli_fetch_assoc($res_1112)) {
                 if (!$trRendered) {
           ?>
-                  <tr>
+                  <tr id="toggletr20">
                     <td rowspan="2">11:00 - 12:00 <input id="time1112" hidden value="11:00 - 12:00 PM" /> </td>
                     <td> <input id="edit_monday_1112_1st_rw" value="<?php echo $data_1112['monday_1st_rw']; ?>" class="form-control" /></td>
                     <td rowspan="2"> <input id="edit_room1112_1_rw" value="<?php echo $data_1112['room_1']; ?>" class="form-control" /></td>
@@ -794,7 +1031,7 @@ if ($conn->connect_error) {
                     <!-- will add another col for this field on db -->
                     <td> <input id="edit_last_1112_1st_rw" value="<?php echo $data_1112['nos_1st_rw']; ?>" class="form-control" /></td>
                   </tr>
-                  <tr>
+                  <tr id="toggletr22">
                     <td> <input id="edit_monday_1112_2nd_rw" class="form-control" value="<?php echo $data_1112['monday_2nd_rw']; ?>" /> </td>
                     <td> <input id="edit_tuesday_1112_2nd_rw" class="form-control" value="<?php echo $data_1112['tuesday_2nd_rw']; ?>" /></td>
                     <td> <input id="edit_wednesday_1112_2nd_rw" class="form-control" value="<?php echo $data_1112['wednesday_2nd_rw']; ?>" /></td>
@@ -810,6 +1047,41 @@ if ($conn->connect_error) {
                     </td>
                     <td> <input id="edit_last_1112_2nd_rw" value="<?php echo $data_1112['nos_2nd_rw']; ?>" class="form-control" /></td>
                   </tr>
+
+                  <tr id="toggletr21">
+                    <td rowspan="2">11:00 - 12:00 <input id="time1112" hidden value="11:00 - 12:00 PM" /> </td>
+                    <td> <?php echo $data_1112['monday_1st_rw']; ?> </td>
+                    <td rowspan="2"> <?php echo $data_1112['room_1']; ?> </td>
+                    <td> <?php echo $data_1112['tuesday_1st_rw']; ?> </td>
+                    <td rowspan="2"> <?php echo $data_1112['room_2']; ?> </td>
+                    <td> <?php echo $data_1112['wednesday_1st_rw']; ?> </td>
+                    <td rowspan="2"> <?php echo $data_1112['room_3']; ?> </td>
+                    <td> <?php echo $data_1112['thursday_1st_rw']; ?> </td>
+                    <td rowspan="2"> <?php echo $data_1112['room_4']; ?> </td>
+                    <td> <?php echo $data_1112['friday_1st_rw']; ?> </td>
+                    <td rowspan="2"> <?php echo $data_1112['room_5']; ?> </td>
+                    <td> <?php echo $data_1112['saturday_1st_rw']; ?> </td>
+                    <td rowspan="2"> <?php echo $data_1112['room_6']; ?> </td>
+                    <td> <?php echo $data_1112['sunday_1st_rw']; ?> </td>
+                    <td rowspan="2"> <?php echo $data_1112['room_7']; ?> </td>
+                    <td> <?php echo $data_1112['cc_1st_rw']; ?> </td>
+                    <td> <?php echo $data_1112['section_1st_rw']; ?> </td>
+                    <!-- will add another col for this field on db -->
+                    <td> <?php echo $data_1112['nos_1st_rw']; ?> </td>
+                </tr>
+                <tr id="toggletr23">
+                    <td> <?php echo $data_1112['monday_2nd_rw']; ?> </td>
+                    <td> <?php echo $data_1112['tuesday_2nd_rw']; ?> </td>
+                    <td> <?php echo $data_1112['wednesday_2nd_rw']; ?> </td>
+                    <td> <?php echo $data_1112['thursday_2nd_rw']; ?> </td>
+                    <td> <?php echo $data_1112['friday_2nd_rw']; ?> </td>
+                    <td> <?php echo $data_1112['saturday_2nd_rw']; ?> </td>
+                    <td> <?php echo $data_1112['sunday_2nd_rw']; ?> </td>
+                    <td> <?php echo $data_1112['cc_2nd_rw']; ?> </td>
+                    <td> <?php echo $data_1112['section_2nd_rw']; ?> </td>
+                    <td> <?php echo $data_1112['nos_2nd_rw']; ?> </td>
+                </tr>
+
               <?php
                   $trRendered = true;
                 }
@@ -817,73 +1089,93 @@ if ($conn->connect_error) {
             } else {
               ?>
               <tr>
-                <td rowspan="2">11:00 - 12:00</td>
-                <td></td>
-                <td rowspan="2"></td>
-                <td></td>
-                <td rowspan="2"></td>
-                <td></td>
-                <td rowspan="2"></td>
-                <td></td>
-                <td rowspan="2"></td>
-                <td></td>
-                <td rowspan="2"></td>
-                <td></td>
-                <td rowspan="2"></td>
-                <td></td>
-                <td rowspan="2"></td>
-                <td></td>
-                <td></td>
-                <td></td>
-              </tr>
-              <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-              </tr>
+                <td rowspan="2">11:00 - 12:00 <input id="time1112" hidden value="11:00 - 12:00 PM" /> </td>
+                <td> <input id="edit_monday_1112_1st_rw" hidden /> </td>
+                <td rowspan="2"> <input id="edit_room1112_1_rw" hidden /> </td>
+                <td> <input id="edit_tuesday_1112_1st_rw" hidden /> </td>
+                <td rowspan="2"> <input id="edit_room1112_2_rw" hidden /> </td>
+                <td> <input id="edit_wednesday_1112_1st_rw" hidden /> </td>
+                <td rowspan="2"> <input id="edit_room1112_3_rw" hidden /> </td>
+                <td> <input id="edit_thursday_1112_1st_rw" hidden /> </td>
+                <td rowspan="2"> <input id="edit_room1112_4_rw" hidden /> </td>
+                <td> <input id="edit_friday_1112_1st_rw" hidden /> </td>
+                <td rowspan="2"> <input id="edit_room1112_5_rw" hidden /> </td>
+                <td> <input id="edit_saturday_1112_1st_rw" hidden /> </td>
+                <td rowspan="2"> <input id="edit_room1112_6_rw" hidden /> </td>
+                <td> <input id="edit_sunday_1112_1st_rw" hidden /> </td>
+                <td rowspan="2"> <input id="edit_room1112_7_rw" hidden /> </td>
+                <td>
+                    <input id="edit_cc1112_1st_rw" hidden />
+                </td>
+                <td>
+                    <input id="edit_section1112_1st_rw" hidden />
+                </td>
+                <!-- will add another col for this field on db -->
+                <td> <input id="edit_last_1112_1st_rw" hidden /> </td>
+            </tr>
+            <tr>
+                <td> <input id="edit_monday_1112_2nd_rw" hidden /> </td>
+                <td> <input id="edit_tuesday_1112_2nd_rw" hidden /> </td>
+                <td> <input id="edit_wednesday_1112_2nd_rw" hidden /> </td>
+                <td> <input id="edit_thursday_1112_2nd_rw" hidden /> </td>
+                <td> <input id="edit_friday_1112_2nd_rw" hidden /> </td>
+                <td> <input id="edit_saturday_1112_2nd_rw" hidden /> </td>
+                <td> <input id="edit_sunday_1112_2nd_rw" hidden /> </td>
+                <td>
+                    <input id="edit_cc1112_2nd_rw" hidden />
+                </td>
+                <td>
+                    <input id="edit_section1112_2nd_rw" hidden />
+                </td>
+                <td> <input id="edit_last_1112_2nd_rw" hidden /> </td>
+            </tr>
+
             <?php
             }
           } else {
             ?>
             <tr>
-              <td rowspan="2">11:00 - 12:00</td>
-              <td></td>
-              <td rowspan="2"></td>
-              <td></td>
-              <td rowspan="2"></td>
-              <td></td>
-              <td rowspan="2"></td>
-              <td></td>
-              <td rowspan="2"></td>
-              <td></td>
-              <td rowspan="2"></td>
-              <td></td>
-              <td rowspan="2"></td>
-              <td></td>
-              <td rowspan="2"></td>
-              <td></td>
-              <td></td>
-              <td></td>
+                <td rowspan="2">11:00 - 12:00 <input id="time1112" hidden value="11:00 - 12:00 PM" /> </td>
+                <td> <input id="edit_monday_1112_1st_rw" hidden /> </td>
+                <td rowspan="2"> <input id="edit_room1112_1_rw" hidden /> </td>
+                <td> <input id="edit_tuesday_1112_1st_rw" hidden /> </td>
+                <td rowspan="2"> <input id="edit_room1112_2_rw" hidden /> </td>
+                <td> <input id="edit_wednesday_1112_1st_rw" hidden /> </td>
+                <td rowspan="2"> <input id="edit_room1112_3_rw" hidden /> </td>
+                <td> <input id="edit_thursday_1112_1st_rw" hidden /> </td>
+                <td rowspan="2"> <input id="edit_room1112_4_rw" hidden /> </td>
+                <td> <input id="edit_friday_1112_1st_rw" hidden /> </td>
+                <td rowspan="2"> <input id="edit_room1112_5_rw" hidden /> </td>
+                <td> <input id="edit_saturday_1112_1st_rw" hidden /> </td>
+                <td rowspan="2"> <input id="edit_room1112_6_rw" hidden /> </td>
+                <td> <input id="edit_sunday_1112_1st_rw" hidden /> </td>
+                <td rowspan="2"> <input id="edit_room1112_7_rw" hidden /> </td>
+                <td>
+                    <input id="edit_cc1112_1st_rw" hidden />
+                </td>
+                <td>
+                    <input id="edit_section1112_1st_rw" hidden />
+                </td>
+                <!-- will add another col for this field on db -->
+                <td> <input id="edit_last_1112_1st_rw" hidden /> </td>
             </tr>
             <tr>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
+                <td> <input id="edit_monday_1112_2nd_rw" hidden /> </td>
+                <td> <input id="edit_tuesday_1112_2nd_rw" hidden /> </td>
+                <td> <input id="edit_wednesday_1112_2nd_rw" hidden /> </td>
+                <td> <input id="edit_thursday_1112_2nd_rw" hidden /> </td>
+                <td> <input id="edit_friday_1112_2nd_rw" hidden /> </td>
+                <td> <input id="edit_saturday_1112_2nd_rw" hidden /> </td>
+                <td> <input id="edit_sunday_1112_2nd_rw" hidden /> </td>
+                <td>
+                    <input id="edit_cc1112_2nd_rw" hidden />
+                </td>
+                <td>
+                    <input id="edit_section1112_2nd_rw" hidden />
+                </td>
+                <td> <input id="edit_last_1112_2nd_rw" hidden /> </td>
             </tr>
+
           <?php
           }
           ?>
@@ -898,7 +1190,7 @@ if ($conn->connect_error) {
               while ($data_1201 = mysqli_fetch_assoc($res_1201)) {
                 if (!$trRendered) {
           ?>
-                  <tr>
+                  <tr id="toggletr24">
                     <td rowspan="2">12:00 - 1:00 <input id="time1201" hidden value="12:00 - 1:00 PM" /> </td>
                     <td> <input id="edit_monday_1201_1st_rw" value="<?php echo $data_1201['monday_1st_rw']; ?>" class="form-control" /></td>
                     <td rowspan="2"> <input id="edit_room1201_1_rw" value="<?php echo $data_1201['room_1']; ?>" class="form-control" /></td>
@@ -923,7 +1215,7 @@ if ($conn->connect_error) {
                     <!-- will add another col for this field on db -->
                     <td> <input id="edit_last_1201_1st_rw" value="<?php echo $data_1201['nos_1st_rw']; ?>" class="form-control" /></td>
                   </tr>
-                  <tr>
+                  <tr id="toggletr26">
                     <td> <input id="edit_monday_1201_2nd_rw" class="form-control" value="<?php echo $data_1201['monday_2nd_rw']; ?>" /> </td>
                     <td> <input id="edit_tuesday_1201_2nd_rw" class="form-control" value="<?php echo $data_1201['tuesday_2nd_rw']; ?>" /></td>
                     <td> <input id="edit_wednesday_1201_2nd_rw" class="form-control" value="<?php echo $data_1201['wednesday_2nd_rw']; ?>" /></td>
@@ -939,6 +1231,41 @@ if ($conn->connect_error) {
                     </td>
                     <td> <input id="edit_last_1201_2nd_rw" value="<?php echo $data_1201['nos_2nd_rw']; ?>" class="form-control" /></td>
                   </tr>
+
+                  <tr id="toggletr25">
+                    <td rowspan="2">12:00 - 1:00 <input id="time1201" hidden value="12:00 - 1:00 PM" /> </td>
+                    <td> <?php echo $data_1201['monday_1st_rw']; ?> </td>
+                    <td rowspan="2"> <?php echo $data_1201['room_1']; ?> </td>
+                    <td> <?php echo $data_1201['tuesday_1st_rw']; ?> </td>
+                    <td rowspan="2"> <?php echo $data_1201['room_2']; ?> </td>
+                    <td> <?php echo $data_1201['wednesday_1st_rw']; ?> </td>
+                    <td rowspan="2"> <?php echo $data_1201['room_3']; ?> </td>
+                    <td> <?php echo $data_1201['thursday_1st_rw']; ?> </td>
+                    <td rowspan="2"> <?php echo $data_1201['room_4']; ?> </td>
+                    <td> <?php echo $data_1201['friday_1st_rw']; ?> </td>
+                    <td rowspan="2"> <?php echo $data_1201['room_5']; ?> </td>
+                    <td> <?php echo $data_1201['saturday_1st_rw']; ?> </td>
+                    <td rowspan="2"> <?php echo $data_1201['room_6']; ?> </td>
+                    <td> <?php echo $data_1201['sunday_1st_rw']; ?> </td>
+                    <td rowspan="2"> <?php echo $data_1201['room_7']; ?> </td>
+                    <td> <?php echo $data_1201['cc_1st_rw']; ?> </td>
+                    <td> <?php echo $data_1201['section_1st_rw']; ?> </td>
+                    <!-- will add another col for this field on db -->
+                    <td> <?php echo $data_1201['nos_1st_rw']; ?> </td>
+                </tr>
+                <tr id="toggletr27">
+                    <td> <?php echo $data_1201['monday_2nd_rw']; ?> </td>
+                    <td> <?php echo $data_1201['tuesday_2nd_rw']; ?> </td>
+                    <td> <?php echo $data_1201['wednesday_2nd_rw']; ?> </td>
+                    <td> <?php echo $data_1201['thursday_2nd_rw']; ?> </td>
+                    <td> <?php echo $data_1201['friday_2nd_rw']; ?> </td>
+                    <td> <?php echo $data_1201['saturday_2nd_rw']; ?> </td>
+                    <td> <?php echo $data_1201['sunday_2nd_rw']; ?> </td>
+                    <td> <?php echo $data_1201['cc_2nd_rw']; ?> </td>
+                    <td> <?php echo $data_1201['section_2nd_rw']; ?> </td>
+                    <td> <?php echo $data_1201['nos_2nd_rw']; ?> </td>
+                </tr>
+
               <?php
                   $trRendered = true;
                 }
@@ -946,73 +1273,92 @@ if ($conn->connect_error) {
             } else {
               ?>
               <tr>
-                <td rowspan="2">12:00 - 1:00</td>
-                <td></td>
-                <td rowspan="2"></td>
-                <td></td>
-                <td rowspan="2"></td>
-                <td></td>
-                <td rowspan="2"></td>
-                <td></td>
-                <td rowspan="2"></td>
-                <td></td>
-                <td rowspan="2"></td>
-                <td></td>
-                <td rowspan="2"></td>
-                <td></td>
-                <td rowspan="2"></td>
-                <td></td>
-                <td></td>
-                <td></td>
+                  <td rowspan="2">12:00 - 1:00 <input id="time1201" hidden value="12:00 - 1:00 PM" /> </td>
+                  <td> <input id="edit_monday_1201_1st_rw" hidden /> </td>
+                  <td rowspan="2"> <input id="edit_room1201_1_rw" hidden /> </td>
+                  <td> <input id="edit_tuesday_1201_1st_rw" hidden /> </td>
+                  <td rowspan="2"> <input id="edit_room1201_2_rw" hidden /> </td>
+                  <td> <input id="edit_wednesday_1201_1st_rw" hidden /> </td>
+                  <td rowspan="2"> <input id="edit_room1201_3_rw" hidden /> </td>
+                  <td> <input id="edit_thursday_1201_1st_rw" hidden /> </td>
+                  <td rowspan="2"> <input id="edit_room1201_4_rw" hidden /> </td>
+                  <td> <input id="edit_friday_1201_1st_rw" hidden /> </td>
+                  <td rowspan="2"> <input id="edit_room1201_5_rw" hidden /> </td>
+                  <td> <input id="edit_saturday_1201_1st_rw" hidden /> </td>
+                  <td rowspan="2"> <input id="edit_room1201_6_rw" hidden /> </td>
+                  <td> <input id="edit_sunday_1201_1st_rw" hidden /> </td>
+                  <td rowspan="2"> <input id="edit_room1201_7_rw" hidden /> </td>
+                  <td>
+                      <input id="edit_cc1201_1st_rw" hidden />
+                  </td>
+                  <td>
+                      <input id="edit_section1201_1st_rw" hidden />
+                  </td>
+                  <!-- will add another col for this field on db -->
+                  <td> <input id="edit_last_1201_1st_rw" hidden /> </td>
               </tr>
               <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
+                  <td> <input id="edit_monday_1201_2nd_rw" hidden /> </td>
+                  <td> <input id="edit_tuesday_1201_2nd_rw" hidden /> </td>
+                  <td> <input id="edit_wednesday_1201_2nd_rw" hidden /> </td>
+                  <td> <input id="edit_thursday_1201_2nd_rw" hidden /> </td>
+                  <td> <input id="edit_friday_1201_2nd_rw" hidden /> </td>
+                  <td> <input id="edit_saturday_1201_2nd_rw" hidden /> </td>
+                  <td> <input id="edit_sunday_1201_2nd_rw" hidden /> </td>
+                  <td>
+                      <input id="edit_cc1201_2nd_rw" hidden />
+                  </td>
+                  <td>
+                      <input id="edit_section1201_2nd_rw" hidden />
+                  </td>
+                  <td> <input id="edit_last_1201_2nd_rw" hidden /> </td>
               </tr>
+
             <?php
             }
           } else {
             ?>
-            <tr>
-              <td rowspan="2">12:00 - 1:00</td>
-              <td></td>
-              <td rowspan="2"></td>
-              <td></td>
-              <td rowspan="2"></td>
-              <td></td>
-              <td rowspan="2"></td>
-              <td></td>
-              <td rowspan="2"></td>
-              <td></td>
-              <td rowspan="2"></td>
-              <td></td>
-              <td rowspan="2"></td>
-              <td></td>
-              <td rowspan="2"></td>
-              <td></td>
-              <td></td>
-              <td></td>
-            </tr>
-            <tr>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-            </tr>
+             <tr>
+                  <td rowspan="2">12:00 - 1:00 <input id="time1201" hidden value="12:00 - 1:00 PM" /> </td>
+                  <td> <input id="edit_monday_1201_1st_rw" hidden /> </td>
+                  <td rowspan="2"> <input id="edit_room1201_1_rw" hidden /> </td>
+                  <td> <input id="edit_tuesday_1201_1st_rw" hidden /> </td>
+                  <td rowspan="2"> <input id="edit_room1201_2_rw" hidden /> </td>
+                  <td> <input id="edit_wednesday_1201_1st_rw" hidden /> </td>
+                  <td rowspan="2"> <input id="edit_room1201_3_rw" hidden /> </td>
+                  <td> <input id="edit_thursday_1201_1st_rw" hidden /> </td>
+                  <td rowspan="2"> <input id="edit_room1201_4_rw" hidden /> </td>
+                  <td> <input id="edit_friday_1201_1st_rw" hidden /> </td>
+                  <td rowspan="2"> <input id="edit_room1201_5_rw" hidden /> </td>
+                  <td> <input id="edit_saturday_1201_1st_rw" hidden /> </td>
+                  <td rowspan="2"> <input id="edit_room1201_6_rw" hidden /> </td>
+                  <td> <input id="edit_sunday_1201_1st_rw" hidden /> </td>
+                  <td rowspan="2"> <input id="edit_room1201_7_rw" hidden /> </td>
+                  <td>
+                      <input id="edit_cc1201_1st_rw" hidden />
+                  </td>
+                  <td>
+                      <input id="edit_section1201_1st_rw" hidden />
+                  </td>
+                  <!-- will add another col for this field on db -->
+                  <td> <input id="edit_last_1201_1st_rw" hidden /> </td>
+              </tr>
+              <tr>
+                  <td> <input id="edit_monday_1201_2nd_rw" hidden /> </td>
+                  <td> <input id="edit_tuesday_1201_2nd_rw" hidden /> </td>
+                  <td> <input id="edit_wednesday_1201_2nd_rw" hidden /> </td>
+                  <td> <input id="edit_thursday_1201_2nd_rw" hidden /> </td>
+                  <td> <input id="edit_friday_1201_2nd_rw" hidden /> </td>
+                  <td> <input id="edit_saturday_1201_2nd_rw" hidden /> </td>
+                  <td> <input id="edit_sunday_1201_2nd_rw" hidden /> </td>
+                  <td>
+                      <input id="edit_cc1201_2nd_rw" hidden />
+                  </td>
+                  <td>
+                      <input id="edit_section1201_2nd_rw" hidden />
+                  </td>
+                  <td> <input id="edit_last_1201_2nd_rw" hidden /> </td>
+              </tr>
           <?php
           }
           ?>
@@ -1027,7 +1373,7 @@ if ($conn->connect_error) {
               while ($data_0102 = mysqli_fetch_assoc($res_0102)) {
                 if (!$trRendered) {
           ?>
-                  <tr>
+                  <tr id="toggletr28">
                     <td rowspan="2">1:00 - 2:00 <input id="time0102" hidden value="1:00 - 2:00 PM" /> </td>
                     <td> <input id="edit_monday_0102_1st_rw" value="<?php echo $data_0102['monday_1st_rw']; ?>" class="form-control" /></td>
                     <td rowspan="2"> <input id="edit_room0102_1_rw" value="<?php echo $data_0102['room_1']; ?>" class="form-control" /></td>
@@ -1052,7 +1398,7 @@ if ($conn->connect_error) {
                     <!-- will add another col for this field on db -->
                     <td> <input id="edit_last_0102_1st_rw" value="<?php echo $data_0102['nos_1st_rw']; ?>" class="form-control" /></td>
                   </tr>
-                  <tr>
+                  <tr id="toggletr30">
                     <td> <input id="edit_monday_0102_2nd_rw" class="form-control" value="<?php echo $data_0102['monday_2nd_rw']; ?>" /> </td>
                     <td> <input id="edit_tuesday_0102_2nd_rw" class="form-control" value="<?php echo $data_0102['tuesday_2nd_rw']; ?>" /></td>
                     <td> <input id="edit_wednesday_0102_2nd_rw" class="form-control" value="<?php echo $data_0102['wednesday_2nd_rw']; ?>" /></td>
@@ -1064,6 +1410,39 @@ if ($conn->connect_error) {
                       <input id="edit_timeline0102_rw" value="<?php echo $data_0102['timeline']; ?>" class="form-control" />
                     </td>
                   </tr>
+
+                  <tr id="toggletr29">
+                    <td rowspan="2">1:00 - 2:00 <input id="time0102" hidden value="1:00 - 2:00 PM" /> </td>
+                    <td> <?php echo $data_0102['monday_1st_rw']; ?> </td>
+                    <td rowspan="2"> <?php echo $data_0102['room_1']; ?> </td>
+                    <td> <?php echo $data_0102['tuesday_1st_rw']; ?> </td>
+                    <td rowspan="2"> <?php echo $data_0102['room_2']; ?> </td>
+                    <td> <?php echo $data_0102['wednesday_1st_rw']; ?> </td>
+                    <td rowspan="2"> <?php echo $data_0102['room_3']; ?> </td>
+                    <td> <?php echo $data_0102['thursday_1st_rw']; ?> </td>
+                    <td rowspan="2"> <?php echo $data_0102['room_4']; ?> </td>
+                    <td> <?php echo $data_0102['friday_1st_rw']; ?> </td>
+                    <td rowspan="2"> <?php echo $data_0102['room_5']; ?> </td>
+                    <td> <?php echo $data_0102['saturday_1st_rw']; ?> </td>
+                    <td rowspan="2"> <?php echo $data_0102['room_6']; ?> </td>
+                    <td> <?php echo $data_0102['sunday_1st_rw']; ?> </td>
+                    <td rowspan="2"> <?php echo $data_0102['room_7']; ?> </td>
+                    <td> <?php echo $data_0102['cc_1st_rw']; ?> </td>
+                    <td> <?php echo $data_0102['section_1st_rw']; ?> </td>
+                    <!-- will add another col for this field on db -->
+                    <td> <?php echo $data_0102['nos_1st_rw']; ?> </td>
+                </tr>
+                <tr id="toggletr31">
+                    <td> <?php echo $data_0102['monday_2nd_rw']; ?> </td>
+                    <td> <?php echo $data_0102['tuesday_2nd_rw']; ?> </td>
+                    <td> <?php echo $data_0102['wednesday_2nd_rw']; ?> </td>
+                    <td> <?php echo $data_0102['thursday_2nd_rw']; ?> </td>
+                    <td> <?php echo $data_0102['friday_2nd_rw']; ?> </td>
+                    <td> <?php echo $data_0102['saturday_2nd_rw']; ?> </td>
+                    <td> <?php echo $data_0102['sunday_2nd_rw']; ?> </td>
+                    <td colspan="3" rowspan="6"> <?php echo $data_0102['timeline']; ?> </td>
+                </tr>
+
               <?php
                   $trRendered = true;
                 }
@@ -1071,68 +1450,83 @@ if ($conn->connect_error) {
             } else {
               ?>
               <tr>
-                <td rowspan="2">1:00 - 2:00</td>
-                <td></td>
-                <td rowspan="2"></td>
-                <td></td>
-                <td rowspan="2"></td>
-                <td></td>
-                <td rowspan="2"></td>
-                <td></td>
-                <td rowspan="2"></td>
-                <td></td>
-                <td rowspan="2"></td>
-                <td></td>
-                <td rowspan="2"></td>
-                <td></td>
-                <td rowspan="2"></td>
-                <td></td>
-                <td></td>
-                <td></td>
-              </tr>
-              <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td colspan="3" rowspan="6"></td>
-              </tr>
+                <td rowspan="2">1:00 - 2:00 <input id="time0102" hidden value="1:00 - 2:00 PM" /> </td>
+                <td> <input id="edit_monday_0102_1st_rw" hidden /> </td>
+                <td rowspan="2"> <input id="edit_room0102_1_rw" hidden /> </td>
+                <td> <input id="edit_tuesday_0102_1st_rw" hidden /> </td>
+                <td rowspan="2"> <input id="edit_room0102_2_rw" hidden /> </td>
+                <td> <input id="edit_wednesday_0102_1st_rw" hidden /> </td>
+                <td rowspan="2"> <input id="edit_room0102_3_rw" hidden /> </td>
+                <td> <input id="edit_thursday_0102_1st_rw" hidden /> </td>
+                <td rowspan="2"> <input id="edit_room0102_4_rw" hidden /> </td>
+                <td> <input id="edit_friday_0102_1st_rw" hidden /> </td>
+                <td rowspan="2"> <input id="edit_room0102_5_rw" hidden /> </td>
+                <td> <input id="edit_saturday_0102_1st_rw" hidden /> </td>
+                <td rowspan="2"> <input id="edit_room0102_6_rw" hidden /> </td>
+                <td> <input id="edit_sunday_0102_1st_rw" hidden /> </td>
+                <td rowspan="2"> <input id="edit_room0102_7_rw" hidden /> </td>
+                <td>
+                    <input id="edit_cc0102_1st_rw" hidden />
+                </td>
+                <td>
+                    <input id="edit_section0102_1st_rw" hidden />
+                </td>
+                <!-- will add another col for this field on db -->
+                <td> <input id="edit_last_0102_1st_rw" hidden /> </td>
+            </tr>
+            <tr>
+                <td> <input id="edit_monday_0102_2nd_rw" hidden /> </td>
+                <td> <input id="edit_tuesday_0102_2nd_rw" hidden /> </td>
+                <td> <input id="edit_wednesday_0102_2nd_rw" hidden /> </td>
+                <td> <input id="edit_thursday_0102_2nd_rw" hidden /> </td>
+                <td> <input id="edit_friday_0102_2nd_rw" hidden /> </td>
+                <td> <input id="edit_saturday_0102_2nd_rw" hidden /> </td>
+                <td> <input id="edit_sunday_0102_2nd_rw" hidden /> </td>
+                <td colspan="3" rowspan="6">
+                    <input id="edit_timeline0102_rw" hidden />
+                </td>
+            </tr>
+
             <?php
             }
           } else {
             ?>
             <tr>
-              <td rowspan="2">1:00 - 2:00</td>
-              <td></td>
-              <td rowspan="2"></td>
-              <td></td>
-              <td rowspan="2"></td>
-              <td></td>
-              <td rowspan="2"></td>
-              <td></td>
-              <td rowspan="2"></td>
-              <td></td>
-              <td rowspan="2"></td>
-              <td></td>
-              <td rowspan="2"></td>
-              <td></td>
-              <td rowspan="2"></td>
-              <td></td>
-              <td></td>
-              <td></td>
+                <td rowspan="2">1:00 - 2:00 <input id="time0102" hidden value="1:00 - 2:00 PM" /> </td>
+                <td> <input id="edit_monday_0102_1st_rw" hidden /> </td>
+                <td rowspan="2"> <input id="edit_room0102_1_rw" hidden /> </td>
+                <td> <input id="edit_tuesday_0102_1st_rw" hidden /> </td>
+                <td rowspan="2"> <input id="edit_room0102_2_rw" hidden /> </td>
+                <td> <input id="edit_wednesday_0102_1st_rw" hidden /> </td>
+                <td rowspan="2"> <input id="edit_room0102_3_rw" hidden /> </td>
+                <td> <input id="edit_thursday_0102_1st_rw" hidden /> </td>
+                <td rowspan="2"> <input id="edit_room0102_4_rw" hidden /> </td>
+                <td> <input id="edit_friday_0102_1st_rw" hidden /> </td>
+                <td rowspan="2"> <input id="edit_room0102_5_rw" hidden /> </td>
+                <td> <input id="edit_saturday_0102_1st_rw" hidden /> </td>
+                <td rowspan="2"> <input id="edit_room0102_6_rw" hidden /> </td>
+                <td> <input id="edit_sunday_0102_1st_rw" hidden /> </td>
+                <td rowspan="2"> <input id="edit_room0102_7_rw" hidden /> </td>
+                <td>
+                    <input id="edit_cc0102_1st_rw" hidden />
+                </td>
+                <td>
+                    <input id="edit_section0102_1st_rw" hidden />
+                </td>
+                <!-- will add another col for this field on db -->
+                <td> <input id="edit_last_0102_1st_rw" hidden /> </td>
             </tr>
             <tr>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td colspan="3" rowspan="6"></td>
+                <td> <input id="edit_monday_0102_2nd_rw" hidden /> </td>
+                <td> <input id="edit_tuesday_0102_2nd_rw" hidden /> </td>
+                <td> <input id="edit_wednesday_0102_2nd_rw" hidden /> </td>
+                <td> <input id="edit_thursday_0102_2nd_rw" hidden /> </td>
+                <td> <input id="edit_friday_0102_2nd_rw" hidden /> </td>
+                <td> <input id="edit_saturday_0102_2nd_rw" hidden /> </td>
+                <td> <input id="edit_sunday_0102_2nd_rw" hidden /> </td>
+                <td colspan="3" rowspan="6">
+                    <input id="edit_timeline0102_rw" hidden />
+                </td>
             </tr>
           <?php
           }
@@ -1148,7 +1542,7 @@ if ($conn->connect_error) {
               while ($data_0203 = mysqli_fetch_assoc($res_0203)) {
                 if (!$trRendered) {
           ?>
-                  <tr>
+                  <tr id="toggletr32">
                     <td rowspan="2">2:00 - 3:00 <input id="time0203" hidden value="2:00 - 3:00 PM" /> </td>
                     <td> <input id="edit_monday_0203_1st_rw" value="<?php echo $data_0203['monday_1st_rw']; ?>" class="form-control" /></td>
                     <td rowspan="2"> <input id="edit_room0203_1_rw" value="<?php echo $data_0203['room_1']; ?>" class="form-control" /></td>
@@ -1166,7 +1560,7 @@ if ($conn->connect_error) {
                     <td rowspan="2"> <input id="edit_room0203_7_rw" value="<?php echo $data_0203['room_7']; ?>" class="form-control" /> </td>
 
                   </tr>
-                  <tr>
+                  <tr id="toggletr34">
                     <td> <input id="edit_monday_0203_2nd_rw" class="form-control" value="<?php echo $data_0203['monday_2nd_rw']; ?>" /> </td>
                     <td> <input id="edit_tuesday_0203_2nd_rw" class="form-control" value="<?php echo $data_0203['tuesday_2nd_rw']; ?>" /></td>
                     <td> <input id="edit_wednesday_0203_2nd_rw" class="form-control" value="<?php echo $data_0203['wednesday_2nd_rw']; ?>" /></td>
@@ -1176,6 +1570,34 @@ if ($conn->connect_error) {
                     <td> <input id="edit_sunday_0203_2nd_rw" class="form-control" value="<?php echo $data_0203['sunday_2nd_rw']; ?>" /></td>
 
                   </tr>
+
+                  <tr id="toggletr33">
+                    <td rowspan="2">2:00 - 3:00 <input id="time0203" hidden value="2:00 - 3:00 PM" /> </td>
+                    <td> <?php echo $data_0203['monday_1st_rw']; ?> </td>
+                    <td rowspan="2"> <?php echo $data_0203['room_1']; ?> </td>
+                    <td> <?php echo $data_0203['tuesday_1st_rw']; ?> </td>
+                    <td rowspan="2"> <?php echo $data_0203['room_2']; ?> </td>
+                    <td> <?php echo $data_0203['wednesday_1st_rw']; ?> </td>
+                    <td rowspan="2"> <?php echo $data_0203['room_3']; ?> </td>
+                    <td> <?php echo $data_0203['thursday_1st_rw']; ?> </td>
+                    <td rowspan="2"> <?php echo $data_0203['room_4']; ?> </td>
+                    <td> <?php echo $data_0203['friday_1st_rw']; ?> </td>
+                    <td rowspan="2"> <?php echo $data_0203['room_5']; ?> </td>
+                    <td> <?php echo $data_0203['saturday_1st_rw']; ?> </td>
+                    <td rowspan="2"> <?php echo $data_0203['room_6']; ?> </td>
+                    <td> <?php echo $data_0203['sunday_1st_rw']; ?> </td>
+                    <td rowspan="2"> <?php echo $data_0203['room_7']; ?> </td>
+                </tr>
+                <tr id="toggletr35">
+                    <td> <?php echo $data_0203['monday_2nd_rw']; ?> </td>
+                    <td> <?php echo $data_0203['tuesday_2nd_rw']; ?> </td>
+                    <td> <?php echo $data_0203['wednesday_2nd_rw']; ?> </td>
+                    <td> <?php echo $data_0203['thursday_2nd_rw']; ?> </td>
+                    <td> <?php echo $data_0203['friday_2nd_rw']; ?> </td>
+                    <td> <?php echo $data_0203['saturday_2nd_rw']; ?> </td>
+                    <td> <?php echo $data_0203['sunday_2nd_rw']; ?> </td>
+                </tr>
+
               <?php
                   $trRendered = true;
                 }
@@ -1183,61 +1605,63 @@ if ($conn->connect_error) {
             } else {
               ?>
               <tr>
-                <td rowspan="2">2:00 - 3:00</td>
-                <td></td>
-                <td rowspan="2"></td>
-                <td></td>
-                <td rowspan="2"></td>
-                <td></td>
-                <td rowspan="2"></td>
-                <td></td>
-                <td rowspan="2"></td>
-                <td></td>
-                <td rowspan="2"></td>
-                <td></td>
-                <td rowspan="2"></td>
-                <td></td>
-                <td rowspan="2"></td>
-              </tr>
-              <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-              </tr>
+                <td rowspan="2">2:00 - 3:00 <input id="time0203" hidden value="2:00 - 3:00 PM" /> </td>
+                <td> <input id="edit_monday_0203_1st_rw" hidden /> </td>
+                <td rowspan="2"> <input id="edit_room0203_1_rw" hidden /> </td>
+                <td> <input id="edit_tuesday_0203_1st_rw" hidden /> </td>
+                <td rowspan="2"> <input id="edit_room0203_2_rw" hidden /> </td>
+                <td> <input id="edit_wednesday_0203_1st_rw" hidden /> </td>
+                <td rowspan="2"> <input id="edit_room0203_3_rw" hidden /> </td>
+                <td> <input id="edit_thursday_0203_1st_rw" hidden /> </td>
+                <td rowspan="2"> <input id="edit_room0203_4_rw" hidden /> </td>
+                <td> <input id="edit_friday_0203_1st_rw" hidden /> </td>
+                <td rowspan="2"> <input id="edit_room0203_5_rw" hidden /> </td>
+                <td> <input id="edit_saturday_0203_1st_rw" hidden /> </td>
+                <td rowspan="2"> <input id="edit_room0203_6_rw" hidden /> </td>
+                <td> <input id="edit_sunday_0203_1st_rw" hidden /> </td>
+                <td rowspan="2"> <input id="edit_room0203_7_rw" hidden /> </td>
+            </tr>
+            <tr>
+                <td> <input id="edit_monday_0203_2nd_rw" hidden /> </td>
+                <td> <input id="edit_tuesday_0203_2nd_rw" hidden /> </td>
+                <td> <input id="edit_wednesday_0203_2nd_rw" hidden /> </td>
+                <td> <input id="edit_thursday_0203_2nd_rw" hidden /> </td>
+                <td> <input id="edit_friday_0203_2nd_rw" hidden /> </td>
+                <td> <input id="edit_saturday_0203_2nd_rw" hidden /> </td>
+                <td> <input id="edit_sunday_0203_2nd_rw" hidden /> </td>
+            </tr>
+
             <?php
             }
           } else {
             ?>
             <tr>
-              <td rowspan="2">2:00 - 3:00</td>
-              <td></td>
-              <td rowspan="2"></td>
-              <td></td>
-              <td rowspan="2"></td>
-              <td></td>
-              <td rowspan="2"></td>
-              <td></td>
-              <td rowspan="2"></td>
-              <td></td>
-              <td rowspan="2"></td>
-              <td></td>
-              <td rowspan="2"></td>
-              <td></td>
-              <td rowspan="2"></td>
+                <td rowspan="2">2:00 - 3:00 <input id="time0203" hidden value="2:00 - 3:00 PM" /> </td>
+                <td> <input id="edit_monday_0203_1st_rw" hidden /> </td>
+                <td rowspan="2"> <input id="edit_room0203_1_rw" hidden /> </td>
+                <td> <input id="edit_tuesday_0203_1st_rw" hidden /> </td>
+                <td rowspan="2"> <input id="edit_room0203_2_rw" hidden /> </td>
+                <td> <input id="edit_wednesday_0203_1st_rw" hidden /> </td>
+                <td rowspan="2"> <input id="edit_room0203_3_rw" hidden /> </td>
+                <td> <input id="edit_thursday_0203_1st_rw" hidden /> </td>
+                <td rowspan="2"> <input id="edit_room0203_4_rw" hidden /> </td>
+                <td> <input id="edit_friday_0203_1st_rw" hidden /> </td>
+                <td rowspan="2"> <input id="edit_room0203_5_rw" hidden /> </td>
+                <td> <input id="edit_saturday_0203_1st_rw" hidden /> </td>
+                <td rowspan="2"> <input id="edit_room0203_6_rw" hidden /> </td>
+                <td> <input id="edit_sunday_0203_1st_rw" hidden /> </td>
+                <td rowspan="2"> <input id="edit_room0203_7_rw" hidden /> </td>
             </tr>
             <tr>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
+                <td> <input id="edit_monday_0203_2nd_rw" hidden /> </td>
+                <td> <input id="edit_tuesday_0203_2nd_rw" hidden /> </td>
+                <td> <input id="edit_wednesday_0203_2nd_rw" hidden /> </td>
+                <td> <input id="edit_thursday_0203_2nd_rw" hidden /> </td>
+                <td> <input id="edit_friday_0203_2nd_rw" hidden /> </td>
+                <td> <input id="edit_saturday_0203_2nd_rw" hidden /> </td>
+                <td> <input id="edit_sunday_0203_2nd_rw" hidden /> </td>
             </tr>
+
           <?php
           }
           ?>
@@ -1252,7 +1676,7 @@ if ($conn->connect_error) {
               while ($data_0304 = mysqli_fetch_assoc($res_0304)) {
                 if (!$trRendered) {
           ?>
-                  <tr>
+                  <tr id="toggletr36">
                     <td rowspan="2">3:00 - 4:00 <input id="time0304" hidden value="3:00 - 4:00 PM" /> </td>
                     <td> <input id="edit_monday_0304_1st_rw" value="<?php echo $data_0304['monday_1st_rw']; ?>" class="form-control" /></td>
                     <td rowspan="2"> <input id="edit_room0304_1_rw" value="<?php echo $data_0304['room_1']; ?>" class="form-control" /></td>
@@ -1270,7 +1694,7 @@ if ($conn->connect_error) {
                     <td rowspan="2"> <input id="edit_room0304_7_rw" value="<?php echo $data_0304['room_7']; ?>" class="form-control" /> </td>
 
                   </tr>
-                  <tr>
+                  <tr id="toggletr38">
                     <td> <input id="edit_monday_0304_2nd_rw" class="form-control" value="<?php echo $data_0304['monday_2nd_rw']; ?>" /> </td>
                     <td> <input id="edit_tuesday_0304_2nd_rw" class="form-control" value="<?php echo $data_0304['tuesday_2nd_rw']; ?>" /></td>
                     <td> <input id="edit_wednesday_0304_2nd_rw" class="form-control" value="<?php echo $data_0304['wednesday_2nd_rw']; ?>" /></td>
@@ -1280,67 +1704,96 @@ if ($conn->connect_error) {
                     <td> <input id="edit_sunday_0304_2nd_rw" class="form-control" value="<?php echo $data_0304['sunday_2nd_rw']; ?>" /></td>
 
                   </tr>
+
+                  <tr id="toggletr37">
+                    <td rowspan="2">3:00 - 4:00 <input id="time0304" hidden value="3:00 - 4:00 PM" /> </td>
+                    <td> <?php echo $data_0304['monday_1st_rw']; ?> </td>
+                    <td rowspan="2"> <?php echo $data_0304['room_1']; ?> </td>
+                    <td> <?php echo $data_0304['tuesday_1st_rw']; ?> </td>
+                    <td rowspan="2"> <?php echo $data_0304['room_2']; ?> </td>
+                    <td> <?php echo $data_0304['wednesday_1st_rw']; ?> </td>
+                    <td rowspan="2"> <?php echo $data_0304['room_3']; ?> </td>
+                    <td> <?php echo $data_0304['thursday_1st_rw']; ?> </td>
+                    <td rowspan="2"> <?php echo $data_0304['room_4']; ?> </td>
+                    <td> <?php echo $data_0304['friday_1st_rw']; ?> </td>
+                    <td rowspan="2"> <?php echo $data_0304['room_5']; ?> </td>
+                    <td> <?php echo $data_0304['saturday_1st_rw']; ?> </td>
+                    <td rowspan="2"> <?php echo $data_0304['room_6']; ?> </td>
+                    <td> <?php echo $data_0304['sunday_1st_rw']; ?> </td>
+                    <td rowspan="2"> <?php echo $data_0304['room_7']; ?> </td>
+                </tr>
+                <tr id="toggletr39">
+                    <td> <?php echo $data_0304['monday_2nd_rw']; ?> </td>
+                    <td> <?php echo $data_0304['tuesday_2nd_rw']; ?> </td>
+                    <td> <?php echo $data_0304['wednesday_2nd_rw']; ?> </td>
+                    <td> <?php echo $data_0304['thursday_2nd_rw']; ?> </td>
+                    <td> <?php echo $data_0304['friday_2nd_rw']; ?> </td>
+                    <td> <?php echo $data_0304['saturday_2nd_rw']; ?> </td>
+                    <td> <?php echo $data_0304['sunday_2nd_rw']; ?> </td>
+                </tr>
+
               <?php
                   $trRendered = true;
                 }
               }
             } else {
               ?>
-              <tr>
-                <td rowspan="2">3:00 - 4:00</td>
-                <td></td>
-                <td rowspan="2"></td>
-                <td></td>
-                <td rowspan="2"></td>
-                <td></td>
-                <td rowspan="2"></td>
-                <td></td>
-                <td rowspan="2"></td>
-                <td></td>
-                <td rowspan="2"></td>
-                <td></td>
-                <td rowspan="2"></td>
-                <td></td>
-                <td rowspan="2"></td>
-              </tr>
-              <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-              </tr>
+              <tr >
+                <td rowspan="2">3:00 - 4:00 <input id="time0304" hidden /> </td>
+                <td> <input id="edit_monday_0304_1st_rw" hidden /> </td>
+                <td rowspan="2"> <input id="edit_room0304_1_rw" hidden /> </td>
+                <td> <input id="edit_tuesday_0304_1st_rw" hidden /> </td>
+                <td rowspan="2"> <input id="edit_room0304_2_rw" hidden /> </td>
+                <td> <input id="edit_wednesday_0304_1st_rw" hidden /> </td>
+                <td rowspan="2"> <input id="edit_room0304_3_rw" hidden /> </td>
+                <td> <input id="edit_thursday_0304_1st_rw" hidden /> </td>
+                <td rowspan="2"> <input id="edit_room0304_4_rw" hidden /> </td>
+                <td> <input id="edit_friday_0304_1st_rw" hidden /> </td>
+                <td rowspan="2"> <input id="edit_room0304_5_rw" hidden /> </td>
+                <td> <input id="edit_saturday_0304_1st_rw" hidden /> </td>
+                <td rowspan="2"> <input id="edit_room0304_6_rw" hidden /> </td>
+                <td> <input id="edit_sunday_0304_1st_rw" hidden /> </td>
+                <td rowspan="2"> <input id="edit_room0304_7_rw" hidden /> </td>
+            </tr>
+            <tr >
+                <td> <input id="edit_monday_0304_2nd_rw" hidden /> </td>
+                <td> <input id="edit_tuesday_0304_2nd_rw" hidden /> </td>
+                <td> <input id="edit_wednesday_0304_2nd_rw" hidden /> </td>
+                <td> <input id="edit_thursday_0304_2nd_rw" hidden /> </td>
+                <td> <input id="edit_friday_0304_2nd_rw" hidden /> </td>
+                <td> <input id="edit_saturday_0304_2nd_rw" hidden /> </td>
+                <td> <input id="edit_sunday_0304_2nd_rw" hidden /> </td>
+            </tr>
+
             <?php
             }
           } else {
             ?>
-            <tr>
-              <td rowspan="2">3:00 - 4:00</td>
-              <td></td>
-              <td rowspan="2"></td>
-              <td></td>
-              <td rowspan="2"></td>
-              <td></td>
-              <td rowspan="2"></td>
-              <td></td>
-              <td rowspan="2"></td>
-              <td></td>
-              <td rowspan="2"></td>
-              <td></td>
-              <td rowspan="2"></td>
-              <td></td>
-              <td rowspan="2"></td>
+            <tr >
+                <td rowspan="2">3:00 - 4:00 <input id="time0304" hidden /> </td>
+                <td> <input id="edit_monday_0304_1st_rw" hidden /> </td>
+                <td rowspan="2"> <input id="edit_room0304_1_rw" hidden /> </td>
+                <td> <input id="edit_tuesday_0304_1st_rw" hidden /> </td>
+                <td rowspan="2"> <input id="edit_room0304_2_rw" hidden /> </td>
+                <td> <input id="edit_wednesday_0304_1st_rw" hidden /> </td>
+                <td rowspan="2"> <input id="edit_room0304_3_rw" hidden /> </td>
+                <td> <input id="edit_thursday_0304_1st_rw" hidden /> </td>
+                <td rowspan="2"> <input id="edit_room0304_4_rw" hidden /> </td>
+                <td> <input id="edit_friday_0304_1st_rw" hidden /> </td>
+                <td rowspan="2"> <input id="edit_room0304_5_rw" hidden /> </td>
+                <td> <input id="edit_saturday_0304_1st_rw" hidden /> </td>
+                <td rowspan="2"> <input id="edit_room0304_6_rw" hidden /> </td>
+                <td> <input id="edit_sunday_0304_1st_rw" hidden /> </td>
+                <td rowspan="2"> <input id="edit_room0304_7_rw" hidden /> </td>
             </tr>
-            <tr>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
+            <tr >
+                <td> <input id="edit_monday_0304_2nd_rw" hidden /> </td>
+                <td> <input id="edit_tuesday_0304_2nd_rw" hidden /> </td>
+                <td> <input id="edit_wednesday_0304_2nd_rw" hidden /> </td>
+                <td> <input id="edit_thursday_0304_2nd_rw" hidden /> </td>
+                <td> <input id="edit_friday_0304_2nd_rw" hidden /> </td>
+                <td> <input id="edit_saturday_0304_2nd_rw" hidden /> </td>
+                <td> <input id="edit_sunday_0304_2nd_rw" hidden /> </td>
             </tr>
           <?php
           }
@@ -1356,7 +1809,7 @@ if ($conn->connect_error) {
               while ($data_0405 = mysqli_fetch_assoc($res_0405)) {
                 if (!$trRendered) {
           ?>
-                  <tr>
+                  <tr id="toggletr40">
                     <td rowspan="2">4:00 - 5:00 <input id="time0405" hidden value="4:00 - 5:00 PM" /> </td>
                     <td> <input id="edit_monday_0405_1st_rw" value="<?php echo $data_0405['monday_1st_rw']; ?>" class="form-control" /></td>
                     <td rowspan="2"> <input id="edit_room0405_1_rw" value="<?php echo $data_0405['room_1']; ?>" class="form-control" /></td>
@@ -1373,7 +1826,7 @@ if ($conn->connect_error) {
                     <td> <input id="edit_sunday_0405_1st_rw" value="<?php echo $data_0405['sunday_1st_rw']; ?>" class="form-control" /> </td>
                     <td rowspan="2"> <input id="edit_room0405_7_rw" value="<?php echo $data_0405['room_7']; ?>" class="form-control" /> </td>
                   </tr>
-                  <tr>
+                  <tr id="toggletr42">
                     <td> <input id="edit_monday_0405_2nd_rw" class="form-control" value="<?php echo $data_0405['monday_2nd_rw']; ?>" /> </td>
                     <td> <input id="edit_tuesday_0405_2nd_rw" class="form-control" value="<?php echo $data_0405['tuesday_2nd_rw']; ?>" /></td>
                     <td> <input id="edit_wednesday_0405_2nd_rw" class="form-control" value="<?php echo $data_0405['wednesday_2nd_rw']; ?>" /></td>
@@ -1385,6 +1838,37 @@ if ($conn->connect_error) {
                       <input id="edit_timeline0405_2_rw" value="<?php echo $data_0405['timeline2']; ?>" class="form-control" />
                     </td>
                   </tr>
+                  <tr id="toggletr41">
+                      <td rowspan="2">4:00 - 5:00 <input id="time0405" hidden value="4:00 - 5:00 PM" /> </td>
+                      <td> <?php echo $data_0405['monday_1st_rw']; ?> </td>
+                      <td rowspan="2"> <?php echo $data_0405['room_1']; ?> </td>
+                      <td> <?php echo $data_0405['tuesday_1st_rw']; ?> </td>
+                      <td rowspan="2"> <?php echo $data_0405['room_2']; ?> </td>
+                      <td> <?php echo $data_0405['wednesday_1st_rw']; ?> </td>
+                      <td rowspan="2"> <?php echo $data_0405['room_3']; ?> </td>
+                      <td> <?php echo $data_0405['thursday_1st_rw']; ?> </td>
+                      <td rowspan="2"> <?php echo $data_0405['room_4']; ?> </td>
+                      <td> <?php echo $data_0405['friday_1st_rw']; ?> </td>
+                      <td rowspan="2"> <?php echo $data_0405['room_5']; ?> </td>
+                      <td> <?php echo $data_0405['saturday_1st_rw']; ?> </td>
+                      <td rowspan="2"> <?php echo $data_0405['room_6']; ?> </td>
+                      <td> <?php echo $data_0405['sunday_1st_rw']; ?> </td>
+                      <td rowspan="2"> <?php echo $data_0405['room_7']; ?> </td>
+                  </tr>
+                  <tr id="toggletr43"> 
+                      <td> <?php echo $data_0405['monday_2nd_rw']; ?> </td>
+                      <td> <?php echo $data_0405['tuesday_2nd_rw']; ?> </td>
+                      <td> <?php echo $data_0405['wednesday_2nd_rw']; ?> </td>
+                      <td> <?php echo $data_0405['thursday_2nd_rw']; ?> </td>
+                      <td> <?php echo $data_0405['friday_2nd_rw']; ?> </td>
+                      <td> <?php echo $data_0405['saturday_2nd_rw']; ?> </td>
+                      <td> <?php echo $data_0405['sunday_2nd_rw']; ?> </td>
+                      <td colspan="3" rowspan="6">
+                          <?php echo $data_0405['timeline2']; ?>
+                      </td>
+                  </tr>
+               
+
               <?php
                   $trRendered = true;
                 }
@@ -1392,62 +1876,67 @@ if ($conn->connect_error) {
             } else {
               ?>
               <tr>
-                <td rowspan="2">4:00 - 5:00</td>
-                <td></td>
-                <td rowspan="2"></td>
-                <td></td>
-                <td rowspan="2"></td>
-                <td></td>
-                <td rowspan="2"></td>
-                <td></td>
-                <td rowspan="2"></td>
-                <td></td>
-                <td rowspan="2"></td>
-                <td></td>
-                <td rowspan="2"></td>
-                <td></td>
-                <td rowspan="2"></td>
-              </tr>
-              <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td colspan="3" rowspan="6"></td>
-              </tr>
+                <td rowspan="2">4:00 - 5:00 <input id="time0405" hidden value="4:00 - 5:00 PM" /> </td>
+                <td> <input id="edit_monday_0405_1st_rw" hidden /> </td>
+                <td rowspan="2"> <input id="edit_room0405_1_rw" hidden /> </td>
+                <td> <input id="edit_tuesday_0405_1st_rw" hidden /> </td>
+                <td rowspan="2"> <input id="edit_room0405_2_rw" hidden /> </td>
+                <td> <input id="edit_wednesday_0405_1st_rw" hidden /> </td>
+                <td rowspan="2"> <input id="edit_room0405_3_rw" hidden /> </td>
+                <td> <input id="edit_thursday_0405_1st_rw" hidden /> </td>
+                <td rowspan="2"> <input id="edit_room0405_4_rw" hidden /> </td>
+                <td> <input id="edit_friday_0405_1st_rw" hidden /> </td>
+                <td rowspan="2"> <input id="edit_room0405_5_rw" hidden /> </td>
+                <td> <input id="edit_saturday_0405_1st_rw" hidden /> </td>
+                <td rowspan="2"> <input id="edit_room0405_6_rw" hidden /> </td>
+                <td> <input id="edit_sunday_0405_1st_rw" hidden /> </td>
+                <td rowspan="2"> <input id="edit_room0405_7_rw" hidden /> </td>
+            </tr>
+            <tr>
+                <td> <input id="edit_monday_0405_2nd_rw" hidden /> </td>
+                <td> <input id="edit_tuesday_0405_2nd_rw" hidden /> </td>
+                <td> <input id="edit_wednesday_0405_2nd_rw" hidden /> </td>
+                <td> <input id="edit_thursday_0405_2nd_rw" hidden /> </td>
+                <td> <input id="edit_friday_0405_2nd_rw" hidden /> </td>
+                <td> <input id="edit_saturday_0405_2nd_rw" hidden /> </td>
+                <td> <input id="edit_sunday_0405_2nd_rw" hidden /> </td>
+                <td colspan="3" rowspan="6">
+                    <input id="edit_timeline0405_2_rw" hidden />
+                </td>
+            </tr>
+
             <?php
             }
           } else {
             ?>
             <tr>
-              <td rowspan="2">4:00 - 5:00</td>
-              <td></td>
-              <td rowspan="2"></td>
-              <td></td>
-              <td rowspan="2"></td>
-              <td></td>
-              <td rowspan="2"></td>
-              <td></td>
-              <td rowspan="2"></td>
-              <td></td>
-              <td rowspan="2"></td>
-              <td></td>
-              <td rowspan="2"></td>
-              <td></td>
-              <td rowspan="2"></td>
+                <td rowspan="2">4:00 - 5:00 <input id="time0405" hidden value="4:00 - 5:00 PM" /> </td>
+                <td> <input id="edit_monday_0405_1st_rw" hidden /> </td>
+                <td rowspan="2"> <input id="edit_room0405_1_rw" hidden /> </td>
+                <td> <input id="edit_tuesday_0405_1st_rw" hidden /> </td>
+                <td rowspan="2"> <input id="edit_room0405_2_rw" hidden /> </td>
+                <td> <input id="edit_wednesday_0405_1st_rw" hidden /> </td>
+                <td rowspan="2"> <input id="edit_room0405_3_rw" hidden /> </td>
+                <td> <input id="edit_thursday_0405_1st_rw" hidden /> </td>
+                <td rowspan="2"> <input id="edit_room0405_4_rw" hidden /> </td>
+                <td> <input id="edit_friday_0405_1st_rw" hidden /> </td>
+                <td rowspan="2"> <input id="edit_room0405_5_rw" hidden /> </td>
+                <td> <input id="edit_saturday_0405_1st_rw" hidden /> </td>
+                <td rowspan="2"> <input id="edit_room0405_6_rw" hidden /> </td>
+                <td> <input id="edit_sunday_0405_1st_rw" hidden /> </td>
+                <td rowspan="2"> <input id="edit_room0405_7_rw" hidden /> </td>
             </tr>
             <tr>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td colspan="3" rowspan="6"></td>
+                <td> <input id="edit_monday_0405_2nd_rw" hidden /> </td>
+                <td> <input id="edit_tuesday_0405_2nd_rw" hidden /> </td>
+                <td> <input id="edit_wednesday_0405_2nd_rw" hidden /> </td>
+                <td> <input id="edit_thursday_0405_2nd_rw" hidden /> </td>
+                <td> <input id="edit_friday_0405_2nd_rw" hidden /> </td>
+                <td> <input id="edit_saturday_0405_2nd_rw" hidden /> </td>
+                <td> <input id="edit_sunday_0405_2nd_rw" hidden /> </td>
+                <td colspan="3" rowspan="6">
+                    <input id="edit_timeline0405_2_rw" hidden />
+                </td>
             </tr>
           <?php
           }
@@ -1463,7 +1952,7 @@ if ($conn->connect_error) {
               while ($data_0506 = mysqli_fetch_assoc($res_0506)) {
                 if (!$trRendered) {
           ?>
-                  <tr>
+                  <tr id="toggletr44">
                     <td rowspan="2">5:00 - 6:00 <input id="time0506" hidden value="5:00 - 6:00 PM" /> </td>
                     <td> <input id="edit_monday_0506_1st_rw" value="<?php echo $data_0506['monday_1st_rw']; ?>" class="form-control" /></td>
                     <td rowspan="2"> <input id="edit_room0506_1_rw" value="<?php echo $data_0506['room_1']; ?>" class="form-control" /></td>
@@ -1480,7 +1969,7 @@ if ($conn->connect_error) {
                     <td> <input id="edit_sunday_0506_1st_rw" value="<?php echo $data_0506['sunday_1st_rw']; ?>" class="form-control" /> </td>
                     <td rowspan="2"> <input id="edit_room0506_7_rw" value="<?php echo $data_0506['room_7']; ?>" class="form-control" /> </td>
                   </tr>
-                  <tr>
+                  <tr id="toggletr46">
                     <td> <input id="edit_monday_0506_2nd_rw" class="form-control" value="<?php echo $data_0506['monday_2nd_rw']; ?>" /> </td>
                     <td> <input id="edit_tuesday_0506_2nd_rw" class="form-control" value="<?php echo $data_0506['tuesday_2nd_rw']; ?>" /></td>
                     <td> <input id="edit_wednesday_0506_2nd_rw" class="form-control" value="<?php echo $data_0506['wednesday_2nd_rw']; ?>" /></td>
@@ -1490,6 +1979,34 @@ if ($conn->connect_error) {
                     <td> <input id="edit_sunday_0506_2nd_rw" class="form-control" value="<?php echo $data_0506['sunday_2nd_rw']; ?>" /></td>
 
                   </tr>
+
+                  <tr id="toggletr45">
+                    <td rowspan="2">5:00 - 6:00 <input id="time0506" hidden value="5:00 - 6:00 PM" /> </td>
+                    <td> <?php echo $data_0506['monday_1st_rw']; ?> </td>
+                    <td rowspan="2"> <?php echo $data_0506['room_1']; ?> </td>
+                    <td> <?php echo $data_0506['tuesday_1st_rw']; ?> </td>
+                    <td rowspan="2"> <?php echo $data_0506['room_2']; ?> </td>
+                    <td> <?php echo $data_0506['wednesday_1st_rw']; ?> </td>
+                    <td rowspan="2"> <?php echo $data_0506['room_3']; ?> </td>
+                    <td> <?php echo $data_0506['thursday_1st_rw']; ?> </td>
+                    <td rowspan="2"> <?php echo $data_0506['room_4']; ?> </td>
+                    <td> <?php echo $data_0506['friday_1st_rw']; ?> </td>
+                    <td rowspan="2"> <?php echo $data_0506['room_5']; ?> </td>
+                    <td> <?php echo $data_0506['saturday_1st_rw']; ?> </td>
+                    <td rowspan="2"> <?php echo $data_0506['room_6']; ?> </td>
+                    <td> <?php echo $data_0506['sunday_1st_rw']; ?> </td>
+                    <td rowspan="2"> <?php echo $data_0506['room_7']; ?> </td>
+                </tr>
+                <tr id="toggletr47">
+                    <td> <?php echo $data_0506['monday_2nd_rw']; ?> </td>
+                    <td> <?php echo $data_0506['tuesday_2nd_rw']; ?> </td>
+                    <td> <?php echo $data_0506['wednesday_2nd_rw']; ?> </td>
+                    <td> <?php echo $data_0506['thursday_2nd_rw']; ?> </td>
+                    <td> <?php echo $data_0506['friday_2nd_rw']; ?> </td>
+                    <td> <?php echo $data_0506['saturday_2nd_rw']; ?> </td>
+                    <td> <?php echo $data_0506['sunday_2nd_rw']; ?> </td>
+                </tr>
+
               <?php
                   $trRendered = true;
                 }
@@ -1497,60 +2014,61 @@ if ($conn->connect_error) {
             } else {
               ?>
               <tr>
-                <td rowspan="2">5:00 - 6:00</td>
-                <td></td>
-                <td rowspan="2"></td>
-                <td></td>
-                <td rowspan="2"></td>
-                <td></td>
-                <td rowspan="2"></td>
-                <td></td>
-                <td rowspan="2"></td>
-                <td></td>
-                <td rowspan="2"></td>
-                <td></td>
-                <td rowspan="2"></td>
-                <td></td>
-                <td rowspan="2"></td>
-              </tr>
-              <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-              </tr>
+                <td rowspan="2">5:00 - 6:00 <input id="time0506" hidden value="5:00 - 6:00 PM" /> </td>
+                <td> <input id="edit_monday_0506_1st_rw" hidden /> </td>
+                <td rowspan="2"> <input id="edit_room0506_1_rw" hidden /> </td>
+                <td> <input id="edit_tuesday_0506_1st_rw" hidden /> </td>
+                <td rowspan="2"> <input id="edit_room0506_2_rw" hidden /> </td>
+                <td> <input id="edit_wednesday_0506_1st_rw" hidden /> </td>
+                <td rowspan="2"> <input id="edit_room0506_3_rw" hidden /> </td>
+                <td> <input id="edit_thursday_0506_1st_rw" hidden /> </td>
+                <td rowspan="2"> <input id="edit_room0506_4_rw" hidden /> </td>
+                <td> <input id="edit_friday_0506_1st_rw" hidden /> </td>
+                <td rowspan="2"> <input id="edit_room0506_5_rw" hidden /> </td>
+                <td> <input id="edit_saturday_0506_1st_rw" hidden /> </td>
+                <td rowspan="2"> <input id="edit_room0506_6_rw" hidden /> </td>
+                <td> <input id="edit_sunday_0506_1st_rw" hidden /> </td>
+                <td rowspan="2"> <input id="edit_room0506_7_rw" hidden /> </td>
+            </tr>
+            <tr>
+                <td> <input id="edit_monday_0506_2nd_rw" hidden /> </td>
+                <td> <input id="edit_tuesday_0506_2nd_rw" hidden /> </td>
+                <td> <input id="edit_wednesday_0506_2nd_rw" hidden /> </td>
+                <td> <input id="edit_thursday_0506_2nd_rw" hidden /> </td>
+                <td> <input id="edit_friday_0506_2nd_rw" hidden /> </td>
+                <td> <input id="edit_saturday_0506_2nd_rw" hidden /> </td>
+                <td> <input id="edit_sunday_0506_2nd_rw" hidden /> </td>
+            </tr>
+
             <?php
             }
           } else {
             ?>
-            <tr>
-              <td rowspan="2">5:00 - 6:00</td>
-              <td></td>
-              <td rowspan="2"></td>
-              <td></td>
-              <td rowspan="2"></td>
-              <td></td>
-              <td rowspan="2"></td>
-              <td></td>
-              <td rowspan="2"></td>
-              <td></td>
-              <td rowspan="2"></td>
-              <td></td>
-              <td rowspan="2"></td>
-              <td></td>
-              <td rowspan="2"></td>
+           <tr>
+                <td rowspan="2">5:00 - 6:00 <input id="time0506" hidden value="5:00 - 6:00 PM" /> </td>
+                <td> <input id="edit_monday_0506_1st_rw" hidden /> </td>
+                <td rowspan="2"> <input id="edit_room0506_1_rw" hidden /> </td>
+                <td> <input id="edit_tuesday_0506_1st_rw" hidden /> </td>
+                <td rowspan="2"> <input id="edit_room0506_2_rw" hidden /> </td>
+                <td> <input id="edit_wednesday_0506_1st_rw" hidden /> </td>
+                <td rowspan="2"> <input id="edit_room0506_3_rw" hidden /> </td>
+                <td> <input id="edit_thursday_0506_1st_rw" hidden /> </td>
+                <td rowspan="2"> <input id="edit_room0506_4_rw" hidden /> </td>
+                <td> <input id="edit_friday_0506_1st_rw" hidden /> </td>
+                <td rowspan="2"> <input id="edit_room0506_5_rw" hidden /> </td>
+                <td> <input id="edit_saturday_0506_1st_rw" hidden /> </td>
+                <td rowspan="2"> <input id="edit_room0506_6_rw" hidden /> </td>
+                <td> <input id="edit_sunday_0506_1st_rw" hidden /> </td>
+                <td rowspan="2"> <input id="edit_room0506_7_rw" hidden /> </td>
             </tr>
             <tr>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
+                <td> <input id="edit_monday_0506_2nd_rw" hidden /> </td>
+                <td> <input id="edit_tuesday_0506_2nd_rw" hidden /> </td>
+                <td> <input id="edit_wednesday_0506_2nd_rw" hidden /> </td>
+                <td> <input id="edit_thursday_0506_2nd_rw" hidden /> </td>
+                <td> <input id="edit_friday_0506_2nd_rw" hidden /> </td>
+                <td> <input id="edit_saturday_0506_2nd_rw" hidden /> </td>
+                <td> <input id="edit_sunday_0506_2nd_rw" hidden /> </td>
             </tr>
           <?php
           }
@@ -1566,7 +2084,7 @@ if ($conn->connect_error) {
               while ($data_0607 = mysqli_fetch_assoc($res_0607)) {
                 if (!$trRendered) {
           ?>
-                  <tr>
+                  <tr id="toggletr48">
                     <td rowspan="2">6:00 - 7:00 <input id="time0607" hidden value="6:00 - 7:00 PM" /> </td>
                     <td> <input id="edit_monday_0607_1st_rw" value="<?php echo $data_0607['monday_1st_rw']; ?>" class="form-control" /></td>
                     <td rowspan="2"> <input id="edit_room0607_1_rw" value="<?php echo $data_0607['room_1']; ?>" class="form-control" /></td>
@@ -1583,7 +2101,7 @@ if ($conn->connect_error) {
                     <td> <input id="edit_sunday_0607_1st_rw" value="<?php echo $data_0607['sunday_1st_rw']; ?>" class="form-control" /> </td>
                     <td rowspan="2"> <input id="edit_room0607_7_rw" value="<?php echo $data_0607['room_7']; ?>" class="form-control" /> </td>
                   </tr>
-                  <tr>
+                  <tr id="toggletr50">
                     <td> <input id="edit_monday_0607_2nd_rw" class="form-control" value="<?php echo $data_0607['monday_2nd_rw']; ?>" /> </td>
                     <td> <input id="edit_tuesday_0607_2nd_rw" class="form-control" value="<?php echo $data_0607['tuesday_2nd_rw']; ?>" /></td>
                     <td> <input id="edit_wednesday_0607_2nd_rw" class="form-control" value="<?php echo $data_0607['wednesday_2nd_rw']; ?>" /></td>
@@ -1593,6 +2111,34 @@ if ($conn->connect_error) {
                     <td> <input id="edit_sunday_0607_2nd_rw" class="form-control" value="<?php echo $data_0607['sunday_2nd_rw']; ?>" /></td>
 
                   </tr>
+
+                  <tr id="toggletr49">
+                    <td rowspan="2">6:00 - 7:00 <input id="time0607" hidden value="6:00 - 7:00 PM" /> </td>
+                    <td> <?php echo $data_0607['monday_1st_rw']; ?> </td>
+                    <td rowspan="2"> <?php echo $data_0607['room_1']; ?> </td>
+                    <td> <?php echo $data_0607['tuesday_1st_rw']; ?> </td>
+                    <td rowspan="2"> <?php echo $data_0607['room_2']; ?> </td>
+                    <td> <?php echo $data_0607['wednesday_1st_rw']; ?> </td>
+                    <td rowspan="2"> <?php echo $data_0607['room_3']; ?> </td>
+                    <td> <?php echo $data_0607['thursday_1st_rw']; ?> </td>
+                    <td rowspan="2"> <?php echo $data_0607['room_4']; ?> </td>
+                    <td> <?php echo $data_0607['friday_1st_rw']; ?> </td>
+                    <td rowspan="2"> <?php echo $data_0607['room_5']; ?> </td>
+                    <td> <?php echo $data_0607['saturday_1st_rw']; ?> </td>
+                    <td rowspan="2"> <?php echo $data_0607['room_6']; ?> </td>
+                    <td> <?php echo $data_0607['sunday_1st_rw']; ?> </td>
+                    <td rowspan="2"> <?php echo $data_0607['room_7']; ?> </td>
+                </tr>
+                <tr id="toggletr51">
+                    <td> <?php echo $data_0607['monday_2nd_rw']; ?> </td>
+                    <td> <?php echo $data_0607['tuesday_2nd_rw']; ?> </td>
+                    <td> <?php echo $data_0607['wednesday_2nd_rw']; ?> </td>
+                    <td> <?php echo $data_0607['thursday_2nd_rw']; ?> </td>
+                    <td> <?php echo $data_0607['friday_2nd_rw']; ?> </td>
+                    <td> <?php echo $data_0607['saturday_2nd_rw']; ?> </td>
+                    <td> <?php echo $data_0607['sunday_2nd_rw']; ?> </td>
+                </tr>
+
               <?php
                   $trRendered = true;
                 }
@@ -1600,60 +2146,61 @@ if ($conn->connect_error) {
             } else {
               ?>
               <tr>
-                <td rowspan="2">6:00 - 7:00</td>
-                <td></td>
-                <td rowspan="2"></td>
-                <td></td>
-                <td rowspan="2"></td>
-                <td></td>
-                <td rowspan="2"></td>
-                <td></td>
-                <td rowspan="2"></td>
-                <td></td>
-                <td rowspan="2"></td>
-                <td></td>
-                <td rowspan="2"></td>
-                <td></td>
-                <td rowspan="2"></td>
-              </tr>
-              <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-              </tr>
+                <td rowspan="2">6:00 - 7:00 <input id="time0607" hidden value="6:00 - 7:00 PM" /> </td>
+                <td> <input id="edit_monday_0607_1st_rw" hidden /> </td>
+                <td rowspan="2"> <input id="edit_room0607_1_rw" hidden /> </td>
+                <td> <input id="edit_tuesday_0607_1st_rw" hidden /> </td>
+                <td rowspan="2"> <input id="edit_room0607_2_rw" hidden /> </td>
+                <td> <input id="edit_wednesday_0607_1st_rw" hidden /> </td>
+                <td rowspan="2"> <input id="edit_room0607_3_rw" hidden /> </td>
+                <td> <input id="edit_thursday_0607_1st_rw" hidden /> </td>
+                <td rowspan="2"> <input id="edit_room0607_4_rw" hidden /> </td>
+                <td> <input id="edit_friday_0607_1st_rw" hidden /> </td>
+                <td rowspan="2"> <input id="edit_room0607_5_rw" hidden /> </td>
+                <td> <input id="edit_saturday_0607_1st_rw" hidden /> </td>
+                <td rowspan="2"> <input id="edit_room0607_6_rw" hidden /> </td>
+                <td> <input id="edit_sunday_0607_1st_rw" hidden /> </td>
+                <td rowspan="2"> <input id="edit_room0607_7_rw" hidden /> </td>
+            </tr>
+            <tr>
+                <td> <input id="edit_monday_0607_2nd_rw" hidden /> </td>
+                <td> <input id="edit_tuesday_0607_2nd_rw" hidden /> </td>
+                <td> <input id="edit_wednesday_0607_2nd_rw" hidden /> </td>
+                <td> <input id="edit_thursday_0607_2nd_rw" hidden /> </td>
+                <td> <input id="edit_friday_0607_2nd_rw" hidden /> </td>
+                <td> <input id="edit_saturday_0607_2nd_rw" hidden /> </td>
+                <td> <input id="edit_sunday_0607_2nd_rw" hidden /> </td>
+            </tr>
+
             <?php
             }
           } else {
             ?>
             <tr>
-              <td rowspan="2">6:00 - 7:00</td>
-              <td></td>
-              <td rowspan="2"></td>
-              <td></td>
-              <td rowspan="2"></td>
-              <td></td>
-              <td rowspan="2"></td>
-              <td></td>
-              <td rowspan="2"></td>
-              <td></td>
-              <td rowspan="2"></td>
-              <td></td>
-              <td rowspan="2"></td>
-              <td></td>
-              <td rowspan="2"></td>
+                <td rowspan="2">6:00 - 7:00 <input id="time0607" hidden value="6:00 - 7:00 PM" /> </td>
+                <td> <input id="edit_monday_0607_1st_rw" hidden /> </td>
+                <td rowspan="2"> <input id="edit_room0607_1_rw" hidden /> </td>
+                <td> <input id="edit_tuesday_0607_1st_rw" hidden /> </td>
+                <td rowspan="2"> <input id="edit_room0607_2_rw" hidden /> </td>
+                <td> <input id="edit_wednesday_0607_1st_rw" hidden /> </td>
+                <td rowspan="2"> <input id="edit_room0607_3_rw" hidden /> </td>
+                <td> <input id="edit_thursday_0607_1st_rw" hidden /> </td>
+                <td rowspan="2"> <input id="edit_room0607_4_rw" hidden /> </td>
+                <td> <input id="edit_friday_0607_1st_rw" hidden /> </td>
+                <td rowspan="2"> <input id="edit_room0607_5_rw" hidden /> </td>
+                <td> <input id="edit_saturday_0607_1st_rw" hidden /> </td>
+                <td rowspan="2"> <input id="edit_room0607_6_rw" hidden /> </td>
+                <td> <input id="edit_sunday_0607_1st_rw" hidden /> </td>
+                <td rowspan="2"> <input id="edit_room0607_7_rw" hidden /> </td>
             </tr>
             <tr>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
+                <td> <input id="edit_monday_0607_2nd_rw" hidden /> </td>
+                <td> <input id="edit_tuesday_0607_2nd_rw" hidden /> </td>
+                <td> <input id="edit_wednesday_0607_2nd_rw" hidden /> </td>
+                <td> <input id="edit_thursday_0607_2nd_rw" hidden /> </td>
+                <td> <input id="edit_friday_0607_2nd_rw" hidden /> </td>
+                <td> <input id="edit_saturday_0607_2nd_rw" hidden /> </td>
+                <td> <input id="edit_sunday_0607_2nd_rw" hidden /> </td>
             </tr>
           <?php
           }
@@ -1669,7 +2216,7 @@ if ($conn->connect_error) {
               while ($data_0708 = mysqli_fetch_assoc($res_0708)) {
                 if (!$trRendered) {
           ?>
-                  <tr>
+                  <tr id="toggletr52">
                     <td rowspan="2">7:00 - 8:00 <input id="time0708" hidden value="7:00 - 8:00 PM" /> </td>
                     <td> <input id="edit_monday_0708_1st_rw" value="<?php echo $data_0708['monday_1st_rw']; ?>" class="form-control" /></td>
                     <td rowspan="2"> <input id="edit_room0708_1_rw" value="<?php echo $data_0708['room_1']; ?>" class="form-control" /></td>
@@ -1686,7 +2233,7 @@ if ($conn->connect_error) {
                     <td> <input id="edit_sunday_0708_1st_rw" value="<?php echo $data_0708['sunday_1st_rw']; ?>" class="form-control" /> </td>
                     <td rowspan="2"> <input id="edit_room0708_7_rw" value="<?php echo $data_0708['room_7']; ?>" class="form-control" /> </td>
                   </tr>
-                  <tr>
+                  <tr id="toggletr54">
                     <td> <input id="edit_monday_0708_2nd_rw" class="form-control" value="<?php echo $data_0708['monday_2nd_rw']; ?>" /> </td>
                     <td> <input id="edit_tuesday_0708_2nd_rw" class="form-control" value="<?php echo $data_0708['tuesday_2nd_rw']; ?>" /></td>
                     <td> <input id="edit_wednesday_0708_2nd_rw" class="form-control" value="<?php echo $data_0708['wednesday_2nd_rw']; ?>" /></td>
@@ -1694,11 +2241,38 @@ if ($conn->connect_error) {
                     <td> <input id="edit_friday_0708_2nd_rw" class="form-control" value="<?php echo $data_0708['friday_2nd_rw']; ?>" /></td>
                     <td> <input id="edit_saturday_0708_2nd_rw" class="form-control" value="<?php echo $data_0708['saturday_2nd_rw']; ?>" /></td>
                     <td> <input id="edit_sunday_0708_2nd_rw" class="form-control" value="<?php echo $data_0708['sunday_2nd_rw']; ?>" /></td>
-                    <td colspan="3" rowspan="8">
-                      <!-- <p><br /><br /><br /><br /><br /><br /><strong>PROF. PAULINA M. MACATANGAY</strong><br />Vice Chancellor for Academic Affairs</p> -->
-                      <input id="edit_timeline0708_3_rw" class="form-control" value="<?php echo $data_0708['timeline3']; ?>" />
-                    </td>
+                    <td colspan="3" rowspan="8"><input id="edit_timeline0708_3_rw" class="form-control" value="<?php echo $data_0708['timeline3']; ?>" /></td>
                   </tr>
+
+                  <tr id="toggletr53">
+                    <td rowspan="2">7:00 - 8:00 <input id="time0708" hidden value="7:00 - 8:00 PM" /> </td>
+                    <td> <?php echo $data_0708['monday_1st_rw']; ?> </td>
+                    <td rowspan="2"> <?php echo $data_0708['room_1']; ?> </td>
+                    <td> <?php echo $data_0708['tuesday_1st_rw']; ?> </td>
+                    <td rowspan="2"> <?php echo $data_0708['room_2']; ?> </td>
+                    <td> <?php echo $data_0708['wednesday_1st_rw']; ?> </td>
+                    <td rowspan="2"> <?php echo $data_0708['room_3']; ?> </td>
+                    <td> <?php echo $data_0708['thursday_1st_rw']; ?> </td>
+                    <td rowspan="2"> <?php echo $data_0708['room_4']; ?> </td>
+                    <td> <?php echo $data_0708['friday_1st_rw']; ?> </td>
+                    <td rowspan="2"> <?php echo $data_0708['room_5']; ?> </td>
+                    <td> <?php echo $data_0708['saturday_1st_rw']; ?> </td>
+                    <td rowspan="2"> <?php echo $data_0708['room_6']; ?> </td>
+                    <td> <?php echo $data_0708['sunday_1st_rw']; ?> </td>
+                    <td rowspan="2"> <?php echo $data_0708['room_7']; ?> </td>
+                </tr>
+                <tr id="toggletr55">
+                    <td> <?php echo $data_0708['monday_2nd_rw']; ?> </td>
+                    <td> <?php echo $data_0708['tuesday_2nd_rw']; ?> </td>
+                    <td> <?php echo $data_0708['wednesday_2nd_rw']; ?> </td>
+                    <td> <?php echo $data_0708['thursday_2nd_rw']; ?> </td>
+                    <td> <?php echo $data_0708['friday_2nd_rw']; ?> </td>
+                    <td> <?php echo $data_0708['saturday_2nd_rw']; ?> </td>
+                    <td> <?php echo $data_0708['sunday_2nd_rw']; ?> </td>
+                    <td colspan="3" rowspan="8"> 
+                      <?php echo $data_0708['timeline3']; ?></td>
+                  </tr>
+
               <?php
                   $trRendered = true;
                 }
@@ -1706,69 +2280,66 @@ if ($conn->connect_error) {
             } else {
               ?>
               <tr>
-                <td rowspan="2">7:00 - 8:00</td>
-                <td></td>
-                <td rowspan="2"></td>
-                <td></td>
-                <td rowspan="2"></td>
-                <td></td>
-                <td rowspan="2"></td>
-                <td></td>
-                <td rowspan="2"></td>
-                <td></td>
-                <td rowspan="2"></td>
-                <td></td>
-                <td rowspan="2"></td>
-                <td></td>
-                <td rowspan="2"></td>
+                  <td rowspan="2">7:00 - 8:00 <input id="time0708" hidden value="7:00 - 8:00 PM" /> </td>
+                  <td> <input id="edit_monday_0708_1st_rw" hidden /> </td>
+                  <td rowspan="2"> <input id="edit_room0708_1_rw" hidden /> </td>
+                  <td> <input id="edit_tuesday_0708_1st_rw" hidden /> </td>
+                  <td rowspan="2"> <input id="edit_room0708_2_rw" hidden /> </td>
+                  <td> <input id="edit_wednesday_0708_1st_rw" hidden /> </td>
+                  <td rowspan="2"> <input id="edit_room0708_3_rw" hidden /> </td>
+                  <td> <input id="edit_thursday_0708_1st_rw" hidden /> </td>
+                  <td rowspan="2"> <input id="edit_room0708_4_rw" hidden /> </td>
+                  <td> <input id="edit_friday_0708_1st_rw" hidden /> </td>
+                  <td rowspan="2"> <input id="edit_room0708_5_rw" hidden /> </td>
+                  <td> <input id="edit_saturday_0708_1st_rw" hidden /> </td>
+                  <td rowspan="2"> <input id="edit_room0708_6_rw" hidden /> </td>
+                  <td> <input id="edit_sunday_0708_1st_rw" hidden /> </td>
+                  <td rowspan="2"> <input id="edit_room0708_7_rw" hidden /> </td>
+              </tr>
+              <tr>
+                  <td> <input id="edit_monday_0708_2nd_rw" hidden /> </td>
+                  <td> <input id="edit_tuesday_0708_2nd_rw" hidden /> </td>
+                  <td> <input id="edit_wednesday_0708_2nd_rw" hidden /> </td>
+                  <td> <input id="edit_thursday_0708_2nd_rw" hidden /> </td>
+                  <td> <input id="edit_friday_0708_2nd_rw" hidden /> </td>
+                  <td> <input id="edit_saturday_0708_2nd_rw" hidden /> </td>
+                  <td> <input id="edit_sunday_0708_2nd_rw" hidden /> </td>
+                  <td colspan="3" rowspan="8">
+                      <input id="edit_timeline0708_3_rw" hidden />
+                  </td>
               </tr>
 
-              <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td colspan="3" rowspan="8">
-                  <p><br /><br /><br /><br /><br /><br /><strong>PROF. PAULINA M. MACATANGAY</strong><br />Vice Chancellor for Academic Affairs</p>
-                </td>
-              </tr>
             <?php
             }
           } else {
             ?>
-            <tr>
-              <td rowspan="2">7:00 - 8:00</td>
-              <td></td>
-              <td rowspan="2"></td>
-              <td></td>
-              <td rowspan="2"></td>
-              <td></td>
-              <td rowspan="2"></td>
-              <td></td>
-              <td rowspan="2"></td>
-              <td></td>
-              <td rowspan="2"></td>
-              <td></td>
-              <td rowspan="2"></td>
-              <td></td>
-              <td rowspan="2"></td>
-            </tr>
-
-            <tr>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td colspan="3" rowspan="8">
-                <p><br /><br /><br /><br /><br /><br /><strong>PROF. PAULINA M. MACATANGAY</strong><br />Vice Chancellor for Academic Affairs</p>
-              </td>
-            </tr>
+             <tr>
+                  <td rowspan="2">7:00 - 8:00 <input id="time0708" hidden value="7:00 - 8:00 PM" /> </td>
+                  <td> <input id="edit_monday_0708_1st_rw" hidden /> </td>
+                  <td rowspan="2"> <input id="edit_room0708_1_rw" hidden /> </td>
+                  <td> <input id="edit_tuesday_0708_1st_rw" hidden /> </td>
+                  <td rowspan="2"> <input id="edit_room0708_2_rw" hidden /> </td>
+                  <td> <input id="edit_wednesday_0708_1st_rw" hidden /> </td>
+                  <td rowspan="2"> <input id="edit_room0708_3_rw" hidden /> </td>
+                  <td> <input id="edit_thursday_0708_1st_rw" hidden /> </td>
+                  <td rowspan="2"> <input id="edit_room0708_4_rw" hidden /> </td>
+                  <td> <input id="edit_friday_0708_1st_rw" hidden /> </td>
+                  <td rowspan="2"> <input id="edit_room0708_5_rw" hidden /> </td>
+                  <td> <input id="edit_saturday_0708_1st_rw" hidden /> </td>
+                  <td rowspan="2"> <input id="edit_room0708_6_rw" hidden /> </td>
+                  <td> <input id="edit_sunday_0708_1st_rw" hidden /> </td>
+                  <td rowspan="2"> <input id="edit_room0708_7_rw" hidden /> </td>
+              </tr>
+              <tr>
+                  <td> <input id="edit_monday_0708_2nd_rw" hidden /> </td>
+                  <td> <input id="edit_tuesday_0708_2nd_rw" hidden /> </td>
+                  <td> <input id="edit_wednesday_0708_2nd_rw" hidden /> </td>
+                  <td> <input id="edit_thursday_0708_2nd_rw" hidden /> </td>
+                  <td> <input id="edit_friday_0708_2nd_rw" hidden /> </td>
+                  <td> <input id="edit_saturday_0708_2nd_rw" hidden /> </td>
+                  <td> <input id="edit_sunday_0708_2nd_rw" hidden /> </td>
+                  <td colspan="3" rowspan="8"><input id="edit_timeline0708_3_rw" hidden /></td>
+              </tr>
           <?php
           }
           ?>
@@ -3041,6 +3612,7 @@ if ($conn->connect_error) {
 
 
     </div>
+    <button  accesskey="E" id="toggleButton" class="btnlogout"> Edit </button>
     <button id="print-btn" onclick="window.location.href='logout.php'" class="btnlogout"> Logout </button>
   </div>
   <script>
@@ -4335,6 +4907,8 @@ if ($conn->connect_error) {
       })
     }
   </script>
+
+  <script src="resources/js/toggle.js">  </script>
 </body>
 
 </html>

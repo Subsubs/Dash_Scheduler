@@ -2,7 +2,7 @@
 class DatabaseIntergration
 {
 
-    private $host = "localhost";
+    private $host = "localhost:3307";
     private $username = "root";
     private $pwd = "";
     private $db = "login_register";
